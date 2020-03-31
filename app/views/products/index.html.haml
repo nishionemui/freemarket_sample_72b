@@ -1,0 +1,14 @@
+.top
+  .top__box
+    .top__box__up
+      .top__box__up--icon
+        = image_tag '/logo-white.png', alt: 'title'
+      .top__box__up--search
+        = form_with(url: "#", local: true, method: :get, ) do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す"
+          = form.submit type: "image"
+    
+    .top__box__under
+      カテゴリー
+
+
