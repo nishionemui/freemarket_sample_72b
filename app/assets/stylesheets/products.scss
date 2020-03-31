@@ -19,6 +19,7 @@
         margin-right: 30px;
         padding-bottom: 10px;
         border-radius: 4px;
+        // background-image: image(logo-white.png);
       }
       &--search {
         margin-left: auto;
@@ -39,6 +40,12 @@
           }
         }
       }
+    }
+    &__under {
+      margin-bottom: 10px;
+      font-size: 14px;
+      display: flex;
+      
     }
   }
 }
