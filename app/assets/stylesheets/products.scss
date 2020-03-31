@@ -1,3 +1,19 @@
-// Place all the styles related to the products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.top {
+  padding: 0 60px;
+  background-color: green;
+
+  &__box {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 80px;
+    margin: 0 auto;
+    padding: 15px 0 0 0;
+    background-color: blue;
+
+    &__up {
+      height: 40px;
+      display: flex;
+      
+    }
+  }
+}
