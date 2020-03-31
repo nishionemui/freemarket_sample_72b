@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_071821) do
+ActiveRecord::Schema.define(version: 2020_03_31_074744) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
@@ -34,6 +34,31 @@ ActiveRecord::Schema.define(version: 2020_03_31_071821) do
     t.index ["card_id"], name: "index_cards_on_card_id"
     t.index ["customer_id"], name: "index_cards_on_customer_id"
     t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "product_name", null: false
+    t.text "description", null: false
+    t.bigint "brand_id", null: false
+    t.bigint "condition_id", null: false
+    t.bigint "size_id", null: false
+    t.bigint "delivery_fee_id", null: false
+    t.bigint "delivery_way_id", null: false
+    t.bigint "delivery_date_id", null: false
+    t.integer "price", null: false
+    t.bigint "prefecture_id", null: false
+    t.integer "buyer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["condition_id"], name: "index_products_on_condition_id"
+    t.index ["delivery_date_id"], name: "index_products_on_delivery_date_id"
+    t.index ["delivery_fee_id"], name: "index_products_on_delivery_fee_id"
+    t.index ["delivery_way_id"], name: "index_products_on_delivery_way_id"
+    t.index ["prefecture_id"], name: "index_products_on_prefecture_id"
+    t.index ["size_id"], name: "index_products_on_size_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
