@@ -17,10 +17,10 @@
 |introduction      |text   ||
 |phone_num         |integer|null: false, unique: true|
 ### Association
-- has_many :products
-- has_many :comments
-- has_one :card
-- has_one :address
+- has_many :products, dependent: :destoroy
+- has_many :comments, dependent: :destoroy
+- has_one :card, dependent: :destoroy
+- has_one :address, dependent: :destoroy
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -61,10 +61,10 @@
 |buyer_id     |integer   |null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :main_categories
-- has_many_attached :images
+- has_many :main_categories, dependent: :destoroy
+- has_many_attached :images, dependent: :destoroy
 - add_index :products, :product_name
-- has_many :comment
+- has_many :comment, dependent: :destoroy
 - belongs_to_active_hash :brands
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :size
