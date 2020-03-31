@@ -1,8 +1,9 @@
 class Product < ApplicationRecord
   belongs_to :user
-  has_many :main_categories, dependent: :destoroy
-  has_many :images, dependent: :destoroy  
-  has_many :comments, dependent: :destoroy
+  has_many :main_categories, dependent: :destroy
+  # has_many :images, dependent: :destoroy  
+  has_many :images
+  has_many :comments, dependent: :destroy
   belongs_to_active_hash :brand
   belongs_to_active_hash :condition
   belongs_to_active_hash :size
