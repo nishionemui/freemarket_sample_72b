@@ -62,7 +62,7 @@
 ### Association
 - belongs_to :user
 - has_many :main_categories, dependent: :destoroy
-- has_many_attached :images, dependent: :destoroy
+- has_many :images, dependent: :destoroy
 - add_index :products, :product_name
 - has_many :comment, dependent: :destoroy
 - belongs_to_active_hash :brands
