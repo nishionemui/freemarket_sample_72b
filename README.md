@@ -17,10 +17,10 @@
 |introduction      |text   ||
 |phone_num         |integer|null: false, unique: true|
 ### Association
-- has_many :products, dependent: :destoroy
-- has_many :comments, dependent: :destoroy
-- has_one :card, dependent: :destoroy
-- has_one :address, dependent: :destoroy
+- has_many :products, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_one :card, dependent: :destroy
+- has_one :address, dependent: :destroy
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -61,10 +61,10 @@
 |buyer_id     |integer   |null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :main_categories, dependent: :destoroy
-- has_many :images, dependent: :destoroy
+- has_many :main_categories, dependent: :destroy
+- has_many :images, dependent: :destroy
 - add_index :products, :product_name
-- has_many :comments, dependent: :destoroy
+- has_many :comments, dependent: :destroy
 - belongs_to_active_hash :brand
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :size
@@ -81,11 +81,11 @@
 ### Association
 - belongs_to :product
 
-## main_categoiesテーブル
+## main_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product|references|null: false, foreign_key: true|
-|name   |string    |null: false|
+|main_name   |string    |null: false|
 ### Association
 - belongs_to :product
 - has_many :sub_categories
@@ -94,7 +94,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |main_categoies|references|null: false, foreign_key: true|
-|name          |string    |null: false|
+|sub_name          |string    |null: false|
 ### Association
 - belongs_to :main_category
 - has_many :sub2_categories
@@ -103,7 +103,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |sub_categoies|references|null: false, foreign_key: true|
-|name         |string    |null: false|
+|sub2_name         |string    |null: false|
 ### Association
 - belongs_to :sub_category
 
