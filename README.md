@@ -64,12 +64,12 @@
 - has_many :main_categories, dependent: :destoroy
 - has_many :images, dependent: :destoroy
 - add_index :products, :product_name
-- has_many :comment, dependent: :destoroy
-- belongs_to_active_hash :brands
+- has_many :comments, dependent: :destoroy
+- belongs_to_active_hash :brand
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :size
 - belongs_to_active_hash :delivery_fee
-- belongs_to_active_hash :delivery_days
+- belongs_to_active_hash :delivery_date
 - belongs_to_active_hash :delivery_way
 - belongs_to_active_hash :prefecture
 
