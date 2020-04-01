@@ -1,0 +1,31 @@
+= form_for @address do |f|
+  = render "devise/shared/error_messages", resource: @address
+  .zip-code
+    = f.label :zip_code, "郵便番号"
+    %span.form-group__require 必須
+    .zip-code-group
+      = f.text_field :zip_code,placeholder: "例）123-4567",class: "zip-code-field"
+  .prefecture
+    = f.label :prefecture_id, "都道府県"
+    %span.form-group__require 必須
+    .prefecture-group
+      = f.select :prefecture_id , Address.prefectures.keys, {} ,class: "prefecture-field"
+  .city
+    = f.label :city, "市区町村"
+    %span.form-group__require 必須
+    .city-group
+      = f.text_field :city, placeholder: "例）札幌市",class: "city-field"
+  .address
+    = f.label :address1, "番地"
+    %span.form-group__require 必須
+    .address-group
+      = f.text_field :address1, placeholder: "例）青葉1-1-1",class: "address-field"
+  .address-last
+    = f.label :address2, "建物名"
+    %span.form-group__any 任意
+    .address-last-group
+      = f.text_field :address2, placeholder: "例）柳ビル103",class: ".address-last-field"
+  .send-next
+    = f.submit 'サインアップ', class: 'send-btn'
+  .log-in
+    = render "devise/shared/links"
