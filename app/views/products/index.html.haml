@@ -19,13 +19,14 @@
               ブランド
       .header__box__under__right
         %ul.right--box
-          %li.list__login
-            = link_to "#", class:"btn" do
-              ログイン
-          %li.list__category
-            = link_to "#", class:"btn" do
-              新規会員登録
-
+          - if user_signed_in?
+            %li.list__login
+              = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
+          - else
+            %li.list__login
+              = link_to "ログイン", new_user_session_path, class:"btn"
+            %li.list__category
+              = link_to "新規会員登録", signup_index_path, class:"btn"
 .main
   .main__top
     .main__top__content
