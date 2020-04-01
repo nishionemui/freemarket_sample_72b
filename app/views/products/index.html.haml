@@ -2,7 +2,8 @@
   .header__box
     .header__box__up
       .header__box__up--icon
-        = image_tag '/assets/images/logo-white.png'
+        = link_to image_tag('logo.png', class: "btn"),products_path
+        -# = image_tag 'logo.png'
       .header__box__up--search
         = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
@@ -19,25 +20,141 @@
               ブランド
       .header__box__under__right
         %ul.right--box
-          - if user_signed_in?
+          -if user_signed_in?
             %li.list__login
               = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
-          - else
+          -else
             %li.list__login
-              = link_to "ログイン", new_user_session_path, class:"btn"
+              = link_to "ログイン",new_user_session_path, class:"btn"
             %li.list__category
-              = link_to "新規会員登録", signup_index_path, class:"btn"
+              = link_to "新規会員登録",signup_index_path, class:"btn"
+
 .main
-  .main__top
-    .main__top__content
-      .main__top__content--up
+  .main__first
+    .main__first__content
+      .main__first__content--up
         %h2 人生を変えるフリマアプリ
-      .main__top__content--center
+      .main__first__content--center
         %p FURIMAはだれでもかんたんに出品・購入できる
         %p フリマアプリです
-      .main__top__content--under
+      .main__first__content--under
+        .main__first__content--under__left
+          アップルボタン
+        .main__first__content--under__right
+          グーグルボタン
 
+  .main__second
+    .main__second__top
+      FURIMAが選ばれる3つの理由
+    %ul.lists
+      %li.list-box
+        = image_tag 'pict-reason-01.jpg', class:"list-box--image"
+        .number
+          1
+        .list-box--text
+          %span.list-box--text--color 3分 
+          ですぐに出品
+        .list-box--explanation
+          %p スマホで入力するだけで簡単に週品
+          %p できる！
+      %li.list-box
+        = image_tag 'pict-reason-02.jpg', class:"list-box--image"
+        .number
+          2
+        .list-box--text
+          %span.list-box--text--color シンプル
+          で使いやすい
+        .list-box--explanation
+          %p めんどくさい入力は必要なく、検索も
+          %p 購入もスムーズ！
+      %li.list-box
+        = image_tag 'pict-reason-03.jpg', class:"list-box--image"
+        .number
+          3
+        .list-box--text
+          手数料
+          %span.list-box--text--color 業界最安
+        .list-box--explanation-last
+          %p 最大3％でお得に出品＆購入！
 
-    
+  .main__third
+    .main__third__content
+      .main__third__content--up
+        会員数日本一位
+      .main__third__content--center
+        %p FURIMAは、フリマアプリで最も人気。
+        %p 出品・購入回数も業界最多です！
+        %p ほしかったあの商品に出会えるかもしれません。
+      .main__third__content--under
+        .main__third__content--center__reft
+          アップルボタン
+        .main__third__content--center__light
+          グーグルボタン
 
+  .main__fourth
+    .main__fourth__top
+      FURIMAの特徴
+    %ul.lists
+      %li.list-box
+        = image_tag 'icon-01.png', class:"list-box--image"
+        .list-box--text
+          簡単に売り買いできる
+        .list-box--explanation
+          %p スマホひとつで、いつでもど
+          %p こでも簡単に出品・購入が可
+          %p 能！
+      %li.list-box
+        = image_tag 'icon-03.png', class:"list-box--image"
+        .list-box--text
+          売上金は即日振込みに対応
+        .list-box--explanation
+          %p 午前9時までに振込を依頼いた
+          %p だければ、翌日に指定の口座
+          %p に入金いたします!
+      %li.list-box
+        = image_tag 'icon-04.png', class:"list-box--image"
+        .list-box--text
+          様々な支払いに対応
+        .list-box--explanation
+          %p お支払いは、クレジットカー
+          %p ドだけでなく、ポイントや売
+          %p 上金など多彩な方法がありま
+          %p す。
 
+  .main__fifth
+    .main__fifth__top
+      .main__fifth__top--up
+        ピックアップカテゴリー
+      .main__fifth__top--under
+        = link_to "#", class: "main__fifth__top--under--btn" do
+          新規投稿商品
+    %ul.main__fifth__box
+      %li.main__fifth__box--new
+      %li.main__fifth__box--new
+      %li.main__fifth__box--new
+  
+  .main__sixth
+    .main__sixth__top
+      .main__sixth__top--up
+        ピックアップブランド
+      .main__sixth__top--under
+        = link_to "#", class: "main__sixth__top--under--btn" do
+          アーカイバ
+    %ul.main__sixth__box
+      %li.main__sixth__box--new
+      %li.main__sixth__box--new
+      %li.main__sixth__box--new
+
+  .main__seventh
+    .main__seventh__content
+      .main__seventh__content--up
+        だれでもかんたん、人生を変えるフリマアプリ
+      .main__seventh__content--center
+        今すぐ無料ダウンロード
+      .main__seventh__content--under
+        .main__seventh__content--under__left
+          アップルボタン
+        .main__seventh__content--under__right
+          グーグルボタン
+
+.footer
