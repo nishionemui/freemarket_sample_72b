@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # end
 
   resources :products do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :show]
   end
   # root to: "products#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
