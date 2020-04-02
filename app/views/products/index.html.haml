@@ -6,12 +6,9 @@
       .header__box__up--search
         = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
-          = form.submit type: "submit",class: "search-btn" do
-            = image_submit_tag "icon-search 1.png", class:"test"
+          = button_tag type: 'submit', class: 'search-btn' do
+            %i.fas.fa-search.click 
 
-          -#  .fafa
-          -#   = image_tag 'icon-search 1.png', class:"test" do
-          -#     = form.submit type: "submit", class:"test1"
     .header__box__under
       .header__box__under__left
         %ul.left--box
@@ -40,12 +37,13 @@
       .main__first__content--center
         %p FURIMAはだれでもかんたんに出品・購入できる
         %p フリマアプリです
+      .main__first__content--under
         = link_to "#", class:"btn" do
           .content__btn
             .app
-              = image_tag "appstore.png", alt: 'apple'
+              = image_tag "apple.png",class:"icon"
             .google
-              = image_tag "/googleplay.png", alt: 'google'
+              = image_tag "google.png", class:"icon"
 
   .main__second
     .main__second__top
@@ -90,11 +88,12 @@
         %p 出品・購入回数も業界最多です！
         %p ほしかったあの商品に出会えるかもしれません。
       .main__third__content--under
-        .main__third__content--center__reft
-          アップルボタン
-        .main__third__content--center__light
-          グーグルボタン
-
+        = link_to "#", class:"btn" do
+          .content__btn
+            .app
+              = image_tag "apple.png",class:"icon"
+            .google
+              = image_tag "google.png", class:"icon"
   .main__fourth
     .main__fourth__top
       %h2 FURIMAの特徴
@@ -156,10 +155,12 @@
       .main__seventh__content--center
         今すぐ無料ダウンロード
       .main__seventh__content--under
-        .main__seventh__content--under__left
-          アップルボタン
-        .main__seventh__content--under__right
-          グーグルボタン
+        = link_to "#", class:"btn" do
+          .content__btn
+            .app
+              = image_tag "apple.png",class:"icon"
+            .google
+              = image_tag "google.png", class:"icon"
 
 .footer
   .footer__content
