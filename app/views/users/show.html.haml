@@ -1,5 +1,6 @@
 .wrraper
   .mypage
+
     .mypage-side-bar
       %ul.mypage-side-bar__list        
         %li
@@ -102,24 +103,24 @@
             = icon 'fas', 'chevron-right'
 
 
-            
+    //ここから↓メインコンテンツ
     .mypage-content
       %section.mypage-content__user-icon
         %figure
           = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
-        %h2.mypage-content__user-name.bold
+        .mypage-content__user-name-bold
         吉田山田
         .mypage-content__status
           .mypage-content__reviews
-            評価&nbsp
-          %span.mypage-content__reviews
+            評価
+          .mypage-content__reviews
             2
           .mypage-content__sell
             出品数
           %span.mypage-content__sell
-      %section.mypage-content__main-tab-container
+      %section.mypage-content__main-tab-contents
         %ul.mypage-content__tabs
-          %li.mypage-content__tab.mypage-content__tab--active
+          %li.mypage-content__tab.mypage-contents__tab--active
             %h3
               = link_to '#', id: 'mypage-content__tab-notification' do
                 お知らせ
@@ -127,4 +128,17 @@
             %h3
               = link_to '#', id: 'mypage-content__tab-todo' do
                 やることリスト
-            
+      .mypage-content__tab-content
+      %ul.mypage-content__item-list.mypage-content__item-list--active{ id: 'mypage-content__item-list-notification' }
+        %li
+          = link_to '#', class: 'mypage-content__item-link' do
+            %figure
+              = image_tag '', size: '50x50'
+              .mypage-content__item-body
+                事務局からのメッセージ
+                .mypage-content__item-text
+                  %time
+                    = icon 'far', 'clock'
+                    %span
+                      2 時間前
+              = icon 'fas', 'chevron-right'
