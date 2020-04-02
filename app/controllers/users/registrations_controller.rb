@@ -29,7 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
     @user.build_address(@address.attributes)
-    # @user.save
+    @user.save
     sign_in(:user, @user)
   end
 
@@ -40,7 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:zip_code, :prefecture_id, :city, :address1, :address2)
+    params.require(:address).permit(:zip_code, :prefecture_id, :city, :address1, :address2,)
   end
 
 
