@@ -1,9 +1,11 @@
+// < 登録選択画面 >
 .user-main{
-  height: 1100px;
+  height: 100vh;
   width: 100%;
   background-color: rgb(234, 232, 232);
+  overflow: hidden;
   .user-header{
-    height: 100px;
+    height: 90px;
     width: 100%;
     text-align: center;
     padding-top: 50px;
@@ -14,7 +16,7 @@
     }
   }
   .user-new{
-    height: 800px;
+    height: 500px;
     width: 800px;
     margin: 50px  auto;
     background-color: white;
@@ -30,12 +32,12 @@
     .link-list{
       height: 500px;
       width: 400px;
-      background-color: navy;
       margin: 50px auto;
       .email-check{
         height: 70px;
         width: 400px;
         background-color: red;
+        border-radius: 5px;
         margin-top:20px;
         text-align: center;
         line-height: 70px;
@@ -43,6 +45,7 @@
           text-decoration: none;
           color: white;
           font-size: 15px;
+          padding-right: 20px;
         }
         .email-icon{
           font-size: 30px;
@@ -55,6 +58,7 @@
         height: 70px;
         width: 400px;
         background-color: rgb(61, 61, 111);
+        border-radius: 5px;
         margin: 20px auto;
         text-align: center;
         line-height: 70px; 
@@ -62,6 +66,7 @@
           text-decoration: none;
           color: white;
           font-size: 15px;
+          padding-right: 20px;
         }
         .facebook-icon{
           font-size: 30px;
@@ -70,15 +75,191 @@
           padding: 23px 0px 0px 20px;
         }
       }
+      .google{
+        height: 68px;
+        width: 398px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 70px; 
+        .google-font{
+          padding-right: 20px;
+          .google-btn{
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+          }
+          .google-photo{
+            float: left;
+            padding: 0px 0px 0px 20px;
+            .google-photo-size{
+              height: 30px;
+              width: 30px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
     }
   }
 }
-  // .user-header
-  // .user-new
-  //   .user-new-title
-  //   .email-check
-  //      .email-icon
-  //   .facebook
-  //      .facebook-icon
-  //   .google
-  //     .google-btn
+
+// < 会員情報入力ページ >
+.user-header{
+  height: 100px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .user-field{
+    height: 100px;
+    width: 720px;
+    margin: auto;
+    .user-header-icon{
+      height: 100px;
+      width: 360px;
+      line-height: 100px;
+      float: left;
+      .user-top{
+        height: 70px;
+        width: 210px;
+        vertical-align: middle;
+      }
+    }
+    .user-header-now{
+      height: 100px;
+      width: 360px;
+      line-height: 100px;
+      float: right;
+      display: flex;
+      .class-one{
+        height: 100px;
+        width: 120px;
+        .class-first{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-red{
+          border-radius: 50%;
+          background-color: red;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-1{
+            height: 50px;
+            width: 120px;
+            border-top: 2px solid gray;
+            background-color: rgba(0,0,0,0.0);
+            position: absolute;
+            top: 6px;
+            margin-left: 14px;
+          }
+        }
+      }
+      .class-two{
+        height: 100px;
+        width: 120px;
+        .class-second{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-gray-one{
+          border-radius: 50%;
+          background-color: gray;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
+        }
+      }
+      .class-thrry{
+        height: 100px;
+        width: 120px;
+        .class-third{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-gray-two{
+          border-radius: 50%;
+          background-color: gray;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          .user-bottom-3{
+            // height: 50px;
+            // width: 120px;
+            // border-top: 2px solid red;
+            // background-color: rgba(0,0,0,0.0);
+            // background-color: olive;
+          }
+        }
+      }
+    }
+  }
+}
+// .user-header
+//   .user-header-icon
+//   .user-header-now
+//     .class-first
+//     .icon-red
+//     .class-second
+//     .icon-gray
+//     .class-third
+//     .icon-gray
+// .user-content
+//   .user-content-header
+//   .user-content-main
+//       .nickname
+//         .form-group__require
+//         .nickname-group
+//          .nickname-field
+//       .name
+//         .form-group__require 
+//         .name-group
+//           .first-name-field
+//           .last-name-field
+//       .name-read
+//         .form-group__require 
+//         .name-read-group
+//           .first-name-read-field
+//           .last-name-read-field
+//       .email
+//         .form-group__require 
+//         .email-grpup
+//           .email-field
+//       .pass
+//         .form-group__require 
+//         .pass-group
+//            .pass-field
+//       .pass-two
+//         .form-group__require
+//         .pass-two-group
+//           .pass-two-field
+//       .birthday
+//         .form-group__require 
+//         .birthday-select 
+//       .phone
+//         .form-group__any 
+//         .phone-num
+//           .phone-field
+//       .commit
+//         .commit-font-first
+//           .commit-field
+//         .commitfont-end_year
+//       .send-btn
