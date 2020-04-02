@@ -5,9 +5,12 @@
         = link_to image_tag('logo.png', class: "btn"),root_path
       .header__box__up--search
         = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
-          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
-          = form.submit type: "image", src: "icon-search 1.png", class: "search-btn"
-    
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
+          = form.submit type: "submit",class: "search-btn" do
+            = image_submit_tag "icon-search 1.png", class:"test"
+          -#  .fafa
+          -#   = image_tag 'icon-search 1.png', class:"test" do
+          -#     = form.submit type: "submit", class:"test1"
     .header__box__under
       .header__box__under__left
         %ul.left--box
@@ -22,8 +25,6 @@
           -if user_signed_in?
             %li.list__login
               = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
-              -# < 本当はマイページのリンク、実装のために一時的にログアウトにしてる >
-              -#  = link_to "マイページ","#",class:"btn"
           -else
             %li.list__login
               = link_to "ログイン",new_user_session_path, class:"btn"
@@ -38,15 +39,16 @@
       .main__first__content--center
         %p FURIMAはだれでもかんたんに出品・購入できる
         %p フリマアプリです
-      .main__first__content--under
-        .main__first__content--under__left
-          アップルボタン
-        .main__first__content--under__right
-          グーグルボタン
+        = link_to "#", class:"btn" do
+          .content__btn
+            .app
+              = image_tag "appstore.png", alt: 'apple'
+            .google
+              = image_tag "/googleplay.png", alt: 'google'
 
   .main__second
     .main__second__top
-      FURIMAが選ばれる3つの理由
+      %h2 FURIMAが選ばれる3つの理由
     %ul.lists
       %li.list-box
         = image_tag 'pict-reason-01.jpg', class:"list-box--image"
@@ -94,7 +96,7 @@
 
   .main__fourth
     .main__fourth__top
-      FURIMAの特徴
+      %h2 FURIMAの特徴
     %ul.lists
       %li.list-box
         = image_tag 'icon-01.png', class:"list-box--image"
@@ -159,3 +161,23 @@
           グーグルボタン
 
 .footer
+  .footer__content
+    %ul.footer__content__up
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "会社概要（運営会社）",root_path, class:"btn"
+        %p.text--content= link_to "プライバシーポリシー",root_path, class:"btn"
+        %p.text--content= link_to "FURIMA利用規約",root_path, class:"btn"
+        %p.text--content= link_to "ポイントに関する特約",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAを見る
+        %p.text--content= link_to "カテゴリー一覧",root_path, class:"btn"
+        %p.text--content= link_to "ブランド一覧",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "FURIMAガイド",root_path, class:"btn"
+        %p.text--content= link_to "FURIMAロゴ利用ガイドライン",root_path, class:"btn"
+        %p.text--content= link_to "お知らせ",root_path, class:"btn"
+    .footer__content__under
+      = link_to image_tag('logo-white.png', class: "btn"),root_path
+      %p © FURIMA
