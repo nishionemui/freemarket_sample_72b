@@ -7,6 +7,9 @@
     height:100vh;
     background-color: #F2F2F2;
     display:flex;
+
+    //ここから↓サイドバー
+    
     .mypage-side-bar{
       width:280px;
       background-color: black;
@@ -39,9 +42,11 @@
         transition: all ease-out .2s;
       }
     }
+
+    //ここから↓メインコンテンツ
     .mypage-content{
       width:700px;
-      background-color: pink;
+      background-color: white;
       .mypage-content__user-icon{
         position: relative;
         height: 155px;
@@ -51,7 +56,6 @@
         background-size: cover;
         text-align: center;
         box-sizing: border-box;
-
         figure {
           overflow: hidden;
           width: 60px;
@@ -59,24 +63,111 @@
           margin: 0 auto;
           border-radius: 50%;
         }
-        &__user-name{
+        &__user-name-bold{
           margin-top: 8px;
           font-size: 14px;
+          height:16px;
         }
         &__status{
           margin-top: 8px;
           font-size: 0;
-          display:flex;
-
-          &__reviews{
-            height:16px;
-          }
-          &__sell{
-            height:16px;
+          div{
+            display: inline-block;
+            font-size: 14px;
+            margin-left: 16px;
           }
           span{
             margin-left: 8px;
             font-size: 16px;
+          }
+        &__main-tab-contents{
+          margin: 0;
+          background: #fff;
+        }
+        &__tabs{
+          border: 0;
+          background: #eee;
+          font-size: 0;
+          a{
+            position: relative;
+            display: block;
+            color: #333;
+            font-size: 16px;
+            line-height: 72px;
+            font-weight: bold;
+          }
+        }
+        &__tab{
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          &--active{
+            background: #fff;
+            a{
+              border-top: 2px solid #ea352d;
+            }
+          }
+        }
+        &__item-list{
+          display: none;
+          border: 0;
+          &--active{
+            display: block;
+          }
+          li{
+            position: relative;
+            border-bottom: 1px solid #eee;
+            &:last-child {
+              border: 0;
+            }
+          }
+          img{
+          }
+        }
+        &__item-link{
+          display: block;
+          min-height: 80px;
+          padding: 16px;
+          color: #333;
+          figure{
+            position: relative;
+            overflow: hidden;
+            float: left;
+            width: 48px;
+            height: 48px;
+          }
+          time{
+            display: inline-block;
+            color: #888;
+            .fa-clock{
+              margin-right: 8px;
+              font-size: 16px;
+              vertical-align: middle;
+            }
+            span{
+              vertical-align: middle;
+            }
+          }
+          .fa-chevron-right{
+            position: absolute;
+          top: 50%;
+          right: 16px;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          }
+        }
+        &__item-body{
+          margin: 0 40px 0 68px;
+        }
+        &__item-text{
+          overflow: hidden;
+          display: block;
+          max-height: 4.4em;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          line-height: 1.5;
           }
         }
       }
