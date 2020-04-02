@@ -1,0 +1,130 @@
+.wrraper
+  .mypage
+    .mypage-side-bar
+      %ul.mypage-side-bar__list        
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          マイページ
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          お知らせ
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          やることリスト
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          いいね！一覧
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          出品する
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          下書き一覧
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          出品した商品 -出品中
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          出品した商品 -取引中
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          出品した商品 -売却済み
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          購入した商品 -取引中
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          購入した商品 -過去の取引
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          ニュース一覧
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          評価一覧
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          ガイド
+          = icon 'fas', 'chevron-right'
+        %li
+        = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+          お問い合わせ
+          = icon 'fas', 'chevron-right'
+        %h3.mypage-side-bar__nav-head
+          メルペイ
+      %ul.mypage-side-bar__list
+        %li
+        = link_to '#', class: 'mypage-side-bar__list-contents' do
+          残高・振込申請
+        = icon 'fas', 'chevron-right'
+      %h3.mypage-side-bar__nav-head
+        設定
+      %ul.mypage-side-bar__list
+        %li
+          = link_to "#", class: 'mypage-side-bar__list-contents' do
+            プロフィール
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-contents' do
+            発送元・お届け先住所変更
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to "#", class: 'mypage-side-bar__list-contents' do
+            支払い方法
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-contents' do
+            メール/パスワード
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to "#", class: 'mypage-side-bar__list-contents' do
+            本人情報
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to '#', class: 'mypage-side-bar__list-contents' do
+            電話番号の確認
+            = icon 'fas', 'chevron-right'
+        %li
+          = link_to "#", class: 'mypage-side-bar__list-contents' do
+            ログアウト
+            = icon 'fas', 'chevron-right'
+
+
+            
+    .mypage-content
+      %section.mypage-content__user-icon
+        %figure
+          = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
+        %h2.mypage-content__user-name.bold
+        吉田山田
+        .mypage-content__status
+          .mypage-content__reviews
+            評価&nbsp
+          %span.mypage-content__reviews
+            2
+          .mypage-content__sell
+            出品数
+          %span.mypage-content__sell
+      %section.mypage-content__main-tab-container
+        %ul.mypage-content__tabs
+          %li.mypage-content__tab.mypage-content__tab--active
+            %h3
+              = link_to '#', id: 'mypage-content__tab-notification' do
+                お知らせ
+          %li.mypage-content__tab
+            %h3
+              = link_to '#', id: 'mypage-content__tab-todo' do
+                やることリスト
+            

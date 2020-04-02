@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   root to: "products#index"
   # get "signup", to: "signup#index"
   resources :signup, only: :index
+  resources :users, only: [:show]
   # get "signup", to: "signup#index"
   # resources :signup do
   #   collection do

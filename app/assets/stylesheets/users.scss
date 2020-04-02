@@ -1,0 +1,85 @@
+.wrraper{
+  height:100vh;
+  max-width:1040px;
+  padding:60px 200px 60px 200px;
+  background-color: #F2F2F2;
+  .mypage{
+    height:100vh;
+    background-color: #F2F2F2;
+    display:flex;
+    .mypage-side-bar{
+      width:280px;
+      background-color: black;
+      margin-right:60px;
+      li{
+        border-top: 1px solid #eee;
+        &:first-child {
+          border: 0;
+        }
+      }
+      .mypage-side-bar__list-contents{
+        position: relative;
+        display: block;
+        min-height: 48px;
+        padding: 16px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        box-sizing: border-box;
+        line-height: 14px;
+      }
+      .fa-chevron-right{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        color: #ccc;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        -webkit-transition: all ease-out .2s;
+        transition: all ease-out .2s;
+      }
+    }
+    .mypage-content{
+      width:700px;
+      background-color: pink;
+      .mypage-content__user-icon{
+        position: relative;
+        height: 155px;
+        padding: 20px;
+        background-color: greenyellow;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        box-sizing: border-box;
+
+        figure {
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 50%;
+        }
+        &__user-name{
+          margin-top: 8px;
+          font-size: 14px;
+        }
+        &__status{
+          margin-top: 8px;
+          font-size: 0;
+          display:flex;
+
+          &__reviews{
+            height:16px;
+          }
+          &__sell{
+            height:16px;
+          }
+          span{
+            margin-left: 8px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
