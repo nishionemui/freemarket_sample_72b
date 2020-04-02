@@ -1,0 +1,84 @@
+.user-main{
+  height: 1100px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .user-header{
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    .icon-user-top{
+      height: 70px;
+      width: 210px;
+      vertical-align: middle;
+    }
+  }
+  .user-new{
+    height: 800px;
+    width: 800px;
+    margin: 50px  auto;
+    background-color: white;
+    .user-new-title{
+      height: 110px;
+      width: 100%;
+      background-color: white;
+      font-size: 30px;
+      text-align: center;
+      line-height: 110px;
+      border-bottom: 1px solid rgb(230, 230, 230);
+    }
+    .link-list{
+      height: 500px;
+      width: 400px;
+      background-color: navy;
+      margin: 50px auto;
+      .email-check{
+        height: 70px;
+        width: 400px;
+        background-color: red;
+        margin-top:20px;
+        text-align: center;
+        line-height: 70px;
+        .email-font{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+        }
+        .email-icon{
+          font-size: 30px;
+          color: white;
+          float: left;
+          padding: 23px 0px 0px 20px;
+        }
+      }
+      .facebook{
+        height: 70px;
+        width: 400px;
+        background-color: rgb(61, 61, 111);
+        margin: 20px auto;
+        text-align: center;
+        line-height: 70px; 
+        .facebook-btn{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+        }
+        .facebook-icon{
+          font-size: 30px;
+          color: white;
+          float: left;
+          padding: 23px 0px 0px 20px;
+        }
+      }
+    }
+  }
+}
+  // .user-header
+  // .user-new
+  //   .user-new-title
+  //   .email-check
+  //      .email-icon
+  //   .facebook
+  //      .facebook-icon
+  //   .google
+  //     .google-btn
