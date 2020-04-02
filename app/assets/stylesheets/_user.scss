@@ -111,15 +111,18 @@
   height: 100px;
   width: 100%;
   background-color: rgb(234, 232, 232);
+  padding-bottom: 20px;
   .user-field{
     height: 100px;
-    width: 720px;
+    width: 660px;
     margin: auto;
     .user-header-icon{
       height: 100px;
-      width: 360px;
+      width: 300px;
       line-height: 100px;
       float: left;
+      // margin-left: 50px;
+      text-align: center;
       .user-top{
         height: 70px;
         width: 210px;
@@ -157,6 +160,15 @@
             top: 6px;
             margin-left: 14px;
           }
+          .user-bottom-red-1{
+            height: 50px;
+            width: 120px;
+            border-top: 2px solid red;
+            background-color: rgba(0,0,0,0.0);
+            position: absolute;
+            top: 6px;
+            margin-left: 14px;
+          }
         }
       }
       .class-two{
@@ -184,6 +196,32 @@
             background-color: rgba(0,0,0,0.0);
             margin-left: 14px;
           }
+          .user-bottom-gray-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
+        }
+        .icon-class-red-one{
+          border-radius: 50%;
+          background-color: red;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-red-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
         }
       }
       .class-thrry{
@@ -201,65 +239,161 @@
           height: 14px;
           width: 14px;
           margin: auto;
-          .user-bottom-3{
-            // height: 50px;
-            // width: 120px;
-            // border-top: 2px solid red;
-            // background-color: rgba(0,0,0,0.0);
-            // background-color: olive;
-          }
         }
       }
     }
   }
 }
-// .user-header
-//   .user-header-icon
-//   .user-header-now
-//     .class-first
-//     .icon-red
-//     .class-second
-//     .icon-gray
-//     .class-third
-//     .icon-gray
-// .user-content
-//   .user-content-header
-//   .user-content-main
-//       .nickname
-//         .form-group__require
-//         .nickname-group
-//          .nickname-field
-//       .name
-//         .form-group__require 
-//         .name-group
-//           .first-name-field
-//           .last-name-field
-//       .name-read
-//         .form-group__require 
-//         .name-read-group
-//           .first-name-read-field
-//           .last-name-read-field
-//       .email
-//         .form-group__require 
-//         .email-grpup
-//           .email-field
-//       .pass
-//         .form-group__require 
-//         .pass-group
-//            .pass-field
-//       .pass-two
-//         .form-group__require
-//         .pass-two-group
-//           .pass-two-field
-//       .birthday
-//         .form-group__require 
-//         .birthday-select 
-//       .phone
-//         .form-group__any 
-//         .phone-num
-//           .phone-field
-//       .commit
-//         .commit-font-first
-//           .commit-field
-//         .commitfont-end_year
-//       .send-btn
+.user-content{
+  height: 1400px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .user-content-all{
+    height: 1200px;
+    width: 700px;
+    background-color: white;
+    margin:  auto;
+    .user-content-header{
+      height: 100px;
+      width: 100%;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      line-height: 100px;
+      font-size: 28px;
+    }
+    .user-content-main{
+      width: 50%;
+      height: 1000px;
+      margin: auto;
+      margin-top: 30px;
+      .nickname,
+      .name,
+      .name-read,
+      .email,
+      .pass,
+      .pass-two,
+      .birthday,
+      .phone,
+      .commit,
+      .send,
+      .zip-code,
+      .city,
+      .address,
+      .address-last,
+      .send{
+        height: 80px;
+        width: 100%;
+        margin-bottom: 25px;
+        .form-group__require{
+          height: 30px;
+          width: 60px;
+          background-color: red;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .form-group__any{
+          height: 30px;
+          width: 60px;
+          background-color: gray;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .nickname-group,
+        .name-group,
+        .name-read-group,
+        .email-grpup,
+        .pass-group,
+        .pass-two-group,
+        .phone-num{
+          height: 55px;
+          width: 100%;
+          display: flex;
+          .nickname-field,
+          .email-field,
+          .pass-field,
+          .pass-two-field,
+          .phone-field{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .first-name-field,
+          .first-name-read-field{
+            height: 45px;
+            width: 160px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+          }
+          .last-name-field,
+          .last-name-read-field{
+            height: 45px;
+            width: 160px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+            margin-left: 10px;
+          }
+        }
+        .commit-font-first{
+          height: 20px;
+          width: 100%;
+          text-decoration: none;
+          font-size: 14px;
+          a{
+            text-decoration: none;
+            color: #3ccace;
+          }
+        }
+        .commitfont-end{
+          font-size: 14px;
+          text-align: center;
+        }
+        .send-btn{
+          height: 45px;
+          width: 100%;
+          background-color: red;
+          font-size: 15px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+        }
+        #user_birthday_1i,
+        #user_birthday_2i,
+        #user_birthday_3i{
+          height: 45px;
+          width: 70px;
+          border: 1px solid rgb(234, 232, 232);
+          border-radius: 5px;
+          padding-left: 10px;
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+// .zip-code
+//   .zip-code-group
+//      .zip-code-field
+//   .prefecture
+//     .prefecture-group
+//       .prefecture-field
+//   .city
+//     .city-group
+//       .city-field
+//   .address
+//     .address-group
+//       .address-field
+//   .address-last
+//     .address-last-group
+//       .address-last-field
+//   .send
+//     .send-btn
+//   .log-in
+//     .send-btn
