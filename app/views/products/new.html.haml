@@ -1,0 +1,28 @@
+.products-exhibit
+  .products-exhibit__header
+    .products-exhibit__header__logo
+      %a{:herf => "#"}
+        %img.products-exhibit__header__logo__icon{:src => "/assets/logo.png"}
+  .products-exhibit__main
+    %h2 商品情報の入力
+    -# = form_with @products, local: true, method: :post do |f|
+    .image-upload
+      .image-upload__text
+        %h3 出品画像
+        %span 必須
+      %p 最大５枚までアップロードできます
+      .image-upload__drop-box
+        .image-upload__drop-box__area
+          %label.dropzone-box{:for => "upload-image__btn"}
+            .input-area
+              %input.upload-image{"data-image" => "0", :type => "file"}/
+              %p ドラッグアンドドロップ
+              %br またはクリックしてファイルをダウンロード
+    .sale-contents
+      
+    .sale-contents
+    .sale-contents
+    .sale-contents
+    .sale-contents
+
+  .products-exhibit__footer
