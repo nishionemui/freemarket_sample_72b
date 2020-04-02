@@ -7,8 +7,8 @@
     %h2 商品情報の入力
     -# = form_with @products, local: true, method: :post do |f|
     .image-upload
-      .image-upload__text
-        %h3 出品画像
+      .required-item
+        %label 出品画像　
         %span 必須
       %p 最大５枚までアップロードできます
       .image-upload__drop-box
@@ -19,8 +19,35 @@
               %p ドラッグアンドドロップ
               %br またはクリックしてファイルをダウンロード
     .sale-contents
-      
+      .required-item
+        %label 商品名
+        %span 必須
+      .item-name
+        %input.input-name{:name => "product[name]", :placeholder => "40文字まで", :type => "text"}/
+      .required-item
+        %label 商品の説明
+        %span 必須
+      .item-description
+        %textarea.input-description{:name => "product[detail]", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "7"}
     .sale-contents
+      %p 商品の詳細
+      .required-item
+        %label カテゴリー
+        %span 必須
+      .select-wrap
+        %i.fa.fa-angle-down
+        %select.select-category{:name => "product[category]"}
+      .required-item
+        %label ブランド
+        %span.any 任意
+      .brand-name
+        %input.input-brand{:name => "product[brand]", :placeholder => "例）シャネル", :type => "text"}/
+      .required-item
+        %label 商品の状態
+        %span 必須
+      .select-wrap
+        %i.fa.fa-angle-down
+        %select.select-condition{:name => "product[condition]"}
     .sale-contents
     .sale-contents
     .sale-contents
