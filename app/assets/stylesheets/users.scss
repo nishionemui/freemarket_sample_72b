@@ -42,7 +42,6 @@
         transition: all ease-out .2s;
       }
     }
-
     //ここから↓メインコンテンツ
     .mypage-content{
       width:700px;
@@ -52,8 +51,6 @@
         height: 155px;
         padding: 20px;
         background-color: greenyellow;
-        background-repeat: no-repeat;
-        background-size: cover;
         text-align: center;
         box-sizing: border-box;
         figure {
@@ -69,17 +66,21 @@
           height:16px;
         }
         &__status{
+          display:flax;
           margin-top: 8px;
-          font-size: 0;
+          font-size: 0; 
           div{
             display: inline-block;
             font-size: 14px;
+          }
+          div+div{
             margin-left: 16px;
           }
           span{
             margin-left: 8px;
             font-size: 16px;
           }
+        }
         &__main-tab-contents{
           margin: 0;
           background: #fff;
@@ -173,4 +174,3 @@
       }
     }
   }
-}

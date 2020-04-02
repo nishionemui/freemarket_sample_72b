@@ -1,6 +1,6 @@
 .wrraper
-  .mypage
 
+  .mypage
     .mypage-side-bar
       %ul.mypage-side-bar__list        
         %li
@@ -102,21 +102,22 @@
             ログアウト
             = icon 'fas', 'chevron-right'
 
-
     //ここから↓メインコンテンツ
     .mypage-content
       %section.mypage-content__user-icon
         %figure
           = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
-        .mypage-content__user-name-bold
-        吉田山田
-        .mypage-content__status
-          .mypage-content__reviews
-            評価
-          .mypage-content__reviews
-            2
-          .mypage-content__sell
-            出品数
+        %h2.mypage-content__user-name.bold
+          山田吉田
+          .mypage-content__status
+            .mypage-content__reviews
+              評価&nbsp
+              %span.mypage-content__reviews.bold<>
+                2
+            .mypage-content__sell
+              出品数
+          %span.mypage-content__sell.bold<>
+            
           %span.mypage-content__sell
       %section.mypage-content__main-tab-contents
         %ul.mypage-content__tabs
