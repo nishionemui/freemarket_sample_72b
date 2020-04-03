@@ -223,12 +223,21 @@
           }
           .user-bottom-red-3{
             height: 50px;
-            width: 116px;
+            width: 106px;
             border-top: 2px solid red;
             position: absolute;
             top: 6px;
             background-color: rgba(0,0,0,0.0);
-            margin-left: 14px;
+            margin: 0px 14px 0px 14px;
+          }
+          .user-bottom-gray-3{
+            height: 50px;
+            width: 106px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin: 0px 14px 0px 14px;
           }
         }
       }
@@ -576,7 +585,7 @@
     width: 650px;
     background-color: white;
     margin:  auto;
-    height: 900px;
+    height: 800px;
     .log-in-header{
       height: 200px;
       width: 100%;
@@ -662,25 +671,23 @@
       }
     }
     .log-in-bottom{
-      height: 450px;
+      height: 300px;
       width: 380px;
       margin: auto;
       text-align: center;
-      background-color: palegreen;
       .email,
       .pass,
       .send{
-        height: 80px;
-        width: 100%;
-        margin-bottom: 25px;
+        height: 65px;
+        width: 378px;
         .email-group,
         .pass-group{
           height: 55px;
-          width: 100%;
+          width: 378px;
           .email-field,
           .pass-field{
             height: 45px;
-            width: 100%;
+            width: 368px;
             outline: none;
             border-radius: 5px;
             padding-left: 10px;
@@ -688,26 +695,23 @@
           }
         }
         .send-btn{
-
+          height: 45px;
+          width: 378px;
+          font-size: 20px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+          text-decoration: none;
+          background-color: red;
         }
       }
       .foget-pass{
         .foget-field{
-
+          text-decoration: none;
+          color: #3ccace;
         }
       }
     }
   }
 }
-
-//       .log-in-bottm
-//           .email
-//             .email-group
-//              .email-field
-//           .pass
-//             .pass-group
-//               .pass-field
-//           .send
-//             .send-btn
-//            .foget-pass
-//             .foget-field
