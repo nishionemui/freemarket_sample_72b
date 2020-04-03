@@ -1,22 +1,32 @@
 .user-header
-  .user-header-icon
-  .user-header-now
-    .class-first
-      会員情報
-      %i.fas.fa-circle.icon-red
-    .class-second
-      送付先情報
-      %i.fas.fa-circle.icon-red
-    .class-third
-      完了
-      %i.fas.fa-circle.icon-red
-.user-content-two
-  .user-content-two-header
-    会員登録完了
-  .user-content-two-main
-    .user-thank-you
-      ありがとうございます。
-    .user-thank-fin
-      会員登録が完了しました。
-  .user-start
-    = link_to "フリマをはじめる", root_path
+  .user-field
+    .user-header-icon
+      = link_to image_tag('logo.png', class: "user-top"),root_path
+    .user-header-now
+      .class-one
+        .class-first
+          会員情報
+        .icon-class-red
+          .user-bottom-red-1
+      .class-two
+        .class-second
+          送付先情報
+        .icon-class-red-one
+          .user-bottom-red-3
+      .class-thrry
+        .class-third
+          完了
+        .icon-class-red-two
+          .user-bottom-3
+.user-content-fin
+  .user-content-fin-main
+    .user-content-two-header
+      会員登録完了
+    .user-content-two-main
+      .user-two-group
+        .user-thank-you
+          ありがとうございます。
+        .user-thank-fin
+          会員登録が完了しました。
+        .send
+          = link_to "フリマをはじめる", root_path, class:"send-btn"
