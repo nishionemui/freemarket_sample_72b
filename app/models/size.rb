@@ -1,5 +1,4 @@
 class Size < ActiveHash::Base
-  include ActiveHash::Associations
   self.data = [
     # 洋服のサイズ
     { id: 1, value: 'XXS以下', group: '1' },
