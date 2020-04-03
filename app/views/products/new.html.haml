@@ -5,20 +5,22 @@
   .products-exhibit__main
     %h2 商品情報の入力
 
-    = form_for @product do |f|
+    = form_for @products do |f|
       .image-upload
         .required-item
           = f.label "出品画像"
           %span 必須
         %p 最大５枚までアップロードできます
-        .image-upload__drop-box
-          .image-upload__drop-box__area
-            -# label.dropzone-box{:for => "upload-image__btn"}
+        = f.fields_for :images do |i|
+          .image-upload__drop-box
+            #preview
+            .image-upload__drop-box__area
+              = i.label :image, class: "dropzone-box", for: "upload-image" do
+                .input-area
+                  = i.file_field :image, name: "item[images_attributes][][image_url]", value:"", id:"img-file", class: "upload-image"
+                %p ドラッグアンドドロップ
+                %br またはクリックしてファイルをダウンロード
 
-            .input-area
-              = f.file_field :images, class: "upload-image"
-              %p ドラッグアンドドロップ
-              %br またはクリックしてファイルをダウンロード
       .sale-contents
         .required-item
           = f.label :product_name, "商品名"
@@ -38,6 +40,12 @@
         .select-wrap
           %i.fa.fa-angle-down
           = f.select :main_categories, class: "select-category"
+        .required-item
+          = f.label :size, "サイズ"
+          %span 必須
+        .select-wrap
+          %i.fa.fa-angle-down
+          = f.collection_select :size_id, Size.all, :id, :value, class: "select-category"
         .required-item
           = f.label :brand_id, "ブランド"
           %span.any 任意
