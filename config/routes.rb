@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   #     post 'step3'  #入力が全て完了
   #     get 'complete_signup'  #登録完了後
   #   end
-  # end
+  # end       
+
 
   resources :products do
     resources :comments, only: [:create, :destroy, :show]
