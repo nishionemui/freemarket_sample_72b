@@ -23,7 +23,8 @@
         %ul.right--box
           -if user_signed_in?
             %li.list__login
-              = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
+              = link_to "マイページ",user_path(current_user.id), class:"btn"
+              -# = link_to "マイページ","/users/#{@product.current_user.id}", class:"btn"
           -else
             %li.list__login
               = link_to "ログイン",new_user_session_path, class:"btn"
