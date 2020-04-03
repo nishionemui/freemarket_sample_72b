@@ -12,14 +12,14 @@
         .class-second
           送付先情報
         .icon-class-red-one
-          .user-bottom-red-2
+          .user-bottom-red-3
       .class-thrry
         .class-third
           完了
-        .icon-class-gray-two
+        .icon-class-two-two
           .user-bottom-3
-.user-content
-  .user-content-all
+.user-content-two
+  .user-content-all-two
     .user-content-header
       送付先情報入力
     .user-content-main
@@ -34,7 +34,7 @@
           = f.label :prefecture_id, "都道府県"
           %span.form-group__require 必須
           .prefecture-group
-            = f.select :prefecture_id , Address.prefectures.keys, {} ,class: "prefecture-field"
+            = f.select :prefecture_id , Address.prefecture_ids.keys, {} ,class: "prefecture-field"
         .city
           = f.label :city, "市区町村"
           %span.form-group__require 必須
@@ -52,6 +52,3 @@
             = f.text_field :address2, placeholder: "例）柳ビル103",class: "address-last-field"
         .send
           = f.submit 'サインアップ', class: 'send-btn'
-        .log-in
-          - if controller_name != 'sessions'
-            = link_to "ログイン", new_session_path(resource_name),class: "send-btn"
