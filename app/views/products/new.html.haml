@@ -48,7 +48,7 @@
           %span 必須
         .select-wrap
           %i.fa.fa-angle-down
-          = f.select :condition_id, class: "select-condition"
+          = f.collection_select :condition_id, Condition.all, :id, :value, class: "select-condition"
       .sale-contents
         .sale-contents__title 
           配送について
@@ -58,25 +58,25 @@
           %span 必須
         .select-wrap
           %i.fa.fa-angle-down
-          = f.select :delivery_fee_id, class: "select-condition"
+          = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :value, class: "select-condition"
         .required-item
           = f.label :delivery_way_id, "配送料の方法"
           %span 必須
         .select-wrap
           %i.fa.fa-angle-down
-          = f.select :delivery_way_id, class: "select-condition"
+          = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, class: "select-condition"
         .required-item
           = f.label :prefecture_id, "発送元の地域"
           %span 必須
         .select-wrap
           %i.fa.fa-angle-down
-          = f.select :prefecture_id, class: "select-condition"
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "select-condition"
         .required-item
           = f.label :delivery_date_id, "発送までの日数"
           %span 必須
         .select-wrap
           %i.fa.fa-angle-down
-          = f.select :delivery_date_id, class: "select-condition"
+          = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :value, class: "select-condition"
       .sale-contents
         .price-title 
           販売価格(¥300〜9,999,999)
