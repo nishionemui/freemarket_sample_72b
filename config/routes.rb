@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # end       
 
 
-  resources :products, only: [:index,:create, :destroy, :show] do
+  resources :products, only: [:index,:create, :destroy, :show,:new] do
     resources :comments, only: [:create, :destroy, :show]
   end
   # root to: "products#index"
