@@ -47,6 +47,7 @@
     background-color: #fff;
     width: 700px;
     margin: 0 auto;
+    padding-bottom: 64px;
     h2 {
       padding: 32px 16px;
       font-size: 22px;
@@ -58,7 +59,6 @@
       // width: 680px;
       padding: 40px;
       .required-item {
-        display: flex;
         label {
           font-weight: 600;
         }
@@ -103,7 +103,6 @@
       border-top: 1px solid #eee;
       padding: 40px 40px 0;
       .required-item {
-        display: flex;
         label {
           font-weight: 600;
         }
@@ -147,7 +146,8 @@
           border: 1px solid #ccc;
         }
       }
-      p {
+      &__title,
+      .price-title {
         color: rgb(136, 136, 136);
         font-size: 14px;
         font-weight: 600;
@@ -183,8 +183,8 @@
         }
       }
       .brand-name {
-        input {
-          width: 100%;
+        .input-brand {
+          width: 99.5%;
           margin: 8px 0 32px;
           height: 28px;
           padding: 10px 0;
@@ -203,6 +203,114 @@
         line-height: 14px;
         font-size: 12px;
         text-align: center;
+      }
+      .price-form {
+        display: flex;
+        margin-bottom: 30px;
+        .required-item {
+          line-height: 48px;
+          margin-right: auto;
+        }
+        .price {
+          .input-price {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            height: 48px;
+            outline: none;
+            padding: 0 20px;
+            text-align: right;
+          }
+        }
+        span {
+          line-height: 48px;
+          margin-right: 8px;
+        }
+      }
+      .sales-commission {
+        display: flex;
+        padding: 12px 0;
+        .fee-label {
+          margin-right: auto;
+        }
+        span {
+          font-size: 20px;
+          line-height: 24px;
+        }
+      }
+      hr {
+        border-top-color: #efefef;
+        border-left: 0 solid #efefef;
+        border-bottom: 0 solid #efefef;
+        border-right: 0 solid #efefef;
+        border-top-style: solid;
+      }
+      .btn-form {
+        margin: 40px 80px;
+        .purchase-btn {
+          background-color: #ea352d;
+          color: #fff;
+          margin-bottom: 24px;
+          width: 100%;
+          font-size: 17px;
+          min-height: 48px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .back-btn {
+          background-color: #ccc;
+          border-color: transparent;
+          color: #222;
+          display: block;
+          margin-bottom: 24px;
+          width: 100%;
+          font-size: 17px;
+          min-height: 48px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          font-weight: 600;
+          text-align: center;
+          line-height: 48px;
+          text-decoration: none;
+        }
+      }
+      .notes {
+        font-size: 12px;
+        &__text {
+          color: #0095ee;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &__footer {
+    width: 700px;
+    margin: 0 auto;
+    padding: 40px 0;
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        .footer-text {
+          display: block;
+          text-decoration: none;
+          color: #222;
+          font-size: 12px;
+          margin: 16px 0px 0px 16px;
+          text-align: center;
+        }
+      }
+    }
+    &__logo {
+      padding: 40px 0 0;
+      text-align: center;
+      &__icon {
+        width: 185px;
+        height: 49px;
       }
     }
   }

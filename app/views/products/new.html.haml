@@ -1,8 +1,7 @@
 .products-exhibit
   .products-exhibit__header
     .products-exhibit__header__logo
-      %a{:herf => "#"}
-        %img.products-exhibit__header__logo__icon{:src => "/assets/logo.png"}
+      = link_to image_tag('logo.png', class: "products-exhibit__header__logo__icon"),root_path
   .products-exhibit__main
     %h2 商品情報の入力
 
@@ -32,7 +31,7 @@
         .item-description
           = f.text_area :description, class: "input-description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", row: "7"
       .sale-contents
-        %p 商品の詳細
+        .sale-contents__title 商品の詳細
         .required-item
           = f.label :main_name, "カテゴリー"
           %span 必須
@@ -51,8 +50,9 @@
           %i.fa.fa-angle-down
           = f.select :condition_id, class: "select-condition"
       .sale-contents
-        %p 配送について
-        %a.round-icon{:href => "#"} ?
+        .sale-contents__title 
+          配送について
+          = link_to '?', "#", class: "round-icon"
         .required-item
           = f.label :delivery_fee_id, "配送料の負担"
           %span 必須
@@ -78,10 +78,51 @@
           %i.fa.fa-angle-down
           = f.select :delivery_date_id, class: "select-condition"
       .sale-contents
-      .sale-contents
-        .exhibition-btn
-          = f.submit class: "send-btn"
+        .price-title 
+          販売価格(¥300〜9,999,999)
+          = link_to '?', "#", class: "round-icon"
+        .price-form
+          .required-item
+            = f.label :prefecture_id, "販売価格"
+            %span 必須
+          %span ¥
+          .price
+            = f.number_field :price, class: "input-price", placeholder: "0"
+        .sales-commission
+          .fee-label
+            販売手数料（10%）
+          %span ー
+        %hr
+        .sales-commission
+          .fee-label
+            販売利益
+          %span ー
 
+        .btn-form
+          = f.submit "出品する", class: "purchase-btn"
+          = link_to '戻る', "/", class: "back-btn"
 
+        .notes
+          禁止されている
+          = link_to '行為', "#", class: "notes__text"
+          および
+          = link_to '出品物', "#", class: "notes__text"
+          を必ずご確認ください。
+          = link_to '偽ブランド品', "#", class: "notes__text"
+          や
+          = link_to '盗品物', "#", class: "notes__text"
+          などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+          = link_to '加盟店規約', "#", class: "notes__text"
+          に同意したことになります。
 
   .products-exhibit__footer
+    %ul
+      %li
+        = link_to 'プライバシーポリシー', "#", class: "footer-text"
+      %li
+        = link_to 'FURIMA利用規約', "#", class: "footer-text"
+      %li
+        = link_to '特定商取引に関する表記', "#", class: "footer-text"
+    .products-exhibit__footer__logo
+      = link_to image_tag('logo.png', class: "products-exhibit__footer__logo__icon"),root_path
+      %p © FURIMA
