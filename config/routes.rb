@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   end
   root to: "products#index"
   # get "signup", to: "signup#index"
-  resources :signup, only: :index
+  resources :signup, only: [:index, :show]
   resources :users, only: [:show, :create, :new, :destroy]
-
+  
   # get "signup", to: "signup#index"
   # resources :signup do
   #   collection do
