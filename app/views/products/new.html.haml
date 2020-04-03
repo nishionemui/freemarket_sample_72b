@@ -5,51 +5,83 @@
         %img.products-exhibit__header__logo__icon{:src => "/assets/logo.png"}
   .products-exhibit__main
     %h2 商品情報の入力
-    -# = form_with @products, local: true, method: :post do |f|
-    .image-upload
-      .required-item
-        %label 出品画像
-        %span 必須
-      %p 最大５枚までアップロードできます
-      .image-upload__drop-box
-        .image-upload__drop-box__area
-          %label.dropzone-box{:for => "upload-image__btn"}
+
+    = form_for @product do |f|
+      .image-upload
+        .required-item
+          = f.label "出品画像"
+          %span 必須
+        %p 最大５枚までアップロードできます
+        .image-upload__drop-box
+          .image-upload__drop-box__area
+            -# label.dropzone-box{:for => "upload-image__btn"}
+
             .input-area
-              %input.upload-image{"data-image" => "0", :type => "file"}/
+              = f.file_field :images, class: "upload-image"
               %p ドラッグアンドドロップ
               %br またはクリックしてファイルをダウンロード
-    .sale-contents
-      .required-item
-        %label 商品名
-        %span 必須
-      .item-name
-        %input.input-name{:name => "product[name]", :placeholder => "40文字まで", :type => "text"}/
-      .required-item
-        %label 商品の説明
-        %span 必須
-      .item-description
-        %textarea.input-description{:name => "product[detail]", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "7"}
-    .sale-contents
-      %p 商品の詳細
-      .required-item
-        %label カテゴリー
-        %span 必須
-      .select-wrap
-        %i.fa.fa-angle-down
-        %select.select-category{:name => "product[category]"}
-      .required-item
-        %label ブランド
-        %span.any 任意
-      .brand-name
-        %input.input-brand{:name => "product[brand]", :placeholder => "例）シャネル", :type => "text"}/
-      .required-item
-        %label 商品の状態
-        %span 必須
-      .select-wrap
-        %i.fa.fa-angle-down
-        %select.select-condition{:name => "product[condition]"}
-    .sale-contents
-    .sale-contents
-    .sale-contents
+      .sale-contents
+        .required-item
+          = f.label :product_name, "商品名"
+          %span 必須
+        .item-name
+          = f.text_field :product_name, class: "input-name", placeholder: "40文字まで"
+        .required-item
+          = f.label :description, "商品の説明"
+          %span 必須
+        .item-description
+          = f.text_area :description, class: "input-description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", row: "7"
+      .sale-contents
+        %p 商品の詳細
+        .required-item
+          = f.label :main_name, "カテゴリー"
+          %span 必須
+        .select-wrap
+          %i.fa.fa-angle-down
+          = f.select :main_categories, class: "select-category"
+        .required-item
+          = f.label :brand_id, "ブランド"
+          %span.any 任意
+        .brand-name
+          = f.text_area :brand_id, class: "input-brand", placeholder: "例）シャネル"
+        .required-item
+          = f.label :condition_id, "商品の状態"
+          %span 必須
+        .select-wrap
+          %i.fa.fa-angle-down
+          = f.select :condition_id, class: "select-condition"
+      .sale-contents
+        %p 配送について
+        %a.round-icon{:href => "#"} ?
+        .required-item
+          = f.label :delivery_fee_id, "配送料の負担"
+          %span 必須
+        .select-wrap
+          %i.fa.fa-angle-down
+          = f.select :delivery_fee_id, class: "select-condition"
+        .required-item
+          = f.label :delivery_way_id, "配送料の方法"
+          %span 必須
+        .select-wrap
+          %i.fa.fa-angle-down
+          = f.select :delivery_way_id, class: "select-condition"
+        .required-item
+          = f.label :prefecture_id, "発送元の地域"
+          %span 必須
+        .select-wrap
+          %i.fa.fa-angle-down
+          = f.select :prefecture_id, class: "select-condition"
+        .required-item
+          = f.label :delivery_date_id, "発送までの日数"
+          %span 必須
+        .select-wrap
+          %i.fa.fa-angle-down
+          = f.select :delivery_date_id, class: "select-condition"
+      .sale-contents
+      .sale-contents
+        .exhibition-btn
+
+
+
 
   .products-exhibit__footer
