@@ -1,0 +1,85 @@
+.mypage-content
+  %a.user_box
+    .user-box__contents
+      %figure
+        = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
+        %h2.user_box__contents__name
+          山田吉田
+      .user_box__contents__info
+        %h2.user_box__contents__info__evalution
+          評価
+          %span#count
+          2
+        %h2.user_box__contents__info__transactions
+          出品
+          %span#count
+          2
+  .tabs
+    %input#all{checked: "checked", name: "tab_item", type: "radio"}/
+    %label.tab_item{for: "all"} お知らせ
+    %input#programming{name: "tab_item", type: "radio"}/
+    %label.tab_item{for: "programming"} やることリスト
+    %ul#all_content.tab_content
+      %li
+        %a.mypage-item_list_link{href: "#"}
+          %figure
+            %img{src: "https://lh3.googleusercontent.com/rhevmCJG49m8PjNkt_Ago2mg2JgH_KrVbVETL5tNsMJfNVYzzWR9JK6YKRLiZz-5P54"}
+          .mypage-item-body
+            .mypage-item-text 事務局からのメッセージ
+            %time
+              %i.icon-time
+              %span 6時間前
+          %i.icon-arrow-right
+      %li.mypage-content__item-index
+        %a{href: "#"} 一覧を見る
+
+    %ul#programming_content.tab_content
+      %li
+        %a.mypage-item_list_link{href: "#"}
+          %figure
+            %img{src: "https://lh3.googleusercontent.com/rhevmCJG49m8PjNkt_Ago2mg2JgH_KrVbVETL5tNsMJfNVYzzWR9JK6YKRLiZz-5P54"}
+          .mypage-item-body
+            .mypage-item-text 現在やることはありません
+            %time
+              %i.icon-time
+              %span 15時間前
+          %i.icon-arrow-right
+      %li.mypage-content__item-index
+        %a{href: "#"} 一覧を見る
+  
+  -# .mypage-content-sub
+  -#   %h2 購入した商品
+  -#   .tabs
+  -#   %input#now-transaction{checked: "checked", name: "tab_item", type: "radio"}/
+  -#   %label.tab_item{for: "now-transaction"} 取引中
+  -#   %input#transaction{name: "tab_item", type: "radio"}/
+  -#   %label.tab_item{for: "transaction"} 過去の取引
+
+  -#   %ul#all_content.tab_content
+  -#     %li
+  -#       %a.mypage-item_list_link{href: "#"}
+  -#         %figure
+  -#           %img{src: "https://lh3.googleusercontent.com/rhevmCJG49m8PjNkt_Ago2mg2JgH_KrVbVETL5tNsMJfNVYzzWR9JK6YKRLiZz-5P54"}
+  -#         .mypage-item-body
+  -#           .mypage-item-text 事務局からのメッセージ
+  -#           %time
+  -#             %i.icon-time
+  -#             %span 6時間前
+  -#         %i.icon-arrow-right
+  -#     %li.mypage-content__item-index
+  -#       %a{href: "#"} 一覧を見る
+
+  -#   %ul#programming_content.tab_content
+  -#     %li
+  -#       %a.mypage-item_list_link{href: "#"}
+  -#         %figure
+  -#           %img{src: "https://lh3.googleusercontent.com/rhevmCJG49m8PjNkt_Ago2mg2JgH_KrVbVETL5tNsMJfNVYzzWR9JK6YKRLiZz-5P54"}
+  -#         .mypage-item-body
+  -#           .mypage-item-text 現在やることはありません
+  -#           %time
+  -#             %i.icon-time
+  -#             %span 15時間前
+  -#         %i.icon-arrow-right
+  -#     %li.mypage-content__item-index
+  -#       %a{href: "#"} 一覧を見る
+

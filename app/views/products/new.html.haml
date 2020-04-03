@@ -5,6 +5,7 @@
         %img.products-exhibit__header__logo__icon{:src => "/assets/logo.png"}
   .products-exhibit__main
     %h2 商品情報の入力
+
     = form_for @product do |f|
       .image-upload
         .required-item
@@ -14,6 +15,7 @@
         .image-upload__drop-box
           .image-upload__drop-box__area
             -# label.dropzone-box{:for => "upload-image__btn"}
+
             .input-area
               = f.file_field :images, class: "upload-image"
               %p ドラッグアンドドロップ
