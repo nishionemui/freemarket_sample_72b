@@ -1,0 +1,59 @@
+.purchase-done
+  .purchase-done__header
+    .purchase-done__header__logo
+      = link_to image_tag('logo.png', class: "btn"),root_path
+  .purchase-done__main
+    .purchase-done__main__up
+      購入内容の確認
+    .purchase-done__main__box
+      .product 
+        .photo
+        .name
+          商品名
+      %ul.detail
+        %li.money ¥◯◯◯◯
+        %li.postage 送料込み
+    
+    .purchase-done__main__pay
+      .purchase-done__main__pay__point
+        ポイントはありません
+      .purchase-done__main__pay__money
+        .purchase-done__main__pay__money--left
+          支払金額
+        .purchase-done__main__pay__money--right
+          ¥◯◯◯◯
+      .purchase-done__main__pay__decision
+        = link_to "#", class:"decision-btn" do
+          購入する
+    .purchase-done__main__delivery
+      .address
+        %ul.address--delivery
+          配送先
+        %li 123-4567
+        %li 東京都渋谷区神南1-18-2
+        %li 購入 太郎
+        .address--change
+          = link_to "#", class:"address--change--btn" do
+            変更する
+    .purchase-done__main__payment
+      .method
+        %ul.method--number
+          支払方法
+        %li **** **** ****4242
+        %li 12 / 20
+        .method--change
+          = link_to "#", class:"method--change--btn" do
+            変更する
+       
+
+  .purchase-done__footer
+    %ul
+      %li
+        = link_to 'プライバシーポリシー', "#", class: "footer-text"
+      %li
+        = link_to 'FURIMA利用規約', "#", class: "footer-text"
+      %li
+        = link_to '特定商取引に関する表記', "#", class: "footer-text"
+    .products-exhibit__footer__logo
+      = link_to image_tag('logo.png', class: "products-exhibit__footer__logo__icon"),root_path
+      %p © FURIMA
