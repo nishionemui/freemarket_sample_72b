@@ -1,0 +1,31 @@
+.mypage__sub__content{
+  height:100px;
+  width:100%;
+  padding:50px 60px;
+  background-color:white ;
+
+  .mypage__sub__content-form{
+    height:100%;
+    width:100%;
+
+    .mypage__sub__content-form-btn{
+      height:100px;
+      width:100%;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+
+      a{
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      }
+    }
+  }
+}
+

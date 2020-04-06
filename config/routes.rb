@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   end
   root to: "products#index"
   # get "signup", to: "signup#index"
-  resources :signup, only: [:index, :show]
-  resources :users, only: [:show, :create, :new, :destroy]
+  resources :signup, only: [:index]
+  resources :users, only: [:show, :create, :new] do
+    collection do
+      get 'signout/:id'=> 'users#singout', as: 'signout'
+    end
+  end
   
   # get "signup", to: "signup#index"
   # resources :signup do
@@ -22,10 +26,9 @@ Rails.application.routes.draw do
   #   end
   # end       
 
-
-  resources :products, only: [:index,:create, :destroy, :show,:new] do
-    resources :comments, only: [:create, :destroy, :show]
+  resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] do
   end
+  
   # root to: "products#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

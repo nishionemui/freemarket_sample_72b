@@ -2,9 +2,6 @@ class SignupController < ApplicationController
   def index
   end
   
-  def 
-    
-  end
   # def step1
   # end
 

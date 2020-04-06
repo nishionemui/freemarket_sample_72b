@@ -31,7 +31,21 @@
 .wrraper
   .mypage
     = render 'users/side-bar'
-    = render 'users/main-contents'
+    .card__box
+      .card__box__head
+        %h2 支払い方法
+      .card__content
+        .card__content__textbox
+          %h3.card__content__textbox__text クレジットカード一覧
+        .set__card
+          %a.btn-red.submit_button{:href => "/cards/new"}
+            %i.far.fa-credit-card
+              クレジットカードを追加する
+        .set__regist
+          %a{:href => '#'}
+            %span 支払い方法について
+            %i.fas.fa-chevron-right
+
 .footer
   .footer__content
     %ul.footer__content__up
