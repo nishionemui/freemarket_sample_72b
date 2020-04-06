@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
   root to: "products#index"
   # get "signup", to: "signup#index"
-  resources :signup, only: :index
+
+  resources :signup, only: [:index, :show]
   resources :users, only: [:show, :create, :new, :destroy,:update] do
     member do
       get 'profile'
@@ -22,6 +23,9 @@ Rails.application.routes.draw do
 #   profile_users GET    /users/profile(.:format)                                                                 users#profile
 #   card_users GET    /users/card(.:format)                                                                    users#card
 # address_users GET    /users/address(.:format)                                                                 users#address
+
+
+  
 
   # get "signup", to: "signup#index"
   # resources :signup do
@@ -34,7 +38,7 @@ Rails.application.routes.draw do
   # end       
 
 
-  resources :products, only: [:index,:create, :destroy, :show,:new] do
+  resources :products do
     resources :comments, only: [:create, :destroy, :show]
   end
   # root to: "products#index"

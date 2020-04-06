@@ -82,5 +82,6 @@ gem 'fog-aws'
 gem 'devise-i18n'
 # 日本語化
 # gem 'rails-i18n', '~> 5.1'
-# gem 'active_hash'
+gem 'active_hash'
+
 
