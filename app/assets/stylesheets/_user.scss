@@ -271,14 +271,14 @@
 
 // < 会員情報入力ページ >
 .user-content{
-  height: 1500px;
+  height: 1600px;
   width: 100%;
   background-color: rgb(234, 232, 232);
   .user-content-all{
     width: 700px;
     background-color: white;
     margin:  auto;
-    height: 1400px;
+    height: 1500px;
     .user-content-header{
       height: 100px;
       width: 100%;
@@ -302,7 +302,7 @@
       .phone,
       .commit,
       .send{
-        height: 80px;
+        height: 100px;
         width: 100%;
         margin-bottom: 25px;
         .form-group__require{
@@ -321,16 +321,130 @@
           padding: 3px;
           border-radius: 5px;
         }
+        .name-group{
+          height: 100px;
+          width: 100%;
+          display: flex;
+          margin: auto;
+          .first{
+            .first-name-field{
+              height: 45px;
+              width: 160px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 5px;
+            }
+            .first-name-field.invalid{
+              border: #ea352d 2px solid;
+            }
+            input[type=text]:focus{
+              outline: none;
+              border-color: #0098E8;
+            }
+            #first-name-error{
+              color: #ea352d;
+              line-height:20px ;
+              font-size: 10px;
+              margin-top: 8px;
+              height: 20px;
+              width: 125px;
+              // border: 1px solid red;
+              // border-radius: 5px;
+              text-align: center;
+            }
+          }
+          .last{
+            .last-name-field{
+              height: 45px;
+              width: 160px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 10px;
+              margin-left: 10px;
+            }
+            .last-name-field.invalid{
+              border: #ea352d 2px solid;
+            }
+            input[type=text]:focus{
+              outline: none;
+              border-color: #0098E8;
+            }
+            #last-name-error{
+              color: #ea352d;
+              line-height:20px ;
+              font-size: 10px;
+              margin-top: 8px;
+              height: 20px;
+              width: 125px;
+              // border: 1px solid red;
+              // border-radius: 5px;
+              text-align: center;
+              margin-left: 10px;
+            }
+          }
+        }
+        .name-read-group{
+          height: 100px;
+          width: 100%;
+          display: flex;
+          margin: auto;
+          .first-read{
+            .first-name-read-field{
+              height: 45px;
+              width: 160px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 5px;
+            }
+            #first-name-read-error{
+              color: #ea352d;
+              line-height:20px ;
+              font-size: 10px;
+              margin-top: 8px;
+              height: 20px;
+              width: 125px;
+              // border: 1px solid red;
+              // border-radius: 5px;
+              text-align: center;
+            }
+            .first-name-read-field.invalid{
+              border: #ea352d 2px solid;
+            }
+          }
+          .last-read{
+            .last-name-read-field{
+              height: 45px;
+              width: 160px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 10px;
+              margin-left: 10px;
+            }
+            #last-name-read-error{
+              color: #ea352d;
+              line-height:20px ;
+              font-size: 10px;
+              margin-top: 8px;
+              height: 20px;
+              width: 125px;
+              // border: 1px solid red;
+              // border-radius: 5px;
+              text-align: center;
+              margin-left: 10px;
+            }
+            .last-name-read-field.invalid{
+              border: #ea352d 2px solid;
+            }
+          }
+        }
         .nickname-group,
         .name-group,
-        .name-read-group,
         .email-group,
         .pass-group,
         .pass-two-group,
         .phone-num{
-          height: 55px;
+          height: 100px;
           width: 100%;
-          display: flex;
           margin: auto;
           .nickname-field,
           .email-field,
@@ -344,22 +458,18 @@
             padding-left: 10px;
             border: 1px solid rgb(234, 232, 232);
           }
-          .first-name-field,
-          .first-name-read-field{
-            height: 45px;
-            width: 160px;
-            border: 1px solid rgb(234, 232, 232);
-            border-radius: 5px;
-            padding-left: 5px;
+          .nickname-field.invalid,
+          .email-field.invalid,
+          .pass-field.invalid,
+          .pass-two-field.invalid,
+          .phone-field.invalid{ 
+            border: #ea352d 2px solid;
           }
-          .last-name-field,
-          .last-name-read-field{
-            height: 45px;
-            width: 160px;
-            border: 1px solid rgb(234, 232, 232);
-            border-radius: 5px;
-            padding-left: 10px;
-            margin-left: 10px;
+          input[type=text]:focus,
+          input[type=email]:focus,
+          input[type=password]:focus {
+            outline: none;
+            border-color: #0098E8;
           }
         }
         .commit-font-first{
@@ -755,10 +865,12 @@
     }
   }
 }
+
+// < エラーメッセージ >
 #error_explanation{
   color: rgb(255, 0, 0);
   font-size: 12px;
-  height: 80px;
+  height: 160px;
   width: 310px;
   li{
     background-color: rgb(252, 225, 225);
@@ -767,4 +879,104 @@
     width: 220px;
     margin-top: 2px;
   }
+}
+
+// < ユーザー、メール、パスワード変更 >
+.edit-email{
+  height: 700px;
+  width: 700px;
+  background-color: white;
+  .edit-email-group{
+    height: 700px;
+    width: 700px;
+    .edit-email-title{
+      height: 100px;
+      width: 700px;
+      font-size: 25px;
+      text-align: center;
+      line-height: 100px;
+      border-bottom: 1px solid rgb(230, 230, 230);
+    }
+    .edit-email-form{
+      height: 600px;
+      width: 350px;
+      margin: auto;
+      .email{
+        height: 140px;
+        width: 100%;
+        margin-bottom: 25px;
+        .email-group{
+          height: 55px;
+          width: 100%;
+          margin: auto;
+          .email-field{
+            height: 45px;
+            width: 338px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+        }
+      }
+      .current-pass,
+      .new-pass,
+      .new-pass-two,
+      .send{
+        height: 80px;
+        width: 100%;
+        margin-bottom: 25px;
+        .current-pass-group,
+        .new-pass-group,
+        .pass-tow-group{
+          height: 55px;
+          width: 100%;
+          display: flex;
+          margin: auto;
+          .current-pass-field,
+          .new-pass-field,
+          .new-pass-two-field{
+            height: 45px;
+            width: 338px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+        }
+        .send-btn{
+          height: 45px;
+          width: 350px;
+          font-size: 20px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+          text-decoration: none;
+          background-color: red;
+        }
+      }
+    }
+  }
+  .email-content{
+    color: rgb(189, 189, 189);
+    font-size: 15.3px;
+  }
+}
+
+// < エラーメッセージ jquery >
+#nickname-error,
+ #email-error, 
+ #pass-error,
+ #pass-two-error,
+ #phone-num-error {
+  color: #ea352d;
+  line-height:20px ;
+  font-size: 10px;
+  margin-top: 8px;
+  height: 20px;
+  width: 160px;
+  // border: 1px solid red;
+  // border-radius: 5px;
+  text-align: center;
 }

@@ -23,28 +23,27 @@
     .user-content-header
       送付先情報入力
     .user-content-main
-      = form_for @address do |f|
-        = render "devise/shared/error_messages", resource: @address
+      = form_for @address, id: "address_form"  do |f|
         .zip-code
           = f.label :zip_code, "郵便番号"
           %span.form-group__require 必須
           .zip-code-group
-            = f.text_field :zip_code,placeholder: "例）123-4567",class: "zip-code-field"
+            = f.text_field :zip_code,placeholder: "例）123-4567",class: "zip-code-field",id: "zip-code"
         .prefecture
           = f.label :prefecture_id, "都道府県"
           %span.form-group__require 必須
           .prefecture-group
-            = f.select :prefecture_id , Address.prefecture_ids.keys, {} ,class: "prefecture-field"
+            = f.select :prefecture_id , Address.prefecture_ids.keys, {} ,class: "prefecture-field",id: "prefecture"
         .city
           = f.label :city, "市区町村"
           %span.form-group__require 必須
           .city-group
-            = f.text_field :city, placeholder: "例）札幌市",class: "city-field"
+            = f.text_field :city, placeholder: "例）札幌市",class: "city-field",id: "city"
         .address
           = f.label :address1, "番地"
           %span.form-group__require 必須
           .address-group
-            = f.text_field :address1, placeholder: "例）青葉1-1-1",class: "address-field"
+            = f.text_field :address1, placeholder: "例）青葉1-1-1",class: "address-field",id: "address1"
         .address-last
           = f.label :address2, "建物名"
           %span.form-group__any 任意
