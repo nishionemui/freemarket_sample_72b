@@ -1,4 +1,3 @@
-
 .header-log
   .log-field
     = link_to image_tag('logo.png', class: "icon-user-top"),root_path
@@ -19,7 +18,7 @@
         -# = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
       .google
         .google-font
-          = link_to 'Googleで登録する', "#",class: "google-btn"
+          = link_to 'Googleでログイン', "#",class: "google-btn"
           .google-photo
             = image_tag 'google.jpg', class:"google-photo-size"
         -# = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
@@ -31,10 +30,6 @@
         .pass
           .pass-group
             = f.password_field :password, autocomplete: "pass-field",placeholder: "パスワード",class: "pass-field"
-          -# - if devise_mapping.rememberable?
-          -#   .check-box
-          -#     = f.check_box :remember_me
-          -#     = f.label :remember_me
         .send
           = f.submit "ログイン",class: "send-btn"
         .foget-pass
