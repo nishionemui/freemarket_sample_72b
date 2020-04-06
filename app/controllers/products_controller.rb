@@ -2,12 +2,13 @@ class ProductsController < ApplicationController
   def index
 
     @product = Product.all
-
-   
+    # @products =[]
+    # @products <<  @product
   end
   
   def new
     @products = Product.new
+ 
   end
 
   def create
