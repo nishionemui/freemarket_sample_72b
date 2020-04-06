@@ -1,0 +1,117 @@
+.header
+  .header__box
+    .header__box__up
+      .header__box__up--icon
+        = link_to image_tag('logo.png', class: "btn"),root_path
+      .header__box__up--search
+        = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
+          = button_tag type: 'submit', class: 'search-btn' do
+            %i.fas.fa-search.click 
+
+    .header__box__under
+      .header__box__under__left
+        %ul.left--box
+          %li.list__category
+            = link_to "#", class:"first-btn" do
+              カテゴリー
+          %li.list__category
+            = link_to "#", class:"first-btn" do
+              ブランド
+      .header__box__under__right
+        %ul.right--box
+          -if user_signed_in?
+            %li.list__login
+              = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
+          -else
+            %li.list__login
+              = link_to "ログイン",new_user_session_path, class:"btn"
+            %li.list__category
+              = link_to "新規会員登録",signup_index_path, class:"btn"
+
+
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .card__regist
+      .card__regist__head
+        %h2 クレジットカード情報入力
+      .card__regist__content
+        .card__regist__content__box
+          = form_with model: @card, url: '#', method: 'POST', id: 'card_id', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate', html: { name: 'inputForm' } do |f|
+            .card-info__content
+              .card-info__content__form-group
+                %label{ for: 'payment_card_no' } カード番号
+                %span.card-info__content-require 必須
+                %input.card-info__input-default{ type: 'text', id: 'token', placeholder: '半角数字のみ', maxlength: '19' }
+                %ul.card-info__has-error-text{ id: 'card-no-error-wrapper' }
+                %ul.card-info__list
+                  %li
+                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/visa.svg?1152353370', width: '45', height: '25'
+                  %li
+                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/master-card.svg?1152353370', width: '34', height: '20'
+                  %li
+                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/saison-card.svg?1152353370', width: '30', height: '20'
+                  %li
+                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/jcb.svg?1152353370', width: '32', height: '20'
+                  %li
+                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/american_express.svg?1152353370', width: '21', height: '20'
+                  %li
+                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?1152353370', width: '32', height: '20'
+                  %li
+                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/discover.svg?1152353370', width: '32', height: '20'
+              .card-info__form-expire
+                %label{ for: 'payment_card_expire' } 有効期限
+                %span.card-info__form-require 必須
+                %br
+                .card-info__form-expire__deadline
+                  = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'form-card__month__select'
+                  %span 月
+                  = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'form-card__year__select'
+                  %span 年
+                %ul.card-info__has-error-text{ id: 'expire-mm-error-wrapper' }
+                %ul.card-info__has-error-text{ id: 'expire-yy-error-wrapper' }
+              .card-info__form-group
+                %label{ for: 'payment_card_security_code' } セキュリティコード
+                %span.card-info__content-require 必須
+                %input.card-info__input-default{ type: 'text', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号' }
+                %ul.signup-main__has-error-text{ id: 'security-code-error-wrapper' }
+                .card-info__seqcode
+                  .card-info__seqcode--text{ id: 'seqcode-tips-toggle' }
+                    %span.card-info__form-question
+                    カード裏面の番号とは？
+              -#       .card-info__seqcode--info.is-show{ id: 'seqcode-tips-content' }
+              -#         カードの裏面をご参照ください。
+              -#         %br
+              -#         = image_tag '//pcweb-assets.mercdn.net/assets/img/signup/seq-card.png?1152353370', width: '240'
+              -# %p.card-info__has-error-text{ id: 'primary-error' }
+              %button.card-info__content--form--btn
+                = link_to "追加する",'#', class:"btn"
+
+
+.footer
+  .footer__content
+    %ul.footer__content__up
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "会社概要（運営会社）",root_path, class:"btn"
+        %p.text--content= link_to "プライバシーポリシー",root_path, class:"btn"
+        %p.text--content= link_to "FURIMA利用規約",root_path, class:"btn"
+        %p.text--content= link_to "ポイントに関する特約",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAを見る
+        %p.text--content= link_to "カテゴリー一覧",root_path, class:"btn"
+        %p.text--content= link_to "ブランド一覧",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "FURIMAガイド",root_path, class:"btn"
+        %p.text--content= link_to "FURIMAロゴ利用ガイドライン",root_path, class:"btn"
+        %p.text--content= link_to "お知らせ",root_path, class:"btn"
+    .footer__content__under
+      = link_to image_tag('logo-white.png', class: "btn"),root_path
+      %p © FURIMA
+
+%a{:href => "/products/new"}
+  .exhibition-btn
+    %span.exhibition-btn__text 出品する
+    %img.exhibition-btn__icon{:src => "/assets/icon_camera.png"}/
