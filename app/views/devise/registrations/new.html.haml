@@ -29,7 +29,7 @@
           = f.label :user_image do
             #user-img_field{:onclick => "$('#user-file').click()"}
               - if @user.user_image.present?
-                = image_tag @user.user_image.url, class: 'user-img-icon'
+                = image_tag @user.user_image.url, class: "user-img-icon"
               - else
                 = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
             = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
