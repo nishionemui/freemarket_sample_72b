@@ -72,7 +72,7 @@
             = raw sprintf(f.date_select(:birthday,use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),default: Date.new(2000, 2, 22),date_separator: '%s'),'年 ', '月 ') + '日' 
         .phone
           = f.label :phone_num, "携帯電話の番号"
-          %span.form-group__any 任意
+          %span.form-group__require 必須
           .phone-num
             = f.text_field :phone_num,class: "phone-field",placeholder: "例)080-1234-5678"
         .commit
