@@ -24,7 +24,6 @@
           -if user_signed_in?
             %li.list__login
               = link_to "マイページ",user_path(current_user.id), class:"btn"
-              -# = link_to "マイページ","/users/#{@product.current_user.id}", class:"btn"
           -else
             %li.list__login
               = link_to "ログイン",new_user_session_path, class:"btn"
@@ -132,7 +131,6 @@
           新規投稿商品
     %ul.main__fifth__box
       %li.main__fifth__box--new
-        -# =linl_to product_path(current_user.id)
       %li.main__fifth__box--new
       %li.main__fifth__box--new
   
@@ -184,7 +182,8 @@
       = link_to image_tag('logo-white.png', class: "btn"),root_path
       %p © FURIMA
 
-%a{:href => "/products/new"}
-  .exhibition-btn
-    %span.exhibition-btn__text 出品する
-    %img.exhibition-btn__icon{:src => "/assets/icon_camera.png"}/
+.vavavav
+  = link_to new_product_path  do
+    .exhibition-btn
+      %span.exhibition-btn__text 出品する
+      = image_tag "icon_camera.png", class: "exhibition-btn__icon"

@@ -72,19 +72,21 @@
     設定
   %ul.mypage-side-bar__list
     %li
-      = link_to edit_user_registration_path(current_user.id), class: 'mypage-side-bar__list-contents' do
+
+      = link_to profile_user_path(current_user.id), class: 'mypage-side-bar__list-contents' do
+
         プロフィール
         = icon 'fas', 'chevron-right'
     %li
-      = link_to '#', class: 'mypage-side-bar__list-contents' do
+      = link_to address_user_path(current_user.id), class: 'mypage-side-bar__list-contents' do
         発送元・お届け先住所変更
         = icon 'fas', 'chevron-right'
     %li
-      = link_to "#", class: 'mypage-side-bar__list-contents' do
+      = link_to card_user_path, class: 'mypage-side-bar__list-contents' do
         支払い方法
         = icon 'fas', 'chevron-right'
     %li
-      = link_to '#', class: 'mypage-side-bar__list-contents' do
+      = link_to edit_user_registration_path, class: 'mypage-side-bar__list-contents' do
         メール/パスワード
         = icon 'fas', 'chevron-right'
     %li

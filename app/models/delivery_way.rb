@@ -1,5 +1,4 @@
-class Delivery_way < ActiveHash::Base
-  include ActiveHash::Associations
+class DeliveryWay < ActiveHash::Base
   self.data = [
     # 送料込み選択時
     { id: 1, value: '未定', charge: '1' },
