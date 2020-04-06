@@ -33,6 +33,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+  def edit_address
+    
+  end
+
   protected
 
   def configure_sign_up_params
