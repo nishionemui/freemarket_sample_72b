@@ -9,8 +9,6 @@ class UsersController < ApplicationController
     @user = User.create(use_params)
   end
 
-  
-
 
   def show
     @user = User.find(params[:id])
@@ -21,17 +19,17 @@ class UsersController < ApplicationController
     
   end
 
-  def singout
+  # def signout
+  #   # @user = User.find(params[:id])
     
-    
-  end
+  # end
 
   def profile
     @profile = User.find(params[:id])
   end
 
   def card
-    
+
   end
 
   def address

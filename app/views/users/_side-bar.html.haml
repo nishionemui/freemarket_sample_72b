@@ -10,7 +10,7 @@
       = icon 'fas', 'chevron-right'
     %li
     = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
-      やることリスト
+      やることリスト 
       = icon 'fas', 'chevron-right'
     %li
     = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
@@ -72,9 +72,7 @@
     設定
   %ul.mypage-side-bar__list
     %li
-
       = link_to profile_user_path(current_user.id), class: 'mypage-side-bar__list-contents' do
-
         プロフィール
         = icon 'fas', 'chevron-right'
     %li
@@ -82,7 +80,7 @@
         発送元・お届け先住所変更
         = icon 'fas', 'chevron-right'
     %li
-      = link_to card_user_path, class: 'mypage-side-bar__list-contents' do
+      = link_to card_user_path(current_user.id), class: 'mypage-side-bar__list-contents' do
         支払い方法
         = icon 'fas', 'chevron-right'
     %li
@@ -98,7 +96,7 @@
         電話番号の確認
         = icon 'fas', 'chevron-right'
     %li
-      -# = link_to signout_users_path, method: :get, class: 'mypage-side-bar__list-contents' do
-      -#   ログアウト
-      -#   = icon 'fas', 'chevron-right'
+      = link_to signout_users_path(current_user.id), method: :get, class: 'mypage-side-bar__list-contents' do
+        ログアウト
+        = icon 'fas', 'chevron-right'
 

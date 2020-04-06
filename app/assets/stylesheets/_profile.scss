@@ -1,0 +1,60 @@
+.user-change {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 7px 24px;
+  text-align: center;
+  width: 700px;
+  &--header {
+    .change-title {
+      font-size: 24px;
+    }
+    .change-group {
+      text-align: center;
+      background-color: blue;
+      display: flex;
+      justify-content: center;
+      padding: 100px 15px 50px;
+      background-image: url(https://d1f5hsy4d47upe.cloudfront.net/b4/b4ebb0534d307eff1d6f70ed8fafbaa8_t.jpeg);
+      background-size: cover;
+      .change-icon {
+        margin-right: 20px;
+        .user-img-icon,
+        .before-icon {
+          height:45px;
+          width: 45px;
+        }
+      }
+      .change-name {
+        font-size: 20px;
+        font-weight: normal;
+        padding-top: 10px;
+      }
+
+      // .nickname-field {
+      //   // text-align: center;
+      // }
+    }
+  }
+  .user-change-introduction {
+    text-align: center;
+    margin-top: 30px;
+    .introduction {
+      &--text {
+        width: 90%;
+        height :150px;
+      }
+    }
+    .change-btn {
+      .send-btn {
+        width: 90%;
+        background-color: red;
+        color: white;
+        font-size: 15px;
+        padding: 12px 0;
+
+        
+      }
+    }
+  }
+}
+

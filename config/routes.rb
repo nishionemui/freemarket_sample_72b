@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :signup, only: [:index, :show]
   resources :users, only: [:show, :create, :new, :destroy,:update] do
+    resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] 
     member do
       get 'profile'
       get 'card'
@@ -42,12 +43,14 @@ Rails.application.routes.draw do
   # end       
 
 
-  resources :cards, only: [:show, :new, :create, :edit, :update, :destroy]
-
 
   resources :products do
     resources :comments, only: [:create, :destroy, :show]
-
+    collection do
+      get 'purchase/:id'=> 'tweets#purchase', as: 'purchase'   
+      post 'pay/:id'=> 'tweets#pay', as: 'pay'#httpメソッドはpostなので注意
+      get 'done'=> 'tweets#done', as: 'done'
+      end
   end
   
   # root to: "products#index"
