@@ -1,34 +1,39 @@
-.address-change
-  = form_for @address, url: addresses_path  do |f|
-    .address-change-header
-      .change-title
-        発送元・お届け先住所変更
-      .change-group
-        = render "devise/shared/error_messages", resource: @address
-        .zip-code
-          = f.label :zip_code, "郵便番号"
-          %span.form-group__require 必須
-          .zip-code-group
-            = f.text_field :zip_code,placeholder: "例）123-4567",class: "zip-code-field"
-        .prefecture
-          = f.label :prefecture_id, "都道府県"
-          %span.form-group__require 必須
-          .prefecture-group
-            = f.select :prefecture_id , Address.prefecture_ids.keys, {} ,class: "prefecture-field"
-        .city
-          = f.label :city, "市区町村"
-          %span.form-group__require 必須
-          .city-group
-            = f.text_field :city, placeholder: "例）札幌市",class: "city-field"
-        .address
-          = f.label :address1, "番地"
-          %span.form-group__require 必須
-          .address-group
-            = f.text_field :address1, placeholder: "例）青葉1-1-1",class: "address-field"
-        .address-last
-          = f.label :address2, "建物名"
-          %span.form-group__any 任意
-          .address-last-group
-            = f.text_field :address2, placeholder: "例）柳ビル103",class: "address-last-field"
-      .change-btn
-        = f.submit '変更する',class: "send-btn"
+.products-done
+  .products-done__header
+    .products-done__header__logo
+      = link_to image_tag('logo.png', class: "btn"),root_path
+  .address-change
+    = form_for @address, url: addresses_path  do |f|
+      .address-change-header
+        .change-title
+          発送元・お届け先住所変更
+        .change-group
+          = render "devise/shared/error_messages", resource: @address
+          .zip-code
+            = f.label :zip_code, "郵便番号"
+            %span.form-group__require 必須
+            .zip-code-group
+              = f.text_field :zip_code,placeholder: "例）123-4567",class: "zip-code-field"
+          .prefecture
+            = f.label :prefecture_id, "都道府県"
+            %span.form-group__require 必須
+            .prefecture-group
+              = f.select :prefecture_id , Address.prefecture_ids.keys, {} ,class: "prefecture-field"
+          .city
+            = f.label :city, "市区町村"
+            %span.form-group__require 必須
+            .city-group
+              = f.text_field :city, placeholder: "例）札幌市",class: "city-field"
+          .address
+            = f.label :address1, "番地"
+            %span.form-group__require 必須
+            .address-group
+              = f.text_field :address1, placeholder: "例）青葉1-1-1",class: "address-field"
+          .address-last
+            = f.label :address2, "建物名"
+            %span.form-group__any 任意
+            .address-last-group
+              = f.text_field :address2, placeholder: "例）柳ビル103",class: "address-last-field"
+          .change-btn
+            = f.submit '変更する',class: "send-btn"
+          
