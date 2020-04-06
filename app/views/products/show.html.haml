@@ -31,8 +31,6 @@
           %ul.top-list
             %li.top-image
               = image_tag 'pict-reason-01.jpg', class:"top-icon"
-              -# = @product.images.image.each do |image|
-              -#   = image_tag image, class: 'owl-carousel'
               %ul.sub-images
                 %li.sub-image
                   = image_tag 'pict-reason-01.jpg', class:"sub-icon"
@@ -47,7 +45,6 @@
               = @product.price
           .products-box__price__detail
             %span (税込)
-            -# = @products.delivery_fee
             %span 送料込み
         .products-box__detail
           = @product.description
