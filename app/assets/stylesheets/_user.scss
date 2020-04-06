@@ -1,0 +1,770 @@
+// < 登録選択画面 >
+.user-main{
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  overflow: hidden;
+  .user-header{
+    height: 90px;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    .icon-user-top{
+      height: 70px;
+      width: 210px;
+      vertical-align: middle;
+    }
+  }
+  .user-new{
+    height: 500px;
+    width: 800px;
+    margin: 50px  auto;
+    background-color: white;
+    .user-new-title{
+      height: 110px;
+      width: 100%;
+      background-color: white;
+      font-size: 30px;
+      text-align: center;
+      line-height: 110px;
+      border-bottom: 1px solid rgb(230, 230, 230);
+    }
+    .link-list{
+      height: 500px;
+      width: 400px;
+      margin: 50px auto;
+      .email-check{
+        height: 70px;
+        width: 400px;
+        background-color: red;
+        border-radius: 5px;
+        margin-top:20px;
+        text-align: center;
+        line-height: 70px;
+        .email-font{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+        }
+        .email-icon{
+          font-size: 30px;
+          color: white;
+          float: left;
+          padding: 23px 0px 0px 20px;
+        }
+      }
+      .facebook{
+        height: 70px;
+        width: 400px;
+        background-color: rgb(61, 61, 111);
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 70px; 
+        .facebook-btn{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+        }
+        .facebook-icon{
+          font-size: 30px;
+          color: white;
+          float: left;
+          padding: 23px 0px 0px 20px;
+        }
+      }
+      .google{
+        height: 68px;
+        width: 398px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 70px; 
+        .google-font{
+          padding-right: 20px;
+          .google-btn{
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+          }
+          .google-photo{
+            float: left;
+            padding: 0px 0px 0px 20px;
+            .google-photo-size{
+              height: 30px;
+              width: 30px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// < 新規登録ページ ヘッダー>
+.user-header{
+  height: 100px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  padding-bottom: 20px;
+  .user-field{
+    height: 100px;
+    width: 660px;
+    margin: auto;
+    .user-header-icon{
+      height: 100px;
+      width: 300px;
+      line-height: 100px;
+      float: left;
+      text-align: center;
+      .user-top{
+        height: 70px;
+        width: 210px;
+        vertical-align: middle;
+      }
+    }
+    .user-header-now{
+      height: 100px;
+      width: 360px;
+      line-height: 100px;
+      float: right;
+      display: flex;
+      .class-one{
+        height: 100px;
+        width: 120px;
+        .class-first{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-red{
+          border-radius: 50%;
+          background-color: red;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-1{
+            height: 50px;
+            width: 120px;
+            border-top: 2px solid gray;
+            background-color: rgba(0,0,0,0.0);
+            position: absolute;
+            top: 6px;
+            margin-left: 14px;
+          }
+          .user-bottom-red-1{
+            height: 50px;
+            width: 120px;
+            border-top: 2px solid red;
+            background-color: rgba(0,0,0,0.0);
+            position: absolute;
+            top: 6px;
+            margin-left: 14px;
+          }
+        }
+      }
+      .class-two{
+        height: 100px;
+        width: 120px;
+        .class-second{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-gray-one{
+          border-radius: 50%;
+          background-color: gray;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
+          .user-bottom-gray-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
+        }
+        .icon-class-red-one{
+          border-radius: 50%;
+          background-color: red;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-red-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
+          .user-bottom-red-3{
+            height: 50px;
+            width: 106px;
+            border-top: 2px solid red;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin: 0px 14px 0px 14px;
+          }
+          .user-bottom-gray-3{
+            height: 50px;
+            width: 106px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin: 0px 14px 0px 14px;
+          }
+        }
+      }
+      .class-thrry{
+        height: 100px;
+        width: 120px;
+        .class-third{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-gray-two{
+          border-radius: 50%;
+          background-color: gray;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+        }
+        .icon-class-red-two{
+          border-radius: 50%;
+          background-color: red;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+// < 会員情報入力ページ >
+.user-content{
+  height: 1500px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .user-content-all{
+    width: 700px;
+    background-color: white;
+    margin:  auto;
+    height: 1400px;
+    .user-content-header{
+      height: 100px;
+      width: 100%;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      line-height: 100px;
+      font-size: 28px;
+    }
+    .user-content-main{
+      width: 50%;
+      height: 1000px;
+      margin: auto;
+      margin-top: 30px;
+      .nickname,
+      .name,
+      .name-read,
+      .email,
+      .pass,
+      .pass-two,
+      .birthday,
+      .phone,
+      .commit,
+      .send{
+        height: 80px;
+        width: 100%;
+        margin-bottom: 25px;
+        .form-group__require{
+          height: 30px;
+          width: 60px;
+          background-color: red;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .form-group__any{
+          height: 30px;
+          width: 60px;
+          background-color: gray;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .nickname-group,
+        .name-group,
+        .name-read-group,
+        .email-group,
+        .pass-group,
+        .pass-two-group,
+        .phone-num{
+          height: 55px;
+          width: 100%;
+          display: flex;
+          margin: auto;
+          .nickname-field,
+          .email-field,
+          .pass-field,
+          .pass-two-field,
+          .phone-field{
+            height: 45px;
+            width: 338px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .first-name-field,
+          .first-name-read-field{
+            height: 45px;
+            width: 160px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 5px;
+          }
+          .last-name-field,
+          .last-name-read-field{
+            height: 45px;
+            width: 160px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+            margin-left: 10px;
+          }
+        }
+        .commit-font-first{
+          height: 20px;
+          width: 100%;
+          text-decoration: none;
+          font-size: 14px;
+          a{
+            text-decoration: none;
+            color: #3ccace;
+          }
+        }
+        .commitfont-end{
+          font-size: 14px;
+          text-align: center;
+        }
+        .send-btn{
+          height: 45px;
+          width: 100%;
+          background-color: red;
+          font-size: 15px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+        }
+        #user_birthday_1i,
+        #user_birthday_2i,
+        #user_birthday_3i{
+          height: 45px;
+          width: 70px;
+          border: 1px solid rgb(234, 232, 232);
+          border-radius: 5px;
+          padding-left: 10px;
+          background-color: white;
+        }
+      }
+      .use-image{
+        height: 100px;
+        width: 100px;
+        margin-bottom: 25px;
+        margin: 20px auto;
+        border-radius:  50%;
+        #user_user_image{
+          height: 100px;
+          width: 100px;
+          background-color: red;
+          border-radius: 50%;
+        }
+        .user-img-icon{
+          height: 100px;
+          width: 100px;
+          background-color: white;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+        .before-icon{
+          height: 100px;
+          width: 100px;
+          background-color: white;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+        .preview{
+          height: 100px;
+          width: 100px;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+      }
+      .user-image-field{
+        display: none;
+      }
+    }
+  }
+}
+
+// < 送付先情報入力ページ >
+.user-content-two{
+  height: 1000px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .user-content-all-two{
+    width: 650px;
+    background-color: white;
+    margin:  auto;
+    height: 800px;
+    .user-content-header{
+      height: 100px;
+      width: 100%;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      line-height: 100px;
+      font-size: 28px;
+    }
+    .user-content-main{
+      width: 50%;
+      height: 100%;
+      margin: auto;
+      margin-top: 30px;
+      .send,
+      .zip-code,
+      .city,
+      .address,
+      .address-last,
+      .prefecture{
+        height: 80px;
+        width: 100%;
+        margin-bottom: 25px;
+        .form-group__require{
+          height: 30px;
+          width: 60px;
+          background-color: red;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .form-group__any{
+          height: 30px;
+          width: 60px;
+          background-color: gray;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .zip-code-group,
+        .prefecture-group,
+        .city-group,
+        .address-group,
+        .address-last-group{
+          height: 55px;
+          width: 100%;
+          display: flex;
+          .zip-code-field,
+          .city-field{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .address-field,
+          .address-last-field{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .prefecture-field{
+            height: 45px;
+            width: 160px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+          }
+        }
+        .send-btn{
+          height: 45px;
+          width: 100%;
+          background-color: red;
+          font-size: 15px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+// < 登録完了ページ コンテント >
+.user-content-fin{
+  height: calc(100vh - 100px);
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  overflow: hidden;
+  padding-bottom: 40px;
+  .user-content-fin-main{
+    height: 400px;
+    width: 700px;
+    background-color: white;
+    margin:  auto;
+    .user-content-two-header{
+      height: 100px;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      line-height: 100px;
+      font-size: 28px;
+    }
+    .user-content-two-main{
+      height: 300px;
+      width: 100%;
+      background-color: white;
+      margin: auto;
+      .user-two-group{
+        padding-top: 50px;
+        width: 300px;
+        height: 80px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 18px;
+        margin: auto;
+      }
+      .user-thank-fin{
+        width: 300px;
+        height: 80px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 18px;
+        margin: auto;
+      }
+    }
+    .send{
+      height: 45px;
+      width: 260px;
+      margin-bottom: 25px;
+      margin: auto;
+      background-color: red;
+      border-radius: 5px;
+      .send-btn{
+        height: 45px;
+        width: 260px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 45px;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// < ログインページ コンテンツ >
+.header-log{
+  height: 140px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .log-field{
+    text-align: center;
+    padding-top: 50px;
+    .icon-user-top{
+      height: 70px;
+      width: 210px;
+      vertical-align: middle;
+      line-height: 140px;
+    }
+  }
+}
+.log{
+  height: 1000px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .log-in{
+    width: 650px;
+    background-color: white;
+    margin:  auto;
+    height: 800px;
+    .log-in-header{
+      height: 200px;
+      width: 100%;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      font-size: 15px;
+      .new-user-account-title{
+        width: 300px;
+        height: 50px;
+        margin: auto;
+        padding-top: 50px;
+        line-height: 75px;
+      }
+      .new-user-account-create{
+        height: 60px;
+        width: 380px;
+        background-color: #3ccace;
+        margin: auto;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 60px;
+        text-decoration: none;
+        .new-user-account-btn{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+        }
+      }
+    }
+    .log-in-main{
+      height: 200px;
+      width: 380px;
+      text-align: center;
+      margin: 30px auto;
+      .facebook{
+        height: 65px;
+        width: 380px;
+        background-color: rgb(61, 61, 111);
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 65px; 
+        .facebook-btn{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+        }
+        .facebook-icon{
+          font-size: 30px;
+          color: white;
+          float: left;
+          padding: 18px 0px 0px 20px;
+        }
+      }
+      .google{
+        height: 63px;
+        width: 378px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 65px; 
+        .google-font{
+          padding-right: 20px;
+          .google-btn{
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+          }
+          .google-photo{
+            float: left;
+            padding: 0px 0px 5px 20px;
+              .google-photo-size{
+                height: 30px;
+                width: 30px;
+                vertical-align: middle;
+              }
+          }
+        }
+      }
+    }
+    .log-in-bottom{
+      height: 300px;
+      width: 380px;
+      margin: auto;
+      text-align: center;
+      .email,
+      .pass,
+      .send{
+        height: 65px;
+        width: 378px;
+        .email-group,
+        .pass-group{
+          height: 55px;
+          width: 378px;
+          .email-field,
+          .pass-field{
+            height: 45px;
+            width: 368px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+        }
+        .send-btn{
+          height: 45px;
+          width: 378px;
+          font-size: 20px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+          text-decoration: none;
+          background-color: red;
+        }
+      }
+      .foget-pass{
+        .foget-field{
+          text-decoration: none;
+          color: #3ccace;
+        }
+      }
+    }
+  }
+}
+#error_explanation{
+  color: rgb(255, 0, 0);
+  font-size: 12px;
+  height: 80px;
+  width: 310px;
+  li{
+    background-color: rgb(252, 225, 225);
+    border-radius: 5px;
+    height: 20px;
+    width: 220px;
+    margin-top: 2px;
+  }
+}
