@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :signup, only: [:index, :show]
   resources :users, only: [:show, :create, :new, :destroy,:update] do
+    resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] 
     member do
       get 'profile'
       get 'card'
@@ -42,8 +43,6 @@ Rails.application.routes.draw do
   # end       
 
 
-
-  resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] 
 
 
 
