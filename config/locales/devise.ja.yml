@@ -24,7 +24,13 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
-        nickname: "ニックネーム"
+        nickname: ニックネーム
+        first_name: "姓"
+        last_name: "名"
+        first_name_read: "姓カナ"
+        last_name_read: "名カナ"
+        phone_num: "電話番号"
+        birthday: "生年月日"
       address:
         zip_code: "郵便番号"
         address1: "市区町村"
