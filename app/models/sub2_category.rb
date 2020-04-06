@@ -50,5 +50,5 @@ class Sub2Category < ApplicationRecord
 #     {id: 4, name: 'スニーカー'}, {id: 5, name: 'ミュール'}, {id: 6, name: 'モカシン'},
 #     {id: 7, name: 'ファー/革靴'}, {id: 8, name: 'フラットシューズ/バレエシューズ'}, {id: 9, name: '長靴/レインシューズ'},
 #     {id: 10, name: 'その他'}, 
-# end
+end
 
