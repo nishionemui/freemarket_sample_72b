@@ -19,10 +19,14 @@ Rails.application.routes.draw do
       get 'card'
       get 'address'
     end
+    collection do
+      get 'signout/:id'=> 'users#singout', as: 'signout'
+    end
   end
 #   profile_users GET    /users/profile(.:format)                                                                 users#profile
 #   card_users GET    /users/card(.:format)                                                                    users#card
 # address_users GET    /users/address(.:format)                                                                 users#address
+
 
 
   
@@ -38,9 +42,14 @@ Rails.application.routes.draw do
   # end       
 
 
+  resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] do
+
+
   resources :products do
     resources :comments, only: [:create, :destroy, :show]
+
   end
+  
   # root to: "products#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
