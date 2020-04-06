@@ -3,13 +3,13 @@ class SubCategory < ApplicationRecord
   has_many :sub2_categories
 
   # self.data = [レディース
-#     {id: 1, name: 'トップス'}, {id: 2, name: 'ジャケット/アウター'}, {id: 3, name: 'パンツ'},
-#     {id: 4, name: '・スカート'}, {id: 5, name: 'ワンピース'}, {id: 6, name: '靴'},
-#     {id: 7, name: 'ルームウェア・パジャマ'}, {id: 8, name: 'レッグウェア'}, {id: 9, name: '帽子'},
-#     {id: 10, name: 'バック'}, {id: 11, name: '・アクセサリー'}, {id: 12, name: 'ヘアアクセサリー'},
-#     {id: 13, name: '小物'}, {id: 14, name: '時計'}, {id: 15, name: 'ウィッグ/エクステ'},
-#     {id: 16, name: '浴衣/水着'}, {id: 17, name: 'スーツ/フォーマル/ドレス'}, {id: 18, name: 'マタニティ'},
-#     {id: 19, name: 'その他'},
+  #   {id: 1, name: 'トップス'}, {id: 2, name: 'ジャケット/アウター'}, {id: 3, name: 'パンツ'},
+  #   {id: 4, name: '・スカート'}, {id: 5, name: 'ワンピース'}, {id: 6, name: '靴'},
+  #   {id: 7, name: 'ルームウェア・パジャマ'}, {id: 8, name: 'レッグウェア'}, {id: 9, name: '帽子'},
+  #   {id: 10, name: 'バック'}, {id: 11, name: '・アクセサリー'}, {id: 12, name: 'ヘアアクセサリー'},
+  #   {id: 13, name: '小物'}, {id: 14, name: '時計'}, {id: 15, name: 'ウィッグ/エクステ'},
+  #   {id: 16, name: '浴衣/水着'}, {id: 17, name: 'スーツ/フォーマル/ドレス'}, {id: 18, name: 'マタニティ'},
+  #   {id: 19, name: 'その他'},
   
 
 #     self.data = [メンズ
@@ -77,12 +77,18 @@ class SubCategory < ApplicationRecord
   # self.data = [チケット
   #   {id: 1, name: '音楽'}, {id: 2, name: 'スポーツ'}, {id: 3, name: '演劇/芸能'},
   #   {id: 4, name: 'イベント'}, {id: 5, name: '映画'}, {id: 6, name: '施設利用券'},
-  #   {id: 7, name: '優待券/'}, {id: 8, name: '二次創作物'}, {id: 9, name: 'その他'},
-  #   {id: 10, name: 'その他のスポーツ'}, {id: 11, name: 'アウトドア'}, {id: 12, name: 'その他'},
-  #   {id: 13, name: 'その他'}, {id: 14, name: '行事/記念品'}, {id: 15, name: 'その他'},
-  #   {id: 16, name: '浴衣/水着'}, {id: 17, name: 'スーツ/フォーマル/ドレス'}, {id: 18, name: 'マタニティ'},
-  #   {id: 19, name: 'その他'},
+  #   {id: 7, name: '優待券/割引券'}, {id: 8, name: 'その他'}, 
   
+  # self.data = [自動車・オートバイ
+  #   {id: 1, name: '自動車本体'}, {id: 2, name: '自動車タイヤ/ホイール'}, {id: 3, name: '自動車パーツ'},
+  #   {id: 4, name: '自動車アクセサリー'}, {id: 5, name: 'オートバイ本体'}, {id: 6, name: 'オートバイパーツ'},
+  #   {id: 7, name: 'オートバイアクセサリー'},
+  
+  # self.data = [その他
+  #   {id: 1, name: 'すべて'}, {id: 2, name: 'まとめ売り'}, {id: 3, name: 'ペット用品'},
+  #   {id: 4, name: '食品'}, {id: 5, name: '飲料/酒'}, {id: 6, name: '日用品/生活雑貨/旅行'},
+  #   {id: 7, name: 'アンティーク/コレクション'}, {id: 8, name: '文房具/事務用品'}, {id: 9, name: '事務/店舗用品'},
+  #   {id: 10, name: 'その他'},
     
 # end
 
