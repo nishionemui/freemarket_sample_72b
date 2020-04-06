@@ -1,6 +1,6 @@
 .user-change
   = form_for @profile do |f|
-    .user-change-header
+    .user-change--header
       .change-title
         プロフィール
       .change-group
@@ -16,6 +16,6 @@
           = f.text_field :nickname, placeholder: "例) フリマ太郎",class: "nickname-field"
     .user-change-introduction
       .introduction
-        = f.text_area :introduction,placeholder: "",class: "introduction"
+        = f.text_area :introduction,placeholder: "",class: "introduction--text"
       .change-btn
         = f.submit '変更する',class: "send-btn"

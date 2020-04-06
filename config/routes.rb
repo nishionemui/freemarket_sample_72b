@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
 
   resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] do
+  end
 
 
   resources :products do
