@@ -1,36 +1,63 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.header
+  .header__box
+    .header__box__up
+      .header__box__up--icon
+        = link_to image_tag('logo.png', class: "btn"),root_path
+      .header__box__up--search
+        = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
+          = button_tag type: 'submit', class: 'search-btn' do
+            %i.fas.fa-search.click 
+
+    .header__box__under
+      .header__box__under__left
+        %ul.left--box
+          %li.list__category
+            = link_to "#", class:"first-btn" do
+              カテゴリー
+          %li.list__category
+            = link_to "#", class:"first-btn" do
+              ブランド
+      .header__box__under__right
+        %ul.right--box
+          -if user_signed_in?
+            %li.list__login
+              = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
+          -else
+            %li.list__login
+              = link_to "ログイン",new_user_session_path, class:"btn"
+            %li.list__category
+              = link_to "新規会員登録",signup_index_path, class:"btn"
+
+.edit-email
+  .edit-email-group
+    .edit-email-title
+      メール/パスワード
+    .edit-email-form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .edit-form
+          .email
+            = f.label :email, "メールアドレス"
+            .email-group
+              = f.text_field :email,placeholder: "PC・携帯どちらでも可",class: "email-field"
+            .email-content
+              メールアドレスを変更すると確認メールが送信されます。
+              メール内のURLをクリックすると変更完了です。
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .now-pass
+          = f.label :current_password, "現在のパスワード"
+          %br/
+          = f.password_field :current_password, autocomplete: "current-pass-field"
+        .new-pass
+          = f.label :password, "新しいのパスワード"
+          %br/
+          = f.password_field :password, autocomplete: "now-pass",placeholder: "7文字以上の半角英数字"
+        .Confirm-pass
+          = f.label :password_confirmation, "新しいのパスワード確認"
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "新しいパスワード再入力"
+        .send
+          = f.submit "変更する"

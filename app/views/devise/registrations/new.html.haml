@@ -23,8 +23,16 @@
     .user-content-header
       会員情報入力
     .user-content-main
-      = form_for(@user, url: user_registration_path) do |f|
+      = form_for(@user, html: { id: :user_form } , url: user_registration_path)do |f|
         = render "devise/shared/error_messages", resource: @user
+        .use-image
+          = f.label :user_image do
+            #user-img_field{:onclick => "$('#user-file').click()"}
+              - if @user.user_image.present?
+                = image_tag @user.user_image.url, class: 'user-img-icon'
+              - else
+                = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
+            = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
         .nickname
           = f.label :nickname, "ニックネーム"
           %span.form-group__require 必須
@@ -45,7 +53,7 @@
         .email
           = f.label :email, "メールアドレス"
           %span.form-group__require 必須
-          .email-grpup
+          .email-group
             = f.text_field :email,placeholder: "PC・携帯どちらでも可",class: "email-field"
         .pass
           = f.label :password, "パスワード"

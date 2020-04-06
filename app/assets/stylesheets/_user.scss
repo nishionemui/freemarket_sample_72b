@@ -271,14 +271,14 @@
 
 // < 会員情報入力ページ >
 .user-content{
-  height: 1400px;
+  height: 1500px;
   width: 100%;
   background-color: rgb(234, 232, 232);
   .user-content-all{
     width: 700px;
     background-color: white;
     margin:  auto;
-    height: 1200px;
+    height: 1400px;
     .user-content-header{
       height: 100px;
       width: 100%;
@@ -324,20 +324,21 @@
         .nickname-group,
         .name-group,
         .name-read-group,
-        .email-grpup,
+        .email-group,
         .pass-group,
         .pass-two-group,
         .phone-num{
           height: 55px;
           width: 100%;
           display: flex;
+          margin: auto;
           .nickname-field,
           .email-field,
           .pass-field,
           .pass-two-field,
           .phone-field{
             height: 45px;
-            width: 100%;
+            width: 338px;
             outline: none;
             border-radius: 5px;
             padding-left: 10px;
@@ -349,7 +350,7 @@
             width: 160px;
             border: 1px solid rgb(234, 232, 232);
             border-radius: 5px;
-            padding-left: 10px;
+            padding-left: 5px;
           }
           .last-name-field,
           .last-name-read-field{
@@ -395,6 +396,45 @@
           padding-left: 10px;
           background-color: white;
         }
+      }
+      .use-image{
+        height: 100px;
+        width: 100px;
+        margin-bottom: 25px;
+        margin: 20px auto;
+        border-radius:  50%;
+        #user_user_image{
+          height: 100px;
+          width: 100px;
+          background-color: red;
+          border-radius: 50%;
+        }
+        .user-img-icon{
+          height: 100px;
+          width: 100px;
+          background-color: white;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+        .before-icon{
+          height: 100px;
+          width: 100px;
+          background-color: white;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+        .preview{
+          height: 100px;
+          width: 100px;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+      }
+      .user-image-field{
+        display: none;
       }
     }
   }
@@ -713,5 +753,18 @@
         }
       }
     }
+  }
+}
+#error_explanation{
+  color: rgb(255, 0, 0);
+  font-size: 12px;
+  height: 80px;
+  width: 310px;
+  li{
+    background-color: rgb(252, 225, 225);
+    border-radius: 5px;
+    height: 20px;
+    width: 220px;
+    margin-top: 2px;
   }
 }
