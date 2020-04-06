@@ -25,4 +25,5 @@ class Product < ApplicationRecord
 
   # add_index :products, :product_name
 
+
 end
