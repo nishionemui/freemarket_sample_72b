@@ -1,0 +1,76 @@
+.header
+  .header__box
+    .header__box__up
+      .header__box__up--icon
+        = link_to image_tag('logo.png', class: "btn"),root_path
+      .header__box__up--search
+        = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
+          = button_tag type: 'submit', class: 'search-btn' do
+            %i.fas.fa-search.click 
+
+    .header__box__under
+      .header__box__under__left
+        %ul.left--box
+          %li.list__category
+            = link_to "#", class:"first-btn" do
+              カテゴリー
+          %li.list__category
+            = link_to "#", class:"first-btn" do
+              ブランド
+      .header__box__under__right
+        %ul.right--box
+          -if user_signed_in?
+            %li.list__login
+              = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
+          -else
+            %li.list__login
+              = link_to "ログイン",new_user_session_path, class:"btn"
+            %li.list__category
+              = link_to "新規会員登録",signup_index_path, class:"btn"
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .card__box
+      .card__box__head
+        %h2 支払い方法
+      .card__content
+        .card__content__textbox
+          %h3.card__content__textbox__text クレジットカード一覧
+        .set__card
+          .submit_button
+            = link_to  new_user_card_path(current_user.id),class: "btn-red" do
+              %i.far.fa-credit-card
+                クレジットカードを追加する
+ 
+        .set__regist
+          %a{:href => '#'}
+            %span 支払い方法について
+            %i.fas.fa-chevron-right
+
+.footer
+  .footer__content
+    %ul.footer__content__up
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "会社概要（運営会社）",root_path, class:"btn"
+        %p.text--content= link_to "プライバシーポリシー",root_path, class:"btn"
+        %p.text--content= link_to "FURIMA利用規約",root_path, class:"btn"
+        %p.text--content= link_to "ポイントに関する特約",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAを見る
+        %p.text--content= link_to "カテゴリー一覧",root_path, class:"btn"
+        %p.text--content= link_to "ブランド一覧",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "FURIMAガイド",root_path, class:"btn"
+        %p.text--content= link_to "FURIMAロゴ利用ガイドライン",root_path, class:"btn"
+        %p.text--content= link_to "お知らせ",root_path, class:"btn"
+    .footer__content__under
+      = link_to image_tag('logo-white.png', class: "btn"),root_path
+      %p © FURIMA
+
+%a{:href => "/products/new"}
+  .exhibition-btn
+    %span.exhibition-btn__text 出品する
+    %img.exhibition-btn__icon{:src => "/assets/icon_camera.png"}/

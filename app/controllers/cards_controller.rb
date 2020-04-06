@@ -1,13 +1,16 @@
 class CardsController < ApplicationController
+
+
   def show
+    @card = Card.find(params[:id])
   end
 
   def new
     @card = Card.new
+  
   end
 
   def create
-    @card = Card.new
   end
 
   def edit
@@ -19,11 +22,6 @@ class CardsController < ApplicationController
   end
 
   def destroy
-  end
-
-  private 
-  def card_params 
-    # params.require (:card).permit(:card_id, :token, :customer_id, :).merge(user_id: current_user.id)
   end
 
 end
