@@ -73,17 +73,21 @@
                 %td
               %tr
                 %th 商品の状態
-                %td 新品/未使用
+                %td
+                  = @product.condition.value
               %tr
                 %th 配送料の負担
-                %td 着払い（購入者負担）
+                %td
+                  = @product.delivery_fee.value
               %tr
                 %th 発送元の地域
                 %td
-                  = link_to '北海道', "#"
+                  = link_to "#" do
+                    = @product.prefecture.name
               %tr
                 %th 発送日の目安
-                %td 1-2日で発送
+                %td
+                  = @product.delivery_date.value
         .products-box__option
           .favorite
             .favorite__btn
@@ -103,8 +107,8 @@
             .comment-btn
               = c.submit "", class: "comment-btn__submit"
               %i.fa.fa-comment コメントする
-        .buy-btn
-          = link_to "購入する", purchase_products_path, class:"link"
+        .purchase-btn
+          = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
       .product-links
         .product-links__before
           = link_to "#", class: "product-link-btn" do
