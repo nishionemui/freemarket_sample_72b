@@ -24,11 +24,6 @@ ActiveRecord::Schema.define(version: 2020_03_31_085823) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "card_id", null: false
@@ -71,14 +66,14 @@ ActiveRecord::Schema.define(version: 2020_03_31_085823) do
     t.bigint "user_id", null: false
     t.string "product_name", null: false
     t.text "description", null: false
-    t.bigint "brand_id", null: false
-    t.bigint "condition_id", null: false
-    t.bigint "size_id", null: false
-    t.bigint "delivery_fee_id", null: false
-    t.bigint "delivery_way_id", null: false
-    t.bigint "delivery_date_id", null: false
+    t.bigint "brand_id", default: 0
+    t.bigint "condition_id", default: 0, null: false
+    t.bigint "size_id", default: 0, null: false
+    t.bigint "delivery_fee_id", default: 0, null: false
+    t.bigint "delivery_way_id", default: 0, null: false
+    t.bigint "delivery_date_id", default: 0, null: false
     t.integer "price", null: false
-    t.bigint "prefecture_id", null: false
+    t.bigint "prefecture_id", default: 0, null: false
     t.integer "buyer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
