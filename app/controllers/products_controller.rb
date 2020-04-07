@@ -14,10 +14,10 @@ class ProductsController < ApplicationController
   def create
     @products = Product.create(product_params)
     # if @products.save
-    #   params[:images]['image'].each do |img|
-    #     @products_image = @products.images.create(:image => img, :product_id => @product.id)
+    #   product_params[:images]['image'].each do |img|
+    #     @image = @products.images.create(:image => img, :product_id => @products.id)
     #   end
-    #   redirect_to product_path(@product.id)
+    #   redirect_to product_path(@products.id)
     # end
   end
 
