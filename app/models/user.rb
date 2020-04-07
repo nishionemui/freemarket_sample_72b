@@ -35,6 +35,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one :address
   has_one :card
+  # belongs_to :card
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :card
 
