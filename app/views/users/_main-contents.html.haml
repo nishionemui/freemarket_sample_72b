@@ -23,7 +23,8 @@
       %li
         %a.mypage-item__list-link{href: "#"}
           %figure
-            %img{:src => "/assets/hako1.png"}/
+            -# %img{:src => "/assets/hako1.png"}/
+            = image_tag 'hako1.png'
           .mypage-item__body
             .mypage-item__text 事務局からのメッセージ
           %time
@@ -35,7 +36,7 @@
       %li
         %a.mypage-item__list-link{href: "#"}
           %figure
-            %img{:src => "/assets/hako1.png"}/
+            = image_tag 'hako1.png'
           .mypage-item__body
             .mypage-item__text 現在やることはありません
             %time
