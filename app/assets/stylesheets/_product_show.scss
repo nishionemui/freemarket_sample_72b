@@ -31,7 +31,7 @@
       margin: 0 auto;
       .products-box {
         background-color: #fff;
-        padding: 24px 40px 0 40px;
+        padding: 24px 40px 40px 40px;
         &__name {
           text-align: center;
           font-weight: bold;
@@ -195,6 +195,20 @@
               left: 41%;
               color: #fff;
             }
+          }
+        }
+        .purchase-btn {
+          line-height: 48px;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          width: 55%;
+          border-radius: 100px;
+          text-align: center;
+          margin: 0 auto;
+          &__text {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
           }
         }
       }

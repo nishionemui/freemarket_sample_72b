@@ -1,4 +1,10 @@
 class ProductsController < ApplicationController
+
+  # active:hashメソッド定義した場合使う
+  # before_action :set_condition, only: [:show]
+  # before_action :set_prefecture, only: [:show]
+  # before_action :set_delivery, only: [:show]
+
   def index
 
     @product = Product.all
@@ -48,4 +54,21 @@ class ProductsController < ApplicationController
   def product_params 
     params.require(:product).permit(:product_name, :description, :brand_id, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, images_attributes: [:id, :product_id, :image]).merge(user_id: current_user.id)
   end
+
+  # # 商品の状態
+  # def set_condition
+  #   @condition = Condition.find(@product.condition_id)
+  # end
+
+  # # 配送元地域
+  # def set_prefecture
+  #   @prefecture = Prefecture.find(@product.prefecture_id)
+  # end
+
+  # # 発送日目安、配送方法、配送料の負担
+  # def set_delivery
+  #   @delivery_fee = DeliveryFee.find(@product.delivery_fee_id)
+  #   @delivery_way = DeliveryWay.find(@product.delivery_way_id)
+  #   @delivery_date = DeliveryDate.find(@product.delivery_date_id)
+  # end
 end
