@@ -38,7 +38,7 @@
         %h2 クレジットカード情報入力
       .card__regist__content
         .card__regist__content__box
-          = form_with model: @card, url: '#', method: 'POST', id: 'card_id', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate', html: { name: 'inputForm' } do |f|
+          = form_with model: @card, url: '#', method: 'POST', id: 'card_id', class: 'card__registration-form', novalidate: 'novalidate', html: { name: 'inputForm' } do |f|
             .card-info__content
               .card-info__content__form-group
                 %label{ for: 'payment_card_no' } カード番号
@@ -47,19 +47,19 @@
                 %ul.card-info__has-error-text{ id: 'card-no-error-wrapper' }
                 %ul.card-info__list
                   %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/visa.svg?1152353370', width: '45', height: '25'
+                    = image_tag 'viza.png', width: '40', height: '30'
                   %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/master-card.svg?1152353370', width: '34', height: '20'
+                    = image_tag 'ms.png', width: '34', height: '20'
                   %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/saison-card.svg?1152353370', width: '30', height: '20'
+                    = image_tag 'dc.png', width: '30', height: '20'
                   %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/jcb.svg?1152353370', width: '32', height: '20'
+                    = image_tag 'dis.png', width: '30', height: '45'
                   %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/american_express.svg?1152353370', width: '21', height: '20'
+                    = image_tag 'saison.png', width: '21', height: '20'
                   %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?1152353370', width: '32', height: '20'
+                    = image_tag 'ame.png', width: '30', height: '20'
                   %li
-                    = image_tag '//pcweb-assets.mercdn.net/assets/img/card/discover.svg?1152353370', width: '32', height: '20'
+                    = image_tag 'jcb.png', width: '32', height: '20'
               .card-info__form-expire
                 %label{ for: 'payment_card_expire' } 有効期限
                 %span.card-info__form-require 必須
@@ -74,7 +74,7 @@
               .card-info__form-group
                 %label{ for: 'payment_card_security_code' } セキュリティコード
                 %span.card-info__content-require 必須
-                %input.card-info__input-default{ type: 'text', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号' }
+                %input.card-info__input-default{ type: 'texinteger', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: '4' }
                 %ul.signup-main__has-error-text{ id: 'security-code-error-wrapper' }
                 .card-info__seqcode
                   .card-info__seqcode--text{ id: 'seqcode-tips-toggle' }
