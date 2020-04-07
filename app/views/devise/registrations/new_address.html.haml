@@ -23,7 +23,7 @@
     .user-content-header
       送付先情報入力
     .user-content-main
-      = form_for @address, id: "address_form"  do |f|
+      = form_for @address do |f|
         .zip-code
           = f.label :zip_code, "郵便番号"
           %span.form-group__require 必須
