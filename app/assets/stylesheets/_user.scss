@@ -348,9 +348,8 @@
               margin-top: 8px;
               height: 20px;
               width: 125px;
-              // border: 1px solid red;
-              // border-radius: 5px;
-              text-align: center;
+              text-align: left;
+              margin-left: 5px;
             }
           }
           .last{
@@ -376,10 +375,8 @@
               margin-top: 8px;
               height: 20px;
               width: 125px;
-              // border: 1px solid red;
-              // border-radius: 5px;
-              text-align: center;
-              margin-left: 10px;
+              text-align: left;
+              margin-left: 15px;
             }
           }
         }
@@ -403,9 +400,8 @@
               margin-top: 8px;
               height: 20px;
               width: 125px;
-              // border: 1px solid red;
-              // border-radius: 5px;
-              text-align: center;
+              text-align: left;
+              margin-left: 5px;
             }
             .first-name-read-field.invalid{
               border: #ea352d 2px solid;
@@ -427,10 +423,8 @@
               margin-top: 8px;
               height: 20px;
               width: 125px;
-              // border: 1px solid red;
-              // border-radius: 5px;
-              text-align: center;
-              margin-left: 10px;
+              text-align: left;
+              margin-left: 15px;
             }
             .last-name-read-field.invalid{
               border: #ea352d 2px solid;
@@ -552,14 +546,14 @@
 
 // < 送付先情報入力ページ >
 .user-content-two{
-  height: 1000px;
+  height: 1100px;
   width: 100%;
   background-color: rgb(234, 232, 232);
   .user-content-all-two{
     width: 650px;
     background-color: white;
     margin:  auto;
-    height: 800px;
+    height: 900px;
     .user-content-header{
       height: 100px;
       width: 100%;
@@ -579,9 +573,9 @@
       .address,
       .address-last,
       .prefecture{
-        height: 80px;
+        height: 100px;
         width: 100%;
-        margin-bottom: 25px;
+        margin-bottom: 35px;
         .form-group__require{
           height: 30px;
           width: 60px;
@@ -605,7 +599,7 @@
         .address-last-group{
           height: 55px;
           width: 100%;
-          display: flex;
+          // display: flex;
           .zip-code-field,
           .city-field{
             height: 45px;
@@ -630,6 +624,16 @@
             border: 1px solid rgb(234, 232, 232);
             border-radius: 5px;
           }
+          .zip-code-field.invalid,
+          .prefecture-field.invalid,
+          .city-field.invalid,
+          .address-field.invalid{ 
+            border: #ea352d 2px solid;
+          }
+          input[type=text]:focus {
+            outline: none;
+            border-color: #0098E8;
+          }
         }
         .send-btn{
           height: 45px;
@@ -645,6 +649,37 @@
     }
   }
 }
+// < 送付先情報登録エラー文字 >
+#zip-code-error,
+#prefecture-error,
+#city-error,
+#address1-error{
+  color: #ea352d;
+  line-height:20px ;
+  font-size: 10px;
+  margin-top: 8px;
+  height: 20px;
+  width: 150px;
+  text-align: left;
+  margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // < 登録完了ページ コンテント >
 .user-content-fin{
@@ -975,8 +1010,7 @@
   font-size: 10px;
   margin-top: 8px;
   height: 20px;
-  width: 160px;
-  // border: 1px solid red;
-  // border-radius: 5px;
-  text-align: center;
+  width: 200px;
+  text-align: left;
+  margin-left: 5px;
 }
