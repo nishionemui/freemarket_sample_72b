@@ -1,11 +1,11 @@
-.purchase-verification{
+.purchase-done {
   height: 100%;
   width: 100%;
   background-color: #eae8e8;
   &__header {
-    height: 60px;
+    height: 70px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 30px;
     &__logo {
       .btn {
         height: 50px;
@@ -20,95 +20,54 @@
     width: 700px;
     margin: 0 auto;
     &__up {
-      padding: 16px;
-      font-size: 25px;
-      text-align: center;
+      background-color: #fff6de;
+      h2 {
+        padding: 32px 16px 0;
+        font-size: 20px;
+        text-align: center;
+        color: red;
+      }
+      h3 {
+        padding: 15px 16px 32px;
+        font-size: 15px;
+        text-align: center;
+      }
     }
     // ここから商品
+    &__explanation {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+      padding-top: 10px;;
+      
+
+    }
     &__box {
-      margin: 0 auto;
+      display: flex;
+      justify-content: center;
       .product {
-        margin: 0 auto;
         .photo {
           background-color: red;
           height: 150px;
           width: 150px;;
-          margin: 0 auto;
-          // text-align: center;
-          // margin: 0 50px 10px;
+          text-align: center;
+          margin: 0 50px 10px;
         }
         .name {
           text-align: center;
         }
       }
       .detail {
-        display: flex;
-        justify-content: center;
-        .money,
-        .postage {
+        height: 50px;
+        width: 200px;
+        text-align: center;
+        padding-top: 130px;
+        .money {
           font-size: 20px;
         }
       }
     } 
-
-    &__pay {
-      margin: 0 auto;
-      width: 320px;
-
-      &__point {
-        background-color: #ccc;
-        margin: 16px 0 0;
-        color: #333;
-        padding: 14px;
-        border: 1px solid #ccc;
-        font-size: 14px;
-        text-align: center;
-      }
-      &__money {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px;
-        font-size: 20px;;
-      }
-      &__decision {
-        background-color: #ea352d;
-        margin: 16px 0 0;
-        padding: 14px;
-        border: 1px solid #ea352d;
-        font-size: 14px;
-        text-align: center;
-        // #payjp_checkout_box {
-        //   display: none;
-        .form-buy {
-          width: 100%;
-          height: 100%;
-          
-        }
-        #payjp_checkout_box {
-          background-color: transparent;
-          border: none;
-          cursor: pointer;
-          outline: none;
-          padding: 0;
-          appearance: none;
-
-        }
-      }
-    
-      // &__sold {
-      //   background-color: #ccc;
-      //   margin: 16px 0 0;
-      //   padding: 14px;
-      //   border: 1px solid #ea352d;
-      //   font-size: 14px;
-      //   text-align: center;
-      //   .sold-btn {
-      //     color: white;
-      //     text-decoration: none;
-      //   }
-      // }
-    }
-    
     &__delivery {
       margin-top: 40px;
       padding: 0 150px 0; 
@@ -129,7 +88,7 @@
       }
     }  
     &__payment {
-      margin: 20px 0 20px;
+      margin: 40px 0 20px;
       padding: 0 150px 30px;
       .method {
         font-size: 15px;
@@ -139,7 +98,7 @@
         }
         &--change {
           text-align: end;
-          &--btn {
+          .address--change--btn {
             color: #0099e8;
             font-size: 14px;
             text-decoration: none;
@@ -147,6 +106,25 @@
         }
       }
     }  
+    &__return {
+      margin: 40px 0 20px;
+      padding: 0 200px 30px;
+      text-align: center;
+      &__box {
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        border-radius: 100px;
+        height: 50px;
+        width: 300px;
+        line-height: 50px;
+        text-align: center;
+
+      }
+      .return_btn {
+        text-decoration: none;
+        color: white;
+      }
+    }
   }
 
 
@@ -178,4 +156,3 @@
     }
   }
 }
-
