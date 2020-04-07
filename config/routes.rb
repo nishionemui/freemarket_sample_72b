@@ -28,10 +28,6 @@ Rails.application.routes.draw do
 #   card_users GET    /users/card(.:format)                                                                    users#card
 # address_users GET    /users/address(.:format)                                                                 users#address
 
-
-
-  
-
   # get "signup", to: "signup#index"
   # resources :signup do
   #   collection do
@@ -41,9 +37,7 @@ Rails.application.routes.draw do
   #     get 'complete_signup'  #登録完了後
   #   end
   # end       
-
-
-
+  
   resources :products do
     resources :comments, only: [:create, :destroy, :show]
     collection do
