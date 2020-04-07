@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_085823) do
     t.bigint "delivery_date_id", default: 0, null: false
     t.integer "price", null: false
     t.bigint "prefecture_id", default: 0, null: false
-    t.integer "buyer_id", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
