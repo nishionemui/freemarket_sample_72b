@@ -17,7 +17,7 @@
             .image-upload__drop-box__area
               = i.label :image, class: "dropzone-box", for: "upload-image" do
                 .input-area
-                  = i.file_field :image, name: "item[images_attributes][][image_url]", value:"", id:"img-file", class: "upload-image"
+                  = i.file_field :image, multiple: true, name: "item[images_attributes][][image_url]", value:"", id:"img-file", class: "upload-image"
                 %p ドラッグアンドドロップ
                 %br またはクリックしてファイルをダウンロード
 

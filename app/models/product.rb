@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :main_categories, dependent: :destroy
   # has_many :images, dependent: :destoroy  
   has_many :images
+  accepts_nested_attributes_for   :images
   has_many :comments, dependent: :destroy
 
   belongs_to_active_hash :brand, presence: true
