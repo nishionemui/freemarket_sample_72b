@@ -47,10 +47,10 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments, only: [:create, :destroy, :show]
     collection do
-      get 'purchase/:id'=> 'tweets#purchase', as: 'purchase'   
-      post 'pay/:id'=> 'tweets#pay', as: 'pay'#httpメソッドはpostなので注意
-      get 'done'=> 'tweets#done', as: 'done'
-      end
+      get 'purchase/:id'=> 'products#purchase', as: 'purchase'
+      post 'pay/:id'=> 'products#pay', as: 'pay'#httpメソッドはpostなので注意
+      get 'done'=> 'products#done', as: 'done'
+    end
   end
   
   # root to: "products#index"

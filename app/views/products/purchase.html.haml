@@ -23,8 +23,10 @@
         .purchase-done__main__pay__money--right
           ¥◯◯◯◯
       .purchase-done__main__pay__decision
-        = link_to "#", class:"decision-btn" do
-          購入する
+        = form_tag(action: :pay, method: :post, class: "form-buy") do
+          %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => ENV['PAYJP_KEY'], class: "buy-button"}
+        -# = link_to "#", class:"decision-btn" do
+        -#   購入する
     .purchase-done__main__delivery
       .address
         %ul.address--delivery
@@ -33,7 +35,7 @@
         %li 東京都渋谷区神南1-18-2
         %li 購入 太郎
         .address--change
-          = link_to "#", class:"address--change--btn" do
+          = link_to address_user_path(current_user.id), class:"address--change--btn" do
             変更する
     .purchase-done__main__payment
       .method
@@ -44,6 +46,8 @@
         .method--change
           = link_to "#", class:"method--change--btn" do
             変更する
+
+          
        
 
   .purchase-done__footer

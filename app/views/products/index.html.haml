@@ -100,19 +100,23 @@
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
     %ul.main__fifth__box
-      -# - @product = 1..3
+
       - @product.each do |product|
         %li.main__fifth__box--new
-          = link_to "products#show", class: "show-btn" do
+          =link_to product_path(current_user.id), class: "show-btn" do
             .photo
             .comment
               .comment--name
-                = product.product_name
+                =product.product_name
+
               %ul.comment--price
                 %li= product.price
                 %li.i.fa.fa-star
                 %li.count 0
               %p.tax (税込み)
+
+
+
       -# %li.main__fifth__box--new
       -#   =link_to"#", class: "show-btn" do
       -#     .photo
