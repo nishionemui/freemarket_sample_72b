@@ -27,6 +27,9 @@ class ProductsController < ApplicationController
     @comments = @product.comments.includes(:user)
   end
 
+  def purchase
+  end
+
   def pay
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       charge = Payjp::Charge.create(
@@ -35,6 +38,10 @@ class ProductsController < ApplicationController
       card: params['payjp-token'],
       currency: 'jpy'
       )
+      redirect_to done_products_path
+  end
+
+  def done
   end
 
   private 

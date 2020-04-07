@@ -103,7 +103,8 @@
             .comment-btn
               = c.submit "", class: "comment-btn__submit"
               %i.fa.fa-comment コメントする
-
+        .buy-btn
+          = link_to "購入する", purchase_products_path, class:"link"
       .product-links
         .product-links__before
           = link_to "#", class: "product-link-btn" do
