@@ -54,9 +54,9 @@ class CardsController < ApplicationController
 
   # require "payjp"
   
-  # # def show
-  # #   @card = Card.find(params[:id])
-  # # end
+  def show
+    @card = Card.find(params[:id])
+  end
 
   def new
     @card = Card.new
@@ -108,14 +108,14 @@ class CardsController < ApplicationController
   #   end
   # end
 
-  def show #Cardのデータpayjpに送り情報を取り出します
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "new" 
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
-  end
+  # def show #Cardのデータpayjpに送り情報を取り出します
+  #   card = Card.where(user_id: current_user.id).first
+  #   if card.blank?
+  #     redirect_to action: "new" 
+  #   else
+  #     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+  #     customer = Payjp::Customer.retrieve(card.customer_id)
+  #     @default_card_information = customer.cards.retrieve(card.card_id)
+  #   end
+  # end
 end

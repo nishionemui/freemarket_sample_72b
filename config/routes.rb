@@ -14,14 +14,7 @@ Rails.application.routes.draw do
 
   resources :signup, only: [:index, :show]
   resources :users, only: [:show, :create, :new, :destroy,:update] do
-    # resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] 
-    resources :cards, only: [:show, :new] do
-      collection do
-        post 'show',to: 'card#show'
-        post 'pay',to: 'card#pay'
-        post 'delete',to: 'card#delete'
-      end
-    end
+    resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] 
     member do
       get 'profile'
       get 'card'
