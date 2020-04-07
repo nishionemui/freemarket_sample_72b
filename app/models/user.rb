@@ -37,5 +37,6 @@ class User < ApplicationRecord
   has_one :card
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :card
+
   mount_uploader :user_image, ImageUploader
 end
