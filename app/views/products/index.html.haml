@@ -100,39 +100,54 @@
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
     %ul.main__fifth__box
-      %li.main__fifth__box--new
-        =link_to"#", class: "show-btn" do
-          .photo
-          .comment
-            .comment--name
-              商品名
-            %ul.comment--price
-              %li 値段
-              %li.i.fa.fa-star
-              %li.count 0
-            %p.tax (税込み)
-      %li.main__fifth__box--new
-        =link_to"#", class: "show-btn" do
-          .photo
-          .comment
-            .comment--name
-              商品名
-            %ul.comment--price
-              %li 値段
-              %li.i.fa.fa-star
-              %li.count 0
-            %p.tax (税込み)
-      %li.main__fifth__box--new
-        =link_to"#", class: "show-btn" do
-          .photo
-          .comment
-            .comment--name
-              商品名
-            %ul.comment--price
-              %li 値段
-              %li.i.fa.fa-star
-              %li.count 0
-            %p.tax (税込み)
+      - @product.each do |product|
+        %li.main__fifth__box--new
+          =link_to product_path(current_user.id), class: "show-btn" do
+            .photo
+            .comment
+              .comment--name
+                =product.product_name
+              %ul.comment--price
+                %li= product.price
+                %li.i.fa.fa-star
+                %li.count 0
+              %p.tax (税込み)
+
+
+
+      -# %li.main__fifth__box--new
+      -#   =link_to"#", class: "show-btn" do
+      -#     .photo
+      -#     .comment
+      -#       .comment--name
+      -#         商品名
+      -#       %ul.comment--price
+      -#         %li 値段
+      -#         %li.i.fa.fa-star
+      -#         %li.count 0
+      -#       %p.tax (税込み)
+      -# %li.main__fifth__box--new
+      -#   =link_to"#", class: "show-btn" do
+      -#     .photo
+      -#     .comment
+      -#       .comment--name
+      -#         商品名
+      -#       %ul.comment--price
+      -#         %li 値段
+      -#         %li.i.fa.fa-star
+      -#         %li.count 0
+      -#       %p.tax (税込み)
+      -# %li.main__fifth__box--new
+      -#   =link_to"#", class: "show-btn" do
+      -#     .photo
+      -#     .comment
+      -#       .comment--name
+      -#         商品名
+      -#       %ul.comment--price
+      -#         %li 値段
+      -#         %li.i.fa.fa-star
+      -#         %li.count 0
+      -#       %p.tax (税込み)
   
   .main__sixth
     .main__sixth__top
