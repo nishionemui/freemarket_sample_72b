@@ -6,10 +6,8 @@ class ProductsController < ApplicationController
   # before_action :set_delivery, only: [:show]
 
   def index
-
-    @product = Product.all
-    # @products =[]
-    # @products <<  @product
+  @product = Product.all
+  @parents = MainCategory.all.order("id ASC").limit(1)
   end
   
   def new
