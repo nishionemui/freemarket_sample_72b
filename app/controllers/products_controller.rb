@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 
   def index
   @product = Product.all
-  @parents = MainCategory.all.order("id ASC").limit(13)
+  @parents = MainCategory.all.order("id ASC").limit(1)
   end
   
   def new
@@ -45,11 +45,11 @@ class ProductsController < ApplicationController
     @comments = @product.comments.includes(:user)
   end
 
-  # def destroy
-  #   product = Product.find(params[:id])
-  #   product.destroy
-  #   render :destory
-  # end
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
+  end
 
   def purchase
   end
