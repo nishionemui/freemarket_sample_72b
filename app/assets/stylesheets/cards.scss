@@ -1,190 +1,391 @@
-.card__box{
+.chapter__container{
   height:400px; 
   width:700px;
-  &__head{
+  .chapter__head{
   background-color:white ;
   height:50px;
   padding: 8px 24px;
   border-bottom: 1px solid #dad7d7;
   text-align: center;
-  h2{
-    line-height: 45px;
-    font-size: 25px;
-    font-weight: 600;
+    .chapter__head{
+      line-height: 45px;
+      font-size: 25px;
+      font-weight: 600;
+      }
   }
-}
-  .card__content{
+  .payment__main{
     background-color:white ;
-    height:200px;
+    height:400px;
     padding:64px;
-    &__textbox{
-      max-width: 320px;
+    
+    .payment__list{
+      font-size: 16px;
+      font-weight: 550;
       margin: 0 auto;
-      &__text{
-        font-size: 16px;
-        font-weight: 550;
+   
+      .payment__list__content{
+        .sub__head{
+          padding-left: 120px;
+          font-weight: 600;
+        }
       }
     }
-      .card__list{
-      border-bottom: 1px solid #e8e4e4;
+    .add__card{
       margin: 0 auto;
-      }
-      .set__card{
-        margin: 0 auto;
-        padding: 24px 0;
-        border-bottom: 1px solid rgb(218, 215, 215);
-        .btn-red{
+      display: block;
+      line-height: 48px;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      padding: 24px 0;
+      border-bottom: 1px solid #eee;
+      .payment__list__content{
+        margin:0 auto;
+        max-width: 320px;
+        background: #ea352d;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+  
+    cursor: pointer;
+    text-align: center;
+        .red__btn{
           background: #ea352d;
           border: 1px solid #ea352d;
           color: #fff;
-        }
-        .submit_button{
-          display: block;
-          max-width: 320px;
-          line-height: 48px;
-          font-size: 14px;
-          cursor: pointer;
-          text-align: center;
-          margin: 0 auto;
-         }
-        a{
-          color: #fff;
-          display: block;
-          width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          cursor: pointer;
-          text-align: center;
           text-decoration: none;
-          margin-right: 5px;
           }
         }
-      .set__regist{
-        display: block;
-        margin: 40px 0 0;
-        text-align: right;
-        a{
-          text-decoration: none;
-        }
       }
-    }
-  }
-
-
-///カード情報編集ページ
-
-
-.card__regist{
-  height:700px;
-  width:700px;
-  &__head{
-  background-color:white ;
-  height:50px;
-  padding: 8px 24px;
-  border-bottom: 1px solid #dad7d7;
-  text-align: center;
-  h2{
-    line-height: 45px;
-    font-size: 25px;
-    font-weight: 600;
-    }
-  }
-  &__content{
-    background-color:white ;
-    height:500px;
-    padding:64px;
-    
-    &__box{
-    max-width: 343px;
-    margin: 0 auto;
-
-    label{
-      font-weight: 600;
-      display: inline-block;
-      touch-action: manipulation;
-    }
-    .card-info__content-require{
-    background: #ea352d;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
-    }
-    .card-info__input-default{
-    width: 308px;
-    margin: 8px 0 0;
-    height: 25px;
-    padding: 10px 16px 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: #fff;
-    line-height: 1.5;
-    font-size: 16px;
-    }
-    .card-info__has-error-text{
-    color: #ea352d;
-    line-height: 1.5;
-    font-size: 14px;
-    }
-    .card-info__list {
-      margin-top: 8px;
-      margin-bottom: 25px;
-      font-size: 0;
-      li {
-        display: inline-block;
-        margin: 0 0 0 8px;
-        vertical-align: middle;
-      }
-    }
-    .card-info__form-expire{
-      display: inline-block;
-      width: calc(50% - 2px);
-      &__deadline{
-        cursor: pointer;
-        .form-card__month__select,
-        .form-card__year__select{
-          height: 45px;
-          width: 70px;
-          border: 1px solid #eae8e8;
-          border-radius: 5px;
-          padding-left: 10px;
-          background-color: white;
-        }
-      }
-    }
-    .card-info__seqcode {
-      position: relative;
-      bottom :5px;
-      margin-top: 8px;
-      &--text{
-        color: #0099e8;
-        float: right;
-        font-size:14px;
-        margin-bottom:40px;
-        }
-      }
-    .card-info__content--form--btn{
-      height:70px;
-      width:100%;
-      background: #ea352d;
-      border: 1px solid #ea352d;
-      scroll-padding-top: 40px;
-
-      a{
-      color: #fff;
-      display: block;
-      width: 100%;
-      line-height: 70px;
-      font-size: 14px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-        }
-      }
+    .not__regist{
+    display: block;
+    margin: 40px 0 0;
+    text-align: right;
     }
   }
 }
+
+
+///カード情報編集ページ
+.main__content{
+  width: 100%;
+  height: 600px;
+  background-color:white ;
+  .chapter__container{
+    background-color:white ;
+    padding: 8px 24px;
+    margin: 0 auto;
+    h2{
+      line-height: 45px;
+      font-size: 25px;
+      font-weight: 600;
+      }
+      .chapter__container__inner{
+        padding: 8px 24px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 320px;
+        .form__main__container{
+          
+          .form__content{
+            .input__deafult{
+            width: 300px;
+            margin: 8px 0 0;
+            height: 25px;
+            padding: 10px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            }
+            .card-info__list {
+              margin-top: 8px;
+              margin-bottom: 25px;
+              font-size: 0;
+              li {
+                display: inline-block;
+                margin: 0 0 0 8px;
+                vertical-align: middle;
+              }
+            }
+            .require__form{
+            background: #ea352d;
+            margin: 4px 0 0 8px;
+            padding: 0 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+            }
+          }
+          .form__content.top__margin{
+            margin-top:20px;
+            margin-bottom:20px;
+
+            .select__box.top__margin{
+              display:flex;
+              .select__box__half{
+                width:50%;
+                .select__default{
+                  height: 45px;
+                  width: 70px;
+                  border: 1px solid #eae8e8;
+                  border-radius: 5px;
+                  padding-left: 10px;
+                  background-color: white;
+                }
+              }
+            }
+          }
+          .form__content.top__margin{
+            .cvc{
+              width: 300px;
+              margin: 8px 0 0;
+              height: 25px;
+              padding: 10px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+            }
+            .single__code {
+              margin:0 0 0 auto;
+              margin-top: 8px;
+   
+              .single__code__text{
+                span{
+                color: #0099e8;
+                float: right;
+                font-size:14px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  label{
+    font-weight: 600;
+    display: inline-block;
+    touch-action: manipulation;
+  }   
+        .btn-a{
+          height:70px;
+          width:100%;
+          color:white;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          scroll-padding-top: 40px;
+          text-decoration: none;
+          font-family: sans-serif;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 1.5;
+          letter-spacing: normal;
+          cursor: pointer;
+          }
+        }
+      }
+
+
+
+
+
+// .card__box{
+//   height:400px; 
+//   width:700px;
+//   &__head{
+//   background-color:white ;
+//   height:50px;
+//   padding: 8px 24px;
+//   border-bottom: 1px solid #dad7d7;
+//   text-align: center;
+//   h2{
+//     line-height: 45px;
+//     font-size: 25px;
+//     font-weight: 600;
+//   }
+// }
+//   .card__content{
+//     background-color:white ;
+//     height:200px;
+//     padding:64px;
+//     &__textbox{
+//       max-width: 320px;
+//       margin: 0 auto;
+//       &__text{
+//         font-size: 16px;
+//         font-weight: 550;
+//       }
+//     }
+//       .card__list{
+//       border-bottom: 1px solid #e8e4e4;
+//       margin: 0 auto;
+//       }
+//       .set__card{
+//         margin: 0 auto;
+//         padding: 24px 0;
+//         border-bottom: 1px solid rgb(218, 215, 215);
+//         .btn-red{
+//           background: #ea352d;
+//           border: 1px solid #ea352d;
+//           color: #fff;
+//         }
+//         .submit_button{
+//           display: block;
+//           max-width: 320px;
+//           line-height: 48px;
+//           font-size: 14px;
+//           cursor: pointer;
+//           text-align: center;
+//           margin: 0 auto;
+//          }
+//         a{
+//           color: #fff;
+//           display: block;
+//           width: 100%;
+//           line-height: 48px;
+//           font-size: 14px;
+//           cursor: pointer;
+//           text-align: center;
+//           text-decoration: none;
+//           margin-right: 5px;
+//           }
+//         }
+//       .set__regist{
+//         display: block;
+//         margin: 40px 0 0;
+//         text-align: right;
+//         a{
+//           text-decoration: none;
+//         }
+//       }
+//     }
+//   }
+
+
+// ///カード情報編集ページ
+
+
+// .card__regist{
+//   height:700px;
+//   width:700px;
+//   &__head{
+//   background-color:white ;
+//   height:50px;
+//   padding: 8px 24px;
+//   border-bottom: 1px solid #dad7d7;
+//   text-align: center;
+//   h2{
+//     line-height: 45px;
+//     font-size: 25px;
+//     font-weight: 600;
+//     }
+//   }
+//   &__content{
+//     background-color:white ;
+//     height:500px;
+//     padding:64px;
+    
+//     &__box{
+//     max-width: 343px;
+//     margin: 0 auto;
+
+//     label{
+//       font-weight: 600;
+//       display: inline-block;
+//       touch-action: manipulation;
+//     }
+//     .card-info__content-require{
+//     background: #ea352d;
+//     margin: 0 0 0 8px;
+//     padding: 2px 4px;
+//     border-radius: 2px;
+//     color: #fff;
+//     font-size: 12px;
+//     vertical-align: top;
+//     }
+//     .card-info__input-default{
+//     width: 308px;
+//     margin: 8px 0 0;
+//     height: 25px;
+//     padding: 10px 16px 8px;
+//     border-radius: 4px;
+//     border: 1px solid #ccc;
+//     background: #fff;
+//     line-height: 1.5;
+//     font-size: 16px;
+//     }
+//     .card-info__has-error-text{
+//     color: #ea352d;
+//     line-height: 1.5;
+//     font-size: 14px;
+//     }
+//     .card-info__list {
+//       margin-top: 8px;
+//       margin-bottom: 25px;
+//       font-size: 0;
+//       li {
+//         display: inline-block;
+//         margin: 0 0 0 8px;
+//         vertical-align: middle;
+//       }
+//     }
+//     .card-info__form-expire{
+//       display: inline-block;
+//       width: calc(50% - 2px);
+//       &__deadline{
+//         cursor: pointer;
+//         .form-card__month__select,
+//         .form-card__year__select{
+//           height: 45px;
+//           width: 70px;
+//           border: 1px solid #eae8e8;
+//           border-radius: 5px;
+//           padding-left: 10px;
+//           background-color: white;
+//         }
+//       }
+//     }
+//     .card-info__seqcode {
+//       position: relative;
+//       bottom :5px;
+//       margin-top: 8px;
+//       &--text{
+//         color: #0099e8;
+//         float: right;
+//         font-size:14px;
+//         margin-bottom:40px;
+//         }
+//       }
+//     .card-info__content--form--btn{
+//       height:70px;
+//       width:100%;
+//       background: #ea352d;
+//       border: 1px solid #ea352d;
+//       scroll-padding-top: 40px;
+
+//       .btn{
+//         color: white;
+//         text-decoration: none;
+//         font-family: sans-serif;
+//         font-weight: normal;
+//         font-size: 16px;
+//         line-height: 1.5;
+//         letter-spacing: normal;
+//         border: none;
+//         background: transparent;
+//         margin: 0;
+//         padding: 0;
+//         outline: none;
+//         cursor: pointer;
+//         }
+//       }
+//     }
+//   }
+// }
 
