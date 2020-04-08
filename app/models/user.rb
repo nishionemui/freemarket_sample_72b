@@ -13,10 +13,6 @@ class User < ApplicationRecord
 #             :last_name_read,
 #             :phone_num,
 #             :birthday,presence: true
-# # < 全角漢字 >
-#   validates :first_name, 
-#             :last_name,
-#             format: {with:/\A[一-龥]+\z/}
 # # < 全角カナ >
 #   validates :first_name_read,
 #             :last_name_read,
