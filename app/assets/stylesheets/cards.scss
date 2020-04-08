@@ -155,15 +155,24 @@
             .single__code {
               margin:0 0 0 auto;
               margin-top: 8px;
-   
-              .single__code__text{
-                span{
-                color: #0099e8;
-                float: right;
-                font-size:14px;
-              }
+              display: flex;
+              justify-content: flex-end;
+                .single__code__text{
+
+              
+                  .form__question{
+                    color: #0099e8;
+                    // float: right;
+                    font-size:14px;
+                  }
+                  .card{
+                    color: #0099e8;
+                    // float: right;
+                    font-size:14px;
+                  }
+                }
+            
             }
-          }
         }
       }
     }
