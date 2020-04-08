@@ -1,10 +1,11 @@
 class Address < ApplicationRecord
   belongs_to :user, optional: true
-  validates :zip_code,
-            :address1, 
-            presence: true
-  validates :zip_code,
-            format:{with:/\A\d{3}[-]\d{4}\z/}
+  # validates :zip_code,
+  #           :address1, 
+  #           presence: true
+  # validates :zip_code,
+  #           format:{with:/\A\d{3}[-]\d{4}\z/}
+
 
 
   enum prefecture_id:{

@@ -3,6 +3,10 @@
     .user-box__contents
       %figure
         = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
+        -# - if @user.user_image.present?
+        -#   = image_tag @user.user_image.url 
+        -# - else 
+        -#   = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
         %h2.user_box__contents__name
           = @user.nickname
       .user_box__contents__info

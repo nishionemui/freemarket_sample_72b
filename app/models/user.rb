@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
 # < バリデーション >
 # < 空ではない >
 #   validates :nickname,
@@ -40,4 +41,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :card
 
   mount_uploader :user_image, ImageUploader
+ 
 end
