@@ -31,8 +31,8 @@ $(function () {
         password: true
       },
       "user[password_confirmation]": {
-        required: true, // 入力有無チェック
-        equalTo: "user[password]"
+        required: true // 入力有無チェック
+        // equalTo: "user[password]"
       },
       "user[first_name]": {
         required: true 
