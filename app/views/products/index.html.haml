@@ -100,15 +100,13 @@
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
     %ul.main__fifth__box
-
-      - @product.each do |product|
+      - @product.last(3).each do |product|
         %li.main__fifth__box--new
           =link_to product_path(product.id), class: "show-btn" do
             .photo
             .comment
               .comment--name
                 =product.product_name
-
               %ul.comment--price
                 %li= product.price
                 %li.i.fa.fa-star
@@ -159,13 +157,13 @@
         = link_to "#", class: "main__sixth__top--under--btn" do
           アーカイバ
     %ul.main__sixth__box
-      - @product.each do |product|
+      - @product.last(3).each do |product|
         %li.main__sixth__box--new
-          = link_to"#", class: "show-btn" do
+          =link_to product_path(product.id), class: "show-btn" do
             .photo
             .comment
               .comment--name
-                = product.product_name
+                =product.product_name
               %ul.comment--price
                 %li= product.price
                 %li.i.fa.fa-star
