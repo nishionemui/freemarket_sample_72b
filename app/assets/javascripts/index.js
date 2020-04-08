@@ -3,3 +3,10 @@ $(function() {
     alert('サインインしてください');
   });
 });
+
+// $(function() {
+//   $('.categories').click(function() {
+//     $('.parent').show();
+ 
+//   });
+// });
