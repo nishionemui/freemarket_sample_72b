@@ -11,15 +11,16 @@
           = f.label "出品画像"
           %span 必須
         %p 最大５枚までアップロードできます
-        = f.fields_for :images do |i|
-          .image-upload__drop-box
-            #preview
-            .image-upload__drop-box__area
-              = i.label :image, class: "dropzone-box", for: "upload-image" do
-                .input-area
-                  = i.file_field :image, multiple: true, type: 'file', name: "images[image][]", id:"img-file", class: "upload-image"
-                %p ドラッグアンドドロップ
-                %br またはクリックしてファイルをダウンロード
+        .upload-image
+          .prev-content
+          .label-content
+            = f.label :image, class: "dropzone-box", for: "item_images_attributes_0_image", id: "label-box--0" do
+              %pre.label-box クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |image|
+                = image.file_field :image, multiple: true, name: "images[images_attributes][][image_url]", id:"img-file", class: "upload-image",  value:""
+              
+              
 
       .sale-contents
         .required-item
