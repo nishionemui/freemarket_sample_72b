@@ -367,6 +367,7 @@ button{
       display: flex;
       justify-content: space-around;
       margin: 0 auto;
+      flex-direction: row-reverse;
       
 
       &--new {
@@ -447,15 +448,15 @@ button{
       display: flex;
       justify-content: space-around;
       margin: 0 auto;
+      flex-direction: row-reverse;
       
 
       &--new {
-        // background-color:red;
+        // background-color: blue;
         width: 200px;
         height: 240px;
         margin-top: 10px;
         margin-bottom: 100px;
-        
         .show-btn {
           text-decoration: none;
         }
@@ -485,10 +486,12 @@ button{
               margin-right: 20px;
               font-size: 18px;
               line-height: 18px;
+
             }
           }
           .tax {
             font-size: 7px;
+
           }
         }
       }
@@ -496,7 +499,7 @@ button{
         opacity: 0.5;
       }
     }
-  }
+   }
   &__seventh {
     height: 300px;
     background-image: image-url('bg-appBanner-pict.jpg');

@@ -27,25 +27,45 @@ class ProductsController < ApplicationController
     # end
   end
 
+  def edit
+    @products = Product.find(params[:id])
+    @image = @products.images.build
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to product_path(@product.id)
+    else
+      render :edit
+    end
+  end
+
   def show
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
+  end
+
   def purchase
   end
 
-  # def pay
-  #     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-  #     charge = Payjp::Charge.create(
-  #     # amount: @product.price,
-  #     amount: 300,
-  #     card: params['payjp-token'],
-  #     currency: 'jpy'
-  #     )
-  #     redirect_to done_products_path
-  # end
+  def pay
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      charge = Payjp::Charge.create(
+      # amount: @product.price,
+      amount: 300,
+      card: params['payjp-token'],
+      currency: 'jpy'
+      )
+      redirect_to done_products_path
+  end
 
   def done
   end

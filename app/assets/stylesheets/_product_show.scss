@@ -197,7 +197,9 @@
             }
           }
         }
-        .purchase-btn {
+        .purchase-btn,
+        .edit-btn,
+        .delete-btn {
           line-height: 48px;
           background: #3CCACE;
           border: 1px solid #3CCACE;
@@ -205,6 +207,7 @@
           border-radius: 100px;
           text-align: center;
           margin: 0 auto;
+          margin-bottom: 20px;
           &__text {
             color: #fff;
             text-decoration: none;
