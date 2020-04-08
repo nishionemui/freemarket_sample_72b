@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # def set_parents
+  #   @parents = MainCategory.where(ancestry: nil)
+  # end
+
   
 
   protected
