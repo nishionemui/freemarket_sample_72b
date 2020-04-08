@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :signup, only: [:index, :show]
   resources :users, only: [:show, :create, :new, :destroy,:update] do
-    resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] 
+    # resources :cards, only: [:show, :new, :create, :edit, :update, :destroy] 
     member do
       get 'profile'
       get 'card'
@@ -24,6 +24,16 @@ Rails.application.routes.draw do
       get 'signout/:id'=> 'users#singout', as: 'signout'
     end
   end
+
+  resources :cards, only: [:create, :show, :edit] do
+    collection do
+      post 'delete', to: 'card#delete'
+      post 'show'
+    end
+    member do
+      get 'confirmation'
+    end
+  end 
 #   profile_users GET    /users/profile(.:format)                                                                 users#profile
 #   card_users GET    /users/card(.:format)                                                                    users#card
 # address_users GET    /users/address(.:format)                                                                 users#address
