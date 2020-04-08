@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(sign_up_params)
+    # @user = User.new(configure_sign_up_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
@@ -40,7 +41,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name,:last_name,:first_name_read,:last_name_read,:phone_num, :birthday, :user_image])
   end
 
   def address_params
