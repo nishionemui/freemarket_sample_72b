@@ -100,55 +100,33 @@
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
     %ul.main__fifth__box
-      - @product.last(3).each do |product|
-        %li.main__fifth__box--new
-          =link_to product_path(product.id), class: "show-btn" do
-            .photo
-            .comment
-              .comment--name
-                =product.product_name
-              %ul.comment--price
-                %li= product.price
-                %li.i.fa.fa-star
-                %li.count 0
-              %p.tax (税込み)
+      - if user_signed_in?
+        - @product.last(3).each do |product|
+          %li.main__fifth__box--new
+            =link_to product_path(product.id), class: "show-btn" do
+              .photo
+              .comment
+                .comment--name
+                  =product.product_name
+                %ul.comment--price
+                  %li= product.price
+                  %li.i.fa.fa-star
+                  %li.count 0
+                %p.tax (税込み)
+      -else
+        - @product.last(3).each do |product|
+          %li.main__fifth__box--new
+            =link_to products_path, class: "no-btn" do
+              .photo
+              .comment
+                .comment--name
+                  =product.product_name
+                %ul.comment--price
+                  %li= product.price
+                  %li.i.fa.fa-star
+                  %li.count 0
+                %p.tax (税込み)
 
-
-
-      -# %li.main__fifth__box--new
-      -#   =link_to"#", class: "show-btn" do
-      -#     .photo
-      -#     .comment
-      -#       .comment--name
-      -#         商品名
-      -#       %ul.comment--price
-      -#         %li 値段
-      -#         %li.i.fa.fa-star
-      -#         %li.count 0
-      -#       %p.tax (税込み)
-      -# %li.main__fifth__box--new
-      -#   =link_to"#", class: "show-btn" do
-      -#     .photo
-      -#     .comment
-      -#       .comment--name
-      -#         商品名
-      -#       %ul.comment--price
-      -#         %li 値段
-      -#         %li.i.fa.fa-star
-      -#         %li.count 0
-      -#       %p.tax (税込み)
-      -# %li.main__fifth__box--new
-      -#   =link_to"#", class: "show-btn" do
-      -#     .photo
-      -#     .comment
-      -#       .comment--name
-      -#         商品名
-      -#       %ul.comment--price
-      -#         %li 値段
-      -#         %li.i.fa.fa-star
-      -#         %li.count 0
-      -#       %p.tax (税込み)
-  
   .main__sixth
     .main__sixth__top
       .main__sixth__top--up
@@ -157,52 +135,31 @@
         = link_to "#", class: "main__sixth__top--under--btn" do
           アーカイバ
     %ul.main__sixth__box
-      - @product.last(3).each do |product|
-        %li.main__sixth__box--new
-          =link_to product_path(product.id), class: "show-btn" do
-            .photo
-            .comment
-              .comment--name
-                =product.product_name
-              %ul.comment--price
-                %li= product.price
-                %li.i.fa.fa-star
-                %li.count 0
-              %p.tax (税込み)
-
-      -# %li.main__sixth__box--new
-      -#   =link_to"#", class: "show-btn" do
-      -#     .photo
-      -#     .comment
-      -#       .comment--name
-      -#         商品名
-      -#       %ul.comment--price
-      -#         %li 値段
-      -#         %li.i.fa.fa-star
-      -#         %li.count 0
-      -#       %p.tax (税込み)
-      -# %li.main__sixth__box--new
-      -#   =link_to"#", class: "show-btn" do
-      -#     .photo
-      -#     .comment
-      -#       .comment--name
-      -#         商品名
-      -#       %ul.comment--price
-      -#         %li 値段
-      -#         %li.i.fa.fa-star
-      -#         %li.count 0
-      -#       %p.tax (税込み)
-      -# %li.main__sixth__box--new
-      -#   =link_to"#", class: "show-btn" do
-      -#     .photo
-      -#     .comment
-      -#       .comment--name
-      -#         商品名
-      -#       %ul.comment--price
-      -#         %li 値段
-      -#         %li.i.fa.fa-star
-      -#         %li.count 0
-      -#       %p.tax (税込み)
-
+      - if user_signed_in?
+        - @product.last(3).each do |product|
+          %li.main__sixth__box--new
+            =link_to product_path(product.id), class: "show-btn" do
+              .photo
+              .comment
+                .comment--name
+                  =product.product_name
+                %ul.comment--price
+                  %li= product.price
+                  %li.i.fa.fa-star
+                  %li.count 0
+                %p.tax (税込み)
+      -else
+        - @product.last(3).each do |product|
+          %li.main__sixth__box--new
+            =link_to products_path, class: "no-btn" do
+              .photo
+              .comment
+                .comment--name
+                  =product.product_name
+                %ul.comment--price
+                  %li= product.price
+                  %li.i.fa.fa-star
+                  %li.count 0
+                %p.tax (税込み)
 
 = render "footer"

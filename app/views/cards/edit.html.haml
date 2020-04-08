@@ -102,8 +102,8 @@
               = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
               .single__code
                 .single__code__text
-                %span.form__question ? 
-                %span カードの裏面の番号とは？
+                  %span.form__question ? 
+                  %span.card カードの裏面の番号とは？
             #card_token
             = submit_tag "追加する", id: "token_submit", class: "btn-a"
 -# .wrraper
