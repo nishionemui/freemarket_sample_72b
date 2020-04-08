@@ -10,8 +10,8 @@ $(function () {
     name_read : function (value, element) {  //カタカナの正規表現
       return this.optional(element) || /^[ァ-ヴ]+$/.test(value);
     },
-    // phone : function (value, element) {  //カタカナの正規表現
-    //   return this.optional(element) || /^0\d{9,10}$/.test(value);
+    // phone : function (value, element) {  //電話の正規表現
+    //   return this.optional(element) || /^\d{2,5}-\d{1,4}-\d{4}$/.test(value);
     // },
   }
   // メソッドの追加
@@ -52,7 +52,7 @@ $(function () {
         name_read: true
       },
       "user[phone_num]": {
-        required: true 
+        required: true
         // phone: true
       },
     },
@@ -103,6 +103,12 @@ $(function () {
     $(this).valid();
   });
 });
+
+
+
+
+
+
 
 
 $(function () {

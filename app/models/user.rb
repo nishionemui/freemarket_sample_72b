@@ -6,13 +6,13 @@ class User < ApplicationRecord
 
 # < バリデーション >
 # < 空ではない >
-#   validates :nickname,
-#             :first_name, 
-#             :last_name,
-#             :first_name_read,
-#             :last_name_read,
-#             :phone_num,
-#             :birthday,presence: true
+  # validates :nickname,
+  #           :first_name, 
+  #           :last_name,
+  #           :first_name_read,
+  #           :last_name_read,
+  #           :phone_num,
+  #           :birthday,presence: true
 # # < 全角カナ >
 #   validates :first_name_read,
 #             :last_name_read,
@@ -32,9 +32,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one :address
   # has_one :card
-  belongs_to :card
+  # belongs_to :card
   accepts_nested_attributes_for :address
-  accepts_nested_attributes_for :card
+  # accepts_nested_attributes_for :card
 
   mount_uploader :user_image, ImageUploader
  
