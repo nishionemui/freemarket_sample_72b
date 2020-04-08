@@ -45,11 +45,11 @@ class ProductsController < ApplicationController
     @comments = @product.comments.includes(:user)
   end
 
-  # def destroy
-  #   product = Product.find(params[:id])
-  #   product.destroy
-  #   render :destory
-  # end
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    render :destory
+  end
 
   def purchase
   end
