@@ -16,13 +16,13 @@
           %li.list__category
             = link_to "#", class:"first-btn" do
               %ul.categories カテゴリー
-              %ul.parent
-              - @parents.each do |parent|
-                %li.parent= parent.main_name
-                - parent.children.each do |child|
-                  %li.child= child.main_name 
-                  -# - child.children.each do |grandchild|
-                  -#   %li= grandcild.main_name
+              -# %ul.parent
+              -# - @parents.each do |parent|
+              -#   %li.parent= parent.main_name
+              -#   - parent.children.each do |child|
+              -#     %li.child= child.main_name 
+              -#     -# - child.children.each do |grandchild|
+              -#     -#   %li= grandcild.main_name
           %li.list__category
             = link_to "#", class:"first-btn" do
               ブランド

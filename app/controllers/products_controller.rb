@@ -17,17 +17,11 @@ class ProductsController < ApplicationController
 
   def create
     @products = Product.create(product_params)
-    # if @products.save
-    #   product_params[:images]['image'].each do |img|
-    #     @image = @products.images.create(:image => img, :product_id => @products.id)
-    #   end
-    #   redirect_to product_path(@products.id)
-    # end
+    @products.save
   end
 
   def edit
     @products = Product.find(params[:id])
-    @image = @products.images.build
   end
 
   def update
@@ -71,7 +65,7 @@ class ProductsController < ApplicationController
 
   private 
   def product_params 
-    params.require(:product).permit(:product_name, :description, :brand_id, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:product_name, :description, :brand_id, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image]]).merge(user_id: current_user.id)
   end
 
   # # 商品の状態

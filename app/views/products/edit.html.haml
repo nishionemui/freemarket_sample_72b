@@ -11,15 +11,32 @@
           = f.label "出品画像"
           %span 必須
         %p 最大５枚までアップロードできます
-        = f.fields_for :images do |i|
-          .image-upload__drop-box
-            #preview
-            .image-upload__drop-box__area
-              = i.label :image, class: "dropzone-box", for: "upload-image" do
-                .input-area
-                  = i.file_field :image, multiple: true, type: 'file', name: "images[image][]", id:"img-file", class: "upload-image"
-                %p ドラッグアンドドロップ
-                %br またはクリックしてファイルをダウンロード
+        
+        .upload-image
+          .prev-content
+          - @products.images.each do |image|
+            .preview-box
+              .upper-box
+                = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+              .lower-box
+                .delete-box
+                  .delete-btn
+                    %span 削除
+          .label-content
+
+            //プレビューの数に合わせてforオプションを指定
+            = f.label :"images_attributes_#{@products.images.length}_image", class: "label-box", id: "label-box--#{@products.images.length}" do
+              %pre.label-box__text-visible クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :images do |i|
+
+              //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+              = i.file_field :image, class: "hidden-field"
+              = i.check_box:_destroy, class: "hidden-checkbox"
+
+              //5つのfile_fieldを準備するに当たって、足りない分を表示
+            - @products.images.length.upto(4) do |i|
+              %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
 
       .sale-contents
         .required-item
