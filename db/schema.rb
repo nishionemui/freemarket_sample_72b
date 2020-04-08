@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_040827) do
+ActiveRecord::Schema.define(version: 2020_03_31_085823) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_040827) do
     t.string "main_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_main_categories_on_ancestry"
     t.index ["product_id"], name: "index_main_categories_on_product_id"
   end
 
