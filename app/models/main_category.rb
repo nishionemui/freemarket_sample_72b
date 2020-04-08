@@ -1,6 +1,10 @@
 class MainCategory < ApplicationRecord
-  belongs_to :product
-  has_many :sub_categories
+  # belongs_to :product
+  # has_many :sub_categories
+  has_many :products
+  has_ancestry
+
+
 
   # self.data = [
   #   {id: 1, name: 'レデース'}, {id: 2, name: 'メンズ'}, {id: 3, name: 'ベビー・キッズ'}

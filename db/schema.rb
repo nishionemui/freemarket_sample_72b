@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_085823) do
+ActiveRecord::Schema.define(version: 2020_04_08_040827) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
@@ -26,12 +26,10 @@ ActiveRecord::Schema.define(version: 2020_03_31_085823) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "card_id", null: false
-    t.bigint "customer_id", null: false
+    t.string "card_id", null: false
+    t.string "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["card_id"], name: "index_cards_on_card_id"
-    t.index ["customer_id"], name: "index_cards_on_customer_id"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
@@ -54,10 +52,12 @@ ActiveRecord::Schema.define(version: 2020_03_31_085823) do
   end
 
   create_table "main_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "product_id", null: false
+    t.bigint "product_id"
     t.string "main_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_main_categories_on_ancestry"
     t.index ["product_id"], name: "index_main_categories_on_product_id"
   end
 
@@ -124,6 +124,5 @@ ActiveRecord::Schema.define(version: 2020_03_31_085823) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "cards", "cards"
   add_foreign_key "cards", "users"
 end

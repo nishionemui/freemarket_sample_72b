@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+lady = MainCategory.create(:main_name=>"レディース")
+
+lady_tops = lady.children.create(:main_name=>"トップス")
+lady_jacket = lady.children.create(:main_name=>"ジャケット/アウター")
+
+lady_tops.children.create([{:main_name=>"Tシャツ/カットソー(半袖/袖なし)"}, {:main_name=>"Tシャツ/カットソー(七分/長袖)"},{:main_name=>"その他"}])
+lady_jacket.children.create([{:main_name=>"テーラードジャケット"}, {:main_name=>"ノーカラージャケット"}, {:main_name=>"Gジャン/デニムジャケット"},{:main_name=>"その他"}])
