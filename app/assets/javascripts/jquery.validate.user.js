@@ -10,6 +10,9 @@ $(function () {
     name_read : function (value, element) {  //カタカナの正規表現
       return this.optional(element) || /^[ァ-ヴ]+$/.test(value);
     },
+    // phone : function (value, element) {  //カタカナの正規表現
+    //   return this.optional(element) || /^0\d{9,10}$/.test(value);
+    // },
   }
   // メソッドの追加
   $.each(methods, function (key) {
@@ -32,7 +35,7 @@ $(function () {
       },
       "user[password_confirmation]": {
         required: true, // 入力有無チェック
-        equalTo: "user[password]"
+        equalTo: "#pass"
       },
       "user[first_name]": {
         required: true 
@@ -50,6 +53,7 @@ $(function () {
       },
       "user[phone_num]": {
         required: true 
+        // phone: true
       },
     },
     // エラーメッセージの定義
@@ -78,14 +82,15 @@ $(function () {
       },
       "user[first_name_read]": {
         required: "姓カナを入力してください。",
-        name_read: "カタカナを入力してください。"
+        name_read: "カタカナで入力してください。"
       },
       "user[last_name_read]": {
         required: "名カナを入力してください。",
-        name_read: "カタカナを入力してください。"
+        name_read: "カタカナで入力してください。"
       },
       "user[phone_num]": {
         required: "電話番号を入力してください。"
+        // phone: "「例)090-1234-5678」で入力してください"
       },
       
     },
