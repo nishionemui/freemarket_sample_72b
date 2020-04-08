@@ -298,7 +298,6 @@
       .email,
       .pass,
       .pass-two,
-      .birthday,
       .phone,
       .commit,
       .send{
@@ -490,15 +489,73 @@
           border-radius: 5px;
           color: white;
         }
-        #user_birthday_1i,
-        #user_birthday_2i,
-        #user_birthday_3i{
-          height: 45px;
-          width: 70px;
-          border: 1px solid rgb(234, 232, 232);
-          border-radius: 5px;
-          padding-left: 10px;
-          background-color: white;
+      }
+      .birthday{
+        height: 110px;
+        width: 100%;
+        margin-bottom: 25px;
+        .birthday-select{
+          // display: flex;
+          line-height: 45px;
+          #user_birthday_1i{
+            height: 45px;
+            width: 90px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+            background-color: white;
+          }
+          #user_birthday_2i{
+            height: 45px;
+            width: 90px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+            background-color: white;
+          }
+          #user_birthday_3i{
+            height: 45px;
+            width: 90px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+            background-color: white;
+          }
+          #user_birthday_1i-error{
+            color: #ea352d;
+            line-height:20px ;
+            font-size: 10px;
+            height: 20px;
+            position: absolute;
+          }
+          #user_birthday_2i-error{
+            color: #ea352d;
+            line-height:20px ;
+            font-size: 10px;
+            height: 20px;
+            position: absolute;
+            left: 660px;
+          }
+          #user_birthday_3i-error{
+            color: #ea352d;
+            line-height:20px ;
+            font-size: 10px;
+            height: 20px;
+            position: absolute;
+            left: 780px;
+          }
+          #user_birthday_1i.invalid{
+            border: #ea352d 2px solid;
+            position: relative;
+          }
+          #user_birthday_2i.invalid{
+            border: #ea352d 2px solid;
+            position: relative;
+          }
+          #user_birthday_3i.invalid{
+            border: #ea352d 2px solid;
+            position: relative;
+          }
         }
       }
       .use-image{
@@ -663,22 +720,6 @@
   text-align: left;
   margin-left: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // < 登録完了ページ コンテント >
@@ -863,7 +904,7 @@
       .email,
       .pass,
       .send{
-        height: 65px;
+        height: 90px;
         width: 378px;
         .email-group,
         .pass-group{
