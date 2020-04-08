@@ -112,7 +112,7 @@
             = link_to "編集", edit_product_path(@product.id), class:"edit-btn__text"
           .delete-btn
             = link_to '削除する', product_path, method: :delete, class:"delete-btn__text"
-        -else
+        - elsif user_signed_in?
           .purchase-btn
             = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
       .product-links
