@@ -3,6 +3,7 @@ class MainCategory < ApplicationRecord
   # has_many :sub_categories
   has_many :products
   has_ancestry
+
   # self.data = [
   #   {id: 1, name: 'レデース'}, {id: 2, name: 'メンズ'}, {id: 3, name: 'ベビー・キッズ'}
   #   {id: 4, name: 'インテリア・住まい・小物'}, {id: 5, name: '本・音楽・ゲーム'}, {id: 6, name: 'おもちゃ・ホビー・グッズ'},

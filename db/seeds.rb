@@ -3,8 +3,9 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ main_name: 'Star Wars' }, { main_name: 'Lord of the Rings' }])
-#   Character.create(main_name: 'Luke', movie: movies.first)
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
 lady = MainCategory.create(:main_name=>"レディース")
 
 lady_tops = lady.children.create(:main_name=>"トップス")
