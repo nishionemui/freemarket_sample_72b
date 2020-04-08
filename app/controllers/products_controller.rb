@@ -47,8 +47,11 @@ class ProductsController < ApplicationController
 
   def destroy
     product = Product.find(params[:id])
-    product.destroy
-    render :destory
+    if product.destroy
+      render :destory
+    else
+      redirect_to product_path(@product.id)
+    end
   end
 
   def purchase
