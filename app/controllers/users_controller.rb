@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   def new
     @user = User.new
   end
@@ -9,20 +8,12 @@ class UsersController < ApplicationController
     @user = User.create(use_params)
   end
 
-
   def show
     @user = User.find(params[:id])
-
   end
 
   def destroy
-    
   end
-
-  # def signout
-  #   # @user = User.find(params[:id])
-    
-  # end
 
   def profile
     @profile = User.find(params[:id])
@@ -49,10 +40,10 @@ class UsersController < ApplicationController
       if @address.update(address_params)
         redirect_to user_path(current_user.id)
       else
+        flash.now[:alert] = @address.errors.full_messages
         render :address
       end
     end
-
   end
 
   private 

@@ -32,14 +32,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
-  def edit_address
-  end
 
   protected
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-    # devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name,:last_name,:first_name_read,:last_name_read,:phone_num, :birthday, :user_image])
   end
 
   def address_params
