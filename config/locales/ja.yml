@@ -7,6 +7,22 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+
+    models:
+      product: "商品"
+    attributes:
+      product:
+        images: "出品画像"
+        product_name: "商品名"
+        description: "商品の説明"
+        main_categories: "カテゴリー"
+        condition: "商品の状態"
+        delivery_fee: "配送料の負担"
+        delivery_date: "配送料の方法"
+        delivery_way: "発送元の地域"
+        prefecture: "発送までの日数"
+        price: "販売価格"
+
   date:
     abbr_day_names:
     - 日
@@ -205,3 +221,4 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+

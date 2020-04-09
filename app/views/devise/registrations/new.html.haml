@@ -24,7 +24,6 @@
       会員情報入力
     .user-content-main
       = form_for(@user, html: { id: :user_form } , url: user_registration_path)do |f|
-        -# = render "devise/shared/error_messages", resource: @user
         .use-image
           = f.label :user_image do
             #user-img_field{:onclick => "$('#user-file').click()"}

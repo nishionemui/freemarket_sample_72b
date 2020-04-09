@@ -101,7 +101,9 @@
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
     %ul.main__fifth__box
+
       -# 掲載数を変更できます
+
       - @product.last(3).each do |product|
         %li.main__fifth__box--new
           =link_to product_path(product.id), class: "show-btn" do
@@ -115,6 +117,7 @@
                 %li.count 0
               %p.tax (税込み)
 
+
   .main__sixth
     .main__sixth__top
       .main__sixth__top--up
@@ -123,6 +126,7 @@
         = link_to "#", class: "main__sixth__top--under--btn" do
           アーカイバ
     %ul.main__sixth__box
+
       - @product.last(3).each do |product|
         %li.main__fifth__box--new
           =link_to product_path(product.id), class: "show-btn" do
@@ -135,5 +139,6 @@
                 %li.i.fa.fa-star
                 %li.count 0
               %p.tax (税込み)
+
 
 = render "footer"

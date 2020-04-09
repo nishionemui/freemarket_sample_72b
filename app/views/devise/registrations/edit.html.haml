@@ -27,37 +27,65 @@
               = link_to "ログイン",new_user_session_path, class:"btn"
             %li.list__category
               = link_to "新規会員登録",signup_index_path, class:"btn"
-.edit-email
-  .edit-email-group
-    .edit-email-title
-      メール/パスワード
-    .edit-email-form
-      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        .email
-          = f.label :email, "メールアドレス"
-          .email-group
-            = f.text_field :email,placeholder: "PC・携帯どちらでも可",class: "email-field"
-          .email-content
-            メールアドレスを変更すると確認メールが送信されます。
-            メール内のURLをクリックすると変更完了です。
-        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-          %div
-            Currently waiting confirmation for: #{resource.unconfirmed_email}
-        .current-pass
-          = f.label :current_password, "現在のパスワード"
-          %br/
-          .current-pass-group
-            = f.password_field :current_password, autocomplete: "current_password",class: "current-pass-field"
-        .new-pass
-          = f.label :password, "新しいのパスワード"
-          %br/
-          .new-pass-group
-            = f.password_field :password, autocomplete: "password",placeholder: "7文字以上の半角英数字",class: "new-pass-field"
-        .new-pass-two
-          = f.label :password_confirmation, "新しいのパスワード確認"
-          %br/
-          .pass-tow-group
-            = f.password_field :password_confirmation, autocomplete: "password_confirmation",placeholder: "新しいパスワード再入力",class: "new-pass-two-field"
-        .send
-          = f.submit "変更する",class: "send-btn"
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .edit-email
+      .edit-email-group
+        .edit-email-title
+          メール/パスワード
+        .edit-email-form
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { id: :edit_form } ) do |f|
+            .email
+              = f.label :email, "メールアドレス"
+              .email-group
+                = f.text_field :email,placeholder: "PC・携帯どちらでも可",class: "email-field",id: "email"
+              .email-content
+                メールアドレスを変更すると確認メールが送信されます。
+                メール内のURLをクリックすると変更完了です。
+            - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+              %div
+                Currently waiting confirmation for: #{resource.unconfirmed_email}
+            .current-pass
+              = f.label :current_password, "現在のパスワード"
+              %br/
+              .current-pass-group
+                = f.password_field :current_password, autocomplete: "current_password",class: "current-pass-field",id: "now-pass"
+            .new-pass
+              = f.label :password, "新しいのパスワード"
+              %br/
+              .new-pass-group
+                = f.password_field :password, autocomplete: "password",placeholder: "7文字以上の半角英数字",class: "new-pass-field",id: "pass"
+            .new-pass-two
+              = f.label :password_confirmation, "新しいのパスワード確認"
+              %br/
+              .pass-tow-group
+                = f.password_field :password_confirmation, autocomplete: "password_confirmation",placeholder: "新しいパスワード再入力",class: "new-pass-two-field",id: "pass-two"
+            .send
+              = f.submit "変更する",class: "send-btn"
+.footer
+  .footer__content
+    %ul.footer__content__up
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "会社概要（運営会社）",root_path, class:"btn"
+        %p.text--content= link_to "プライバシーポリシー",root_path, class:"btn"
+        %p.text--content= link_to "FURIMA利用規約",root_path, class:"btn"
+        %p.text--content= link_to "ポイントに関する特約",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAを見る
+        %p.text--content= link_to "カテゴリー一覧",root_path, class:"btn"
+        %p.text--content= link_to "ブランド一覧",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "FURIMAガイド",root_path, class:"btn"
+        %p.text--content= link_to "FURIMAロゴ利用ガイドライン",root_path, class:"btn"
+        %p.text--content= link_to "お知らせ",root_path, class:"btn"
+    .footer__content__under
+      = link_to image_tag('logo-white.png', class: "btn"),root_path
+      %p © FURIMA
+.vavavav
+  = link_to new_product_path  do
+    .exhibition-btn
+      %span.exhibition-btn__text 出品する
+      = image_tag "icon_camera.png", class: "exhibition-btn__icon"

@@ -18,7 +18,12 @@ class ProductsController < ApplicationController
 
   def create
     @products = Product.create(product_params)
-    @products.save
+    if @products.save
+      render :create
+    else
+      @image = @products.images.build
+      render :new
+    end
   end
 
   def edit
