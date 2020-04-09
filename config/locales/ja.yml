@@ -16,6 +16,7 @@ ja:
         product_name: "商品名"
         description: "商品の説明"
         main_categories: "カテゴリー"
+        size: "サイズ"
         condition: "商品の状態"
         delivery_fee: "配送料の負担"
         delivery_date: "配送料の方法"
