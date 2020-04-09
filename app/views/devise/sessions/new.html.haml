@@ -23,13 +23,13 @@
             = image_tag 'google.jpg', class:"google-photo-size"
         -# = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
     .log-in-bottom
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, html: { id: :login_form }, url: session_path(resource_name)) do |f|
         .email
           .email-group
-            = f.email_field :email, autofocus: true, autocomplete: "email-field",placeholder: "メールアドレス",class: "email-field"
+            = f.email_field :email, autofocus: true, autocomplete: "email-field",placeholder: "メールアドレス",class: "email-field",id: "email"
         .pass
           .pass-group
-            = f.password_field :password, autocomplete: "pass-field",placeholder: "パスワード",class: "pass-field"
+            = f.password_field :password, autocomplete: "pass-field",placeholder: "パスワード",class: "pass-field",id: "pass"
         .send
           = f.submit "ログイン",class: "send-btn"
         .foget-pass

@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
-
   # POST /resource
   def create
     @user = User.new(sign_up_params)
@@ -46,9 +45,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def address_params
     params.require(:address).permit(:zip_code, :prefecture_id, :city, :address1, :address2)
   end
-
-
-
   # GET /resource/edit
   # def edit
   #   super

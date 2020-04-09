@@ -1,3 +1,5 @@
+/* < 新規登録ページ > */
+/* < ユーザー登録情報 > */
 $(function () {
   // メソッドの定義
   var methods = {
@@ -10,9 +12,9 @@ $(function () {
     name_read : function (value, element) {  //カタカナの正規表現
       return this.optional(element) || /^[ァ-ヴ]+$/.test(value);
     },
-    // phone : function (value, element) {  //電話の正規表現
-    //   return this.optional(element) || /^\d{2,5}-\d{1,4}-\d{4}$/.test(value);
-    // },
+    phone : function (value, element) {  //電話の正規表現
+      return this.optional(element) || /^\d{2,5}-\d{1,4}-\d{4}$/.test(value);
+    },
   }
   // メソッドの追加
   $.each(methods, function (key) {
@@ -51,9 +53,18 @@ $(function () {
         required: true,
         name_read: true
       },
-      "user[phone_num]": {
+      "user[birthday(1i)]": {
         required: true
-        // phone: true
+      },
+      "user[birthday(2i)]": {
+        required: true
+      },
+      "user[birthday(3i)]": {
+        required: true
+      },
+      "user[phone_num]": {
+        required: true,
+        phone: true
       },
     },
     // エラーメッセージの定義
@@ -88,9 +99,18 @@ $(function () {
         required: "名カナを入力してください。",
         name_read: "カタカナで入力してください。"
       },
+      "user[birthday(1i)]": {
+        required: "年を入力してください。"
+      },
+      "user[birthday(2i)]": {
+        required: "月を入力してください。"
+      },
+      "user[birthday(3i)]": {
+        required: "日を入力してください。"
+      },
       "user[phone_num]": {
-        required: "電話番号を入力してください。"
-        // phone: "「例)090-1234-5678」で入力してください"
+        required: "電話番号を入力してください。",
+        phone: "「例)090-1234-5678」で入力してください"
       },
       
     },
@@ -99,18 +119,12 @@ $(function () {
     validClass: "valid", // バリデーションOKの場合に追加するクラス名の指定
   });
   // 入力欄をフォーカスアウトしたときにバリデーションを実行
-  $("#nickname, #email, #pass, #pass-two, #first-name, #last-name, #first-name-read,#last-name-read, #phone-num").blur(function () {
+  $("#nickname, #email, #pass, #pass-two, #first-name, #last-name, #first-name-read,#last-name-read, #phone-num, #user_birthday_1i").blur(function () {
     $(this).valid();
   });
 });
 
-
-
-
-
-
-
-
+/* < 送付先情報ページ > */
 $(function () {
   // メソッドの定義
   var methods = {
@@ -165,3 +179,51 @@ $(function () {
   });
 });
 
+/* < ログインページ > */
+$(function () {
+  // メソッドの定義
+  var methods = {
+    email: function (value, element) { // メールアドレスの正規表現
+      return this.optional(element) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(value);
+    },
+    password: function (value, element) { // パスワードの正規表現
+      return this.optional(element) || /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,100}$/i.test(value);
+    },
+  }
+  // メソッドの追加
+  $.each(methods, function (key) {
+    $.validator.addMethod(key, this);
+  });
+  // バリデーションの実行
+  $("#login_form").validate({
+    // ルール設定
+    rules: {
+      "user[email]": {
+        required: true, // 入力有無チェック
+        email: true // メールアドレスの正規表現チェック
+      },
+      "user[password]": {
+        required: true,// 入力有無チェック
+        password: true
+      },
+    },
+    // エラーメッセージの定義
+    messages: {
+      "user[email]": {
+        required: "メールアドレスを入力してください。",
+        email: "フォーマットが不適切です。"
+      },
+      "user[password]": {
+        required: "パスワードを入力してください。",
+        password: "英字と数字両方を含むパスワードを入力してください。"
+      },
+    },
+    errorClass: "invalid", // バリデーションNGの場合に追加するクラス名の指定
+    errorElement: "p", // エラーメッセージの要素種類の指定
+    validClass: "valid", // バリデーションOKの場合に追加するクラス名の指定
+  });
+  // 入力欄をフォーカスアウトしたときにバリデーションを実行
+  $(" #email, #pass").blur(function () {
+    $(this).valid();
+  });
+});

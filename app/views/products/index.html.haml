@@ -100,32 +100,34 @@
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
     %ul.main__fifth__box
-      - if user_signed_in?
-        - @product.last(3).each do |product|
-          %li.main__fifth__box--new
-            =link_to product_path(product.id), class: "show-btn" do
-              = image_tag product.images[0].image.url, size: '200x200'
-              .comment
-                .comment--name
-                  =product.product_name
-                %ul.comment--price
-                  %li= product.price
-                  %li.i.fa.fa-star
-                  %li.count 0
-                %p.tax (税込み)
-      -else
-        - @product.last(3).each do |product|
-          %li.main__fifth__box--new
-            =link_to products_path, class: "no-btn" do
-              = image_tag product.images[0].image.url, size: '200x200'
-              .comment
-                .comment--name
-                  =product.product_name
-                %ul.comment--price
-                  %li= product.price
-                  %li.i.fa.fa-star
-                  %li.count 0
-                %p.tax (税込み)
+
+      -# - if user_signed_in?
+      - @product.last(3).each do |product|
+        %li.main__fifth__box--new
+          =link_to product_path(product.id), class: "show-btn" do
+            = image_tag product.images[0].image.url, size: '200x200'
+            .comment
+              .comment--name
+                =product.product_name
+              %ul.comment--price
+                %li= product.price
+                %li.i.fa.fa-star
+                %li.count 0
+              %p.tax (税込み)
+      -# -else
+      -#   - @product.last(3).each do |product|
+      -#     %li.main__fifth__box--new
+      -#       =link_to products_path, class: "no-btn" do
+      -#         .photo
+      -#         .comment
+      -#           .comment--name
+      -#             =product.product_name
+      -#           %ul.comment--price
+      -#             %li= product.price
+      -#             %li.i.fa.fa-star
+      -#             %li.count 0
+      -#           %p.tax (税込み)
+
 
   .main__sixth
     .main__sixth__top
