@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
@@ -32,6 +31,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+# < 編集後 ユーザーページへ >
+  def after_update_path_for(resource)
+    user_path(resource)
+  end
 
   protected
 
@@ -42,6 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def address_params
     params.require(:address).permit(:zip_code, :prefecture_id, :city, :address1, :address2)
   end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -88,12 +92,3 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 end
-# protected
-#   # アカウント編集後、プロフィール画面に移動する
-#   def after_update_path_for(resource)
-#     user_path(id: current_user.id)
-#   end
-# ログイン後、blogs/indexに移動する
-# def after_sign_in_path_for(resource)
-#   blogs_path
-# end

@@ -8,7 +8,6 @@
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
           = button_tag type: 'submit', class: 'search-btn' do
             %i.fas.fa-search.click 
-
     .header__box__under
       .header__box__under__left
         %ul.left--box
@@ -28,7 +27,6 @@
               = link_to "ログイン",new_user_session_path, class:"btn"
             %li.list__category
               = link_to "新規会員登録",signup_index_path, class:"btn"
-
 .wrraper
   .mypage
     = render 'users/side-bar'
