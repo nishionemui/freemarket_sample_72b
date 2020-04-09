@@ -1,3 +1,4 @@
+-# TOPページ
 = render "header"
 
 .main
@@ -91,7 +92,7 @@
           %p お支払いは、クレジットカードだけでな
           %p く、ポイントや売上金など多彩な方法が
           %p あります。
-
+  -#  新規投稿商品掲載画面
   .main__fifth
     .main__fifth__top
       .main__fifth__top--up
@@ -100,7 +101,7 @@
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
     %ul.main__fifth__box
-      -# - if user_signed_in?
+      -# 掲載数を変更できます
       - @product.last(3).each do |product|
         %li.main__fifth__box--new
           =link_to product_path(product.id), class: "show-btn" do
@@ -113,19 +114,6 @@
                 %li.i.fa.fa-star
                 %li.count 0
               %p.tax (税込み)
-      -# -else
-      -#   - @product.last(3).each do |product|
-      -#     %li.main__fifth__box--new
-      -#       =link_to products_path, class: "no-btn" do
-      -#         .photo
-      -#         .comment
-      -#           .comment--name
-      -#             =product.product_name
-      -#           %ul.comment--price
-      -#             %li= product.price
-      -#             %li.i.fa.fa-star
-      -#             %li.count 0
-      -#           %p.tax (税込み)
 
   .main__sixth
     .main__sixth__top
@@ -135,31 +123,17 @@
         = link_to "#", class: "main__sixth__top--under--btn" do
           アーカイバ
     %ul.main__sixth__box
-      - if user_signed_in?
-        - @product.last(3).each do |product|
-          %li.main__sixth__box--new
-            =link_to product_path(product.id), class: "show-btn" do
-              .photo
-              .comment
-                .comment--name
-                  =product.product_name
-                %ul.comment--price
-                  %li= product.price
-                  %li.i.fa.fa-star
-                  %li.count 0
-                %p.tax (税込み)
-      -else
-        - @product.last(3).each do |product|
-          %li.main__sixth__box--new
-            =link_to products_path, class: "no-btn" do
-              .photo
-              .comment
-                .comment--name
-                  =product.product_name
-                %ul.comment--price
-                  %li= product.price
-                  %li.i.fa.fa-star
-                  %li.count 0
-                %p.tax (税込み)
+      - @product.last(3).each do |product|
+        %li.main__fifth__box--new
+          =link_to product_path(product.id), class: "show-btn" do
+            = image_tag product.images[0].image.url, size: '200x200'
+            .comment
+              .comment--name
+                =product.product_name
+              %ul.comment--price
+                %li= product.price
+                %li.i.fa.fa-star
+                %li.count 0
+              %p.tax (税込み)
 
 = render "footer"

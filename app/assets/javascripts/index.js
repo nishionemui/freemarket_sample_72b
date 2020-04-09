@@ -1,9 +1,4 @@
-$(function() {
-  $('.no-btn').click(function() {
-    alert('サインインしてください');
-  });
-});
-
+// トップページカテゴリー分け
 // $(function() {
 //   $('.categories').click(function() {
 //     $('.parent').show();

@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def index
   @product = Product.all
+  # @parents = MainCategory.where(ancestry: nil)
   @parents = MainCategory.all.order("id ASC").limit(13)
   end
   
