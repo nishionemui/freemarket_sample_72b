@@ -14,6 +14,12 @@ class ProductsController < ApplicationController
   def new
     @products = Product.new
     @image = @products.images.build
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["選択して下さい"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    MainCategory.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.main_name
+    end
   end
 
   def create
@@ -69,6 +75,18 @@ class ProductsController < ApplicationController
   end
 
   def done
+  end
+
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = MainCategory.find_by(main_name: "#{params[:parent_main_name]}", ancestry: nil).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = MainCategory.find("#{params[:child_id]}").children
   end
 
 

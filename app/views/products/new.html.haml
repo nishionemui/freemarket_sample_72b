@@ -39,12 +39,13 @@
           = f.text_area :description, class: "input-description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", row: "7"
       .sale-contents
         .sale-contents__title 商品の詳細
-        .required-item
+        .product-detail
           = f.label :main_name, "カテゴリー"
           %span 必須
-        .select-wrap
-          %i.fa.fa-angle-down
-          = f.select :main_categories, class: "select-category"
+          .select-wrap
+            .select-wrap__box
+              = f.select :main_categories, @category_parent_array, {}, {class: 'select-wrap__box--select', id: 'parent_category'}
+              %i.fa.fa-angle-down
         .required-item
           = f.label :size, "サイズ"
           %span 必須
