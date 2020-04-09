@@ -24,8 +24,6 @@
                 %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
                 %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
                 %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
-              
-
       .sale-contents
         .required-item
           = f.label :product_name, "商品名"
@@ -111,11 +109,9 @@
           .fee-label
             販売利益
           %span ー
-
         .btn-form
           = f.submit "出品する", class: "purchase-btn"
           = link_to '戻る', "/", class: "back-btn"
-
         .notes
           禁止されている
           = link_to '行為', "#", class: "notes__text"
@@ -128,7 +124,6 @@
           などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
           = link_to '加盟店規約', "#", class: "notes__text"
           に同意したことになります。
-
   .products-exhibit__footer
     %ul
       %li

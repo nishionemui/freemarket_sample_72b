@@ -20,7 +20,6 @@
     %li
       %p
         = @product.product_name
-    
 .product-main
   .product-main__show
     .top-content
@@ -116,8 +115,13 @@
           .delete-btn
             = link_to '削除する', product_path, method: :delete, class:"delete-btn__text"
         - elsif user_signed_in?
-          .purchase-btn
-            = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
+          -if @product.buyer_id.present?
+            .purchase-btn-red
+              .purchase-btn__text
+                Sold out 
+          - else
+            .purchase-btn
+              = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
       .product-links
         .product-links__before
           = link_to "#", class: "product-link-btn" do

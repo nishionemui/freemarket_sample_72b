@@ -18,9 +18,7 @@ class ApplicationController < ActionController::Base
   # def set_parents
   #   @parents = MainCategory.where(ancestry: nil)
   # end
-
   
-
   protected
 
   def configure_permitted_parameters

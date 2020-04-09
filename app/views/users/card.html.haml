@@ -8,7 +8,6 @@
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
           = button_tag type: 'submit', class: 'search-btn' do
             %i.fas.fa-search.click 
-
     .header__box__under
       .header__box__under__left
         %ul.left--box
@@ -42,10 +41,8 @@
             = link_to  new_user_card_path(current_user.id),class: "btn-red" do
               %i.far.fa-credit-card
                 クレジットカードを追加する
- 
         .set__regist
           %a{:href => '#'}
             %span 支払い方法について
             %i.fas.fa-chevron-right
-
 = render 'products/footer'
