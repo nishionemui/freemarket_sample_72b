@@ -15,6 +15,9 @@ $(function () {
     phone : function (value, element) {  //電話の正規表現
       return this.optional(element) || /^\d{2,5}-\d{1,4}-\d{4}$/.test(value);
     },
+    name_size : function (value, element) {  //全角のみの正規表現
+      return this.optional(element) || /^[\u3040-\u30ff]+$/.test(value);
+    },
   }
   // メソッドの追加
   $.each(methods, function (key) {
@@ -40,18 +43,22 @@ $(function () {
         equalTo: "#pass"
       },
       "user[first_name]": {
-        required: true 
+        required: true,
+        name_size: true
       },
       "user[last_name]": {
-        required: true 
+        required: true,
+        name_size: true
       },
       "user[first_name_read]": {
         required: true,
-        name_read: true
+        name_read: true,
+        name_size: true
       },
       "user[last_name_read]": {
         required: true,
-        name_read: true
+        name_read: true,
+        name_size: true
       },
       "user[birthday(1i)]": {
         required: true
@@ -86,18 +93,22 @@ $(function () {
         equalTo: "入力した値が一致しません。"
       },
       "user[first_name]": {
-        required: "姓を入力してください。"
+        required: "姓を入力してください。",
+        name_size: "全角で入力してください。"
       },
       "user[last_name]": {
-        required: "名を入力してください。" 
+        required: "名を入力してください。",
+        name_size: "全角で入力してください。"
       },
       "user[first_name_read]": {
         required: "姓カナを入力してください。",
-        name_read: "カタカナで入力してください。"
+        name_read: "カタカナで入力してください。",
+        name_size: "全角で入力してください。"
       },
       "user[last_name_read]": {
         required: "名カナを入力してください。",
-        name_read: "カタカナで入力してください。"
+        name_read: "カタカナで入力してください。",
+        name_size: "全角で入力してください。"
       },
       "user[birthday(1i)]": {
         required: "年を入力してください。"
