@@ -1,0 +1,5 @@
+-if @products.errors.any? 
+  .alert
+    %ul
+      -@products.errors.full_messages.each do |message| 
+        %li= message

@@ -117,7 +117,7 @@
         - @product.last(3).each do |product|
           %li.main__fifth__box--new
             =link_to products_path, class: "no-btn" do
-              .photo
+              = image_tag product.images[0].image.url, size: '200x200'
               .comment
                 .comment--name
                   =product.product_name
@@ -139,7 +139,7 @@
         - @product.last(3).each do |product|
           %li.main__sixth__box--new
             =link_to product_path(product.id), class: "show-btn" do
-              .photo
+              = image_tag product.images[0].image.url, size: '200x200'
               .comment
                 .comment--name
                   =product.product_name
@@ -152,7 +152,7 @@
         - @product.last(3).each do |product|
           %li.main__sixth__box--new
             =link_to products_path, class: "no-btn" do
-              .photo
+              = image_tag product.images[0].image.url, size: '200x200'
               .comment
                 .comment--name
                   =product.product_name

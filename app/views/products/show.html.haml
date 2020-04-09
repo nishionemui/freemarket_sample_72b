@@ -30,9 +30,9 @@
         .products-box__images
           %ul.top-list
             %li.top-image
-              -# = @product.images.image.each do |image|
-              -#   = image_tag image, class: 'owl-carousel'
-              = image_tag 'pict-reason-01.jpg', class:"top-icon"
+              - @product.images.each do |image|
+                = image_tag image.image.url, class: 'owl-carousel'
+              -# = image_tag 'pict-reason-01.jpg', class:"top-icon"
               %ul.sub-images
                 %li.sub-image
                   = image_tag 'pict-reason-01.jpg', class:"sub-icon"
