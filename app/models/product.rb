@@ -19,7 +19,7 @@ class Product < ApplicationRecord
   validates :product_name, presence: true
   validates :description, presence: true
   validates :condition, presence: true
-  # validates :size, presence: true
+  validates :size, presence: true
   validates :delivery_fee, presence: true
   validates :delivery_way, presence: true
   validates :prefecture, presence: true
