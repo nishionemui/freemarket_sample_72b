@@ -59,30 +59,23 @@
         background-size: cover;
         width:700px;
         height: 200px;
-        background-color: yellow;
         float: left;
         text-align: center;
-        position: relative;
-        &__contents{
-          display: block;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          right: 0;
-          
-          img{
-            border-radius: 50%;
-          }
-          &__name{
-          font-weight: bold;
-          color: #333;
-          }
-          &__info{
-            display: flex;
-            padding-left:295px;
-            &__transactions{
-              padding-left:30px;
-            }
+        padding-top: 20px;          
+        img{
+          border-radius: 50%;
+          height:60px;
+          width: 60px;
+        }
+        &__name{
+        font-weight: bold;
+        color: #333;
+        }
+        &__info{
+          display: flex;
+          justify-content: center;
+          &__transactions{
+            padding-left:30px;
           }
         }
       }

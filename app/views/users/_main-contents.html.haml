@@ -1,23 +1,21 @@
 .mypage-content
   %a.user_box
-    .user-box__contents
-      %figure
-        = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
-        -# - if @user.user_image.present?
-        -#   = image_tag @user.user_image.url 
-        -# - else 
-        -#   = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
-        %h2.user_box__contents__name
-          = @user.nickname
-      .user_box__contents__info
-        %h2.user_box__contents__info__evalution
-          評価
-          %span#count
-          2
-        %h2.user_box__contents__info__transactions
-          出品
-          %span#count
-          2
+    %figure
+      - if @user.user_image?
+        = image_tag @user.user_image.url 
+      - else 
+        = image_tag 'member_photo_noimage_thumb.png'
+      %h2.user_box__name
+        = @user.nickname
+    .user_box__info
+      %h2.user_box__info__evalution
+        評価
+        %span#count
+        2
+      %h2.user_box__info__transactions
+        出品
+        %span#count
+        2
   .tabs
     %input#all{checked: 'checked', name: 'tab_item', type: 'radio'}/
     %label.tab_item{for: 'all'} お知らせ

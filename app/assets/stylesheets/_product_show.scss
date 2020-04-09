@@ -50,6 +50,7 @@
               width: 560px;
               align-items: center;
               margin: 0 auto;
+              position: relative;
               .top-icon {
                 object-fit: cover;
                 height: 346px;
@@ -59,13 +60,26 @@
                 display: flex;
                 justify-content: center;
                 margin-top: 10px;
-                .sub-image {
-                  margin: 0 10px 0 0;
+                height: 150px;
+                width: 100%;
+                &--box {
+                  margin: 0 20px 0 0;
+                  height: 87px;
+                  width: 140px;
                   .sub-icon {
                     object-fit: cover;
-                    height: 87px;
                     width: 140px;
+                    height: 130px;
                   }
+                  .sub-icon:hover {
+                    position: absolute;
+                    top: -1px;
+                    left: 120px;
+                    width: 310px;
+                    height: 300px;
+                  }
+
+                
                 }
               }
             }
