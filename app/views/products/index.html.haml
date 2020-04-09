@@ -103,7 +103,7 @@
     %ul.main__fifth__box
 
       -# 掲載数を変更できます
-
+  
       - @product.last(3).each do |product|
         %li.main__fifth__box--new
           =link_to product_path(product.id), class: "show-btn" do

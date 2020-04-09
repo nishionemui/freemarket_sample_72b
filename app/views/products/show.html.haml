@@ -30,16 +30,19 @@
         .products-box__images
           %ul.top-list
             %li.top-image
-              - @product.images.each do |image|
+              - @product.images.first(1).each do |image|
                 = image_tag image.image.url, class: 'owl-carousel'
               -# = image_tag 'pict-reason-01.jpg', class:"top-icon"
               %ul.sub-images
-                %li.sub-image
-                  = image_tag 'pict-reason-01.jpg', class:"sub-icon"
-                %li.sub-image
-                  = image_tag 'pict-reason-01.jpg', class:"sub-icon"
-                %li.sub-image
-                  = image_tag 'pict-reason-01.jpg', class:"sub-icon"
+                - @product.images[1..4].each do |image|
+                  %li.sub-images--box
+                    = image_tag image.image.url, class: 'sub-icon'
+                -# %li.sub-image
+                -#   = image_tag 'pict-reason-01.jpg', class:"sub-icon"
+                -# %li.sub-image
+                -#   = image_tag 'pict-reason-01.jpg', class:"sub-icon"
+                -# %li.sub-image
+                -#   = image_tag 'pict-reason-01.jpg', class:"sub-icon"
         .products-box__price
           .products-box__price__texts
             .price-text ¥
