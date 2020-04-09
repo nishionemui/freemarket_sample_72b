@@ -55,30 +55,4 @@
         .how__not__regist
           .how-font
             支払い方法について
-.footer
-  .footer__content
-    %ul.footer__content__up
-      %li.footer__content__up__box
-        %h1.text FURIMAについて
-        %p.text--content= link_to "会社概要（運営会社）",root_path, class:"btn"
-        %p.text--content= link_to "プライバシーポリシー",root_path, class:"btn"
-        %p.text--content= link_to "FURIMA利用規約",root_path, class:"btn"
-        %p.text--content= link_to "ポイントに関する特約",root_path, class:"btn"
-      %li.footer__content__up__box
-        %h1.text FURIMAを見る
-        %p.text--content= link_to "カテゴリー一覧",root_path, class:"btn"
-        %p.text--content= link_to "ブランド一覧",root_path, class:"btn"
-      %li.footer__content__up__box
-        %h1.text FURIMAについて
-        %p.text--content= link_to "FURIMAガイド",root_path, class:"btn"
-        %p.text--content= link_to "FURIMAロゴ利用ガイドライン",root_path, class:"btn"
-        %p.text--content= link_to "お知らせ",root_path, class:"btn"
-    .footer__content__under
-      = link_to image_tag('logo-white.png', class: "btn"),root_path
-      %p © FURIMA
-
-.vavavav
-  = link_to new_product_path  do
-    .exhibition-btn
-      %span.exhibition-btn__text 出品する
-      = image_tag "icon_camera.png", class: "exhibition-btn__icon"
+= render 'products/footer'
