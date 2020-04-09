@@ -1,3 +1,4 @@
+// < devise、ウィザード形式、ユーザー情報、scss >
 // < 登録選択画面 >
 .user-main{
   height: 100vh;
@@ -495,7 +496,6 @@
         width: 100%;
         margin-bottom: 25px;
         .birthday-select{
-          // display: flex;
           line-height: 45px;
           #user_birthday_1i{
             height: 45px;
@@ -601,7 +601,7 @@
   }
 }
 
-// < 送付先情報入力ページ >
+// < 送付先情報入力ページ コンテント>
 .user-content-two{
   height: 1100px;
   width: 100%;
@@ -656,7 +656,6 @@
         .address-last-group{
           height: 55px;
           width: 100%;
-          // display: flex;
           .zip-code-field,
           .city-field{
             height: 45px;
@@ -706,7 +705,8 @@
     }
   }
 }
-// < 送付先情報登録エラー文字 >
+
+// < 送付先情報登録エラー文字 jquery >
 #zip-code-error,
 #prefecture-error,
 #city-error,
@@ -942,22 +942,7 @@
   }
 }
 
-// < エラーメッセージ >
-#error_explanation{
-  color: rgb(255, 0, 0);
-  font-size: 12px;
-  height: 160px;
-  width: 310px;
-  li{
-    background-color: rgb(252, 225, 225);
-    border-radius: 5px;
-    height: 20px;
-    width: 220px;
-    margin-top: 2px;
-  }
-}
-
-// < ユーザー、メール、パスワード変更 >
+// < メール、パスワード変更ページ >
 .edit-email{
   height: 700px;
   width: 700px;
@@ -980,7 +965,8 @@
       .email{
         height: 140px;
         width: 100%;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
+        margin-top: 25px;
         .email-group{
           height: 55px;
           width: 100%;
@@ -992,6 +978,13 @@
             border-radius: 5px;
             padding-left: 10px;
             border: 1px solid rgb(234, 232, 232);
+          }
+          .email-field.invalid{ 
+            border: #ea352d 2px solid;
+          }
+          input[type=email]:focus {
+            outline: none;
+            border-color: #0098E8;
           }
         }
       }
@@ -1007,7 +1000,6 @@
         .pass-tow-group{
           height: 55px;
           width: 100%;
-          display: flex;
           margin: auto;
           .current-pass-field,
           .new-pass-field,
@@ -1018,6 +1010,15 @@
             border-radius: 5px;
             padding-left: 10px;
             border: 1px solid rgb(234, 232, 232);
+          }
+          .current-pass-field.invalid,
+          .new-pass-field.invalid,
+          .new-pass-two-field.invalid{ 
+            border: #ea352d 2px solid;
+          }
+          input[type=password]:focus {
+            outline: none;
+            border-color: #0098E8;
           }
         }
         .send-btn{
@@ -1030,6 +1031,7 @@
           color: white;
           text-decoration: none;
           background-color: red;
+          margin-top: 10px;
         }
       }
     }
@@ -1037,15 +1039,17 @@
   .email-content{
     color: rgb(189, 189, 189);
     font-size: 15.3px;
+    margin-top: 20px;
   }
 }
 
 // < エラーメッセージ jquery >
 #nickname-error,
- #email-error, 
- #pass-error,
- #pass-two-error,
- #phone-num-error {
+#email-error, 
+#pass-error,
+#pass-two-error,
+#now-pass-error,
+#phone-num-error {
   color: #ea352d;
   line-height:20px ;
   font-size: 10px;
@@ -1054,4 +1058,17 @@
   width: 250px;
   text-align: left;
   margin-left: 5px;
+}
+
+// < デバイス初期値のエラーメッセージ >
+#error_explanation{
+  color: rgb(255, 0, 0);
+  font-size: 12px;
+  height: 100px;
+  width: 310px;
+  li{
+    height: 20px;
+    width: 220px;
+    margin-top: 2px;
+  }
 }

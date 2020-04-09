@@ -1,11 +1,19 @@
 class Address < ApplicationRecord
+  # < アソシエーション >
   belongs_to :user, optional: true
+
+  # < バリデーション >
+  # < 空でないか >
   validates :zip_code,
+            :city,
+            :prefecture_id,
             :address1, 
             presence: true
+  # < 郵便番号・正規表現 >
   validates :zip_code,
             format:{with:/\A\d{3}[-]\d{4}\z/}
   
+# < 都道府県 enum >
   enum prefecture_id:{
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,

@@ -28,8 +28,6 @@
               = link_to "ログイン",new_user_session_path, class:"btn"
             %li.list__category
               = link_to "新規会員登録",signup_index_path, class:"btn"
-
-
 .wrraper
   .mypage
     = render 'users/side-bar'
@@ -87,8 +85,6 @@
               -# %p.card-info__has-error-text{ id: 'primary-error' }
               %button.card-info__content--form--btn
                 = f.submit "追加する", class:"btn", id: "token_submit"
-
-
 .footer
   .footer__content
     %ul.footer__content__up

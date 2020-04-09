@@ -1,84 +1,57 @@
 class CardsController < ApplicationController
+  before_action :get_payjp_info, only: [:new_create, :create, :delete, :show]
 
-#   def show
-#     @card = Card.find(params[:id])
-#   end
+  def edit
+  end
 
-#   def new
-#     @card = Card.new
-#   end
-
-#   def create
-#   end
-
-#   def edit
-#     @card = Card.find(params[:id])
-#   end
-
-#   def update
-#     @card = Card.find(params[:id])
-#   end
-
-#   def destroy
-#   end
-# end
-
-# before_action :get_user_params, only: [:edit, :confirmation, :show]
-before_action :get_payjp_info, only: [:new_create, :create, :delete, :show]
-
-def edit
-end
-
-def create
-  if params['payjp-token'].blank?
-    redirect_to action: "edit", id: current_user.id
-  else
-    customer = Payjp::Customer.create(
-    email: current_user.email,
-    card: params['payjp-token'],
-    metadata: {user_id: current_user.id}
-    )
-    @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    if @card.save
-      redirect_to action: "show"
-    else
+  def create
+    if params['payjp-token'].blank?
       redirect_to action: "edit", id: current_user.id
+    else
+      customer = Payjp::Customer.create(
+      card: params['payjp-token'],
+      metadata: {user_id: current_user.id}
+      )
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        redirect_to action: "show"
+      else
+        redirect_to action: "edit", id: current_user.id
+      end
     end
   end
-end
 
-def delete
-  card = current_user.cards.first
-  if card.present?
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    customer.delete
-    card.delete
+  def delete
+    card = Card.where(user_id: current_user.id).first
+    if card.present?
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
+    end
+      redirect_to action: "confirmation", id: current_user.id
   end
-    redirect_to action: "confirmation", id: current_user.id
-end
 
-def show
-  card = current_user.cards.first
-  if card.present?
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
-  else
-    redirect_to action: "confirmation", id: current_user.id
+  def show
+    card = Card.where(user_id: current_user.id).first
+    if card.present?
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    else
+      redirect_to action: "confirmation", id: current_user.id
+    end
   end
-end
 
-def confirmation
-  card = current_user.card
-  # redirect_to action: "show" if card.exists?
-end
-
-private
-
-def get_payjp_info
-  if Rails.env == 'development'
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-  else
-    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+  def confirmation
+    card = Card.where(user_id: current_user.id)
+    redirect_to action: "show" if card.exists?
   end
-end
+
+  private
+  def get_payjp_info
+    if Rails.env == 'development'
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    end
+  end
 end

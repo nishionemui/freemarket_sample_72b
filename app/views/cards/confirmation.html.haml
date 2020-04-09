@@ -8,7 +8,6 @@
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
           = button_tag type: 'submit', class: 'search-btn' do
             %i.fas.fa-search.click 
-
     .header__box__under
       .header__box__under__left
         %ul.left--box
@@ -32,22 +31,23 @@
 .wrraper
   .mypage
     = render 'users/side-bar'
-    .main__content
-      %section.chapter__container
-        %h2.chapter__head 支払い方法
-        .payment__main    
-          .payment__list
-            .payment__list__content
-              %h3.sub__head クレジットカード一覧
-          .add__card
-            .payment__list__content
-              = link_to edit_card_path(current_user), class: "red__btn", data: {"turbolinks" => false} do
-                %i
-                = icon('fas', 'credit-card', class: "card__icon")
-                クレジットカードを追加する
-          .not__regist
-            %span 支払い方法について
-
+    .chapter__container
+      .chapter__head 
+        支払い方法
+      .payment__main    
+        .payment__list
+          .payment__list__content
+            .sub__head
+              クレジットカード一覧
+        .add__card
+          .payment__list__content
+            = link_to edit_card_path(current_user), class: "red__btn", data: {"turbolinks" => false} do
+              .card-icon-one
+              = icon('fas', 'credit-card', class: "card__icon")
+              クレジットカードを追加する
+      .not__regist
+        .not-font
+          支払い方法について
 .footer
   .footer__content
     %ul.footer__content__up
@@ -69,7 +69,6 @@
     .footer__content__under
       = link_to image_tag('logo-white.png', class: "btn"),root_path
       %p © FURIMA
-
 .vavavav
   = link_to new_product_path  do
     .exhibition-btn

@@ -33,8 +33,10 @@ ja:
         birthday: "生年月日"
       address:
         zip_code: "郵便番号"
-        address1: "市区町村"
-        address2: "番地"
+        prefecture_id: "都道府県"
+        city: "市区町村"
+        address1: "番地"
+        address2: "建物名"
     models:
       user: "ユーザ"
       address: "送付先情報"
