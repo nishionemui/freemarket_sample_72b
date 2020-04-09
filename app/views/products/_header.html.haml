@@ -15,15 +15,25 @@
         %ul.left--box
           %li.list__category
             = link_to "#", class:"first-btn" do
-              %ul.categories カテゴリー
+              %li.categories カテゴリー
+              -# %ul
+              -#   - @parents.each do |parent|
+              -#     %ul=parent.main_name
+              -#     %ul
+              -#       - parent.children.each do |child|
+              -#         %li=child.main_name    
+                -#   - child.children.each do |grandchild|
+                -#     =grandchild.main_name  
+              -# .category_list
+              -#   .parents_list
+              -#     - @parents.each do |parent|
+              -#       = link_to "#{parent.main_name}", root_path, class: "parent_category",id: "#{parent.id}"
+              -#   .children_list
+              -#   .grand_children_list
               -# %ul.parent
-              -# - @parents.each do |parent|
-              -#   %li.parent= parent.main_name
-              -#   - parent.children.each do |child|
-              -#     %li.child= child.main_name 
+              
 
-                  -# - child.children.each do |grandchild|
-                  -#   %li= grandcild.main_name
+
           %li.list__category
             = link_to "#", class:"first-btn" do
               ブランド

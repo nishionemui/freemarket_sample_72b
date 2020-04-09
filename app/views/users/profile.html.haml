@@ -1,21 +1,57 @@
-.user-change
-  = form_for @profile do |f|
-    .user-change--header
-      .change-title
-        プロフィール
-      .change-group
-        .change-icon
-          = f.label :user_image do
-            #user-img_field{:onclick => "$('#user-file').click()"}
-              - if current_user.user_image.present?
-                = image_tag current_user.user_image.url, class: 'user-img-icon'
-              - else
-                = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
-            = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
-        .change-name
-          = f.text_field :nickname, placeholder: "例) フリマ太郎",class: "nickname-field"
-    .user-change-introduction
-      .introduction
-        = f.text_area :introduction,placeholder: "",class: "introduction--text"
-      .change-btn
-        = f.submit '変更する',class: "send-btn"
+= render "products/header"
+
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .user-change
+      = form_for @profile do |f|
+        .user-change--header
+          .change-title
+            プロフィール
+          .change-group
+            .change-icon
+              = f.label :user_image do
+                #user-img_field{:onclick => "$('#user-file').click()"}
+                  - if current_user.user_image.present?
+                    = image_tag current_user.user_image.url, class: 'user-img-icon'
+                  - else
+                    = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
+                = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
+            .change-name
+              = f.text_field :nickname, placeholder: "例) フリマ太郎",class: "nickname-field"
+        .user-change-introduction
+          .introduction
+            = f.text_area :introduction,placeholder: "",class: "introduction--text"
+          .change-btn
+            = f.submit '変更する',class: "send-btn"
+
+
+.footer
+  .footer__content
+    %ul.footer__content__up
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "会社概要（運営会社）",root_path, class:"btn"
+        %p.text--content= link_to "プライバシーポリシー",root_path, class:"btn"
+        %p.text--content= link_to "FURIMA利用規約",root_path, class:"btn"
+        %p.text--content= link_to "ポイントに関する特約",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAを見る
+        %p.text--content= link_to "カテゴリー一覧",root_path, class:"btn"
+        %p.text--content= link_to "ブランド一覧",root_path, class:"btn"
+      %li.footer__content__up__box
+        %h1.text FURIMAについて
+        %p.text--content= link_to "FURIMAガイド",root_path, class:"btn"
+        %p.text--content= link_to "FURIMAロゴ利用ガイドライン",root_path, class:"btn"
+        %p.text--content= link_to "お知らせ",root_path, class:"btn"
+    .footer__content__under
+      = link_to image_tag('logo-white.png', class: "btn"),root_path
+      %p © FURIMA
+
+.vavavav
+  = link_to new_product_path  do
+    .exhibition-btn
+      %span.exhibition-btn__text 出品する
+      = image_tag "icon_camera.png", class: "exhibition-btn__icon"
+
+
