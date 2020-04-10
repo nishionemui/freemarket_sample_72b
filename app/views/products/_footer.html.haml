@@ -5,12 +5,13 @@
     .main__seventh__content--center
       今すぐ無料ダウンロード
     .main__seventh__content--under
-      = link_to "#", class:"btn" do
-        .content__btn
-          .app
+      .content__btn
+        .app
+          = link_to "#", class:"btn" do
             = image_tag "apple.png",class:"icon"
-          .google
-            = image_tag "google.png", class:"icon" 
+        .google
+          = link_to "#", class:"btn" do
+            = image_tag "google.png", class:"icon"
 
 .footer
   .footer__content

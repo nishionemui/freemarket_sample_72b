@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
 
   def create
     @products = Product.create(product_params)
-    binding.pry
     if @products.save
       render :create
     else

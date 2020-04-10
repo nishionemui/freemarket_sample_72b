@@ -9,12 +9,10 @@
     .purchase-verification__main__box
       .product 
         .photo
-          = image_tag @product.images[0].image.url, size: '200x200'
         .name
-          = @product.product_name
+          商品名
       %ul.detail
-        %li.money 
-          ="¥#{@product.price}"
+        %li.money ¥◯◯◯◯
         %li.postage 送料込み
     .purchase-verification__main__pay
       .purchase-verification__main__pay__point
@@ -23,7 +21,7 @@
         .purchase-verification__main__pay__money--left
           支払金額
         .purchase-verification__main__pay__money--right
-          ="¥#{@product.price}"
+          ¥◯◯◯◯
       .purchase-verification__main__pay__decision
         = form_tag(action: :pay, method: :post, class: "form-buy") do
           %script.payjp-button{:src => "https://checkout.pay.jp",:type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => ENV['PAYJP_KEY'], class: "buy-button"}
@@ -33,9 +31,9 @@
       .address
         %ul.address--delivery
           配送先
-        %li=@product.user.address.zip_code
-        %li="#{@product.user.address.prefecture_id} #{@product.user.address.city} #{@product.user.address.address1}#{@product.user.address.address2}"
-        %li="購入者 #{@product.user.first_name} #{@product.user.last_name} " 
+        %li 123-4567
+        %li 東京都渋谷区神南1-18-2
+        %li 購入 太郎
         .address--change
           = link_to address_user_path(current_user.id), class:"address--change--btn" do
             変更する
