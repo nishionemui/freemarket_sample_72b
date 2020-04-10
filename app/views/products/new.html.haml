@@ -42,6 +42,7 @@
           %span 必須
           .select-wrap
             .select-wrap__box
+              -# = f.collection_select :main_categories, MainCategory.all, :id, :main_name, {include_blank: "選択して下さい", selected: "選択して下さい"}, {class: 'select-wrap__box--select', id: 'parent_category'}
               = f.select :main_categories, @category_parent_array, {}, {class: 'select-wrap__box--select', id: 'parent_category'}
               %i.fa.fa-angle-down
         .required-item
