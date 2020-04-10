@@ -1,9 +1,5 @@
 class ProductsController < ApplicationController
 
-  # active:hashメソッド定義した場合使う
-  # before_action :set_condition, only: [:show]
-  # before_action :set_prefecture, only: [:show]
-  # before_action :set_delivery, only: [:show]
 
   def index
   @product = Product.all
@@ -14,17 +10,10 @@ class ProductsController < ApplicationController
   def new
     @products = Product.new
     @image = @products.images.build
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["選択して下さい"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    MainCategory.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.main_name
-    end
   end
 
   def create
     @products = Product.create(product_params)
-    binding.pry
     if @products.save
       render :create
     else
@@ -48,6 +37,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @parents = MainCategory.all.order("id ASC").limit(607)
+
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
   end
@@ -85,38 +76,23 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  # 親カテゴリーが選択された後に動くアクション
-  def get_category_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-    @category_children = MainCategory.find_by(main_name: "#{params[:parent_main_name]}", ancestry: nil).children
+
+  def mid_category
+    @mid_categories = MainCategory.where(ancestry: params[:big_category_id])
+    render json: @mid_categories
   end
 
-  # 子カテゴリーが選択された後に動くアクション
-  def get_category_grandchildren
-    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = MainCategory.find("#{params[:child_id]}").children
+  def small_category
+    @small_categories = MainCategory.where(ancestry: "#{params[:big_category_id]}/#{params[:mid_category_id]}")
+    render json: @small_categories
   end
-
 
   private 
   def product_params 
-    params.require(:product).permit(:product_name, :description, :brand_id, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :category_id, :price, :size_id, [images_attributes: [:image]]).merge(user_id: current_user.id)
+    params.require(:product).permit(:product_name, :description, :category_id, :brand_id, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :category_id, :price, :size_id, [images_attributes: [:image]]).merge(user_id: current_user.id)
   end
 
-  # # 商品の状態
-  # def set_condition
-  #   @condition = Condition.find(@product.condition_id)
-  # end
-
-  # # 配送元地域
-  # def set_prefecture
-  #   @prefecture = Prefecture.find(@product.prefecture_id)
-  # end
-
-  # # 発送日目安、配送方法、配送料の負担
-  # def set_delivery
-  #   @delivery_fee = DeliveryFee.find(@product.delivery_fee_id)
-  #   @delivery_way = DeliveryWay.find(@product.delivery_way_id)
-  #   @delivery_date = DeliveryDate.find(@product.delivery_date_id)
-  # end
+  def set_categories
+    @categories = Category.where(ancestry: nil)
+  end
 end

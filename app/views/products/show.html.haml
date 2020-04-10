@@ -62,11 +62,15 @@
               %tr
                 %th カテゴリー
                 %td
-                  = link_to 'メンズ', "#"
-                  %br/
-                  = link_to 'トップス', "#"
-                  %br/
-                  = link_to 'シャツ', "#"
+                  - @parents.each do |parent|
+                    - if @product.category_id == parent.id
+                      = parent.parent.parent.main_name
+                      = parent.parent.main_name
+                      = parent.main_name
+                     
+
+                  
+                       
               %tr
                 %th ブランド
                 %td

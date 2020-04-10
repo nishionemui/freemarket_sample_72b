@@ -197,7 +197,7 @@
             .fa-angle-down {
               position: absolute;
               right: 16px;
-              top: 36%;
+              top: 40%;
               z-index: 10;
               color: #888;
               font-size: 25px;
@@ -217,6 +217,34 @@
               line-height: 1.5;
               -webkit-appearance: none;
               cursor: pointer;
+            }
+          }
+          .child {
+            display: none;
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
+            }
+          }
+          .grand_child {
+            display: none;
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
             }
           }
         }
