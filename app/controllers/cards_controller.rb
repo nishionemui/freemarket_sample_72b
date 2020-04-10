@@ -19,7 +19,6 @@ class CardsController < ApplicationController
       metadata: {user_id: current_user.id}
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      binding.pry
       if @card.save
         redirect_to action: "show"
       else
@@ -47,10 +46,9 @@ class CardsController < ApplicationController
         @card_src = "dc.png"
       when "Discover"
         @card_src = "dis.png"
+      when "Discover"
+        @card_src = "dis.png"
       end
-    when "Discover"
-      @card_src = "dis.png"
-    end
     else
       redirect_to action: "confirmation", id: current_user.id
     end
