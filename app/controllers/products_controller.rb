@@ -60,7 +60,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  # < 商品購入アクション purchase、pay、done>
   def purchase
+    @product = Product.find(params[:id])
   end
 
   def pay
@@ -71,11 +73,15 @@ class ProductsController < ApplicationController
       card: params['payjp-token'],
       currency: 'jpy'
       )
-      @product.update( buyer_id: current_user.id)
-      redirect_to done_products_path
+      if @product.update( buyer_id: current_user.id)
+        redirect_to done_products_path
+      else
+        redirect_back(fallback_location: root_path)
+      end
   end
 
   def done
+    @product = Product.find(params[:id])
   end
 
   # 親カテゴリーが選択された後に動くアクション

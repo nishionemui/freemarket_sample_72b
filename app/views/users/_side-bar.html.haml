@@ -1,7 +1,7 @@
 .mypage-side-bar
   %ul.mypage-side-bar__list
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to user_path(current_user.id), class: 'mypage-side-bar__list-contents mypage-side-bar' do
       マイページ
       = icon 'fas', 'chevron-right'
     %li
@@ -17,7 +17,7 @@
       いいね！一覧
       = icon 'fas', 'chevron-right'
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to new_product_path, class: 'mypage-side-bar__list-contents mypage-side-bar' do
       出品する
       = icon 'fas', 'chevron-right'
     %li

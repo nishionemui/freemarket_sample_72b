@@ -20,7 +20,6 @@ class UsersController < ApplicationController
   end
 
   def card
-
   end
 
   def address

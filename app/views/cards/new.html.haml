@@ -8,7 +8,6 @@
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
           = button_tag type: 'submit', class: 'search-btn' do
             %i.fas.fa-search.click 
-
     .header__box__under
       .header__box__under__left
         %ul.left--box
@@ -78,11 +77,6 @@
                   .card-info__seqcode--text{ id: 'seqcode-tips-toggle' }
                     %span.card-info__form-question
                     カード裏面の番号とは？
-              -#       .card-info__seqcode--info.is-show{ id: 'seqcode-tips-content' }
-              -#         カードの裏面をご参照ください。
-              -#         %br
-              -#         = image_tag '//pcweb-assets.mercdn.net/assets/img/signup/seq-card.png?1152353370', width: '240'
-              -# %p.card-info__has-error-text{ id: 'primary-error' }
               %button.card-info__content--form--btn
                 = f.submit "追加する", class:"btn", id: "token_submit"
 = render 'products/footer'

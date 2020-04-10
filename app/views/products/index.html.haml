@@ -140,4 +140,8 @@
                 %li.i.fa.fa-star
                 %li.count 0
               %p.tax (税込み)
+          -if product.buyer_id.present? 
+            .item-sold
+              .item-sold-inner
+                SOLD
 = render "footer"

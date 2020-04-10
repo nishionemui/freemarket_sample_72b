@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one :address
   accepts_nested_attributes_for :address
+  has_many :cards
 
 # < イメージアップローダー >
   mount_uploader :user_image, ImageUploader
