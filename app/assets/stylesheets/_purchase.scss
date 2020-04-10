@@ -1,5 +1,4 @@
-
-
+// < 購入確認ページ >
 .purchase-verification{
   height: 100%;
   width: 100%;
@@ -14,7 +13,6 @@
         width: 170px;
         vertical-align: middle;
       }
-      
     }
   }
   &__main {
@@ -33,11 +31,9 @@
         margin: 0 auto;
         .photo {
           background-color: red;
-          height: 150px;
-          width: 150px;;
+          height: 200px;
+          width: 200px;;
           margin: 0 auto;
-          // text-align: center;
-          // margin: 0 50px 10px;
         }
         .name {
           text-align: center;
@@ -65,6 +61,7 @@
         border: 1px solid #ccc;
         font-size: 14px;
         text-align: center;
+        border-radius: 5px;
       }
       &__money {
         display: flex;
@@ -73,54 +70,20 @@
         font-size: 20px;;
       }
       &__decision {
-        // background-color: #ea352d;
+        width: 320px;
+        height: 60px;
+        background-color: red;
         margin: 16px 0 0;
-        padding: 14px;
-        // border: 1px solid #ea352d;
-        font-size: 14px;
         text-align: center;
-        // #payjp_checkout_box {
-        //   display: none;
-        .form-buy {
-          width: 100%;
-          height: 100%;
-          
-        }
-        #payjp_checkout_box {
-          background-color: transparent;
-          border: none;
-          cursor: pointer;
-          outline: none;
-          padding: 0;
-          appearance: none;
-          font-size: 25px;
-
-        }
-        input[type="button"] {
-          width: 270px;
-          height: 70px;
-          font-size: 25%;
-          border-radius: 5px;
-        }
-        input[type="text"] {
-          font-size: 25px;
+        line-height: 60px;
+        border-radius: 5px;
+        cursor: pointer;
+        .buy-btn  {
+          color: white;
+          font-size: 18px;
         }
       }
-    
-      // &__sold {
-      //   background-color: #ccc;
-      //   margin: 16px 0 0;
-      //   padding: 14px;
-      //   border: 1px solid #ea352d;
-      //   font-size: 14px;
-      //   text-align: center;
-      //   .sold-btn {
-      //     color: white;
-      //     text-decoration: none;
-      //   }
-      // }
     }
-    
     &__delivery {
       margin-top: 40px;
       padding: 0 150px 0; 
@@ -160,8 +123,6 @@
       }
     }  
   }
-
-
   &__footer {
     width: 700px;
     margin: 0 auto;
@@ -190,4 +151,3 @@
     }
   }
 }
-
