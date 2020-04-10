@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   
   belongs_to :user
-  belongs_to :address
+  has_many :address
 
   has_many :main_categories, dependent: :destroy
   has_many :images, dependent: :destroy

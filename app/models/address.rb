@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   # < アソシエーション >
   belongs_to :user, optional: true
-  has_many :products
+  belongs_to :product
 
   # < バリデーション >
   # < 空でないか >
