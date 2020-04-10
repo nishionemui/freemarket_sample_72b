@@ -10,11 +10,12 @@
         %p FURIMAはだれでもかんたんに出品・購入できる
         %p フリマアプリです
       .main__first__content--under
-        = link_to "#", class:"btn" do
-          .content__btn
-            .app
+        .content__btn
+          .app
+            = link_to "#", class:"btn" do
               = image_tag "apple.png",class:"icon"
-            .google
+          .google
+            = link_to "#", class:"btn" do
               = image_tag "google.png", class:"icon"
 
   .main__second
@@ -60,11 +61,12 @@
         %p 出品・購入回数も業界最多です！
         %p ほしかったあの商品に出会えるかもしれません。
       .main__third__content--under
-        = link_to "#", class:"btn" do
-          .content__btn
-            .app
+        .content__btn
+          .app
+            = link_to "#", class:"btn" do
               = image_tag "apple.png",class:"icon"
-            .google
+          .google
+            = link_to "#", class:"btn" do
               = image_tag "google.png", class:"icon"
   .main__fourth
     .main__fourth__top
@@ -139,8 +141,4 @@
                 %li.i.fa.fa-star
                 %li.count 0
               %p.tax (税込み)
-          -if product.buyer_id.present? 
-            .item-sold
-              .item-sold-inner
-                SOLD
 = render "footer"
