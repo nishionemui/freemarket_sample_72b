@@ -106,7 +106,6 @@
     }
   }
 }
-
 // < 新規登録ページ ヘッダー>
 .user-header{
   height: 100px;
@@ -269,7 +268,6 @@
     }
   }
 }
-
 // < 会員情報入力ページ >
 .user-content{
   height: 1600px;
@@ -600,7 +598,6 @@
     }
   }
 }
-
 // < 送付先情報入力ページ コンテント>
 .user-content-two{
   height: 1100px;
@@ -610,7 +607,7 @@
     width: 650px;
     background-color: white;
     margin:  auto;
-    height: 900px;
+    height: 1000px;
     .user-content-header{
       height: 100px;
       width: 100%;
@@ -705,7 +702,6 @@
     }
   }
 }
-
 // < 送付先情報登録エラー文字 jquery >
 #zip-code-error,
 #prefecture-error,
@@ -720,8 +716,6 @@
   text-align: left;
   margin-left: 5px;
 }
-
-
 // < 登録完了ページ コンテント >
 .user-content-fin{
   height: calc(100vh - 100px);
@@ -786,7 +780,6 @@
     }
   }
 }
-
 // < ログインページ コンテンツ >
 .header-log{
   height: 140px;
@@ -887,11 +880,11 @@
           .google-photo{
             float: left;
             padding: 0px 0px 5px 20px;
-              .google-photo-size{
-                height: 30px;
-                width: 30px;
-                vertical-align: middle;
-              }
+            .google-photo-size{
+              height: 30px;
+              width: 30px;
+              vertical-align: middle;
+            }
           }
         }
       }
@@ -941,7 +934,6 @@
     }
   }
 }
-
 // < メール、パスワード変更ページ >
 .edit-email{
   height: 700px;
@@ -1042,7 +1034,6 @@
     margin-top: 20px;
   }
 }
-
 // < エラーメッセージ jquery >
 #nickname-error,
 #email-error, 
@@ -1059,7 +1050,6 @@
   text-align: left;
   margin-left: 5px;
 }
-
 // < デバイス初期値のエラーメッセージ >
 #error_explanation{
   color: rgb(255, 0, 0);

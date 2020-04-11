@@ -5,14 +5,12 @@
       = link_to image_tag('logo.png', class: "products-exhibit__header__logo__icon"),root_path
   .products-exhibit__main
     %h2 商品情報の入力
-
     = form_for @products do |f|
       .image-upload
         .required-item
           = f.label "出品画像"
           %span 必須
         %p 最大５枚までアップロードできます
-        
         .upload-image
           .prev-content
             - @products.images.each do |image|
@@ -24,21 +22,17 @@
                     .delete-btn
                       %span 削除
           .label-content
-
             -# プレビューの数に合わせてforオプションを指定
             = f.label :"images_attributes_#{@products.images.length}_image", class: "label-box", id: "label-box--#{@products.images.length}" do
               %pre.label-box__text-visible クリックしてファイルをアップロード
           .hidden-content
             = f.fields_for :images do |i|
-
               -# プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
               = i.file_field :image, class: "hidden-field"
               = i.check_box:_destroy, class: "hidden-checkbox"
-
               -# 5つのfile_fieldを準備するに当たって、足りない分を表示
             - @products.images.length.upto(4) do |i|
               %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
-
       .sale-contents
         .required-item
           = f.label :product_name, "商品名"
@@ -123,11 +117,9 @@
           .fee-label
             販売利益
           %span ー
-
         .btn-form
           = f.submit "変更する", class: "purchase-btn"
           = link_to '戻る', "/", class: "back-btn"
-
         .notes
           禁止されている
           = link_to '行為', "#", class: "notes__text"
@@ -140,7 +132,6 @@
           などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
           = link_to '加盟店規約', "#", class: "notes__text"
           に同意したことになります。
-
   .products-exhibit__footer
     %ul
       %li
@@ -152,4 +143,3 @@
     .products-exhibit__footer__logo
       = link_to image_tag('logo.png', class: "products-exhibit__footer__logo__icon"),root_path
       %p © FURIMA
-    

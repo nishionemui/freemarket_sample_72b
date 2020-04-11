@@ -26,13 +26,39 @@ class UsersController < ApplicationController
     @address = Address.find(params[:id])
   end
 
+  def introduce
+    @introduce = User.find(params[:id])
+  end
+
+  def phone
+    @phone = User.find(params[:id])
+  end
+
   def update
     if params[:address] == nil
-      @profile = User.find(params[:id])
-      if @profile.update(user_params)
-        redirect_to user_path(current_user.id)
-      else
-        render :profile
+      if @profile
+        @profile = User.find(params[:id])
+        if @profile.update(user_params)
+          redirect_to user_path(current_user.id)
+        else
+          render :profile
+        end
+      elsif @introduce
+        @introduce = User.find(params[:id])
+        if @introduce.update(user_params)
+          redirect_to user_path(current_user.id)
+        else
+          flash.now[:alert] = @introduce.errors.full_messages
+          render :introduce
+        end
+      else @phone
+        @phone = User.find(params[:id])
+        if @phone.update(user_params)
+          redirect_to user_path(current_user.id)
+        else
+          flash.now[:alert] = @phone.errors.full_messages
+          render :phone
+        end
       end
     else params[:user] == nil
       @address = Address.find(params[:id])

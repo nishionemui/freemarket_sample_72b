@@ -45,10 +45,6 @@
       margin: auto;
       height: 200px;
       width: 200px;
-      .product {
-        .photo {
-        }
-      }
     } 
     .name {
       text-align: center;
@@ -65,42 +61,26 @@
       }
     }
     &__delivery {
-      height: 150px;
-      width: 400px;
-      margin: auto;
+      height: 120px;
+      width: 300px;
+      margin: 10px auto;
+      text-align: center;
       .address {
         font-size: 15px;
         list-style: none;
         &--delivery {
-          margin-bottom: 10px;
-        }
-        &--change {
-          text-align: end;
-          &--btn {
-            color: #0099e8;
-            font-size: 14px;
-            text-decoration: none;
-          }
+          margin-bottom: 5px;
         }
       }
     }  
     &__payment {
-      margin: 40px 0 20px;
-      padding: 0 150px 30px;
+      height: 80px;
+      width: 300px;
+      margin: auto;
+      text-align: center;
       .method {
         font-size: 15px;
         list-style: none;
-        &--number {
-          margin-bottom: 10px;
-        }
-        &--change {
-          text-align: end;
-          .address--change--btn {
-            color: #0099e8;
-            font-size: 14px;
-            text-decoration: none;
-          }
-        }
       }
     }  
     &__return {

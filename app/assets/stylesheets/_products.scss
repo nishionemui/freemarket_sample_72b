@@ -7,28 +7,22 @@ button{
   padding: 0;
   appearance: none;
 }
-
 .header {
   padding: 0 60px;
-
   &__box {
     max-width: 1040px;
     width: 100%;
     min-height: 80px;
     margin: 0 auto;
     padding: 15px 0 0 0;
-
     &__up {
       height: 40px;
       display: flex;
       align-items: center;
-      
       &--icon {
         margin-right: 30px;
         padding-bottom: 10px;
         border-radius: 4px;
-        
-
         .btn {
           height: 40px;
           width: 140px;
@@ -38,12 +32,10 @@ button{
       &--search {
         margin-left: auto;
         width: 100%;
-
         .search-form {
           width: 100%;
           display: flex;
           margin-bottom: 5px;
-          
           .search-input {
             width: calc(100% - 26px);
             height: 36px;
@@ -67,19 +59,14 @@ button{
       font-size: 14px;
       display: flex;
       justify-content: space-between;
-      
-      
       .left {
         display: flex;
-
         &--box {
           display: flex;
-          
           .first-btn {
             margin-right: 20px;
             color: black;
             text-decoration: none;
-
           }
           .categories:hover{
             color: orange;
@@ -90,21 +77,17 @@ button{
             color: white;
             border: 1px black solid;
           }
-          
         }
       }
       .right {
         display: flex;
         margin-left: auto;
-
         &--box {
           display: flex;
-          
           .btn {
             margin-left: 10px;
             color: black;
             text-decoration: none;
-
           }
         }
       }  
@@ -112,7 +95,6 @@ button{
   }
 }
 .main {
-
   &__first {
     height: 560px;
     padding: 0 60px;
@@ -123,13 +105,11 @@ button{
     position: relative;
     display: flex;
     align-items: center;
-
     &__content {
       max-width: 1040px;
       width: 100%;
       margin: 0 0 0 30px;
       padding: 35px 0 0 0;
-
       &--up {
         color: white;
         font-size: 60px;
@@ -145,14 +125,11 @@ button{
       }
       &--under {
         display: flex;
-
         .content__btn {
           display: flex;
           margin-top: 30px;
-          
           .icon {
             margin-right: 30px;
-            // padding-bottom: 10px;
             border-radius: 10px;
             height: 50px;
             width:180px;
@@ -168,14 +145,12 @@ button{
     height: 500px;
     padding: 60px 20px;
     margin: 60px 20px;
-
     &__top {
       text-align: center;
       font-size: 26px;
       margin-bottom: 100px;
       position: relative;
       font-weight: bold;
-
       h2::after{
         content: "";
         width: 70px;
@@ -193,18 +168,15 @@ button{
       width: 100%;
       text-align: center;
       max-width: 1020px;
-
       .list-box {
         width: 30%;
         align-items: center;
         margin-right: 5%;
         position: relative;
         margin: 0 auto;
-
         &--image {
           width: 100%;
           height: 300px;
-          
         }
         .number {
           display: inline-block;
@@ -234,10 +206,8 @@ button{
         &--explanation {
           text-align: left;
         }
-
         &--explanation-last {
           text-align: center;
-
         }
       }
     }
@@ -252,19 +222,16 @@ button{
     display: flex;
     align-items: center;
     margin-top: 30px;
-
     &__content {
       max-width: 1040px;
       width: 100%;
       margin: 0 auto;
-
       &--up {
         font-size: 27px;
         font-weight: bold;
         margin-bottom: 10px;
         color: white;
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
-
       }
       &--center {
         color: white;
@@ -278,10 +245,8 @@ button{
         .content__btn {
           display: flex;
           margin-top: 30px;
-          
           .icon {
             margin-right: 30px;
-            // padding-bottom: 10px;
             border-radius: 10px;
             height: 50px;
             width:180px;
@@ -296,15 +261,12 @@ button{
   &__fourth {
     height: 600px;
     padding: 40px 20px;
-    margin: 30px 20px;
-    
     &__top {
       text-align: center;
       font-size: 26px;
       margin-bottom: 100px;
       font-weight: bold;
       position: relative;
-
       h2::after{
         content: "";
         width: 70px;
@@ -322,17 +284,14 @@ button{
       width: 100%;
       text-align: center;
       max-width: 1020px;
-
       .list-box {
         width: 30%;
         align-items: center;
         margin-right: 5%;
         position: relative;
         margin: 0 auto;
-
         &--image {
         width: 70%;
-        
         }
         &--text {
           font-size: 19px;
@@ -343,7 +302,6 @@ button{
         }
         &--explanation {
           text-align: left;
-          
         }
       }
     }
@@ -352,18 +310,15 @@ button{
     height: 450px;
     background-color: #f8f8f8;
     padding: 80px 0 0;
-
     &__top {
       height: 100px;
       text-align: center;
-
       &--up {
         font-size: 28px;
         font-weight: bold;
       }
       &--under {
         margin-top: 20px;
-
         &--btn {
           text-decoration: none;
           color: #3CCACE;
@@ -378,10 +333,7 @@ button{
       justify-content: space-around;
       margin: 0 auto;
       flex-direction: row-reverse;
-      
-
       &--new {
-        // background-color: blue;
         width: 200px;
         height: 240px;
         margin-top: 10px;
@@ -399,7 +351,6 @@ button{
         .comment {
           width: 190px;
           height: 50px;
-          // background-color: #3CCACE;
           padding: 10px 5px;
           color: black;
           &--name {
@@ -417,12 +368,10 @@ button{
               margin-right: 20px;
               font-size: 18px;
               line-height: 18px;
-
             }
           }
           .tax {
             font-size: 7px;
-
           }
         }
       }
@@ -435,18 +384,15 @@ button{
     height: 450px;
     background-color: #f8f8f8;
     padding: 40px 0 0;
-
     &__top {
       height: 100px;
       text-align: center;
-
       &--up {
         font-size: 28px;
         font-weight: bold;
       }
       &--under {
         margin-top: 20px;
-
         &--btn {
           text-decoration: none;
           color: #3ccace;
@@ -461,8 +407,6 @@ button{
       justify-content: space-around;
       margin: 0 auto;
       flex-direction: row-reverse;
-      
-
       &--new {
         // background-color: blue;
         width: 200px;
@@ -499,12 +443,10 @@ button{
               margin-right: 20px;
               font-size: 18px;
               line-height: 18px;
-
             }
           }
           .tax {
             font-size: 7px;
-
           }
         }
       }
@@ -522,13 +464,11 @@ button{
     position: relative;
     display: flex;
     align-items: center;
-
     &__content {
       max-width: 1040px;
       width: 100%;
       margin: 0 auto;
       padding: 35px 80px 0;
-
       &--up {
         color: white;
         font-size: 20px;
@@ -548,11 +488,9 @@ button{
         display: flex;
         text-align: center;
         padding-left: 300px;
-        
         .content__btn {
           display: flex;
           margin-top: 30px;
-          
           .icon {
             margin-right: 30px;
             // padding-bottom: 10px;
@@ -573,26 +511,19 @@ button{
   color: #fff;
   background-color: black;
   text-align: center;
-  
-
   &__content {
     width: 100%;
     padding: 0 0 0 170px;
     max-width: 1040px;
-
-
     &__up {
       margin: 0 auto;
       display: flex;
       justify-content: space-around;
-
       &__box {
         font-size: 16px;
         text-align: center;
-
         .text {
           margin-bottom: 20px;
-
           &--content {
             margin-bottom: 8px;
           }
@@ -601,7 +532,6 @@ button{
           color: white;
           font-size: 11px;
           text-decoration: none;
-
           &:hover {
             text-decoration: underline;
           }  
@@ -613,7 +543,6 @@ button{
       padding-bottom: 10px;
       border-radius: 4px;
       text-align: center;
-
       .btn {
         height: 40px;
         width: 140px;
@@ -622,7 +551,6 @@ button{
     }  
   }
 }
-
 // < soldout 表示 >
 .item-sold{
   width: 0;
@@ -631,7 +559,7 @@ button{
   border-right: 60px solid transparent;
   border-bottom: 60px solid transparent;
   border-left: 60px solid #ea352d ;
-  z-index:100;
+  z-index: 10;
   position: relative;
   top:-320px;
   margin-top: 44px;
@@ -644,4 +572,3 @@ button{
     font-weight: 600;
   }
 }
-

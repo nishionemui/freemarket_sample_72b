@@ -1,3 +1,4 @@
+// < マイページ >
 .wrraper{ 
   height:100%;
   width:100%;
@@ -8,8 +9,6 @@
     height:1250px;
     margin: auto;
     padding-top:20px;
-
-    //ここから↓サイドバー
     .mypage-side-bar{
       width:280px;
       margin-right:60px;
@@ -36,21 +35,19 @@
         top: 50%;
         right: 16px;
         color: #ccc;
-        }
-        a:hover {
-          background: #fafafa;
-          text-decoration: none;
-          opacity: 1;
-         }
-         h3{
-          margin-top:20px;
-         }
-         .mypage-side-bar__nav-head{
-           margin-top:20px;
-         }
-        }
-
-    //ここから↓メインコンテンツ
+      }
+      a:hover {
+        background: #fafafa;
+        text-decoration: none;
+        opacity: 1;
+      }
+      h3{
+        margin-top:20px;
+      }
+      .mypage-side-bar__nav-head{
+        margin-top:20px;
+      }
+    }
     .mypage-content{
       width:700px;
       height:1000px;
@@ -61,15 +58,15 @@
         height: 200px;
         float: left;
         text-align: center;
-        padding-top: 20px;          
+        padding-top: 20px;
         img{
           border-radius: 50%;
           height:60px;
           width: 60px;
         }
         &__name{
-        font-weight: bold;
-        color: #333;
+          font-weight: bold;
+          color: #333;
         }
         &__info{
           display: flex;
@@ -79,8 +76,6 @@
           }
         }
       }
-    
-///タブ
       .tabs {
         margin-top: 50px;
         padding-bottom:60px;
@@ -89,7 +84,6 @@
         width: 700px;
         margin: 0 auto;
       }
-
       .tab_item {
         width: calc(100%/2);
         height: 50px;
@@ -104,12 +98,10 @@
         text-align: center;
         font-weight: bold;
         transition: all 0.2s ease;
-      
         &:hover {
           opacity: 0.75;
         }
       }
-      
       input[name="tab_item"] {
         display: none;
       }
@@ -118,14 +110,11 @@
         padding: 40px 40px 0;
         clear: both;
         overflow: hidden;
-
         .mypage-item__list-link{
           display: block;
           min-height: 80px;
           padding: 16px 16px 40px 16px;
           color: #333;
-          
-
           figure{
             overflow: hidden;
             float: left;
@@ -160,7 +149,6 @@
             }
           }
         }
-      
         .mypage-content__item-index{
           border: 0;
           position: relative;
@@ -187,28 +175,196 @@
             cursor: pointer;
             &:hover {
               background-color:white;
+            }
           }
         }
       }
-    }
       #all:checked ~ #all_content, #doing:checked ~ #doing_content {
         display: block;
       }
       .tabs input:checked + .tab_item {
         background-color: white;
         color: black;
-        }
       }
-  .transaction-box{
-  height:200px;
-  width:100%;
-  }
-
-  .footer{
-    height:100px;
-    width:100%;
-    background-color:blue;
+    }
+    .transaction-box{
+      height:200px;
+      width:100%;
+    }
+    .footer{
+      height:100px;
+      width:100%;
+      background-color:blue;
     }
   }
-
+}
+// < 本人情報変更ページ >
+.wrraper{
+  height:100%;
+  width:100%;
+  .mypage{
+    display:flex;
+    width:75%;
+    height:1250px;
+    margin: auto;
+    padding-top:20px;
+    .user-content-main{
+      width: 700px;
+      height: 750px;
+      background-color: white;
+      .user-group{
+        width: 700px;
+        height: 700px;
+        background-color: white;
+        .title{
+          height: 100px;
+          width: 700px;
+          border-bottom: 1px solid #eee;
+          line-height: 100px;
+          text-align: center;
+          font-size: 22px;
+        }
+        .error{
+          height: 80px;
+          width: 200px;
+          margin: auto;
+          text-align: center;
+          padding-top: 10px;
+        }
+        .name,
+        .name-read{
+          height: 130px;
+          width: 350px;
+          margin: 20px auto;
+          .name-group,
+          .name-read-group{
+            height: 100px;
+            width: 3500px;
+            display: flex;
+            .first,
+            .last,
+            .first-read,
+            .last-read{
+              .first-name-field,
+              .last-name-field,
+              .first-name-read-field,
+              .last-name-read-field{
+                height: 45px;
+                width: 160px;
+                border: 1px solid rgb(234, 232, 232);
+                border-radius: 5px;
+                padding-left: 5px;
+                margin: 10px 10px 0px 0px;
+              }
+            }
+          }
+        }
+        .birthday{
+          height: 100px;
+          width: 350px;
+          margin-bottom: 25px;
+          margin: 20px auto;
+          .birthday-select{
+            #user_birthday_1i,
+            #user_birthday_2i,
+            #user_birthday_3i{
+              height: 45px;
+              width: 90px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 10px;
+              background-color: white;
+            }
+          }
+        }
+        .send{
+          height: 100px;
+          width: 350px;
+          margin-bottom: 25px;
+          margin: auto;
+          .send-btn{
+            height: 45px;
+            width: 100%;
+            background-color: red;
+            font-size: 15px;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 5px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+// < 電話番号変更ページ >
+.wrraper{
+  height:100%;
+  width:100%;
+  .mypage{
+    display:flex;
+    width:75%;
+    height:1250px;
+    margin: auto;
+    padding-top:20px;
+    .phone-change{
+      width: 700px;
+      height: 750px;
+      .phone-group{
+        width: 700px;
+        height: 400px;
+        background-color: white;
+        .title{
+          height: 100px;
+          width: 700px;
+          border-bottom: 1px solid #eee;
+          line-height: 100px;
+          text-align: center;
+          font-size: 22px;
+        }
+        .error{
+          height: 30px;
+          width: 200px;
+          margin: auto;
+          text-align: center;
+          padding-top: 10px;
+        }
+        .phone{
+          height: 100px;
+          width: 350px;
+          margin-bottom: 25px;
+          margin:10px auto;
+          .phone-num{
+            height: 100px;
+            width: 100%;
+            margin: auto;
+            .phone-field{
+              height: 45px;
+              width: 338px;
+              outline: none;
+              border-radius: 5px;
+              padding-left: 10px;
+              border: 1px solid rgb(234, 232, 232);
+            }
+          }
+        }
+        .send{
+          height: 100px;
+          width: 350px;
+          margin-bottom: 25px;
+          margin: 20px auto;
+          .send-btn{
+            height: 45px;
+            width: 100%;
+            background-color: red;
+            font-size: 15px;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 5px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
 }
