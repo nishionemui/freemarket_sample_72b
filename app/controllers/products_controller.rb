@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     card = Card.where(user_id: current_user.id).first
     if card.blank?
-      flash.now[:alert] = 'メッセージを入力してください。'
+      flash.now[:alert] = 'カードを登録してください。'
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得

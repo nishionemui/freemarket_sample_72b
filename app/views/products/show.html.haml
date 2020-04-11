@@ -31,17 +31,10 @@
             %li.top-image
               - @product.images.first(1).each do |image|
                 = image_tag image.image.url, class: 'top-icon'
-              -# = image_tag 'pict-reason-01.jpg', class:"top-icon"
             %ul.sub-images
               - @product.images[0..4].each do |image|
                 %li.sub-images--box
                   = image_tag image.image.url, class: 'sub-icon' 
-                -# %li.sub-image
-                -#   = image_tag 'pict-reason-01.jpg', class:"sub-icon"
-                -# %li.sub-image
-                -#   = image_tag 'pict-reason-01.jpg', class:"sub-icon"
-                -# %li.sub-image
-                -#   = image_tag 'pict-reason-01.jpg', class:"sub-icon"
         .products-box__price
           .products-box__price__texts
             .price-text ¥

@@ -2,7 +2,6 @@ class CardsController < ApplicationController
   before_action :get_payjp_info, only: [:new_create, :create, :delete, :show]
 
   def edit
-    
   end
 
   def confirmation

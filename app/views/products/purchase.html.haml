@@ -10,9 +10,7 @@
       .product 
         .photo
         .name
-
           = "商品名 #{@product.product_name}"
-
       %ul.detail
         %li.money ¥◯◯◯◯
         %li.postage 送料込み
@@ -36,11 +34,9 @@
       .address
         %ul.address--delivery
           配送先
-
         %li=@product.user.address.zip_code
         %li="#{current_user.address.prefecture_id} #{current_user.address.city} #{current_user.address.address1}#{current_user.address.address2}"
         %li="購入者 #{current_user.first_name} #{current_user.last_name} " 
-
         .address--change
           = link_to address_user_path(current_user.id), class:"address--change--btn" do
             変更する

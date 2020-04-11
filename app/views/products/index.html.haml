@@ -1,6 +1,5 @@
 -# TOPページ
 = render "header"
-
 .main
   .main__first
     .main__first__content
@@ -17,7 +16,6 @@
           .google
             = link_to "#", class:"btn" do
               = image_tag "google.png", class:"icon"
-
   .main__second
     .main__second__top
       %h2 FURIMAが選ばれる3つの理由
@@ -51,7 +49,6 @@
           %span.list-box--text--color 業界最安
         .list-box--explanation-last
           %p 最大3％でお得に出品＆購入！
-
   .main__third
     .main__third__content
       .main__third__content--up
@@ -103,7 +100,6 @@
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
     %ul.main__fifth__box
-
       -# 掲載数を変更できます
       - @product.last(3).each do |product|
         %li.main__fifth__box--new
@@ -141,4 +137,8 @@
                 %li.i.fa.fa-star
                 %li.count 0
               %p.tax (税込み)
+          -if product.buyer_id.present? 
+            .item-sold
+              .item-sold-inner
+                SOLD
 = render "footer"
