@@ -13,7 +13,6 @@
         width: 170px;
         vertical-align: middle;
       }
-      
     }
   }
   &__main {
@@ -41,37 +40,34 @@
       margin-bottom: 15px;
       font-weight: bold;
       padding-top: 10px;;
-      
-
     }
     &__box {
-      display: flex;
-      justify-content: center;
+      margin: auto;
+      height: 200px;
+      width: 200px;
       .product {
         .photo {
-          background-color: red;
-          height: 150px;
-          width: 150px;;
-          text-align: center;
-          margin: 0 50px 10px;
-        }
-        .name {
-          text-align: center;
-        }
-      }
-      .detail {
-        height: 50px;
-        width: 200px;
-        text-align: center;
-        padding-top: 130px;
-        .money {
-          font-size: 20px;
         }
       }
     } 
+    .name {
+      text-align: center;
+      margin-top: 5px;
+    }
+    .detail {
+      height: 50px;
+      width: 200px;
+      text-align: center;
+      line-height: 50px;
+      margin: auto;
+      .money {
+        font-size: 15px;
+      }
+    }
     &__delivery {
-      margin-top: 40px;
-      padding: 0 150px 0; 
+      height: 150px;
+      width: 400px;
+      margin: auto;
       .address {
         font-size: 15px;
         list-style: none;
@@ -119,7 +115,6 @@
         width: 300px;
         line-height: 50px;
         text-align: center;
-
       }
       .return_btn {
         text-decoration: none;
@@ -127,8 +122,6 @@
       }
     }
   }
-
-
   &__footer {
     width: 700px;
     margin: 0 auto;

@@ -55,18 +55,30 @@ class ProductsController < ApplicationController
   # < 商品購入アクション purchase、pay、done>
   def purchase
     @product = Product.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      flash.now[:alert] = 'メッセージを入力してください。'
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def pay
     @product = Product.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       charge = Payjp::Charge.create(
       amount: @product.price,
+      customer: card.customer_id,
       card: params['payjp-token'],
       currency: 'jpy'
       )
       if @product.update( buyer_id: current_user.id)
-        redirect_to done_products_path
+        redirect_to done_products_path(@product.id)
       else
         redirect_back(fallback_location: root_path)
       end
@@ -74,6 +86,12 @@ class ProductsController < ApplicationController
 
   def done
     @product = Product.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    #保管した顧客IDでpayjpから情報取得
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+    @default_card_information = customer.cards.retrieve(card.card_id)
   end
 
 

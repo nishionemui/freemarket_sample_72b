@@ -25,3 +25,7 @@ class ApplicationController < ActionController::Base
     @parents = MainCategory.where(ancestry: nil)
   end
 end
+
+
+
+
