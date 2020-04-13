@@ -280,6 +280,7 @@
       }
       .select-wrap {
         margin: 8px 0 0;
+        position: relative;
         i {
           position: absolute;
           right: 16px;
@@ -307,10 +308,10 @@
       }
       .brand-name {
         .input-brand {
-          width: 99.5%;
+          width: 98%;
           margin: 8px 0 32px;
           height: 28px;
-          padding: 10px 0;
+          padding: 10px 0 10px 10px;
           border-radius: 4px;
           border: 1px solid #ccc;
         }
