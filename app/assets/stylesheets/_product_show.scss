@@ -152,6 +152,7 @@
               border-radius: 40px;
               color: #3CCACE;
               border: 1px solid #ffb340;
+              cursor: pointer;
               :hover {
                 opacity: 0.8;
               }
@@ -200,14 +201,17 @@
               background: #3CCACE;
               border: 1px solid #3CCACE;
               width: 60%;
+              height: 50px;
               border-radius: 100px;
               text-align: center;
+              cursor: pointer;
             }
             .fa-comment {
               position: absolute;
               top: 17px;
               left: 41%;
               color: #fff;
+              cursor: pointer;
             }
           }
         }
@@ -218,14 +222,22 @@
           background: #3CCACE;
           border: 1px solid #3CCACE;
           width: 55%;
+          height: 50px;
           border-radius: 100px;
           text-align: center;
           margin: 0 auto;
           margin-bottom: 20px;
+          position: relative;
           &__text {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height:100%;
+            width: 100%;
           }
         }
         .purchase-btn-red{
