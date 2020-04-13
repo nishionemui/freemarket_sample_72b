@@ -54,12 +54,17 @@
                   = @product.user.nickname
               %tr
                 %th カテゴリー
-                %td
+                %td.category-text
                   - @parents.each do |parent|
                     - if @product.category_id == parent.id
-                      = parent.parent.parent.main_name
-                      = parent.parent.main_name
-                      = parent.main_name
+                      = link_to "#" do
+                        = parent.parent.parent.main_name
+                        %br
+                      = link_to "#" do
+                        = parent.parent.main_name
+                        %br
+                      = link_to "#" do
+                        = parent.main_name
                      
 
                   
@@ -70,6 +75,7 @@
               %tr
                 %th 商品のサイズ
                 %td
+                  = @product.size.value
               %tr
                 %th 商品の状態
                 %td

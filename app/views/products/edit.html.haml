@@ -5,6 +5,8 @@
       = link_to image_tag('logo.png', class: "products-exhibit__header__logo__icon"),root_path
   .products-exhibit__main
     %h2 商品情報の入力
+    = render 'error_message', locals: {products: @products}
+
     = form_for @products do |f|
       .image-upload
         .required-item
@@ -13,26 +15,28 @@
         %p 最大５枚までアップロードできます
         .upload-image
           .prev-content
-            - @products.images.each do |image|
-              .preview-box
-                .upper-box
-                  = image_tag image.image.url, width: "112", height: "112", alt: "preview"
-                .lower-box
-                  .delete-box
-                    .delete-btn
-                      %span 削除
           .label-content
-            -# プレビューの数に合わせてforオプションを指定
-            = f.label :"images_attributes_#{@products.images.length}_image", class: "label-box", id: "label-box--#{@products.images.length}" do
+            %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
               %pre.label-box__text-visible クリックしてファイルをアップロード
-          .hidden-content
-            = f.fields_for :images do |i|
-              -# プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
-              = i.file_field :image, class: "hidden-field"
-              = i.check_box:_destroy, class: "hidden-checkbox"
-              -# 5つのfile_fieldを準備するに当たって、足りない分を表示
-            - @products.images.length.upto(4) do |i|
-              %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+            .hidden-content
+              = f.fields_for :images do |image|
+                = image.file_field :image, class: "hidden-field"
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
+          -# .label-content
+          -#   -# プレビューの数に合わせてforオプションを指定
+          -#   = f.label :"images_attributes_#{@products.images.length}_image", class: "label-box", id: "label-box--#{@products.images.length}" do
+          -#     %pre.label-box__text-visible クリックしてファイルをアップロード
+          -# .hidden-content
+          -#   = f.fields_for :images do |i|
+          -#     -# プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+          -#     = i.file_field :image, class: "hidden-field"
+          -#     = i.check_box:_destroy, class: "hidden-checkbox"
+          -#     -# 5つのfile_fieldを準備するに当たって、足りない分を表示
+          -#   - @products.images.length.upto(4) do |i|
+          -#     %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
       .sale-contents
         .required-item
           = f.label :product_name, "商品名"
@@ -46,12 +50,26 @@
           = f.text_area :description, class: "input-description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", row: "7"
       .sale-contents
         .sale-contents__title 商品の詳細
-        .required-item
+        .product-detail
           = f.label :main_name, "カテゴリー"
           %span 必須
-        .select-wrap
-          %i.fa.fa-angle-down
-          = f.select :main_categories, class: "select-category"
+          .select-wrap
+
+            .select-wrap__box.parent
+              %select#parent.select-wrap__box--select
+                %option{value: 0} 選択して下さい
+                - @parents.each do |parent|
+                  %option{value: "#{parent.id}"} #{parent.main_name}
+              -# = f.select :category_id, @category_parent_array, {}, {class: 'select-wrap__box--select', id: 'parent_category'}
+
+              %i.fa.fa-angle-down
+            .child
+              %select#child.select-wrap__box--select
+              %i.fa.fa-angle-down
+            .grand_child
+              = f.collection_select(:category_id, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
+              %i.fa.fa-angle-down
+
         .required-item
           = f.label :size, "サイズ"
           %span 必須
