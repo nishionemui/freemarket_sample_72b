@@ -3,7 +3,6 @@
 
 
 .seller-content {
-
   .exhibition-btn {
     width: 120px;
     background: #3CCACE;
@@ -179,6 +178,78 @@
           vertical-align: top;
         }
       }
+      .product-detail {
+        label {
+          font-weight: 600;
+        }
+        span {
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        }
+        .select-wrap {
+          margin: 8px 0 0;
+          &__box {
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
+            }
+            &--select {
+              width: 100%;
+              margin-bottom: 15px;
+              z-index: 2;
+              height: 48px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              -webkit-appearance: none;
+              cursor: pointer;
+            }
+          }
+          .child {
+            display: none;
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
+            }
+          }
+          .grand_child {
+            display: none;
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
+            }
+          }
+        }
+      }
       .item-name {
         input {
           width: 97%;
@@ -238,10 +309,10 @@
       }
       .brand-name {
         .input-brand {
-          width: 99.5%;
+          width: 98%;
           margin: 8px 0 32px;
           height: 28px;
-          padding: 10px 0;
+          padding: 10px 0 10px 10px;
           border-radius: 4px;
           border: 1px solid #ccc;
         }
@@ -370,3 +441,4 @@
     }
   }
 }
+
