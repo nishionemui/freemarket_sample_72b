@@ -38,7 +38,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # def extension_whitelist
   #   %w(jpg jpeg gif png)
   # end
-  f filename
+  def filename
   "something.jpg" if original_filename
   end
   process resize_to_fill: [30,30,"Center"]
