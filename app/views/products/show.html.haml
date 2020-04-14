@@ -1,139 +1,139 @@
--# = render "header"
--# %nav.category-bar
--#   %ul
--#     %li
--#       = link_to 'FURIMA', "/"
--#     %li
--#       %i.fa.fa-angle-right
--#     %li
--#       = link_to 'メンズ', "#"
--#     %li
--#       %i.fa.fa-angle-right
--#     %li
--#       = link_to 'トップス', "#"
--#     %li
--#       %i.fa.fa-angle-right
--#     %li
--#       = link_to 'シャツ', "#"
--#     %li
--#       %i.fa.fa-angle-right
--#     %li
--#       %p
--#         = @product.product_name
--# .product-main
--#   .product-main__show
--#     .top-content
--#       .products-box
--#         %h2.products-box__name
--#           = @product.product_name
--#         .products-box__images
--#           %ul.top-list
--#             %li.top-image
--#               - @product.images.first(1).each do |image|
--#                 = image_tag image.image.url, class: 'top-icon'
--#             %ul.sub-images
--#               - @product.images[0..4].each do |image|
--#                 %li.sub-images--box
--#                   = image_tag image.image.url, class: 'sub-icon' 
--#         .products-box__price
--#           .products-box__price__texts
--#             .price-text ¥
--#             .price-text
--#               = @product.price
--#           .products-box__price__detail
--#             %span (税込)
--#             %span 送料込み
--#         .products-box__detail
--#           = @product.description
--#         .products-box__info
--#           %table
--#             %tbody
--#               %tr
--#                 %th 出品者
--#                 %td
--#                   = @product.user.nickname
--#               %tr
--#                 %th カテゴリー
--#                 %td.category-text
--#                   - @parents.each do |parent|
--#                     - if @product.category_id == parent.id
--#                       = link_to "#" do
--#                         = parent.parent.parent.main_name
--#                         %br
--#                       = link_to "#" do
--#                         = parent.parent.main_name
--#                         %br
--#                       = link_to "#" do
--#                         = parent.main_name
+= render "header"
+%nav.category-bar
+  %ul
+    %li
+      = link_to 'FURIMA', "/"
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to 'メンズ', "#"
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to 'トップス', "#"
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to 'シャツ', "#"
+    %li
+      %i.fa.fa-angle-right
+    %li
+      %p
+        = @product.product_name
+.product-main
+  .product-main__show
+    .top-content
+      .products-box
+        %h2.products-box__name
+          = @product.product_name
+        .products-box__images
+          %ul.top-list
+            %li.top-image
+              - @product.images.first(1).each do |image|
+                = image_tag image.image.url, class: 'top-icon'
+            %ul.sub-images
+              - @product.images[0..4].each do |image|
+                %li.sub-images--box
+                  = image_tag image.image.url, class: 'sub-icon' 
+        .products-box__price
+          .products-box__price__texts
+            .price-text ¥
+            .price-text
+              = @product.price
+          .products-box__price__detail
+            %span (税込)
+            %span 送料込み
+        .products-box__detail
+          = @product.description
+        .products-box__info
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td
+                  = @product.user.nickname
+              %tr
+                %th カテゴリー
+                %td.category-text
+                  - @parents.each do |parent|
+                    - if @product.category_id == parent.id
+                      = link_to "#" do
+                        = parent.parent.parent.main_name
+                        %br
+                      = link_to "#" do
+                        = parent.parent.main_name
+                        %br
+                      = link_to "#" do
+                        = parent.main_name
                      
 
 
--#               %tr
--#                 %th ブランド
--#                 %td
--#                   = @product.brand
--#               %tr
--#                 %th 商品のサイズ
--#                 %td
--#                   = @product.size.value
--#               %tr
--#                 %th 商品の状態
--#                 %td
--#                   = @product.condition.value
--#               %tr
--#                 %th 配送料の負担
--#                 %td
--#                   = @product.delivery_fee.value
--#               %tr
--#                 %th 発送元の地域
--#                 %td
--#                   = link_to "#" do
--#                     = @product.prefecture.name
--#               %tr
--#                 %th 発送日の目安
--#                 %td
--#                   = @product.delivery_date.value
--#         .products-box__option
--#           .favorite
--#             .favorite__btn
--#               %i.fa.fa-star お気に入り 0
--#           .optional
--#             .optional__btn
--#               = link_to "#", class: "optional__btn__link" do
--#                 %i.fa.fa-flag 不適切な商品の通報
--#         .comments-box
--#           = form_for [@product, @comment] do |c|
--#             = c.text_area :text, class: "comment-area"
--#             .caution-area
--#               %p
--#                 相手のことを考え丁寧なコメントを心がけましょう。
--#               %p
--#                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
--#             .comment-btn
--#               = c.submit "", class: "comment-btn__submit"
--#               %i.fa.fa-comment コメントする
--#         - if user_signed_in? && current_user.id == @product.user_id
--#           .edit-btn
--#             = link_to "編集", edit_product_path(@product.id), class:"edit-btn__text"
--#           .delete-btn
--#             = link_to '削除する', product_path, method: :delete, class:"delete-btn__text"
--#         - elsif user_signed_in?
--#           -if @product.buyer_id.present?
--#             .purchase-btn-red
--#               .purchase-btn-red__text
--#                 Sold out 
--#           - else
--#             .purchase-btn
--#               = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
--#       .product-links
--#         .product-links__before
--#           = link_to "#", class: "product-link-btn" do
--#             %i.fa.fa-angle-left
--#             %span 前の商品
--#         .product-links__after
--#           = link_to "#", class: "product-link-btn" do
--#             %span 後ろの商品
--#             %i.fa.fa-angle-right
--#       .see-more
--#         = link_to  'メンズをもっと見る', "#"
--# = render "footer"
+              %tr
+                %th ブランド
+                %td
+                  = @product.brand
+              %tr
+                %th 商品のサイズ
+                %td
+                  = @product.size.value
+              %tr
+                %th 商品の状態
+                %td
+                  = @product.condition.value
+              %tr
+                %th 配送料の負担
+                %td
+                  = @product.delivery_fee.value
+              %tr
+                %th 発送元の地域
+                %td
+                  = link_to "#" do
+                    = @product.prefecture.name
+              %tr
+                %th 発送日の目安
+                %td
+                  = @product.delivery_date.value
+        .products-box__option
+          .favorite
+            .favorite__btn
+              %i.fa.fa-star お気に入り 0
+          .optional
+            .optional__btn
+              = link_to "#", class: "optional__btn__link" do
+                %i.fa.fa-flag 不適切な商品の通報
+        .comments-box
+          = form_for [@product, @comment] do |c|
+            = c.text_area :text, class: "comment-area"
+            .caution-area
+              %p
+                相手のことを考え丁寧なコメントを心がけましょう。
+              %p
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            .comment-btn
+              = c.submit "", class: "comment-btn__submit"
+              %i.fa.fa-comment コメントする
+        - if user_signed_in? && current_user.id == @product.user_id
+          .edit-btn
+            = link_to "編集", edit_product_path(@product.id), class:"edit-btn__text"
+          .delete-btn
+            = link_to '削除する', product_path, method: :delete, class:"delete-btn__text"
+        - elsif user_signed_in?
+          -if @product.buyer_id.present?
+            .purchase-btn-red
+              .purchase-btn-red__text
+                Sold out 
+          - else
+            .purchase-btn
+              = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
+      .product-links
+        .product-links__before
+          = link_to "#", class: "product-link-btn" do
+            %i.fa.fa-angle-left
+            %span 前の商品
+        .product-links__after
+          = link_to "#", class: "product-link-btn" do
+            %span 後ろの商品
+            %i.fa.fa-angle-right
+      .see-more
+        = link_to  'メンズをもっと見る', "#"
+= render "footer"
