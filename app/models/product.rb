@@ -8,7 +8,6 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for   :images, allow_destroy: true
   has_many :comments, dependent: :destroy
 
-  belongs_to_active_hash :brand, presence: true
   belongs_to_active_hash :condition, presence: true
   belongs_to_active_hash :size, presence: true
   belongs_to_active_hash :delivery_fee, presence: true

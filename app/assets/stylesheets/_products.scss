@@ -311,7 +311,7 @@ button{
     background-color: #f8f8f8;
     padding: 80px 0 0;
     &__top {
-      height: 100px;
+      height: 130px;
       text-align: center;
       &--up {
         font-size: 28px;
@@ -322,26 +322,30 @@ button{
         &--btn {
           text-decoration: none;
           color: #3CCACE;
-          font-size: 24px;
+          font-size: 24px;     
         }
       }
-    }
+      &--list {
+        padding: 0 390px;
+        text-align: end;
+        &--btn {
+        text-decoration: none;
+        color: #3CCACE;
+        font-size: 18px;
+
+        }
+
+      }
+    }  
     &__box {
       width: 780px;
-      // height: 300px;
       display: flex;
-      // justify-content: space-around;
       margin: 0 auto;
-      // flex-direction: row-reverse;
-      white-space:nowrap;
-      overflow-x:scroll;
-     
+
       &--new {
         width: 200px;
         height: 240px;
         margin: 10px 60px 100px 0;
-        // margin-bottom: 100px;
-        display: inline-block;
         z-index: 1;
         .show-btn,
         .no-btn {

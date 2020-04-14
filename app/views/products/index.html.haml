@@ -99,9 +99,11 @@
       .main__fifth__top--under
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
+      .main__fifth__top--list
+        = link_to "一覧", products_list_products_path, class: "main__fifth__top--list--btn"
     %ul.main__fifth__box
       -# 掲載数を変更できます
-      - @product.reverse_each do |product|
+      - @product.last(3).each do |product|
         %li.main__fifth__box--new
           =link_to product_path(product.id), class: "show-btn" do
             = image_tag product.images[0].image.url, size: '200x200'

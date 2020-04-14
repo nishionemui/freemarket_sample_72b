@@ -9,7 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(sign_up_params)
-    binding.pry
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
