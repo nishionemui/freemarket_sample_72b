@@ -328,20 +328,25 @@ button{
     }
     &__box {
       width: 780px;
-      height: 250px;
+      // height: 300px;
       display: flex;
-      justify-content: space-around;
+      // justify-content: space-around;
       margin: 0 auto;
-      flex-direction: row-reverse;
+      // flex-direction: row-reverse;
+      white-space:nowrap;
+      overflow-x:scroll;
+     
       &--new {
         width: 200px;
         height: 240px;
-        margin-top: 10px;
-        margin-bottom: 100px;
+        margin: 10px 60px 100px 0;
+        // margin-bottom: 100px;
+        display: inline-block;
         z-index: 1;
         .show-btn,
         .no-btn {
           text-decoration: none;
+          
         }
         .photo {
           width: 200px;

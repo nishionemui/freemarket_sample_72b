@@ -101,7 +101,7 @@
           新規投稿商品
     %ul.main__fifth__box
       -# 掲載数を変更できます
-      - @product.last(3).each do |product|
+      - @product.reverse_each do |product|
         %li.main__fifth__box--new
           =link_to product_path(product.id), class: "show-btn" do
             = image_tag product.images[0].image.url, size: '200x200'
