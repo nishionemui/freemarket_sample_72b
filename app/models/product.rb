@@ -2,7 +2,6 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
 
-  # has_many :main_categories, dependent: :destroy
   has_many :main_category
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for   :images, allow_destroy: true
