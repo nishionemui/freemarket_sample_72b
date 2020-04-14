@@ -1,148 +1,148 @@
--# 商品出品画面
-.products-exhibit
-  .products-exhibit__header
-    .products-exhibit__header__logo
-      = link_to image_tag('logo.png', class: "products-exhibit__header__logo__icon"),root_path
-  .products-exhibit__main
-    %h2 商品情報の入力
-    = render 'error_message', locals: {products: @products}
+-# -# 商品出品画面
+-# .products-exhibit
+-#   .products-exhibit__header
+-#     .products-exhibit__header__logo
+-#       = link_to image_tag('logo.png', class: "products-exhibit__header__logo__icon"),root_path
+-#   .products-exhibit__main
+-#     %h2 商品情報の入力
+-#     = render 'error_message', locals: {products: @products}
 
-    = form_for @products do |f|
-      .image-upload
-        .required-item
-          = f.label "出品画像"
-          %span 必須
-        %p 最大５枚までアップロードできます
-        .upload-image
-          .prev-content
-          .label-content
-            %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
-              %pre.label-box__text-visible クリックしてファイルをアップロード
-            .hidden-content
-              = f.fields_for :images do |image|
-                = image.file_field :image, class: "hidden-field"
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
-      .sale-contents
-        .required-item
-          = f.label :product_name, "商品名"
-          %span 必須
-        .item-name
-          = f.text_field :product_name, class: "input-name", placeholder: "40文字まで"
-        .required-item
-          = f.label :description, "商品の説明"
-          %span 必須
-        .item-description
-          = f.text_area :description, class: "input-description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", row: "7"
-      .sale-contents
-        .sale-contents__title 商品の詳細
-        .product-detail
-          = f.label :main_name, "カテゴリー"
-          %span 必須
-          .select-wrap
-            .select-wrap__box.parent
-              %select#parent.select-wrap__box--select
-                %option{value: 0} 選択して下さい
-                - @parents.each do |parent|
-                  %option{value: "#{parent.id}"} #{parent.main_name}
-              %i.fa.fa-angle-down
-            .child
-              %select#child.select-wrap__box--select
-              %i.fa.fa-angle-down
-            .grand_child
-              = f.collection_select(:category_id, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
-              %i.fa.fa-angle-down
+-#     = form_for @products do |f|
+-#       .image-upload
+-#         .required-item
+-#           = f.label "出品画像"
+-#           %span 必須
+-#         %p 最大５枚までアップロードできます
+-#         .upload-image
+-#           .prev-content
+-#           .label-content
+-#             %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+-#               %pre.label-box__text-visible クリックしてファイルをアップロード
+-#             .hidden-content
+-#               = f.fields_for :images do |image|
+-#                 = image.file_field :image, class: "hidden-field"
+-#                 %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
+-#                 %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
+-#                 %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
+-#                 %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
+-#       .sale-contents
+-#         .required-item
+-#           = f.label :product_name, "商品名"
+-#           %span 必須
+-#         .item-name
+-#           = f.text_field :product_name, class: "input-name", placeholder: "40文字まで"
+-#         .required-item
+-#           = f.label :description, "商品の説明"
+-#           %span 必須
+-#         .item-description
+-#           = f.text_area :description, class: "input-description", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", row: "7"
+-#       .sale-contents
+-#         .sale-contents__title 商品の詳細
+-#         .product-detail
+-#           = f.label :main_name, "カテゴリー"
+-#           %span 必須
+-#           .select-wrap
+-#             .select-wrap__box.parent
+-#               %select#parent.select-wrap__box--select
+-#                 %option{value: 0} 選択して下さい
+-#                 - @parents.each do |parent|
+-#                   %option{value: "#{parent.id}"} #{parent.main_name}
+-#               %i.fa.fa-angle-down
+-#             .child
+-#               %select#child.select-wrap__box--select
+-#               %i.fa.fa-angle-down
+-#             .grand_child
+-#               = f.collection_select(:category_id, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
+-#               %i.fa.fa-angle-down
         
-        .required-item
-          = f.label :size, "サイズ"
-          %span 必須
-        .select-wrap
-          %i.fa.fa-angle-down
-          = f.collection_select :size_id, Size.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-category"
-        .required-item
-          = f.label :brand, "ブランド"
-          %span.any 任意
-        .brand-name
-          = f.text_field :brand, class: "input-brand", placeholder: "例）シャネル"
-        .required-item
-          = f.label :condition_id, "商品の状態"
-          %span 必須
-        .select-wrap
-          %i.fa.fa-angle-down
-          = f.collection_select :condition_id, Condition.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
-      .sale-contents
-        .sale-contents__title 
-          配送について
-          = link_to '?', "#", class: "round-icon"
-        .required-item
-          = f.label :delivery_fee_id, "配送料の負担"
-          %span 必須
-        .select-wrap
-          %i.fa.fa-angle-down
-          = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
-        .required-item
-          = f.label :delivery_way_id, "配送料の方法"
-          %span 必須
-        .select-wrap
-          %i.fa.fa-angle-down
-          = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
-        .required-item
-          = f.label :prefecture_id, "発送元の地域"
-          %span 必須
-        .select-wrap
-          %i.fa.fa-angle-down
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
-        .required-item
-          = f.label :delivery_date_id, "発送までの日数"
-          %span 必須
-        .select-wrap
-          %i.fa.fa-angle-down
-          = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
-      .sale-contents
-        .price-title 
-          販売価格(¥300〜9,999,999)
-          = link_to '?', "#", class: "round-icon"
-        .price-form
-          .required-item
-            = f.label :prefecture_id, "販売価格"
-            %span 必須
-          %span ¥
-          .price
-            = f.number_field :price, class: "input-price", id: "sell-price", placeholder: "0", default: 0
-        .sales-commission
-          .fee-label
-            販売手数料（10%）
-          %span#furima_fee
-        %hr
-        .sales-commission
-          .fee-label
-            販売利益
-          %span#seller_gain
-        .btn-form
-          = f.submit "出品する", class: "purchase-btn"
-          = link_to '戻る', "/", class: "back-btn"
-        .notes
-          禁止されている
-          = link_to '行為', "#", class: "notes__text"
-          および
-          = link_to '出品物', "#", class: "notes__text"
-          を必ずご確認ください。
-          = link_to '偽ブランド品', "#", class: "notes__text"
-          や
-          = link_to '盗品物', "#", class: "notes__text"
-          などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
-          = link_to '加盟店規約', "#", class: "notes__text"
-          に同意したことになります。
-  .products-exhibit__footer
-    %ul
-      %li
-        = link_to 'プライバシーポリシー', "#", class: "footer-text"
-      %li
-        = link_to 'FURIMA利用規約', "#", class: "footer-text"
-      %li
-        = link_to '特定商取引に関する表記', "#", class: "footer-text"
-    .products-exhibit__footer__logo
-      = link_to image_tag('logo.png', class: "products-exhibit__footer__logo__icon"),root_path
-      %p © FURIMA
+-#         .required-item
+-#           = f.label :size, "サイズ"
+-#           %span 必須
+-#         .select-wrap
+-#           %i.fa.fa-angle-down
+-#           = f.collection_select :size_id, Size.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-category"
+-#         .required-item
+-#           = f.label :brand, "ブランド"
+-#           %span.any 任意
+-#         .brand-name
+-#           = f.text_field :brand, class: "input-brand", placeholder: "例）シャネル"
+-#         .required-item
+-#           = f.label :condition_id, "商品の状態"
+-#           %span 必須
+-#         .select-wrap
+-#           %i.fa.fa-angle-down
+-#           = f.collection_select :condition_id, Condition.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
+-#       .sale-contents
+-#         .sale-contents__title 
+-#           配送について
+-#           = link_to '?', "#", class: "round-icon"
+-#         .required-item
+-#           = f.label :delivery_fee_id, "配送料の負担"
+-#           %span 必須
+-#         .select-wrap
+-#           %i.fa.fa-angle-down
+-#           = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
+-#         .required-item
+-#           = f.label :delivery_way_id, "配送料の方法"
+-#           %span 必須
+-#         .select-wrap
+-#           %i.fa.fa-angle-down
+-#           = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
+-#         .required-item
+-#           = f.label :prefecture_id, "発送元の地域"
+-#           %span 必須
+-#         .select-wrap
+-#           %i.fa.fa-angle-down
+-#           = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
+-#         .required-item
+-#           = f.label :delivery_date_id, "発送までの日数"
+-#           %span 必須
+-#         .select-wrap
+-#           %i.fa.fa-angle-down
+-#           = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-condition"
+-#       .sale-contents
+-#         .price-title 
+-#           販売価格(¥300〜9,999,999)
+-#           = link_to '?', "#", class: "round-icon"
+-#         .price-form
+-#           .required-item
+-#             = f.label :prefecture_id, "販売価格"
+-#             %span 必須
+-#           %span ¥
+-#           .price
+-#             = f.number_field :price, class: "input-price", id: "sell-price", placeholder: "0", default: 0
+-#         .sales-commission
+-#           .fee-label
+-#             販売手数料（10%）
+-#           %span#furima_fee
+-#         %hr
+-#         .sales-commission
+-#           .fee-label
+-#             販売利益
+-#           %span#seller_gain
+-#         .btn-form
+-#           = f.submit "出品する", class: "purchase-btn"
+-#           = link_to '戻る', "/", class: "back-btn"
+-#         .notes
+-#           禁止されている
+-#           = link_to '行為', "#", class: "notes__text"
+-#           および
+-#           = link_to '出品物', "#", class: "notes__text"
+-#           を必ずご確認ください。
+-#           = link_to '偽ブランド品', "#", class: "notes__text"
+-#           や
+-#           = link_to '盗品物', "#", class: "notes__text"
+-#           などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+-#           = link_to '加盟店規約', "#", class: "notes__text"
+-#           に同意したことになります。
+-#   .products-exhibit__footer
+-#     %ul
+-#       %li
+-#         = link_to 'プライバシーポリシー', "#", class: "footer-text"
+-#       %li
+-#         = link_to 'FURIMA利用規約', "#", class: "footer-text"
+-#       %li
+-#         = link_to '特定商取引に関する表記', "#", class: "footer-text"
+-#     .products-exhibit__footer__logo
+-#       = link_to image_tag('logo.png', class: "products-exhibit__footer__logo__icon"),root_path
+-#       %p © FURIMA
