@@ -39,8 +39,6 @@ Rails.application.routes.draw do
       post 'pay/:id'=> 'products#pay', as: 'pay'                        #httpメソッドはpostなので注意
       get 'done/:id'=> 'products#done', as: 'done'                      #購入完了ページ
       delete 'products/:id' => 'products#destroy'
-      # get 'get_category_children', defaults: { format: 'json' }
-      # get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'products/new/mid_category', to: 'products#mid_category'
       get 'products/new/small_category', to: 'products#small_category'
       get 'products/list'=> 'products#list'
