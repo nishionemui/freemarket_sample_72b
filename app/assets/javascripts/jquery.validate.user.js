@@ -36,7 +36,7 @@ $(function () {
       },
       "user[password]": {
         required: true,
-        password: true // パスワードの正規表現チェック
+        password: true// パスワードの正規表現チェック
       },
       "user[password_confirmation]": {
         required: true,
@@ -85,11 +85,11 @@ $(function () {
       },
       "user[password]": {
         required: "パスワードを入力してください。",
-        password: "英字と数字両方を含むパスワードを入力してください。"
+        password: "7文字以上かつ英字と数字両方を含むパスワードを入力してください。"
       },
       "user[password_confirmation]": {
         required: "パスワードを入力してください。",
-        password: "英字と数字両方を含むパスワードを入力してください。",
+        password: "7文字以上かつ英字と数字両方を含むパスワードを入力してください。",
         equalTo: "入力した値が一致しません。"
       },
       "user[first_name]": {
