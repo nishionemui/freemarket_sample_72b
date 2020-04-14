@@ -1,26 +1,22 @@
--# = render "header"
+= render "header"
 
--# .main-category
--#   %ul.main-category__box
--#     - @product.reverse_each do |product|
--#       %li.main-category__box--new
--#         =link_to product_path(product.id), class: "show-btn" do
--#           = image_tag product.images[0].image.url, size: '200x200'
--#           .comment
--#             .comment--name
--#               =product.product_name
--#             %ul.comment--price
--#               %li= product.price
--#               %li.i.fa.fa-star
--#               %li.count 0
--#             %p.tax (税込み)
--#         -if product.buyer_id.present? 
--#           .item-sold
--#             .item-sold-inner
--#               SOLD
+.main-category
+  %ul.main-category__box
+    - @product.reverse_each do |product|
+      %li.main-category__box--new
+        =link_to product_path(product.id), class: "show-btn" do
+          = image_tag product.images[0].image.url, size: '200x200'
+          .comment
+            .comment--name
+              =product.product_name
+            %ul.comment--price
+              %li= product.price
+              %li.i.fa.fa-star
+              %li.count 0
+            %p.tax (税込み)
+        -if product.buyer_id.present? 
+          .item-sold
+            .item-sold-inner
+              SOLD
 
-
-
-
-
--# = render "footer"
+= render "footer"
