@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_013805) do
     t.bigint "user_id", null: false
     t.string "product_name", null: false
     t.text "description", null: false
-    t.bigint "brand_id"
+    t.string "brand", default: ""
     t.bigint "condition_id", default: 0, null: false
     t.bigint "size_id", default: 0, null: false
     t.bigint "delivery_fee_id", default: 0, null: false
@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2020_04_10_013805) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
-    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["condition_id"], name: "index_products_on_condition_id"
     t.index ["delivery_date_id"], name: "index_products_on_delivery_date_id"
     t.index ["delivery_fee_id"], name: "index_products_on_delivery_fee_id"
@@ -107,14 +106,14 @@ ActiveRecord::Schema.define(version: 2020_04_10_013805) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
-    t.text "user_image"
+    t.string "user_image"
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "first_name_read", null: false
     t.string "last_name_read", null: false
     t.date "birthday", null: false
     t.text "introduction"
-    t.integer "phone_num", null: false
+    t.string "phone_num", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
