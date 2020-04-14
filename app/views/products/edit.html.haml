@@ -82,10 +82,10 @@
           %i.fa.fa-angle-down
           = f.collection_select :size_id, Size.all, :id, :value, class: "select-category"
         .required-item
-          = f.label :brand_id, "ブランド"
+          = f.label :brand, "ブランド"
           %span.any 任意
         .brand-name
-          = f.text_area :brand_id, class: "input-brand", placeholder: "例）シャネル"
+          = f.text_field :brand, class: "input-brand", placeholder: "例）シャネル"
         .required-item
           = f.label :condition_id, "商品の状態"
           %span 必須
