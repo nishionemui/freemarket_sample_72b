@@ -15,28 +15,28 @@
         %p 最大５枚までアップロードできます
         .upload-image
           .prev-content
+            - @products.images.each do |image|
+              .preview-box
+                .upper-box
+                  = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                .lower-box
+                  .delete-box
+                    .delete-btn
+                      %span 削除
           .label-content
-            %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+            -# プレビューの数に合わせてforオプションを指定
+            = f.label :"images_attributes_#{@products.images.length}_image", class: "label-box", id: "label-box--#{@products.images.length}" do
               %pre.label-box__text-visible クリックしてファイルをアップロード
-            .hidden-content
-              = f.fields_for :images do |image|
-                = image.file_field :image, class: "hidden-field"
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
-          -# .label-content
-          -#   -# プレビューの数に合わせてforオプションを指定
-          -#   = f.label :"images_attributes_#{@products.images.length}_image", class: "label-box", id: "label-box--#{@products.images.length}" do
-          -#     %pre.label-box__text-visible クリックしてファイルをアップロード
-          -# .hidden-content
-          -#   = f.fields_for :images do |i|
-          -#     -# プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
-          -#     = i.file_field :image, class: "hidden-field"
-          -#     = i.check_box:_destroy, class: "hidden-checkbox"
-          -#     -# 5つのfile_fieldを準備するに当たって、足りない分を表示
-          -#   - @products.images.length.upto(4) do |i|
-          -#     %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+          .hidden-content
+            = f.fields_for :images do |i|
+              -# プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+              = i.file_field :image, class: "hidden-field"
+              = i.check_box:_destroy, class: "hidden-checkbox"
+              -# 5つのfile_fieldを準備するに当たって、足りない分を表示
+            - @products.images.length.upto(4) do |i|
+              %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+              -# %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-checkbox", type:"checkbox"}
+
       .sale-contents
         .required-item
           = f.label :product_name, "商品名"
@@ -54,21 +54,26 @@
           = f.label :main_name, "カテゴリー"
           %span 必須
           .select-wrap
+            - @parents.each do |parent|
+              - if @products.category_id == parent.id
+                .select-wrap__box.parent
+                  = f.collection_select(:category_id, MainCategory.where(ancestry: nil), :id, :main_name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
+                  %i.fa.fa-angle-down
+                .child-edit
+                  = f.collection_select(:category_id, MainCategory.where(params[:category_id]), :id, :main_name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "child"})
+                  %i.fa.fa-angle-down
+                .grand_child-edit
+                  = f.collection_select(:category_id, MainCategory.where(params[:category_id]), :id, :main_name, {prompt: "選択して下さい", selected: parent.id}, {id: "grand_child"})
+                  %i.fa.fa-angle-down
 
-            .select-wrap__box.parent
-              %select#parent.select-wrap__box--select
-                %option{value: 0} 選択して下さい
-                - @parents.each do |parent|
-                  %option{value: "#{parent.id}"} #{parent.main_name}
-              -# = f.select :category_id, @category_parent_array, {}, {class: 'select-wrap__box--select', id: 'parent_category'}
 
-              %i.fa.fa-angle-down
-            .child
-              %select#child.select-wrap__box--select
-              %i.fa.fa-angle-down
-            .grand_child
-              = f.collection_select(:category_id, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
-              %i.fa.fa-angle-down
+              
+            -# .child
+            -#   %select#child.select-wrap__box--select
+              
+            -# .grand_child
+            -#   = f.collection_select(:category_id, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
+              
 
         .required-item
           = f.label :size, "サイズ"

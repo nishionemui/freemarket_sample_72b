@@ -1,13 +1,10 @@
-
-
-
 $(function(){
   let buildPrompt = `<option value>選択して下さい</option>`
   let buildHtmlOption = function(parent) {
     let option = `<option value ="${parent.id}">${parent.main_name}</option>`
     return option
   }
-  $('#parent').change(function() {
+  $('#parent-edit').change(function() {
     let parent_id = $(this).val();
     $.ajax({
       type: 'GET',
@@ -56,6 +53,3 @@ $(function(){
     })
   });
 });
-
-
-

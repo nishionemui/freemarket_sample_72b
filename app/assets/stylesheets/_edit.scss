@@ -220,8 +220,7 @@
               cursor: pointer;
             }
           }
-          .child {
-            display: none;
+          .child-edit {
             position: relative;
             .fa-angle-down {
               position: absolute;
@@ -234,8 +233,7 @@
               float: right;
             }
           }
-          .grand_child {
-            display: none;
+          .grand_child-edit {
             position: relative;
             .fa-angle-down {
               position: absolute;

@@ -10,7 +10,7 @@ class Size < ActiveHash::Base
     { id: 7, value: '2XL(3L)' },
     { id: 8, value: '3XL(4L)' },
     { id: 9, value: '4XL(5L)以上' },
-    { id: 10, value: 'FREE SIZE' }
+    { id: 10, value: 'FREE SIZE' },
 
   #   # レディース靴のサイズ
   #   { id: 11, value: '20cm以下', group: '2' },
@@ -158,7 +158,7 @@ class Size < ActiveHash::Base
   #   { id: 130, value: '160cm-165cm未満', group: '14' },
   #   { id: 131, value: '165cm-170cm未満', group: '14' },
 
-  #   # 必須項目のため空のバリューを用意
-  #   { id: 99, value: '', group: '' }
+    # 必須項目のため空のバリューを用意
+    { id: 99, value: '', group: '' }
   ]
 end

@@ -24,13 +24,15 @@ class ProductsController < ApplicationController
 
   def edit
     @products = Product.find(params[:id])
+    @parents = MainCategory.all.order("id ASC").limit(607)
   end
 
   def update
-    @product = Product.find(params[:id])
-    if @product.update(product_params)
-      redirect_to product_path(@product.id)
+    @products = Product.find(params[:id])
+    if params[:product][:images_attributes] && @products.update(edit_product_params)
+      redirect_to product_path(@products.id)
     else
+      # @image = @products.images.build
       render :edit
     end
   end
@@ -38,7 +40,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @parents = MainCategory.all.order("id ASC").limit(607)
-
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
   end
@@ -110,7 +111,9 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:product_name, :description, :category_id, :brand_id, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image]]).merge(user_id: current_user.id)
   end
 
-  def set_categories
-    @categories = Category.where(ancestry: nil)
+  def edit_product_params 
+    params.require(:product).permit(:product_name, :description, :category_id, :brand_id, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
   end
+
+  
 end
