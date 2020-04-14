@@ -94,6 +94,9 @@ class ProductsController < ApplicationController
     #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
     @default_card_information = customer.cards.retrieve(card.card_id)
   end
+  def list
+    @product = Product.all
+  end
 
 
   def mid_category
