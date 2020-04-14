@@ -16,9 +16,10 @@ class User < ApplicationRecord
   validates :first_name_read,
             :last_name_read,
             format: {with:/\A[ァ-ヶー－]+\z/}
-# < 一致してないかどうか >
+# < 重複してないかどうか >
   validates :email,uniqueness: true
-
+# < パスワード7文字以上 >
+  validates :password,length: { minimum: 7}
 # < アソシエーション >
   has_many :products, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -26,6 +27,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
   has_many :cards, dependent: :destroy
 # < イメージアップローダー >
-  mount_uploader :user_image, ImageUploader
+  mount_uploader :user_image, UserImageUploader
 
 end
