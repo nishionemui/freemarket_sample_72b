@@ -1,0 +1,180 @@
+= render "header"
+.search
+  .search__left
+    .search__left__box
+      .search__left__box__line
+        %select
+          %option{:value => "0"} 並び替え
+          %option{:value => "1"} 価格の安い順
+          %option{:value => "2"} 価格の高い順
+          %option{:value => "3"} 出品の新しい順
+          %option{:value => "4"} いいね！の多い順
+        %i.fa.fa-angle-down
+    .search__left__list
+      = form_with(url:search_products_path, local: true, method: :get, class: "search-form") do |form|
+        .search__left__list__box
+          .search__left__list__box__choice
+            詳細検索
+          .search__left__list__box__keywords
+            %i.fas.fa-plus
+            .text
+              キーワードを追加する
+          = form.text_field :keyword, placeholder: "洋服", class: "keyword" 
+          .search__left__list__box__category
+            %i.fas.fa-list
+            .text 
+              カテゴリーを選択する
+          .select-wrap
+            .select-wrap__box
+              %select#parent.select-wrap__box--select
+                %option{value: 0} 選択して下さい
+                - @parents.each do |parent|
+                  %option{value: "#{parent.id}"} #{parent.main_name}
+              %i.fa.fa-angle-down
+              .child
+                %select#child.select-wrap__box--select
+                %i.fa.fa-angle-down
+              .grand_child
+                %select#grand_child.select-wrap__box--select
+                %i.fa.fa-angle-down
+          .search__left__list__box__brand
+            %i.fa.fa-tag
+            .text
+              ブランド名から探す 
+          %input{:placeholder => "例)シャネル", :type => "text", :class =>"keyword"}
+          -# .search__left__list__box__size
+          -#   %i.fas.fa-expand-wide
+          -#   .text
+          -#     サイズを指定する
+          -# %select#select-category
+          .search__left__list__box__money
+            %i.fas.fa-yen-sign
+            .text
+              価格
+          .search__left__list__box__setting
+            %input.number{placeholder:"¥ Min", :type => "text"}
+            -# %input{:placeholder => "¥ Min", :type => "text", :class =>"number"}
+            .setting-text
+              〜
+            %input.number{:placeholder => "¥ max", :type => "text"}
+          .search__left__list__box__status
+            %i.fas.fa-star
+            .text
+              商品の状態
+          .label-box
+            .label-box--first
+              %label.label-box--first__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "0"}
+                .text
+                  すべて
+              %br/
+              %label.label-box--first__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "2"}
+                .text
+                  未使用に近い
+              %br/    
+              %label.label-box--first__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "4"}
+                .text
+                  やや傷や汚れあり
+              %br/    
+              %label.label-box--first__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "6"}
+                .text
+                  傷や汚れあり
+              %br/
+            .label-box--second
+              %label.label-box--second__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "1"}
+                .text
+                  新品、未使用
+              %br/
+              %label.label-box--second__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "3"}
+                .text
+                  目立った傷や汚れなし
+              %br/
+              %label.label-box--second__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "5"}        
+                .text
+                  全体的に状態が悪い
+          .search__left__list__box__postage
+            %i.fas.fa-truck
+            .text
+              配送料の負担
+          .label-box
+            .label-box--first
+              %label.label-box--first__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "0"}
+                .text
+                  すべて
+              %br/
+              %label.label-box--first__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "2"}
+                .text
+                  送料込み(出品者負担)
+              %br/    
+            .label-box--second
+              %label.label-box--second__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "1"}
+                .text
+                  着払い(購入者負担)
+          .search__left__list__box__Sale
+            %i.fas.fa-shopping-cart
+            .text
+              販売状況
+          .label-box
+            .label-box--first
+              %label.label-box--first__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "0"}
+                .text
+                  すべて
+              %br/
+              %label.label-box--first__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "2"}
+                .text
+                  売り切れ
+              %br/    
+            .label-box--second
+              %label.label-box--second__list
+                %input.rank{:name => "Checkbox", :type => "checkbox", :value => "1"}
+                .text
+                  販売中
+          .search__left__list__box__choice
+            .clear
+              = link_to 'クリア', "#", class: "btn"
+            .decision
+              = form_with(url:search_products_path, local: true, method: :get, class: "search-form") do |form|
+                = button_tag type: 'submit', class: 'btn' do
+                  .text
+                    完了
+
+
+
+
+
+
+
+  .search__right
+    .search__right__result
+      - @product = Product.search(params[:keyword])
+      
+    %ul.search__right__box
+      - @product.each do |product|
+        %li.search__right__box--new
+          =link_to product_path(product.id), class: "show-btn" do
+            = image_tag product.images[0].image.url, size: '200x200'
+            .comment
+              .comment--name
+                =product.product_name
+              %ul.comment--price
+                %li= product.price
+                %li.i.fa.fa-star
+                %li.count 0
+              %p.tax (税込み)
+          -if product.buyer_id.present? 
+            .item-sold
+              .item-sold-inner
+                SOLD
+
+= render "footer"

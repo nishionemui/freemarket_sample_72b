@@ -101,6 +101,13 @@ class ProductsController < ApplicationController
     render json: @small_categories
   end
 
+  def search
+    # @products = Product.find(params[:id])
+    @product = Product.search(params[:keyword])
+    @parents = MainCategory.all.order("id ASC").limit(13)
+  end
+
+
   private 
   def product_params 
     params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image]]).merge(user_id: current_user.id)
