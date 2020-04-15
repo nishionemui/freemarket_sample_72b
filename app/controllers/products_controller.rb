@@ -7,20 +7,20 @@ class ProductsController < ApplicationController
   @parents = MainCategory.all.order("id ASC").limit(13)
   end
   
-  # def new
-  #   @products = Product.new
-  #   @image = @products.images.build
-  # end
+  def new
+    @products = Product.new
+    @image = @products.images.build
+  end
 
-  # def create
-  #   @products = Product.create(product_params)
-  #   if @products.save
-  #     render :create
-  #   else
-  #     @image = @products.images.build
-  #     render :new
-  #   end
-  # end
+  def create
+    @products = Product.new(product_params)
+    if @products.save
+      render :create
+    else
+      @image = @products.images.build
+      render :new
+    end
+  end
 
   def edit
     @products = Product.find(params[:id])
@@ -99,20 +99,20 @@ class ProductsController < ApplicationController
   end
 
 
-  # def mid_category
-  #   @mid_categories = MainCategory.where(ancestry: params[:big_category_id])
-  #   render json: @mid_categories
-  # end
+  def mid_category
+    @mid_categories = MainCategory.where(ancestry: params[:big_category_id])
+    render json: @mid_categories
+  end
 
-  # def small_category
-  #   @small_categories = MainCategory.where(ancestry: "#{params[:big_category_id]}/#{params[:mid_category_id]}")
-  #   render json: @small_categories
-  # end
+  def small_category
+    @small_categories = MainCategory.where(ancestry: "#{params[:big_category_id]}/#{params[:mid_category_id]}")
+    render json: @small_categories
+  end
 
-  # private 
-  # def product_params 
-  #   params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image]]).merge(user_id: current_user.id)
-  # end
+  private 
+  def product_params 
+    params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image]]).merge(user_id: current_user.id)
+  end
 
   def edit_product_params 
     params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
