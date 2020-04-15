@@ -27,12 +27,12 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @parents = MainCategory.all.order("id ASC").limit(607)
     if params[:product][:images_attributes] && @product.update(edit_product_params)
       redirect_to product_path(@product.id)
     else
 
       # @image = @products.images.build
-      @products = Product.find(params[:id])
       render action: :edit
       # render template: "product/edit"
       # redirect_to edit_product_path, alert: "編集に失敗しました"
