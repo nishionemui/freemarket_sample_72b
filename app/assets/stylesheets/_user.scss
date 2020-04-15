@@ -1051,14 +1051,19 @@
   margin-left: 5px;
 }
 // < デバイス初期値のエラーメッセージ >
+.error{
+  height: 60px;
+  width: 350px;
+  margin-top: 10px;
+}
 #error_explanation{
   color: rgb(255, 0, 0);
   font-size: 12px;
   height: 100px;
-  width: 310px;
+  width: 350px;
   li{
     height: 20px;
-    width: 220px;
+    width: 230px;
     margin-top: 2px;
   }
 }

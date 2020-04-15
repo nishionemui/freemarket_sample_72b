@@ -36,6 +36,11 @@ describe User do
       user.valid?
       expect(user.errors[:phone_num ]).to include("を入力してください")
     end
+    it "電話番号不適切な形式 " do
+      user = build(:user, phone_num: "a80-12345-678")
+      user.valid?
+      expect(user).to be_valid
+    end
     it " 重複したemailが存在する場合は登録できないこと " do
       user = build(:user)
       another_user = build(:user, email: user.email)
@@ -47,15 +52,40 @@ describe User do
       user.valid?
       expect(user).to be_valid
     end
-    it "first_name_readがカタカナではない場合は登録できないこと" do
-      user = build(:user, first_name_read: nil)
+    it "パスワードに英数字が含まれているか " do
+      user = build(:user, password: "a234567", password_confirmation:"a234567")
+      user.valid?
+      expect(user).to be_valid
+    end
+    it "パスワード数字のみは不適切" do
+      user = build(:user, password: "1111111111",)
+      user.valid?
+      expect(user).to be_invalid
+    end
+    it "パスワード英字のみは不適切" do
+      user = build(:user, password: "aaaaaaa")
+      user.valid?
+      expect(user).to be_invalid
+    end
+    it "first_name_readが平仮名の場合は登録できないこと" do
+      user = build(:user, first_name_read: "やまだ")
       user.valid?
       expect(user.errors[:first_name_read]).to include( "は不正な値です")
     end
-    it "last_name_readがカタカナではない場合は登録できないこと" do
-      user = build(:user, last_name_read: nil)
+    it "last_name_readが平仮名の場合は登録できないこと" do
+      user = build(:user, last_name_read: "たろう")
       user.valid?
       expect(user.errors[:last_name_read]).to include( "は不正な値です")
+    end
+    it "@が最初にくると不適切" do
+      user = build(:user, email: "@aaa")
+      user.valid?
+      expect(user.errors[:email][0]).to include("は有効でありません。")
+    end
+    it "@が最後に来ると不適切 " do
+      user = build(:user, email: "aaaa@")
+      user.valid?
+      expect(user.errors[:email][0]).to include("は有効でありません。")
     end
   end
 end

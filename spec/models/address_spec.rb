@@ -26,5 +26,10 @@ describe Address do
       address.valid?
       expect(address).to be_valid
     end
+    it "zip_code不適切 " do
+      user = build(:address, zip_code: "a00-0000")
+      user.valid?
+      expect(user).to be_invalid(:validates_address)
+    end
   end
 end
