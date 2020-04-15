@@ -24,14 +24,6 @@
       会員情報入力
     .user-content-main
       = form_for(@user, html: { id: :user_form } , url: user_registration_path)do |f|
-        -# .use-image
-        -#   = f.label :user_image do
-        -#     #user-img_field{:onclick => "$('#user-file').click()"}
-        -#       - if @user.user_image.present?
-        -#         = image_tag @user.user_image.url ,class: "user-img-icon" if @user.user_image?
-        -#       - else
-        -#         = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
-        -#     = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
         .error
           = render "devise/shared/error_messages", resource: @user
         .nickname
