@@ -1,9 +1,8 @@
 class ProductsController < ApplicationController
-
+  before_action :set_product, only: [:edit, :update, :show, :purchase, :pay, :done]
 
   def index
   @product = Product.all
-  # @parents = MainCategory.where(ancestry: nil)
   @parents = MainCategory.all.order("id ASC").limit(13)
   end
   
@@ -23,22 +22,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @products = Product.find(params[:id])
     @parents = MainCategory.all.order("id ASC").limit(607)
   end
 
   def update
-    @products = Product.find(params[:id])
-    if params[:product][:images_attributes] && @products.update(edit_product_params)
-      redirect_to product_path(@products.id)
+    if params[:product][:images_attributes] && @product.update(edit_product_params)
+      redirect_to product_path(@product.id)
     else
-      # @image = @products.images.build
       render :edit
     end
   end
 
   def show
-    @product = Product.find(params[:id])
     @parents = MainCategory.all.order("id ASC").limit(607)
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
@@ -55,7 +50,6 @@ class ProductsController < ApplicationController
 
   # < 商品購入アクション purchase、pay、done>
   def purchase
-    @product = Product.find(params[:id])
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
       flash.now[:alert] = 'カードを登録してください。'
@@ -69,24 +63,22 @@ class ProductsController < ApplicationController
   end
 
   def pay
-    @product = Product.find(params[:id])
-    
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      charge = Payjp::Charge.create(
-      amount: @product.price,
-      customer: card.customer_id,
-      card: params['payjp-token'],
-      currency: 'jpy'
-      )
-      if @product.update( buyer_id: current_user.id)
-        redirect_to done_products_path(@product.id)
-      else
-        redirect_back(fallback_location: root_path)
-      end
+    card = Card.find_by(user_id: current_user.id)
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @product.price,
+    customer: card.customer_id,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    if @product.update( buyer_id: current_user.id)
+      redirect_to done_products_path(@product.id)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def done
-    @product = Product.find(params[:id])
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     #保管した顧客IDでpayjpから情報取得
@@ -119,5 +111,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
   end
 
-  
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
