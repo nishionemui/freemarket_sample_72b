@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
   # < 商品購入アクション purchase、pay、done>
   def purchase
     @product = Product.find(params[:id])
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       flash.now[:alert] = 'カードを登録してください。'
     else
@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
 
   def pay
     @product = Product.find(params[:id])
-    card = Card.find_by(user_id: current_user.id)
+    
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       charge = Payjp::Charge.create(
       amount: @product.price,
@@ -87,7 +87,7 @@ class ProductsController < ApplicationController
 
   def done
     @product = Product.find(params[:id])
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     #保管した顧客IDでpayjpから情報取得
     customer = Payjp::Customer.retrieve(card.customer_id)
