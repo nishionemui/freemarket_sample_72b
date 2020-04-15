@@ -1,44 +1,40 @@
 class ProductsController < ApplicationController
-
+  before_action :set_product, only: [:edit, :update, :show,:purchase, :pay, :done]
+  before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
   @product = Product.all
-  # @parents = MainCategory.where(ancestry: nil)
   @parents = MainCategory.all.order("id ASC").limit(13)
   end
   
   def new
-    @products = Product.new
-    @image = @products.images.build
+    @product = Product.new
+    @image = @product.images.build
   end
 
   def create
-    @products = Product.new(product_params)
-    if @products.save
+    @product = Product.new(product_params)
+    if @product.save
       render :create
     else
-      @image = @products.images.build
+      @image = @product.images.build
       render :new
     end
   end
 
   def edit
-    @products = Product.find(params[:id])
     @parents = MainCategory.all.order("id ASC").limit(607)
   end
 
   def update
-    @products = Product.find(params[:id])
-    if params[:product][:images_attributes] && @products.update(edit_product_params)
-      redirect_to product_path(@products.id)
+    if params[:product][:images_attributes] && @product.update(edit_product_params)
+      redirect_to product_path(@product.id)
     else
-      # @image = @products.images.build
       render :edit
     end
   end
 
   def show
-    @product = Product.find(params[:id])
     @parents = MainCategory.all.order("id ASC").limit(607)
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
@@ -53,47 +49,41 @@ class ProductsController < ApplicationController
     end
   end
 
-  # # < 商品購入アクション purchase、pay、done>
-  # def purchase
-  #   @product = Product.find(params[:id])
-  #   card = Card.where(user_id: current_user.id).first
-  #   if card.blank?
-  #     flash.now[:alert] = 'カードを登録してください。'
-  #   else
-  #     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-  #     #保管した顧客IDでpayjpから情報取得
-  #     customer = Payjp::Customer.retrieve(card.customer_id)
-  #     #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-  #     @default_card_information = customer.cards.retrieve(card.card_id)
-  #   end
-  # end
+  # < 商品購入アクション purchase、pay、done>
+  def purchase
+    if @card.blank?
+      flash.now[:alert] = 'カードを登録してください。'
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
 
-  # def pay
-  #   @product = Product.find(params[:id])
-  #   card = Card.where(user_id: current_user.id).first
-  #     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-  #     charge = Payjp::Charge.create(
-  #     amount: @product.price,
-  #     customer: card.customer_id,
-  #     card: params['payjp-token'],
-  #     currency: 'jpy'
-  #     )
-  #     if @product.update( buyer_id: current_user.id)
-  #       redirect_to done_products_path(@product.id)
-  #     else
-  #       redirect_back(fallback_location: root_path)
-  #     end
-  # end
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @product.price,
+    customer: @card.customer_id,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    if @product.update( buyer_id: current_user.id)
+      redirect_to done_products_path(@product.id)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
-  # def done
-  #   @product = Product.find(params[:id])
-  #   card = Card.where(user_id: current_user.id).first
-  #   Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-  #   #保管した顧客IDでpayjpから情報取得
-  #   customer = Payjp::Customer.retrieve(card.customer_id)
-  #   #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-  #   @default_card_information = customer.cards.retrieve(card.card_id)
-  # end
+  def done
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    #保管した顧客IDでpayjpから情報取得
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+    @default_card_information = customer.cards.retrieve(@card.card_id)
+  end
 
   def list
     @product = Product.all
@@ -119,5 +109,11 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
   end
 
-  
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
 end

@@ -1,50 +1,50 @@
--# .header
--#   .header__box
--#     .header__box__up
--#       .header__box__up--icon
--#         = link_to image_tag('logo.png', class: "btn"),root_path
--#       .header__box__up--search
--#         = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
--#           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
--#           = button_tag type: 'submit', class: 'search-btn' do
--#             %i.fas.fa-search.click 
--#     .header__box__under
--#       .header__box__under__left
--#         %ul.left--box
--#           %li.list__category
--#             = link_to "#", class:"first-btn" do
--#               カテゴリー
--#           %li.list__category
--#             = link_to "#", class:"first-btn" do
--#               ブランド
--#       .header__box__under__right
--#         %ul.right--box
--#           -if user_signed_in?
--#             %li.list__login
--#               = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
--#           -else
--#             %li.list__login
--#               = link_to "ログイン",new_user_session_path, class:"btn"
--#             %li.list__category
--#               = link_to "新規会員登録",signup_index_path, class:"btn"
--# .wrraper
--#   .mypage
--#     = render 'users/side-bar'
--#     .chapter__container
--#       .chapter__head 
--#         支払い方法
--#       .payment__main    
--#         .payment__list
--#           .payment__list__content
--#             .sub__head
--#               クレジットカード一覧
--#         .add__card
--#           .payment__list__content
--#             = link_to edit_card_path(current_user), class: "red__btn", data: {"turbolinks" => false} do
--#               .card-icon-one
--#               = icon('fas', 'credit-card', class: "card__icon")
--#               クレジットカードを追加する
--#       .not__regist
--#         .not-font
--#           支払い方法について
--# = render 'products/footer'
+.header
+  .header__box
+    .header__box__up
+      .header__box__up--icon
+        = link_to image_tag('logo.png', class: "btn"),root_path
+      .header__box__up--search
+        = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
+          = button_tag type: 'submit', class: 'search-btn' do
+            %i.fas.fa-search.click 
+    .header__box__under
+      .header__box__under__left
+        %ul.left--box
+          %li.list__category
+            = link_to "#", class:"first-btn" do
+              カテゴリー
+          %li.list__category
+            = link_to "#", class:"first-btn" do
+              ブランド
+      .header__box__under__right
+        %ul.right--box
+          -if user_signed_in?
+            %li.list__login
+              = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
+          -else
+            %li.list__login
+              = link_to "ログイン",new_user_session_path, class:"btn"
+            %li.list__category
+              = link_to "新規会員登録",signup_index_path, class:"btn"
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .chapter__container
+      .chapter__head 
+        支払い方法
+      .payment__main    
+        .payment__list
+          .payment__list__content
+            .sub__head
+              クレジットカード一覧
+        .add__card
+          .payment__list__content
+            = link_to edit_card_path(current_user), class: "red__btn", data: {"turbolinks" => false} do
+              .card-icon-one
+              = icon('fas', 'credit-card', class: "card__icon")
+              クレジットカードを追加する
+      .not__regist
+        .not-font
+          支払い方法について
+= render 'products/footer'

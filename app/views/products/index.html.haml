@@ -115,10 +115,10 @@
                 %li.i.fa.fa-star
                 %li.count 0
               %p.tax (税込み)
-          -# -if product.buyer_id.present? 
-          -#   .item-sold
-          -#     .item-sold-inner
-          -#       SOLD
+          -if product.buyer_id.present? 
+            .item-sold
+              .item-sold-inner
+                SOLD
   .main__sixth
     .main__sixth__top
       .main__sixth__top--up
@@ -139,8 +139,8 @@
                 %li.i.fa.fa-star
                 %li.count 0
               %p.tax (税込み)
-          -# -if product.buyer_id.present? 
-          -#   .item-sold
-          -#     .item-sold-inner
-          -#       SOLD
+          -if product.buyer_id.present? 
+            .item-sold
+              .item-sold-inner
+                SOLD
 = render "footer"
