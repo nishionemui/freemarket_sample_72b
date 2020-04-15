@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @products = Product.create(product_params)
+    @products = Product.new(product_params)
     if @products.save
       render :create
     else
