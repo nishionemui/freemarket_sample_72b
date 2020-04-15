@@ -1,53 +1,53 @@
-.user-header
-  .user-field
-    .user-header-icon
-      = link_to image_tag('logo.png', class: "user-top"),root_path
-    .user-header-now
-      .class-one
-        .class-first
-          会員情報
-        .icon-class-red
-          .user-bottom-red-1
-      .class-two
-        .class-second
-          送付先情報
-        .icon-class-red-one
-          .user-bottom-gray-3
-      .class-thrry
-        .class-third
-          完了
-        .icon-class-gray-two
-          .user-bottom-3
-.user-content-two
-  .user-content-all-two
-    .user-content-header
-      送付先情報入力
-    .user-content-main
-      = form_for @address do |f|
-        .zip-code
-          = f.label :zip_code, "郵便番号"
-          %span.form-group__require 必須
-          .zip-code-group
-            = f.text_field :zip_code,placeholder: "例）123-4567",class: "zip-code-field",id: "zip-code"
-        .prefecture
-          = f.label :prefecture_id, "都道府県"
-          %span.form-group__require 必須
-          .prefecture-group
-            = f.select :prefecture_id , Address.prefecture_ids.keys, {} ,class: "prefecture-field",id: "prefecture"
-        .city
-          = f.label :city, "市区町村"
-          %span.form-group__require 必須
-          .city-group
-            = f.text_field :city, placeholder: "例）札幌市",class: "city-field",id: "city"
-        .address
-          = f.label :address1, "番地"
-          %span.form-group__require 必須
-          .address-group
-            = f.text_field :address1, placeholder: "例）青葉1-1-1",class: "address-field",id: "address1"
-        .address-last
-          = f.label :address2, "建物名"
-          %span.form-group__any 任意
-          .address-last-group
-            = f.text_field :address2, placeholder: "例）柳ビル103",class: "address-last-field"
-        .send
-          = f.submit 'サインアップ', class: 'send-btn'
+-# .user-header
+-#   .user-field
+-#     .user-header-icon
+-#       = link_to image_tag('logo.png', class: "user-top"),root_path
+-#     .user-header-now
+-#       .class-one
+-#         .class-first
+-#           会員情報
+-#         .icon-class-red
+-#           .user-bottom-red-1
+-#       .class-two
+-#         .class-second
+-#           送付先情報
+-#         .icon-class-red-one
+-#           .user-bottom-gray-3
+-#       .class-thrry
+-#         .class-third
+-#           完了
+-#         .icon-class-gray-two
+-#           .user-bottom-3
+-# .user-content-two
+-#   .user-content-all-two
+-#     .user-content-header
+-#       送付先情報入力
+-#     .user-content-main
+-#       = form_for @address do |f|
+-#         .zip-code
+-#           = f.label :zip_code, "郵便番号"
+-#           %span.form-group__require 必須
+-#           .zip-code-group
+-#             = f.text_field :zip_code,placeholder: "例）123-4567",class: "zip-code-field",id: "zip-code"
+-#         .prefecture
+-#           = f.label :prefecture_id, "都道府県"
+-#           %span.form-group__require 必須
+-#           .prefecture-group
+-#             = f.select :prefecture_id , Address.prefecture_ids.keys, {} ,class: "prefecture-field",id: "prefecture"
+-#         .city
+-#           = f.label :city, "市区町村"
+-#           %span.form-group__require 必須
+-#           .city-group
+-#             = f.text_field :city, placeholder: "例）札幌市",class: "city-field",id: "city"
+-#         .address
+-#           = f.label :address1, "番地"
+-#           %span.form-group__require 必須
+-#           .address-group
+-#             = f.text_field :address1, placeholder: "例）青葉1-1-1",class: "address-field",id: "address1"
+-#         .address-last
+-#           = f.label :address2, "建物名"
+-#           %span.form-group__any 任意
+-#           .address-last-group
+-#             = f.text_field :address2, placeholder: "例）柳ビル103",class: "address-last-field"
+-#         .send
+-#           = f.submit 'サインアップ', class: 'send-btn'

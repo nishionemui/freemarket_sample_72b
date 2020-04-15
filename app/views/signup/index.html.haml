@@ -1,22 +1,22 @@
-.user-main
-  .user-header
-    = link_to image_tag('logo.png', class: "icon-user-top"),root_path
-  .user-new
-    .user-new-title
-      新規会員登録
-    .link-list
-      .email-check
-        .email-field
-          = link_to 'メールアドレスで登録する', new_user_registration_path,class: "email-font"
-          %i.far.fa-envelope.email-icon
-      .facebook
-        .facebook-field
-          = link_to 'Facebookで登録する', "#",class: "facebook-btn"
-          %i.fab.fa-facebook-square.facebook-icon
-        -# = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
-      .google
-        .google-font
-          = link_to 'Googleで登録する', "#",class: "google-btn"
-          .google-photo
-            = image_tag 'google.jpg', class:"google-photo-size"
-        -# = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+-# .user-main
+-#   .user-header
+-#     = link_to image_tag('logo.png', class: "icon-user-top"),root_path
+-#   .user-new
+-#     .user-new-title
+-#       新規会員登録
+-#     .link-list
+-#       .email-check
+-#         .email-field
+-#           = link_to 'メールアドレスで登録する', new_user_registration_path,class: "email-font"
+-#           %i.far.fa-envelope.email-icon
+-#       .facebook
+-#         .facebook-field
+-#           = link_to 'Facebookで登録する', "#",class: "facebook-btn"
+-#           %i.fab.fa-facebook-square.facebook-icon
+-#         -# = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
+-#       .google
+-#         .google-font
+-#           = link_to 'Googleで登録する', "#",class: "google-btn"
+-#           .google-photo
+-#             = image_tag 'google.jpg', class:"google-photo-size"
+-#         -# = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
