@@ -2,7 +2,7 @@ class Address < ApplicationRecord
   # < アソシエーション >
   belongs_to :user, optional: true
   
-  # < バリデーション >
+#   # < バリデーション >
 #   # < 空でないか >
 #   validates :zip_code,
 #             :city,
