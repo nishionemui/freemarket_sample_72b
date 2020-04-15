@@ -44,7 +44,9 @@ Rails.application.routes.draw do
       get 'products/new/mid_category', to: 'products#mid_category'
       get 'products/new/small_category', to: 'products#small_category'
       get 'products/list'=> 'products#list'
+      get 'search'
     end
+
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -27,4 +27,11 @@ class Product < ApplicationRecord
   validates :delivery_date, presence: true
   validates :price, presence: true
 
+  def self.search(search)
+    if search
+      Product.where('product_name LIKE(?)', "%#{search}%")
+    else
+      Product.all
+    end
+  end
 end
