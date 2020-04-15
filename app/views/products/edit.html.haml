@@ -6,12 +6,14 @@
       = link_to image_tag('logo.png', class: "products-exhibit__header__logo__icon"),root_path
   .products-exhibit__main
     %h2 商品情報の入力
+
     -# - if flash[:alert]
     -#   .error-message
     -#     = flash[:alert]
-    -# = render 'error_message', locals: {products: @products}
+    -# = render 'error_message', locals: {products: @product}
     
-    = form_for @products do |f|
+    = form_for @product do |f|
+
       .image-upload
         .required-item
           = f.label "出品画像"
@@ -19,7 +21,7 @@
         %p 最大５枚までアップロードできます
         .upload-image
           .prev-content
-            - @products.images.each do |image|
+            - @product.images.each do |image|
               .preview-box
                 .upper-box
                   = image_tag image.image.url, width: "112", height: "112", alt: "preview"
@@ -29,7 +31,7 @@
                       %span 削除
           .label-content
             -# プレビューの数に合わせてforオプションを指定
-            = f.label :"images_attributes_#{@products.images.length}_image", class: "label-box", id: "label-box--#{@products.images.length}" do
+            = f.label :"images_attributes_#{@product.images.length}_image", class: "label-box", id: "label-box--#{@product.images.length}" do
               %pre.label-box__text-visible クリックしてファイルをアップロード
           .hidden-content
             = f.fields_for :images do |i|
@@ -37,7 +39,7 @@
               = i.file_field :image, class: "hidden-field"
               = i.check_box:_destroy, class: "hidden-checkbox"
               -# 5つのfile_fieldを準備するに当たって、足りない分を表示
-            - @products.images.length.upto(4) do |i|
+            - @product.images.length.upto(4) do |i|
               %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
               -# %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-checkbox", type:"checkbox"}
 
@@ -59,7 +61,7 @@
           %span 必須
           .select-wrap
             - @parents.each do |parent|
-              - if @products.category_id == parent.id
+              - if @product.category_id == parent.id
                 .select-wrap__box.parent
                   = f.collection_select(:category_id, MainCategory.where(ancestry: nil), :id, :main_name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
                   %i.fa.fa-angle-down

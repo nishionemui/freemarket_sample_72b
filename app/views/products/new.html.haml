@@ -5,9 +5,9 @@
       = link_to image_tag('logo.png', class: "products-exhibit__header__logo__icon"),root_path
   .products-exhibit__main
     %h2 商品情報の入力
-    = render 'error_message', locals: {products: @products}
+    = render 'error_message', locals: {products: @product}
 
-    = form_for @products do |f|
+    = form_for @product do |f|
       .image-upload
         .required-item
           = f.label "出品画像"
