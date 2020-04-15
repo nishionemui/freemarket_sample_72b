@@ -24,14 +24,16 @@
       会員情報入力
     .user-content-main
       = form_for(@user, html: { id: :user_form } , url: user_registration_path)do |f|
-        .use-image
-          = f.label :user_image do
-            #user-img_field{:onclick => "$('#user-file').click()"}
-              - if @user.user_image.present?
-                = image_tag @user.user_image.url, class: "user-img-icon"
-              - else
-                = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
-            = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
+        -# .use-image
+        -#   = f.label :user_image do
+        -#     #user-img_field{:onclick => "$('#user-file').click()"}
+        -#       - if @user.user_image.present?
+        -#         = image_tag @user.user_image.url ,class: "user-img-icon" if @user.user_image?
+        -#       - else
+        -#         = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
+        -#     = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
+        .error
+          = render "devise/shared/error_messages", resource: @user
         .nickname
           = f.label :nickname, "ニックネーム"
           %span.form-group__require 必須
@@ -72,7 +74,7 @@
           = f.label :birthday, "生年月日"
           %span.form-group__require 必須
           .birthday-select
-            = raw sprintf(f.date_select(:birthday,id: "birthday",use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),:include_blank => true ,date_separator: '%s'),'年 ', '月 ') + '日'
+            = raw sprintf(f.date_select(:birthday,id: "birthday",use_month_numbers: true,start_year: 1970,end_year: (Time.now.year - 18),:include_blank => true ,date_separator: '%s'),'年 ', '月 ') + '日'
         .phone
           = f.label :phone_num, "携帯電話の番号"
           %span.form-group__require 必須

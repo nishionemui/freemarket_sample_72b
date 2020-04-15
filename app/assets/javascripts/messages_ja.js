@@ -14,6 +14,7 @@
  */
 $.extend( $.validator.messages, {
 	required: "このフィールドは必須です。",
+	taken: "は既に使用されています。",
 	remote: "このフィールドを修正してください。",
 	email: "有効なEメールアドレスを入力してください。",
 	url: "有効なURLを入力してください。",
