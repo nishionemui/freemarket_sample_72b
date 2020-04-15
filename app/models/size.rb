@@ -159,6 +159,6 @@ class Size < ActiveHash::Base
   #   { id: 131, value: '165cm-170cm未満', group: '14' },
 
     # 必須項目のため空のバリューを用意
-    { id: 99, value: '', group: '' }
+    { id: 99, value: 'その他', group: '' }
   ]
 end
