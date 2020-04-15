@@ -33,7 +33,10 @@ class ProductsController < ApplicationController
       redirect_to product_path(@products.id)
     else
       # @image = @products.images.build
-      render :edit
+      @products = Product.find(params[:id])
+      render action: :edit
+      # render template: "product/edit"
+      # redirect_to edit_product_path, alert: "編集に失敗しました"
     end
   end
 
