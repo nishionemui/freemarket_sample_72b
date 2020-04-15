@@ -10,9 +10,9 @@ ja:
 
     models:
       product: "商品"
-      image: "写真"
     attributes:
       product:
+        images: "出品画像"
         product_name: "商品名"
         description: "商品の説明"
         size: "サイズ"
@@ -23,8 +23,6 @@ ja:
         prefecture: "発送までの日数"
         price: "販売価格"
         category_id: "カテゴリー"
-      image:
-        image: "出品画像"
 
 
   date:
