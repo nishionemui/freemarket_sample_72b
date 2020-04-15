@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :update, :show]
+  before_action :set_product, only: [:edit, :update, :show,:purchase, :pay, :done]
   before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
@@ -8,16 +8,16 @@ class ProductsController < ApplicationController
   end
   
   def new
-    @products = Product.new
-    @image = @products.images.build
+    @product = Product.new
+    @image = @product.images.build
   end
 
   def create
-    @products = Product.new(product_params)
-    if @products.save
+    @product = Product.new(product_params)
+    if @product.save
       render :create
     else
-      @image = @products.images.build
+      @image = @product.images.build
       render :new
     end
   end
@@ -51,14 +51,14 @@ class ProductsController < ApplicationController
 
   # < 商品購入アクション purchase、pay、done>
   def purchase
-    if card.blank?
+    if @card.blank?
       flash.now[:alert] = 'カードを登録してください。'
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
     amount: @product.price,
-    customer: card.customer_id,
+    customer: @card.customer_id,
     card: params['payjp-token'],
     currency: 'jpy'
     )
@@ -80,9 +80,9 @@ class ProductsController < ApplicationController
   def done
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     #保管した顧客IDでpayjpから情報取得
-    customer = Payjp::Customer.retrieve(card.customer_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
     #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-    @default_card_information = customer.cards.retrieve(card.card_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
   def list
@@ -114,7 +114,6 @@ class ProductsController < ApplicationController
   end
 
   def set_card
-    @product = Product.find(params[:id])
-    card = Card.find_by(user_id: current_user.id)
+    @card = Card.find_by(user_id: current_user.id)
   end
 end
