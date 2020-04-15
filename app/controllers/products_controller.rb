@@ -22,18 +22,18 @@ class ProductsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @parents = MainCategory.all.order("id ASC").limit(607)
-  # end
+  def edit
+    @parents = MainCategory.all.order("id ASC").limit(607)
+  end
 
-  # def update
-  #   @parents = MainCategory.all.order("id ASC").limit(607)
-  #   if params[:product][:images_attributes] && @product.update(edit_product_params)
-  #     redirect_to product_path(@product.id)
-  #   else
-  #     render action: :edit
-  #   end
-  # end
+  def update
+    @parents = MainCategory.all.order("id ASC").limit(607)
+    if params[:product][:images_attributes] && @product.update(edit_product_params)
+      redirect_to product_path(@product.id)
+    else
+      render action: :edit
+    end
+  end
 
   def show
     @parents = MainCategory.all.order("id ASC").limit(607)
@@ -106,9 +106,9 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image]]).merge(user_id: current_user.id)
   end
 
-  # def edit_product_params 
-  #   params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
-  # end
+  def edit_product_params 
+    params.require(:product).permit(:product_name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :delivery_date_id, :delivery_way_id, :prefecture_id, :price, :size_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
+  end
 
   def set_product
     @product = Product.find(params[:id])
