@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :get_payjp_info, only: [:new_create, :create,:delete, :show]
+  before_action :set_card, only: [:delete, :show]
 
   def edit
   end
@@ -27,10 +28,9 @@ class CardsController < ApplicationController
   end
 
   def show
-    card = Card.find_by(user_id: current_user.id)
-    if card.present?
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+    if @card.present?
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
       @card_brand = @default_card_information.brand
       case @card_brand
       when "Visa"
@@ -54,11 +54,10 @@ class CardsController < ApplicationController
   end
 
   def delete
-    card = Card.find_by(user_id: current_user.id)
-    if card.present?
-      customer = Payjp::Customer.retrieve(card.customer_id)
+    if @card.present?
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
     end
       redirect_to action: "confirmation", id: current_user.id
   end
@@ -70,5 +69,9 @@ class CardsController < ApplicationController
     else
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     end
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
   end
 end
