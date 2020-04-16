@@ -8,15 +8,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.new(sign_up_params)
-    unless @user.valid?
-      flash.now[:alert] = @user.errors.full_messages
-      render :new and return
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+      @user = User.new(sign_up_params)
+      unless @user.valid?
+        flash.now[:alert] = @user.errors.full_messages
+        render :new and return
+      end
+      session["devise.regist_data"] = {user: @user.attributes}
+      session["devise.regist_data"][:user]["password"] = params[:user][:password]
+      session["devise.regist_data"][:user]["password_confirmation"] = params[:user][:password_confirmation]
+      @address = @user.build_address
+      render :new_address
+    else
+      @user = User.new(sign_up_params)
+      unless @user.valid?
+        flash.now[:alert] = @user.errors.full_messages
+        render :new and return
+      end
+      session["devise.regist_data"] = {user: @user.attributes}
+      session["devise.regist_data"][:user]["password"] = params[:user][:password]
+      @address = @user.build_address
+      render :new_address
     end
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @address = @user.build_address
-    render :new_address
   end
 
   def create_address
@@ -35,6 +51,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def destroy
+    if @user.destroy
+      redirect_to deletion_users_path
+    else
+      redirect_to signout_users_path(current_user.id), notice: 'アカウント削除できませんでした'
+    end
+  end
+
 # < 編集後 ユーザーページへ >
   def after_update_path_for(resource)
     user_path(resource)
@@ -49,12 +73,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def address_params
     params.require(:address).permit(:zip_code, :prefecture_id, :city, :address1, :address2)
   end
-
-
-
-
-
-
 
   # GET /resource/edit
   # def edit
