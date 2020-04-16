@@ -101,11 +101,10 @@ class ProductsController < ApplicationController
     render json: @small_categories
   end
 
-  def search
-    # @products = Product.find(params[:id])
-    @product = Product.search(params[:keyword])
-    @parents = MainCategory.all.order("id ASC").limit(13)
-  end
+  # def search
+  #   @product = Product.search(params[:keyword])
+  #   @parents = MainCategory.all.order("id ASC").limit(13)
+  # end
 
 
   private 

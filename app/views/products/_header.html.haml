@@ -3,11 +3,11 @@
     .header__box__up
       .header__box__up--icon
         = link_to image_tag('logo.png', class: "btn"),root_path
-      .header__box__up--search
-        = form_with(url:search_products_path, local: true, method: :get, class: "search-form") do |form|
-          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
-          = button_tag type: 'submit', class: 'search-btn' do
-            %i.fas.fa-search.click 
+      -# .header__box__up--search
+      -#   = form_with(url:search_products_path, local: true, method: :get, class: "search-form") do |form|
+      -#     = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
+      -#     = button_tag type: 'submit', class: 'search-btn' do
+      -#       %i.fas.fa-search.click 
     .header__box__under
       .header__box__under__left
         %ul.left--box
