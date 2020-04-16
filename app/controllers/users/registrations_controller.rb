@@ -52,8 +52,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def destroy
-    @user.destroy
-    redirect_to deletion_users_path
+    if @user.destroy
+      redirect_to deletion_users_path
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
 # < 編集後 ユーザーページへ >
