@@ -26,12 +26,8 @@ class Product < ApplicationRecord
             :delivery_date,
             :price, 
             presence: true
+  
+  scope :product_name, -> (search){ where('product_name LIKE(?)', "%#{search}%")}
 
-#   def self.search(search)
-#     if search
-#       Product.where('product_name LIKE(?)', "%#{search}%")
-#     else
-#       Product.all
-#     end
-#   end
-# end
+
+end
