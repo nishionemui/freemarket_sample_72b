@@ -121,16 +121,16 @@
             %span 必須
           %span ¥
           .price
-            = f.number_field :price, class: "input-price", placeholder: "0", default: 0
+            = f.number_field :price, class: "input-price", id: "sell-price", placeholder: "0", default: 0
         .sales-commission
           .fee-label
             販売手数料（10%）
-          %span ー
+          %span#furima_fee --
         %hr
         .sales-commission
           .fee-label
             販売利益
-          %span ー
+          %span#seller_gain --
         .btn-form
           = f.submit "変更する", class: "purchase-btn"
           = link_to '戻る', "/", class: "back-btn"

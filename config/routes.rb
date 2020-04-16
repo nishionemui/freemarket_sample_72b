@@ -42,9 +42,11 @@ Rails.application.routes.draw do
       get 'products/new/mid_category', to: 'products#mid_category'
       get 'products/new/small_category', to: 'products#small_category'
       get 'products/list'=> 'products#list'
-      # get 'search'
+      get 'search'
     end
 
   end
+  post   '/like/:product_id' => 'likes#like',   as: 'like'
+  delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

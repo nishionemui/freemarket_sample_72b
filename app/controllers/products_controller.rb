@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
   before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
-  @product = Product.all
-  @parents = MainCategory.all.order("id ASC").limit(13)
+    @product = Product.all
+    @parents = MainCategory.all.order("id ASC").limit(13)
   end
   
   def new
@@ -101,10 +101,10 @@ class ProductsController < ApplicationController
     render json: @small_categories
   end
 
-  # def search
-  #   @product = Product.search(params[:keyword])
-  #   @parents = MainCategory.all.order("id ASC").limit(13)
-  # end
+  def search
+    @product = Product.search(params[:keyword])
+    @parents = MainCategory.all.order("id ASC").limit(13)
+  end
 
 
   private 
