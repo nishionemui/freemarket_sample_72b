@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe SnsCredential, type: :model do
   describe '#create' do
     it "providerがない場合は登録できないこと" do
@@ -13,3 +14,4 @@ RSpec.describe SnsCredential, type: :model do
     end
   end
 end
+

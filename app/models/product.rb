@@ -13,6 +13,8 @@ class Product < ApplicationRecord
   belongs_to_active_hash :delivery_date, presence: true
   belongs_to_active_hash :delivery_way, presence: true
   belongs_to_active_hash :prefecture, presence: true
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
 
   validates :images,
             :product_name,
@@ -28,6 +30,5 @@ class Product < ApplicationRecord
             presence: true
   
   scope :product_name, -> (search){ where('product_name LIKE(?)', "%#{search}%")}
-
 
 end

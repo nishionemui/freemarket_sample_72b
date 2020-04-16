@@ -1,14 +1,14 @@
-$('#sell-price').on('keyup', function(){
-  var price = $(this).val();
-  var furima_fee = Math.floor(price * 0.1)
-  var seller_gain = price - mercari_fee
-
-  if (price >= 300 && price <= 9999999) {
-    $('#furima_fee').text('¥' + furima_fee.toLocaleString())
-    $('#seller_gain').text('¥' + seller_gain.toLocaleString())
-  } else {
-    $('#furima_fee').text('--')
-    $('#seller_gain').text('--')
-  }
+$(function(){
+  $('#sell-price').on('keyup', function(){
+    var price = $(this).val();
+    let tax = $('#sell-price').val();
+    if (price >= 300 && price <= 9999999) {
+      $('#furima_fee').text(Math.ceil(tax * 0.1) + "円");
+      $('#seller_gain').text(Math.ceil(tax - (tax * 0.1)) + "円");
+    } else {
+      $('#furima_fee').text('--')
+      $('#seller_gain').text('--')
+    }
+  });
 });
 
