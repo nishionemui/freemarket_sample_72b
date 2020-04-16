@@ -102,7 +102,9 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @product = Product.search(params[:keyword])
+
+    @product = Product.product_name(params[:keyword])
+
     @parents = MainCategory.all.order("id ASC").limit(13)
   end
 

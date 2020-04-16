@@ -469,6 +469,17 @@
             padding-left: 10px;
             border: 1px solid rgb(234, 232, 232);
           }
+          .no-pass-field{
+            height: 45px;
+            width: 338px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+            text-align: center;
+            line-height: 45px;
+            color: rgb(171, 168, 168);
+          }
           .nickname-field.invalid,
           .email-field.invalid,
           .pass-field.invalid,
