@@ -3,8 +3,12 @@ class ProductsController < ApplicationController
   before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
-    @product = Product.all
-    @parents = MainCategory.all.order("id ASC").limit(13)
+
+  @product = Product.all
+  @parents = MainCategory.all.order("id ASC").limit(13)
+  @q = Product.ransack(params[:q])
+  @products = @q.result(distinct: true)
+
   end
   
   def new
@@ -106,6 +110,8 @@ class ProductsController < ApplicationController
     @product = Product.product_name(params[:keyword])
 
     @parents = MainCategory.all.order("id ASC").limit(13)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
 
 

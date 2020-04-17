@@ -3,5 +3,9 @@ FactoryBot.define do
     provider { "MyString" }
     uid { "MyString" }
 
+
+
+
+
   end
 end
