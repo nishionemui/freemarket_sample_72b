@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   end 
   
   resources :products do
-    resources :comments, only: [:create, :destroy, :show, :index]
+    # resources :comments, only: [:create, :destroy, :show, :index]
     collection do
       get 'purchase/:id'=> 'products#purchase', as: 'purchase'          #購入確認ページ
       post 'pay/:id'=> 'products#pay', as: 'pay'                        #httpメソッドはpostなので注意
