@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :set_ancestry
   before_action :set_search
 
-  private
   
+  private
   def production?
     Rails.env.production?
   end
