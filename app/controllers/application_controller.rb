@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   before_action :set_ancestry
-
-  private
+  before_action :set_search
   
+  private
   def production?
     Rails.env.production?
   end

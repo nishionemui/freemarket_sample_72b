@@ -1,11 +1,6 @@
--# = search_form_for @q do |f|
--#   = f.label :product_name
--#   = f.search_field :product_name_cont
--#   = f.submit
 = render "header"
 .search
   .search__left
-
     = search_form_for @q, url:search_products_path do |form|
       .search__left__box
         .search__left__box__line
@@ -17,7 +12,6 @@
             %option{value:"4"} いいね！の多い順
           %i.fa.fa-angle-down
       .search__left__list
-
         .search__left__list__box
           .search__left__list__box__choice
             詳細検索
@@ -25,7 +19,6 @@
             %i.fas.fa-plus
             .text
               キーワードを追加する
-          -# = form.text_field :keyword, placeholder: "洋服", class: "keyword" 
           = form.search_field :product_name_cont, placeholder: "洋服", class: "keyword" 
           .search__left__list__box__category
             %i.fas.fa-list
@@ -48,10 +41,7 @@
             %i.fa.fa-tag
             .text
               ブランド名から探す 
-
               =form.search_field :brand_cont, class: "keyword"
-          -# %input{placeholder:"例)シャネル", type: "text", class:"keyword"}
-
           -# .search__left__list__box__size
           -#   %i.fas.fa-expand-wide
           -#   .text
@@ -62,121 +52,34 @@
             .text
               価格
           .search__left__list__box__setting
-
-            =form.search_field :price_gteq, class: "keyword"
-            以上
-            =form.search_field :price_lt, class: "keyword"
-
-            -# %input.number{placeholder:"¥ Min", type: "text"}
-            -# .setting-text
-              〜
-          -#   %input.number{placeholder:"¥ max", type: "text"}
-          -# .search__left__list__box__status
-
-            %i.fas.fa-star
-            .text
-              商品の状態
-          .label-box
-            .label-box--first
-              %label.label-box--first__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"0"}
-                .text
-                  すべて
-              %br/
-              %label.label-box--first__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"2"}
-                .text
-                  未使用に近い
-              %br/    
-              %label.label-box--first__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"4"}
-                .text
-                  やや傷や汚れあり
-              %br/    
-              %label.label-box--first__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"6"}
-                .text
-                  傷や汚れあり
-              %br/
-            .label-box--second
-              %label.label-box--second__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"1"}
-                .text
-                  新品、未使用
-              %br/
-              %label.label-box--second__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"3"}
-                .text
-                  目立った傷や汚れなし
-              %br/
-              %label.label-box--second__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"5"}        
-
-                .text
-                  全体的に状態が悪い
-          .search__left__list__box__postage
-            %i.fas.fa-truck
-            .text
-              配送料の負担
-          .label-box
-            .label-box--first
-              %label.label-box--first__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"0"}
-
-                .text
-                  すべて
-              %br/
-              %label.label-box--first__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"2"}
-
-                .text
-                  送料込み(出品者負担)
-              %br/    
-            .label-box--second
-              %label.label-box--second__list
-
-                %input.rank{name: "Checkbox", type: "checkbox", value:"1"}
-
-                .text
-                  着払い(購入者負担)
-          .search__left__list__box__Sale
-            %i.fas.fa-shopping-cart
-            .text
-              販売状況
-          .label-box
-            .label-box--first
-
-              -# =form.check_box :buyer_id
-              -# すべて
-              =form.check_box :buyer_id_null
-              販売中
-              =form.check_box :buyer_id_not_null
-              売り切れ
-            -#   %label.label-box--first__list
-            -#     %input.rank{name: "Checkbox", type: "checkbox", value:"0"}
-            -#     .text
-            -#       すべて
-            -#   %br/
-            -#   %label.label-box--first__list
-            -#     %input.rank{name: "Checkbox", type: "checkbox", value:"2"}
-            -#     .text
-            -#       売り切れ
-            -#   %br/    
-            -# .label-box--second
-            -#   %label.label-box--second__list
-            -#     %input.rank{name: "Checkbox", type: "checkbox", value:"1"}
-            -#     .text
-            -#       販売中
-
+            =form.search_field :price_gteq, class: "keyword",placeholder: "¥Min"
+            〜
+            =form.search_field :price_lt, class: "keyword",placeholder: "¥Max"
+          -# .search__left__list__box__postage
+          -#   %i.fas.fa-truck
+          -#   .text
+          -#     配送料の負担
+          -# .label-box
+          -#   .label-box--first
+          -#     %label.label-box--first__list
+          -#       =form.check_box :delivery_fee_id_not_eq, id:1
+          -#       着払い(購入者負担)
+          -#     .label-box--second
+          -#       =form.check_box :delivery_fee_id_eq, id:1
+          -#       送料込み(出品者負担)
+          -# .search__left__list__box__Sale
+          -#   %i.fas.fa-shopping-cart
+          -#   .text
+          -#     販売状況
+          -# .label-box
+          -#   .label-box--first
+          -#     %label.label-box--first__list
+          -#       =form.check_box :buyer_id_null
+          -#       販売中
+          -#   .label-box--second
+          -#     %label.label-box--second__list
+          -#       =form.check_box :buyer_id_not_null
+          -#       売り切れ
           .search__left__list__box__choice
             .clear
               = link_to 'クリア', "#", class: "btn"
