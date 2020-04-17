@@ -89,4 +89,4 @@ gem 'devise-i18n'
 gem 'active_hash'
 gem 'dotenv-rails'
 gem 'ancestry'
-
+gem 'ransack'

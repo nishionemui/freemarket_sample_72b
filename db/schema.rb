@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_013805) do
+ActiveRecord::Schema.define(version: 2020_04_16_083345) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 2020_04_10_013805) do
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "main_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "product_id"
     t.string "main_name", null: false
@@ -77,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_013805) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
+    t.integer "likes_count"
     t.index ["condition_id"], name: "index_products_on_condition_id"
     t.index ["delivery_date_id"], name: "index_products_on_delivery_date_id"
     t.index ["delivery_fee_id"], name: "index_products_on_delivery_fee_id"
@@ -84,6 +92,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_013805) do
     t.index ["prefecture_id"], name: "index_products_on_prefecture_id"
     t.index ["size_id"], name: "index_products_on_size_id"
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "sub2_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -125,4 +142,5 @@ ActiveRecord::Schema.define(version: 2020_04_10_013805) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "sns_credentials", "users"
 end

@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   def index
   @product = Product.all
   @parents = MainCategory.all.order("id ASC").limit(13)
+  @q = Product.ransack(params[:q])
+  @products = @q.result(distinct: true)
   end
   
   def new
@@ -104,6 +106,8 @@ class ProductsController < ApplicationController
   def search
     @product = Product.product_name(params[:keyword])
     @parents = MainCategory.all.order("id ASC").limit(13)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
 
 
