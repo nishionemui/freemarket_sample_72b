@@ -5,6 +5,7 @@
 = render "header"
 .search
   .search__left
+
     = search_form_for @q, url:search_products_path do |form|
       .search__left__box
         .search__left__box__line
@@ -16,6 +17,7 @@
             %option{value:"4"} いいね！の多い順
           %i.fa.fa-angle-down
       .search__left__list
+
         .search__left__list__box
           .search__left__list__box__choice
             詳細検索
@@ -46,8 +48,10 @@
             %i.fa.fa-tag
             .text
               ブランド名から探す 
+
               =form.search_field :brand_cont, class: "keyword"
           -# %input{placeholder:"例)シャネル", type: "text", class:"keyword"}
+
           -# .search__left__list__box__size
           -#   %i.fas.fa-expand-wide
           -#   .text
@@ -58,6 +62,7 @@
             .text
               価格
           .search__left__list__box__setting
+
             =form.search_field :price_gteq, class: "keyword"
             以上
             =form.search_field :price_lt, class: "keyword"
@@ -67,44 +72,53 @@
               〜
           -#   %input.number{placeholder:"¥ max", type: "text"}
           -# .search__left__list__box__status
+
             %i.fas.fa-star
             .text
               商品の状態
           .label-box
             .label-box--first
               %label.label-box--first__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"0"}
                 .text
                   すべて
               %br/
               %label.label-box--first__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"2"}
                 .text
                   未使用に近い
               %br/    
               %label.label-box--first__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"4"}
                 .text
                   やや傷や汚れあり
               %br/    
               %label.label-box--first__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"6"}
                 .text
                   傷や汚れあり
               %br/
             .label-box--second
               %label.label-box--second__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"1"}
                 .text
                   新品、未使用
               %br/
               %label.label-box--second__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"3"}
                 .text
                   目立った傷や汚れなし
               %br/
               %label.label-box--second__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"5"}        
+
                 .text
                   全体的に状態が悪い
           .search__left__list__box__postage
@@ -114,18 +128,24 @@
           .label-box
             .label-box--first
               %label.label-box--first__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"0"}
+
                 .text
                   すべて
               %br/
               %label.label-box--first__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"2"}
+
                 .text
                   送料込み(出品者負担)
               %br/    
             .label-box--second
               %label.label-box--second__list
+
                 %input.rank{name: "Checkbox", type: "checkbox", value:"1"}
+
                 .text
                   着払い(購入者負担)
           .search__left__list__box__Sale
@@ -134,6 +154,7 @@
               販売状況
           .label-box
             .label-box--first
+
               -# =form.check_box :buyer_id
               -# すべて
               =form.check_box :buyer_id_null
@@ -155,6 +176,7 @@
             -#     %input.rank{name: "Checkbox", type: "checkbox", value:"1"}
             -#     .text
             -#       販売中
+
           .search__left__list__box__choice
             .clear
               = link_to 'クリア', "#", class: "btn"

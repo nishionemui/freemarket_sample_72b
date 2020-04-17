@@ -71,6 +71,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def deletion
+  end
+
   private 
   def user_params 
     params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :user_image, :first_name, :last_name,:first_name_read, :last_name_read, :introduction, :birthday,:phone_num)

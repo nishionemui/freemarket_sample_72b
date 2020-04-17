@@ -1,6 +1,6 @@
 // < ログアウト 確認ページ >
 .mypage__sub__content{
-  height:100px;
+  height:200px;
   width:100%;
   padding:50px 60px;
   background-color:white;
@@ -10,6 +10,7 @@
     .mypage__sub__content-form-btn{
       height:100px;
       width:100%;
+      margin-top: 10px;
       background: #ea352d;
       border: 1px solid #ea352d;
       a{
@@ -26,4 +27,20 @@
     }
   }
 }
+// < 退会完了画面 >
+.delete-accont{
+  font-size: 20px;
+  padding-top: 140px;
+  text-align: center;
+  font-weight: bold;
 
+}
+.new-account{
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 150px;
+  .btn{
+    text-decoration: none;
+    color: rgb(95, 230, 232);
+  }
+}

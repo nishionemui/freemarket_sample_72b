@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
   devise_scope :user do                                           #ウィザード形式
     get 'addresses', to: 'users/registrations#new_address'        #住所入力ページ
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'signout/:id'=> 'users#singout', as: 'signout'    #ログアウト確認ページ
+      get 'deletion'
     end
   end
 
@@ -46,5 +48,7 @@ Rails.application.routes.draw do
     end
 
   end
+  post   '/like/:product_id' => 'likes#like',   as: 'like'
+  delete '/like/:product_id' => 'likes#unlike', as: 'unlike'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
