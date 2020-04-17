@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", user_path(current_user.id)
   parent :root
 end
 
@@ -33,8 +33,8 @@ crumb :address do
   parent :mypage
 end
 
-crumb :edit do
-  link "メール・パスワード", edit_user_registration_path
+crumb :edit_mail do
+  link "メール・パスワード", edit_user_registration_path(current_user.id)
   parent :mypage
 end
 
