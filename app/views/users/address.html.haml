@@ -1,4 +1,15 @@
-= render "products/header"
+
+.header-under
+  .box-under
+    .categoty-link
+      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
+    .bland-link
+      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
+    .gretel-link
+      - breadcrumb :address
+      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+  = render "products/under"
+
 .wrraper
   .mypage
     = render 'users/side-bar'

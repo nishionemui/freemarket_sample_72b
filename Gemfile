@@ -99,3 +99,6 @@ gem "omniauth-rails_csrf_protection"
 #ページネーション
 gem 'kaminari'
 
+gem 'gretel'
+
+
