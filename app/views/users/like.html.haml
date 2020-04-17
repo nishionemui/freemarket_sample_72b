@@ -1,0 +1,20 @@
+= render 'products/header'
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .like-content
+      %h2 いいね！一覧
+      %ul 
+        - @likes.last(10).each do |like|
+          - product = Product.find_by(id: like.product_id)
+          %li
+            = link_to product_path(product.id), class: "mypage-product-link" do
+              = image_tag product.images[0].image.url, size: '48x48'
+              .mypage-product-body
+                .mypage-product-name
+                  = product.product_name
+                .mypage-product-price
+                  = "¥#{product.price}"
+                %i.fas.fa-chevron-right
+        = paginate(@likes)
+= render 'products/footer'

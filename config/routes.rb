@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'address'       #住所変更ページ
       get 'introduce'     #本人情報変更ページ
       get 'phone'         #電話番号変更ページ
+      get 'like'          #いいね一覧ページ
     end
     collection do
       get 'signout/:id'=> 'users#singout', as: 'signout'    #ログアウト確認ページ

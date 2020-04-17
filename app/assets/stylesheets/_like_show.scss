@@ -1,0 +1,43 @@
+.like-content {
+  width: calc(100% - 280px);
+  // background-color: red;
+  h2 {
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    background-color: #fff;
+    font-weight: bold;
+  }
+  ul {
+    li {
+      border-bottom: 1px solid #eee;
+      position: relative;
+      .mypage-product-link {
+        display: block;
+        height: 48px;
+        color: #333;
+        text-decoration: none;
+        background-color: #fff;
+        padding: 16px;
+        img {
+          float: left;
+        }
+        .mypage-product-body {
+          margin: 0 40px 0 68px;
+          .mypage-product-name {
+            line-height: 1.5
+          }
+          .mypage-product-price {
+
+          }
+          i {
+            position: absolute;
+            top: 40%;
+            right: 16px;
+          }
+        }
+      }
+    }
+  }
+}
