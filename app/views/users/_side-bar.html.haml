@@ -13,7 +13,7 @@
       やることリスト 
       = icon 'fas', 'chevron-right'
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to like_user_path(current_user.id), class: 'mypage-side-bar__list-contents mypage-side-bar' do
       いいね！一覧
       = icon 'fas', 'chevron-right'
     %li

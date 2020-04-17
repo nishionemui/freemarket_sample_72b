@@ -1,32 +1,15 @@
-.header
-  .header__box
-    .header__box__up 
-      .header__box__up--icon
-        = link_to image_tag('logo.png', class: "btn"),root_path
-      .header__box__up--search
-        = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
-          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input" 
-          = button_tag type: 'submit', class: 'search-btn' do
-            %i.fas.fa-search.click 
-    .header__box__under
-      .header__box__under__left
-        %ul.left--box
-          %li.list__category
-            = link_to "#", class:"first-btn" do
-              カテゴリー
-          %li.list__category
-            = link_to "#", class:"first-btn" do
-              ブランド
-      .header__box__under__right
-        %ul.right--box
-          -if user_signed_in?
-            %li.list__login
-              = link_to "ログアウト",destroy_user_session_path, method: :delete, class:"btn"
-          -else
-            %li.list__login
-              = link_to "ログイン",new_user_session_path, class:"btn"
-            %li.list__category
-              = link_to "新規会員登録",signup_index_path, class:"btn"
+= render "products/header"
+.header-under
+  .box-under
+    .categoty-link
+      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
+    .bland-link
+      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
+    .gretel-link
+      - breadcrumb :sign
+      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+  = render "products/under"
+
 .wrraper
   .mypage
     = render 'users/side-bar'

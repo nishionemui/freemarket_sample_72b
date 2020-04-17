@@ -74,6 +74,11 @@ class UsersController < ApplicationController
   def deletion
   end
 
+  def like
+    @user = User.find_by(id: params[:id])
+    @likes = Like.where(user_id: @user.id).page(params[:page]).per(10)
+  end
+
   private 
   def user_params 
     params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :user_image, :first_name, :last_name,:first_name_read, :last_name_read, :introduction, :birthday,:phone_num)

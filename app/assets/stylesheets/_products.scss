@@ -9,6 +9,7 @@ button{
 }
 .header {
   padding: 0 60px;
+  height: 80px;
   &__box {
     max-width: 1040px;
     width: 100%;
@@ -57,43 +58,65 @@ button{
         }
       }
     }
-    &__under {
-      margin: 20px 0 10px 0;
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      .left {
-        display: flex;
-        &--box {
-          display: flex;
-          .first-btn {
-            margin-right: 20px;
-            color: black;
-            text-decoration: none;
-          }
-          .categories:hover{
-            color: orange;
-          }
-          .parent:hover,
-          .child:hover {
-            background-color: red;
-            color: white;
-            border: 1px black solid;
-          }
+  }
+}
+.header-under{
+  height: 30px;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  .box-under{
+    display: flex;
+    width: 80%;
+    .categoty-link,
+    .bland-link{
+      .link-btn{
+        text-decoration: none;
+        color: black;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+    .gretel-link{
+      margin-left: 10px;
+      .crumb-btn{
+        color: black;
+        a{
+          text-decoration: none;
+          color: rgb(31, 31, 31);
+          margin-right: 5px;
+        }
+        a:hover{
+          color: orange;
+        }
+        span.current{
+          font-weight: bold;
         }
       }
-      .right {
-        display: flex;
-        margin-left: auto;
-        &--box {
-          display: flex;
-          .btn {
-            margin-left: 10px;
-            color: black;
-            text-decoration: none;
-          }
+    }
+  }
+  .header__box__under__right{
+    width: 20%;
+    height: 30px;
+    .right--box{
+      display: flex;
+      .list__login,
+      .list__category{
+        .btn{
+          text-decoration: none;
+          color: black;
+          margin-left: 10px;
+          cursor: pointer;
         }
-      }  
+      }
+      .list__mypage{
+        .btn{
+          text-decoration: none;
+          color: black;
+          margin-left: 150px;
+          cursor: pointer;
+        }
+      }
     }
   }
 }
@@ -583,5 +606,11 @@ button{
     color: #fff;
     letter-spacing: 2px;
     font-weight: 600;
+  }
+}
+
+.iine-icon {
+  i {
+    color: #ea352d;
   }
 }
