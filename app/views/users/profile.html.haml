@@ -1,36 +1,39 @@
-= render "products/header"
-.header-under
-  .box-under
-    .categoty-link
-      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
-    .bland-link
-      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
-    .gretel-link
-      - breadcrumb :profile
-      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
-  = render "products/under"
-.wrraper
-  .mypage
-    = render 'users/side-bar'
-    .user-change
-      = form_for @profile do |f|
-        .user-change--header
-          .change-title
-            プロフィール
-          .change-group
-            .change-icon
-              = f.label :user_image do
-                #user-img_field{:onclick => "$('#user-file').click()"}
-                  - if current_user.user_image.present?
-                    = image_tag current_user.user_image.url, class: 'user-img-icon'
-                  - else
-                    = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
-                = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
-            .change-name
-              = f.text_field :nickname, placeholder: "例) フリマ太郎",class: "nickname-field"
-        .user-change-introduction
-          .introduction
-            = f.text_area :introduction,placeholder: "",class: "introduction--text"
-          .change-btn
-            = f.submit '変更する',class: "send-btn"
-= render 'products/footer'
+-# = render "products/header"
+-# .header-under
+-#   .box-under
+-#     .categoty-link
+-#       = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
+-#     .bland-link
+-#       = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
+-#     .gretel-link
+-#       - breadcrumb :profile
+-#       = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+-#   = render "products/under"
+-# .wrraper
+-#   .mypage
+-#     = render 'users/side-bar'
+-#     .user-change
+-#       = form_for @profile do |f|
+-#         .user-change--header
+-#           .change-title
+-#             プロフィール
+-#           .change-group
+-#             .change-icon
+-#               = f.label :user_image do
+-#                 #user-img_field{:onclick => "$('#user-file').click()"}
+-#                   - if current_user.user_image.present?
+-#                     = image_tag current_user.user_image.url, class: 'user-img-icon'
+-#                   - else
+-#                     = image_tag "member_photo_noimage_thumb.png",class: "before-icon"
+-#                 = f.file_field :user_image, class: 'user-image-field', style: "display:none;",id: 'user-file'
+-#             .change-name
+-#               = f.text_field :nickname, placeholder: "例) フリマ太郎",class: "nickname-field"
+-#         .user-change-introduction
+-#           .introduction
+-#             = f.text_area :introduction,placeholder: "",class: "introduction--text"
+-#           -# .new-pass-group
+-#           -#   = f.password_field :password, autocomplete: "password",placeholder: "7文字以上の半角英数字",class: "new-pass-field",id: "pass"
+          
+-#           .change-btn
+-#             = f.submit '変更する',class: "send-btn"
+-# = render 'products/footer'

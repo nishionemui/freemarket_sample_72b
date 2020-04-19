@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-
+  # before_action :configure_account_update_params, only: [:update_profile]
   # GET /resource/sign_up
   def new
     @user = User.new
@@ -51,6 +51,62 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def edit_profile
+    @profile = User.find(params[:id])
+  end
+
+  def update_profile
+    @profile = User.find(params[:id])
+    if @profile.update(account_update_params)
+      sign_in(:user, @profile)
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = @profile.errors.full_messages
+      render :edit_profile
+    end
+  end
+  # def update_profile
+  #   @profile = User.find(params[:id])
+  #   if @profile.update_without_password(account_update_params)
+  #     sign_in @profile, bypass: true
+  #     set_flash_message :notice, :updated
+  #     redirect_to user_path(current_user.id)
+  #   else
+  #     flash.now[:alert] = @profile.errors.full_messages
+  #     render :edit_profile
+  #   end
+  # end
+  
+  def edit_phone
+    @phone = User.find(params[:id])
+  end
+
+  def update_phone
+    @phone = User.find(params[:id])
+    if @phone.update(account_update_params)
+      sign_in(:user, @phone)
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = @phone.errors.full_messages
+      render :edit_phone
+    end
+  end
+  
+  def edit_introduce
+    @introduce = User.find(params[:id])
+  end
+
+  def update_introduce
+    @introduce = User.find(params[:id])
+    if @introduce.update(account_update_params)
+      sign_in(:user, @introduce)
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = @introduce.errors.full_messages
+      render :edit_introduce
+    end
+  end
+
   def destroy
     if @user.destroy
       redirect_to deletion_users_path
@@ -64,15 +120,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_path(resource)
   end
 
+
   protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute,:user_image])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  end
+  
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname,:user_image, :first_name,:last_name,:first_name_read,:last_name_read,:phone_num, :birthday , :introduction,:current_password ])
   end
 
   def address_params
     params.require(:address).permit(:zip_code, :prefecture_id, :city, :address1, :address2)
   end
+
+  # def update_resource(resource, params)
+  #   resource.update_without_password(params)
+  # end
+
+
 
   # GET /resource/edit
   # def edit
