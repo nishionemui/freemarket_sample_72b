@@ -70,6 +70,7 @@ button{
     width: 80%;
     .categoty-link,
     .bland-link{
+      position: relative;
       .link-btn{
         text-decoration: none;
         color: black;
@@ -128,7 +129,6 @@ button{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
-    position: relative;
     display: flex;
     align-items: center;
     &__content {
@@ -612,5 +612,75 @@ button{
 .iine-icon {
   i {
     color: #ea352d;
+  }
+}
+
+// カテゴリーリスト
+.category-list {
+  position: absolute;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  z-index: 1;
+  font-size: 14px;
+  display: none;
+  background-color: #fff;
+  color: #333;
+  height: 620px;
+  .parent_top {
+    background-color: #fff;
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+    cursor: pointer;
+    .parent_list {
+      display: flex;
+      width: 240px;
+      a {
+        padding: 0 16px;
+        text-decoration: none;
+        color: #333;
+      }
+      .child_top {
+        background-color: #fff;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+        display: none;
+        height: 620px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        left: 240px;
+        cursor: pointer;
+        .child_list {
+          height: 32px;
+          line-height: 32px;
+          width: 240px;
+          a {
+            display: flex;
+            padding: 0 16px;
+            width: 240px;
+          }
+          .gchild_top {
+            background-color: #fff;
+            box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+            display: none;
+            height: 620px;
+            width: auto;
+            overflow: scroll;
+            position: absolute;
+            top: 0;
+            left: 240px;
+            cursor: pointer;
+            .gchild_list {
+              height: 32px;
+              line-height: 32px;
+              width: 260px;
+              a {
+                display: flex;
+                padding: 0 16px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

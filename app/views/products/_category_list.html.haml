@@ -1,0 +1,13 @@
+.category-list
+  - @parents.each do |parent|
+    %ul.parent_top
+      %li.parent_list
+        = link_to parent.main_name, "#"
+        %ul.child_top
+          - parent.children.each do |child|
+            %li.child_list
+              = link_to child.main_name, "#"
+              %ul.gchild_top
+                - child.children.each do |grandchild|
+                  %li.gchild_list
+                    = link_to grandchild.main_name, "#"
