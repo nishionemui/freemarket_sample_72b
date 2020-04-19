@@ -119,7 +119,7 @@
                   .comments-box__message__items
                     .comments-box__message__items__user
                       - if comment.user.user_image.present?
-                        = image_tag comment.user.user_image.url 
+                        = image_tag comment.user.user_image.url, size: '30x30'
                       - else 
                         = image_tag 'member_photo_noimage_thumb.png', size: '30x30'
                       .comments-box__message__items__user__name

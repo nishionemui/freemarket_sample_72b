@@ -173,6 +173,9 @@
             &__items {
               &__user {
                 display: flex;
+                img {
+                  border-radius: 50px;
+                }
                 &__name {
                   margin: auto 10px;
                   font-weight: bold;
