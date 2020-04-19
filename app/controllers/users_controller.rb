@@ -15,9 +15,9 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def profile
-    @profile = User.find(params[:id])
-  end
+  # def profile
+  #   @profile = User.find(params[:id])
+  # end
 
   def card
   end
@@ -26,50 +26,69 @@ class UsersController < ApplicationController
     @address = Address.find(params[:id])
   end
 
-  def introduce
-    @introduce = User.find(params[:id])
-  end
+  # def introduce
+  #   @introduce = User.find(params[:id])
+  # end
 
-  def phone
-    @phone = User.find(params[:id])
-  end
+  # def phone
+  #   @phone = User.find(params[:id])
+  # end
 
   def update
-    if params[:address] == nil
-      if @profile
-        @profile = User.find(params[:id])
-        if @profile.update(user_params)
-          redirect_to user_path(current_user.id)
-        else
-          render :profile
-        end
-      elsif @introduce
-        @introduce = User.find(params[:id])
-        if @introduce.update(user_params)
-          redirect_to user_path(current_user.id)
-        else
-          flash.now[:alert] = @introduce.errors.full_messages
-          render :introduce
-        end
-      else @phone
-        @phone = User.find(params[:id])
-        if @phone.update(user_params)
-          redirect_to user_path(current_user.id)
-        else
-          flash.now[:alert] = @phone.errors.full_messages
-          render :phone
-        end
-      end
-    else params[:user] == nil
-      @address = Address.find(params[:id])
-      if @address.update(address_params)
-        redirect_to user_path(current_user.id)
-      else
-        flash.now[:alert] = @address.errors.full_messages
-        render :address
-      end
+    params[:user] == nil
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = @address.errors.full_messages
+      render :address
     end
+    # if params[:address] == nil
+    #   @introduce = User.find(params[:id])
+    #   if @introduce.update(user_params)
+    #     redirect_to user_path(current_user.id)
+    #   else
+    #     flash.now[:alert] = @introduce.errors.full_messages
+    #     render :introduce
+    #   end
+    #   # if @profile = User.find(params[:id])
+    #   @profile = User.find(params[:id])
+    #   binding.pry
+    #   if @profile.update(user_params)
+    #     # redirect_to root_path
+    #     redirect_to user_path(current_user.id)
+    #   else
+    #     flash.now[:alert] = @profile.errors.full_messages
+    #     render :profile
+    #   end
+    #   elsif @introduce
+    #     @introduce = User.find(params[:id])
+    #     if @introduce.update(user_params)
+    #       redirect_to user_path(current_user.id)
+    #     else
+    #       flash.now[:alert] = @introduce.errors.full_messages
+    #       render :introduce
+    #     end
+    #   else @phone
+    #     @phone = User.find(params[:id])
+    #     if @phone.update(user_params)
+    #       redirect_to user_path(current_user.id)
+    #     else
+    #       flash.now[:alert] = @phone.errors.full_messages
+    #       render :phone
+    #     end
+    #   end
+    # else params[:user] == nil
+    #   @address = Address.find(params[:id])
+    #   if @address.update(address_params)
+    #     redirect_to user_path(current_user.id)
+    #   else
+    #     flash.now[:alert] = @address.errors.full_messages
+    #     render :address
+    #   end
+    # end
   end
+
 
   def deletion
   end

@@ -1083,17 +1083,22 @@
 // < デバイス初期値のエラーメッセージ >
 .error{
   height: 60px;
-  width: 350px;
+  width: 500px;
   margin-top: 10px;
+  // width: 100%;
+  // margin: 10px auto;
+  // background-color: red;
 }
 #error_explanation{
   color: rgb(255, 0, 0);
   font-size: 12px;
   height: 100px;
-  width: 350px;
+  width: 100%;
+  // width: 350px;
+  // background-color: red;
   li{
     height: 20px;
-    width: 230px;
+    width: 100%;
     margin-top: 2px;
   }
 }

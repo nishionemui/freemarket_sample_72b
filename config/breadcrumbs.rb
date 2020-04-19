@@ -8,28 +8,28 @@ crumb :mypage do
 end
 
 crumb :card do
-  link "支払い方法", card_user_path
+  link "支払い方法", card_user_path(current_user.id)
   parent :mypage
 end
 
 crumb :edit_card do
-  link "クレジットカード情報", edit_card_path
+  link "クレジットカード情報", edit_card_path(current_user.id)
   parent :card
 end
 
 
 crumb :profile do
-  link "プロフィール", profile_user_path
+  link "プロフィール", edit_profile_path(current_user.id)
   parent :mypage
 end
 
 crumb :introduce do
-  link "本人情報", introduce_user_path
+  link "本人情報", edit_introduce_path(current_user.id)
   parent :mypage
 end
 
 crumb :address do
-  link "発送元・お届け先の住所変更", address_user_path
+  link "発送元・お届け先の住所変更", address_user_path(current_user.id)
   parent :mypage
 end
 
@@ -39,7 +39,7 @@ crumb :edit_mail do
 end
 
 crumb :phone do
-  link "電話番号", phone_user_path
+  link "電話番号", edit_phone_path(current_user.id)
   parent :mypage
 end
 
@@ -57,6 +57,9 @@ crumb :list do
   link "商品一覧", products_list_products_path
   parent :root
 end
+
+
+
 # crumb :project do |project|
 #   link project.name, project_path(project)
 #   parent :projects

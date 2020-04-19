@@ -38,10 +38,11 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # def extension_whitelist
   #   %w(jpg jpeg gif png)
   # end
-  def filename
-  "something.jpg" if original_filename
-  end
-  process resize_to_fill: [30,30,"Center"]
+  # def filename
+  # "something.jpg" if original_filename
+  # end
+  process :convert => 'jpg'
+  process resize_to_fill: [300,300,"Center"]
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

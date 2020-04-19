@@ -6,7 +6,7 @@
   text-align: center;
   width: 700px;
   background-color: white;
-  height: 550px;
+  height: 800px;
   padding-top: 25px;
   &--header {
     .change-title {
@@ -40,6 +40,10 @@
         font-size: 20px;
         font-weight: normal;
         padding-top: 10px;
+        .nickname-field{
+          border-radius: 5px;
+          border: 1px solid silver;
+        }
       }
     }
   }
@@ -52,6 +56,44 @@
         height :150px;
         font-size: 15px;
         font-weight: lighter;
+        border-radius: 5px;
+        border: 1px solid silver;
+      }
+    }
+    .passward{
+      .passward-group{
+        margin-top: 20px;
+        .title-pass{
+          width: 90%;
+          height :30px;
+          font-size: 15px;
+          text-align: left;
+          margin: auto;
+          line-height: 30px;
+        }
+        .field{
+          .passward-field{
+            width: 90%;
+            height :30px;
+            font-size: 15px;
+            font-weight: lighter;
+            border-radius: 5px;
+            border: 1px solid silver;
+          }
+        }
+      }
+    }
+    .passward-two{
+      .passward-tow-group{
+        .passward-two-field{
+          margin: 20px;
+          width: 90%;
+          height :30px;
+          font-size: 15px;
+          font-weight: lighter;
+          border-radius: 5px;
+          border: 1px solid silver;
+        }
       }
     }
     .change-btn {
