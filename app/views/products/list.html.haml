@@ -19,9 +19,12 @@
             .comment--name
               =product.product_name.truncate(21)
             %ul.comment--price
-              %li= product.price
-              %li.i.fa.fa-star
-              %li.count 0
+              %li
+                ¥
+                = product.price
+              %li.iine-icon
+                %i.fas.fa-heart
+                = product.likes_count
             %p.tax (税込み)
         -if product.buyer_id.present? 
           .item-sold
