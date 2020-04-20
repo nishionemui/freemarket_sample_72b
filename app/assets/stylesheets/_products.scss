@@ -631,6 +631,9 @@ button{
     height: 44px;
     line-height: 44px;
     cursor: pointer;
+    &:hover{
+      background-color:#eee;
+    }
     .parent_list {
       display: flex;
       width: 240px;
@@ -638,6 +641,7 @@ button{
         padding: 0 16px;
         text-decoration: none;
         color: #333;
+        width: 240px;
       }
       .child_top {
         background-color: #fff;
@@ -653,6 +657,9 @@ button{
           height: 32px;
           line-height: 32px;
           width: 240px;
+          &:hover{
+            background-color:#eee;
+          }
           a {
             display: flex;
             padding: 0 16px;
@@ -673,6 +680,9 @@ button{
               height: 32px;
               line-height: 32px;
               width: 260px;
+              &:hover{
+                background-color:#eee;
+              }
               a {
                 display: flex;
                 padding: 0 16px;
