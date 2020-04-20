@@ -17,7 +17,7 @@
           = image_tag product.images[0].image.url, size: '200x200'
           .comment
             .comment--name
-              =product.product_name
+              =product.product_name.truncate(21)
             %ul.comment--price
               %li= product.price
               %li.i.fa.fa-star
