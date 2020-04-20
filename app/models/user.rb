@@ -48,6 +48,7 @@ class User < ApplicationRecord
     { user: user, sns: sns }  #User.form_omniauth、メゾットでuserとsnsをハッシュで返す
   end
 
+  
   # def update_without_current_password(params, *options)
   #   params.delete(:current_password)
   #   if params[:password].blank? && params[:password_confirmation].blank?
