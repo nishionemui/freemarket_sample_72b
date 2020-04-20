@@ -1,11 +1,9 @@
 $(function(){
-  $('.categoty-link').hover(function() {
-    var category_obj = $(this).children('.category_list');
-    category_obj.show();
-  }, function() {
-    $(this).children('.category_list').hide();
+  $('.categoty-link').hover(function(){
+    $(".category-list", this).show();
+  }, function(){
+      $(".category-list",this).hide();
   });
-
   $('.parent_list').hover(function() {
     var category_obj = $(this).children('.child_top');
     category_obj.show();
