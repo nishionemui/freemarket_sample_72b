@@ -42,3 +42,25 @@
     }
   }
 }
+
+// soldout
+.item-sold-like{
+  width: 0;
+  height: 0;
+  border-top: 25px solid #ea352d ;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid #ea352d ;
+  z-index: 10;
+  position: absolute;
+  top:-44px;
+  margin-top: 44px;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 1px;
+    margin:-10px 0px 0px -22px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}

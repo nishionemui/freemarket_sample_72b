@@ -27,5 +27,9 @@
                 .mypage-product-price
                   = "¥#{product.price}"
                 %i.fas.fa-chevron-right
+            -if product.buyer_id.present? 
+              .item-sold-like
+                .item-sold-like__inner
+                  SOLD
         = paginate(@likes)
 = render 'products/footer'
