@@ -54,7 +54,7 @@
             .grand_child
               = f.collection_select(:category_id, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
               %i.fa.fa-angle-down
-        
+
         .required-item
           = f.label :size, "サイズ"
           %span 必須
