@@ -30,31 +30,41 @@ button{
           vertical-align: middle;
         }
       }
-      &--search {
-        margin-left: auto;
+      .header-search {
+        height: 40px;
         width: 100%;
-        .search-form {
-          width: 100%;
-          display: flex;
-          margin-bottom: 5px;
-          .search-input {
-            width: calc(100% - 26px);
-            height: 36px;
-            padding: 0 0 0 5px;
-          }
-          .input[type="search"] {
-            height: 40px;
-          }
-        }
-        .fas.fa-search.click {
-          background-color: #3CCACE;
-          width: 40px;
+        .search-box{
           height: 40px;
-          font-size: 25px;
-          color: white;
-        }
-        .fas.fa-search.click::before  {
-          line-height: 40px;
+          width: 100%;
+          .search-form{
+            display: flex;
+            .search-input{
+              height: 40px;
+              width: 90%;
+              background-color: white;
+              .search-field{
+                height: 40px;
+                width: 100%;
+                border: 1px solid rgb(234, 232, 232);
+                text-align: center;
+                background-color: white;
+              }
+            }
+            .search-send{
+              height: 40px;
+              width: 40px;
+              background-color: #3CCACE;
+              .search-btn{
+                .click {
+                  line-height: 40px;
+                  font-size: 25px;
+                  padding-left: 7px;
+                  color: white;
+
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -62,7 +72,7 @@ button{
 }
 .header-under{
   height: 30px;
-  width: 90%;
+  width: 70%;
   margin: auto;
   display: flex;
   .box-under{
@@ -76,6 +86,7 @@ button{
         color: black;
         margin-left: 10px;
         cursor: pointer;
+        font-size: 15px;
       }
     }
     .gretel-link{
@@ -108,14 +119,18 @@ button{
           color: black;
           margin-left: 10px;
           cursor: pointer;
+          font-size: 15px;
         }
       }
       .list__mypage{
+        height: 30px;
+        width: 90%;
+        text-align: right;
         .btn{
           text-decoration: none;
           color: black;
-          margin-left: 150px;
           cursor: pointer;
+          font-size: 15px;
         }
       }
     }
