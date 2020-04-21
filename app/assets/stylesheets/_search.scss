@@ -62,6 +62,10 @@
           height: 40px;
           width: 225px;
         }  
+        .money {
+          height: 40px;
+          width: 108px;
+        }
         .select-wrap {
           margin: 8px 0 0;
           position: relative;
@@ -135,7 +139,7 @@
         &--second {
           width: 50%;
           &__list {
-            // display: flex;
+            display: flex;
             .rank {
               display: inline-block;
               vertical-align: middle;
@@ -143,7 +147,7 @@
               margin-right: 5px;
             }
             .text {
-              font-size: 10px;
+              font-size: 14px;
             }
           }
         }
