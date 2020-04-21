@@ -33,3 +33,11 @@ $(function() {
     $(this).css('color', '');
   });
 });
+{/* < 検索完了ボタン > */}
+$(function() {
+  $('#search-btn').hover(function() {
+    $(this).css('background', 'rgb(252, 97, 97)');
+  }, function() {
+    $(this).css('background', '');
+  });
+});
