@@ -383,6 +383,7 @@ button{
       display: flex;
       margin: 0 auto;
       flex-direction: row-reverse;
+      justify-content: space-around;
 
       &--new {
         width: 200px;
