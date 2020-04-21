@@ -129,11 +129,7 @@ class ProductsController < ApplicationController
     end
   end
   
-  def search_params
-    params.require(:q).permit(:sorts)
-    # 他のパラメーターもここに入れる
-  end
-  
+ 
 
 
   private 
@@ -152,4 +148,10 @@ class ProductsController < ApplicationController
   def set_card
     @card = Card.find_by(user_id: current_user.id)
   end
+
+  def search_params
+    params.require(:q).permit(:sorts)
+    # 他のパラメーターもここに入れる
+  end
+  
 end

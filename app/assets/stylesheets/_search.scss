@@ -8,21 +8,20 @@
     &__box,
     &__list {
       width: 250px;
-      background-color: white;
       margin: 40px 0 0 150px;
       &__line {
         position: relative;
         width: 250px;
         height: 50px;
+        margin: auto;
         select {
           position: absolute;
           top:0;
           left:0;
-          width:100%;
+          width:250px;
           height:100%;
           -webkit-appearance: none;
           color: #888;
-
         }
         .fa-angle-down {
           position: absolute;
@@ -33,8 +32,8 @@
           color: #888;
         }
       }
-
       &__box {
+        background-color: white;
         padding: 10px 0 0 10px;
         &__keywords,
         &__category,
@@ -262,3 +261,172 @@
     }
   }
 }
+
+
+
+
+
+// .search{
+//   .search__left{
+//     .search__left__box{
+//       .search__left__box__line{
+//         .down{
+
+//         }
+//       }
+//       .search-box{
+//         .title{
+
+//         }
+//         .search-key{
+//           .icon{
+
+//           }
+//           .key-title{
+
+//           }
+//         }
+//         .ket-group{
+//           .key-field{
+
+//           }
+//         }
+//         .search-category{
+//           .icon{
+
+//           }
+//           .category-title{
+
+//           }
+//         }
+//         .search-brand{
+//           .icon{
+
+//           }
+//           .bland-title{
+
+//           }
+//         }
+//         .bland-group{
+//           .keyword{
+
+//           }
+//         }
+//         .search-size{
+//           .icon{
+
+//           }
+//           .text{
+
+//           }
+//         }
+//         .search-money{
+//           .icon{
+
+//           }
+//           .money-title{
+
+//           }
+//         }
+//         .money-group{
+//           .money{
+
+//           }
+//         }
+//         .search-status{
+//           .icon{
+
+//           }
+//           .title-status{
+
+//           }
+//         }
+//         .status-group{
+//           .group-left{
+//             .group-one,
+//             .group-two,
+//             .group-thery{
+//               .radio{
+//                 .radio-btn{
+
+//                 }
+//               }
+//               .title{
+
+//               }
+//             }
+//           }
+//           .group-rigth{
+//             .group-one,
+//             .group-two,
+//             .group-thery{
+//               .radio{
+//                 .radio-btn{
+
+//                 }
+//               }
+//               .title{
+
+//               }
+//             }
+//           }
+//         }
+//         .search-fee{
+//           .title{
+
+//           }
+//           .fee-group{
+//             .fee-one,
+//             .fee-two{
+//               .radio{
+//                 .radio-btn{
+
+//                 }
+//               }
+//               .title{
+
+//               }
+//             }
+//           }
+//         }
+//         .search-buy{
+//           .title-group{
+//             .icon{
+
+//             }
+//             .title{
+
+//             }
+//           }
+//           .buy-group{
+//             .buy-one,
+//             .buy-two{
+//               .radio{
+//                 .radio-btn{
+
+//                 }
+//               }
+//               .title{
+
+//               }
+//             }
+//           }
+//         }
+//         .search-send{
+//           .clear{
+//             .btn{
+
+//             }
+//           }
+//           .decision{
+//             .finish{
+//               .btn{
+
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
