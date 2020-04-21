@@ -33,7 +33,9 @@ class ProductsController < ApplicationController
     if params[:product][:images_attributes] && @product.update(edit_product_params)
       redirect_to product_path(@product.id)
     else
-      render action: :edit
+      # render :edit
+      flash[:notice] = '商品情報を正しく入力してください'
+      redirect_to edit_product_path
     end
   end
 
