@@ -109,8 +109,32 @@ class ProductsController < ApplicationController
 
     @parents = MainCategory.all.order("id ASC").limit(13)
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
+    if params[:buyer] == "2"
+      @products = @q.result(distinct: true).where(buyer_id: nil)
+    elsif params[:buyer] == "1"
+      @products = @q.result(distinct: true).where.not(buyer_id: nil)
+    else
+      @products.all
+    end
+
+    if params[:q].present?
+      # 検索フォームからアクセスした時の処理
+      @search = Product.ransack(search_params)
+      @items = @search.result
+    else
+      # 検索フォーム以外からアクセスした時の処理
+      params[:q] = { sorts: 'id desc' }
+      @search = Product.ransack()
+      @items = Product.all
+      
+    end
   end
+  
+  def search_params
+    params.require(:q).permit(:sorts)
+    # 他のパラメーターもここに入れる
+  end
+  
 
 
   private 
