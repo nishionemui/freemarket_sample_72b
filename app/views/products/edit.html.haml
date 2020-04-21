@@ -6,8 +6,13 @@
       = link_to image_tag('logo.png', class: "products-exhibit__header__logo__icon"),root_path
   .products-exhibit__main
     %h2 商品情報の入力
+    -# レンダーエラーメッセージ
+    -# = render 'error_message', locals: {products: @product}
+    -# アラート
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
 
-    = render 'error_message', locals: {products: @product}
     
     = form_for @product do |f|
 
