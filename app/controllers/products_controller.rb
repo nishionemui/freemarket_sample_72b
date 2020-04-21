@@ -106,7 +106,6 @@ class ProductsController < ApplicationController
   def search
 
     @product = Product.product_name(params[:keyword])
-
     @parents = MainCategory.all.order("id ASC").limit(13)
     @q = Product.ransack(params[:q])
     if params[:buyer] == "2"

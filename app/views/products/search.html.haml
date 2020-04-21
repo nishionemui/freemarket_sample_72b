@@ -7,8 +7,6 @@
     .bland-link
       = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
     .gretel-link
-      -# - breadcrumb :mypage
-      -# = breadcrumbs separator:  "&rsaquo;"
   = render "under"
             
 .search
@@ -49,11 +47,6 @@
             .text
               ブランド名から探す 
               =form.search_field :brand_cont, class: "keyword"
-          .search__left__list__box__size
-            %i.fas.fa-expand-wide
-            .text
-              サイズを指定する
-          %select#select-category
           .search__left__list__box__money
             %i.fas.fa-yen-sign
             .text
@@ -166,13 +159,15 @@
                 =product.product_name
               %ul.comment--price
                 %li= product.price
-                %li.i.fa.fa-star
-                %li.count 0
+                %li.iine-icon
+                  %i.fas.fa-heart
+                  = product.likes_count
               %p.tax (税込み)
           -if product.buyer_id.present? 
             .item-sold
               .item-sold-inner
                 SOLD
+
 
 = render "footer"
 
