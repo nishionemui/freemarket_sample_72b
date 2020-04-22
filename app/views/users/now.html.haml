@@ -30,7 +30,7 @@
                   = image_tag product.images[0].image.url
               .info
                 .title-field
-                  = product.product_name
+                  = product.product_name.truncate(29)
                 .other-field
                   %i.fas.fa-heart.heart
                   .count

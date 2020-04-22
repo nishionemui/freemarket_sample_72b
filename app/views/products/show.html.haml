@@ -31,7 +31,7 @@
               = parent.main_name 
           %i.fa.fa-angle-right.right
     .bar-title
-      = @product.product_name
+      = @product.product_name.truncate(20)
 .product-main
   .product-main__show
     .top-content
