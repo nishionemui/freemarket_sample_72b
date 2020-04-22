@@ -111,7 +111,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.destroy
       redirect_to deletion_users_path
     else
-      redirect_to signout_users_path(current_user.id), notice: 'アカウント削除できませんでした'
+      flash[:notice] = 'アカウント削除できませんでした'
+      redirect_to signout_users_path(current_user.id)
     end
   end
 

@@ -25,23 +25,23 @@
       下書き一覧
       = icon 'fas', 'chevron-right'
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to now_user_path(current_user.id), class: 'mypage-side-bar__list-contents mypage-side-bar' do
       出品した商品 -出品中
       = icon 'fas', 'chevron-right'
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to nowbuy_user_path(current_user.id), class: 'mypage-side-bar__list-contents mypage-side-bar' do
       出品した商品 -取引中
       = icon 'fas', 'chevron-right'
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to buyed_user_path(current_user.id), class: 'mypage-side-bar__list-contents mypage-side-bar' do
       出品した商品 -売却済み
       = icon 'fas', 'chevron-right'
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to mybuy_user_path(current_user.id), class: 'mypage-side-bar__list-contents mypage-side-bar' do
       購入した商品 -取引中
       = icon 'fas', 'chevron-right'
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to mybuyed_user_path(current_user.id), class: 'mypage-side-bar__list-contents mypage-side-bar' do
       購入した商品 -過去の取引
       = icon 'fas', 'chevron-right'
     %li
@@ -57,7 +57,7 @@
       ガイド
       = icon 'fas', 'chevron-right'
     %li
-    = link_to "#", class: 'mypage-side-bar__list-contents mypage-side-bar' do
+    = link_to support_users_path, class: 'mypage-side-bar__list-contents mypage-side-bar' do
       お問い合わせ
       = icon 'fas', 'chevron-right'
     %h3
@@ -71,9 +71,6 @@
     設定
   %ul.mypage-side-bar__list
     %li
-      -# = link_to profile_user_path(current_user.id), class: 'mypage-side-bar__list-contents' do
-      -#   プロフィール
-      -#   = icon 'fas', 'chevron-right'
       = link_to edit_profile_path(current_user.id), class: 'mypage-side-bar__list-contents' do
         プロフィール
         = icon 'fas', 'chevron-right'
@@ -90,16 +87,10 @@
         メール/パスワード
         = icon 'fas', 'chevron-right'
     %li
-      -# = link_to introduce_user_path(current_user.id), class: 'mypage-side-bar__list-contents' do
-      -#   本人情報
-      -#   = icon 'fas', 'chevron-right'
       = link_to edit_introduce_path(current_user.id), class: 'mypage-side-bar__list-contents' do
         本人情報
         = icon 'fas', 'chevron-right'
     %li
-      -# = link_to phone_user_path(current_user.id), class: 'mypage-side-bar__list-contents' do
-      -#   電話番号の確認
-      -#   = icon 'fas', 'chevron-right'
       = link_to edit_phone_path(current_user.id), class: 'mypage-side-bar__list-contents' do
         電話番号の確認
         = icon 'fas', 'chevron-right'

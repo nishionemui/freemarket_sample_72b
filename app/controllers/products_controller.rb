@@ -94,7 +94,6 @@ class ProductsController < ApplicationController
     @product = Product.all
   end
 
-
   def mid_category
     @mid_categories = MainCategory.where(ancestry: params[:big_category_id])
     render json: @mid_categories
@@ -130,7 +129,7 @@ class ProductsController < ApplicationController
       
     end
   end
-  
+
  
 
 
