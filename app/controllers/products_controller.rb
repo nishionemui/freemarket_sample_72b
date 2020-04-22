@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
       redirect_to product_path(@product.id)
     else
       # render :edit
-      flash[:notice] = '商品情報を正しく入力してください'
+      flash[:alert] = '商品情報を正しく入力してください'
       redirect_to edit_product_path
     end
   end
