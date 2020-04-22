@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   before_action :set_ancestry
-  before_action :set_search
+  # before_action :set_search
 
   
   private
@@ -17,11 +17,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_search
-    #@search = Article.search(params[:q])
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
-  end
+  # def set_search
+  #   @q = Product.ransack(params[:q])
+  #   @products = @q.result(distinct: true)
+  # end
   
   protected
 

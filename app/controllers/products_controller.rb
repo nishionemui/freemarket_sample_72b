@@ -126,10 +126,8 @@ class ProductsController < ApplicationController
   #     params[:q] = { sorts: 'id desc' }
   #     @search = Product.ransack()
   #     @items = Product.all
-      
-
-    end
-  end
+  #   end
+  # end
 
 
  
