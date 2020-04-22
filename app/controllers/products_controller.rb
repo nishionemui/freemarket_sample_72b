@@ -104,30 +104,29 @@ class ProductsController < ApplicationController
     render json: @small_categories
   end
 
-  # def search
+  def search
+    @product = Product.product_name(params[:keyword])
+    @parents = MainCategory.all.order("id ASC").limit(13)
+    @q = Product.ransack(params[:q])
+    if params[:buyer] == "2"
+      @products = @q.result(distinct: true).where(buyer_id: nil)
+    elsif params[:buyer] == "1"
+      @products = @q.result(distinct: true).where.not(buyer_id: nil)
+    else
+      @products.all
+    end
 
-  #   @product = Product.product_name(params[:keyword])
-  #   @parents = MainCategory.all.order("id ASC").limit(13)
-  #   @q = Product.ransack(params[:q])
-  #   if params[:buyer] == "2"
-  #     @products = @q.result(distinct: true).where(buyer_id: nil)
-  #   elsif params[:buyer] == "1"
-  #     @products = @q.result(distinct: true).where.not(buyer_id: nil)
-  #   else
-  #     @products.all
-  #   end
-
-  #   if params[:q].present?
-  #     # 検索フォームからアクセスした時の処理
-  #     @search = Product.ransack(search_params)
-  #     @items = @search.result
-  #   else
-  #     # 検索フォーム以外からアクセスした時の処理
-  #     params[:q] = { sorts: 'id desc' }
-  #     @search = Product.ransack()
-  #     @items = Product.all
-  #   end
-  # end
+    if params[:q].present?
+      # 検索フォームからアクセスした時の処理
+      @search = Product.ransack(search_params)
+      @items = @search.result
+    else
+      # 検索フォーム以外からアクセスした時の処理
+      params[:q] = { sorts: 'id desc' }
+      @search = Product.ransack()
+      @items = Product.all
+    end
+  end
 
 
  
@@ -150,9 +149,9 @@ class ProductsController < ApplicationController
     @card = Card.find_by(user_id: current_user.id)
   end
 
-  # def search_params
-  #   params.require(:q).permit(:sorts)
-  #   # 他のパラメーターもここに入れる
-  # end
+  def search_params
+    params.require(:q).permit(:sorts)
+    # 他のパラメーターもここに入れる
+  end
   
 end
