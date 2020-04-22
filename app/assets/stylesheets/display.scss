@@ -1,0 +1,207 @@
+.wrraper{
+  height:100%;
+  width:100%;
+  background-color: #f0efef;
+  .mypage{
+    display:flex;
+    width:75%;
+    height:1250px;
+    margin: auto;
+    padding-top:20px;
+    .main-products{
+      width: 600px;
+      height:100%;
+      .title-group{
+        height: 100px;
+        width: 600px;
+        background-color: red;
+        display: flex;
+        text-align: center;
+        .now-title{
+          height: 95px;
+          width: 200px;
+          background-color: white;
+          border-top: 5px solid red;
+          line-height: 100px;
+          .now-field{
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+          }
+        }
+        .trans-title,
+        .buy-end{
+          height: 100px;
+          width: 200px;
+          background-color: rgb(225, 225, 225);
+          line-height: 100px;
+          .trans-field,
+          .buy-end-field{
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+          }
+        }
+        .now-title-gray,
+        .trans-title{
+          height: 100px;
+          width: 200px;
+          background-color: rgb(225, 225, 225);
+          line-height: 100px;
+          .now-field,
+          .trans-field{
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+          } 
+        }
+        .buy-end-white{
+          height: 95px;
+          width: 200px;
+          background-color: white;
+          border-top: 5px solid red;
+          line-height: 100px;
+          .buy-end-field{
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+          }
+        }
+        .gray-now-title,
+        .gray-buy-end{
+          height: 100px;
+          width: 200px;
+          background-color: rgb(225, 225, 225);
+          line-height: 100px;
+          .now-field,
+          .buy-end-field{
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+          }
+        }
+        .white-trans-title{
+          height: 95px;
+          width: 200px;
+          background-color: white;
+          border-top: 5px solid red;
+          line-height: 100px;
+          .trans-field{
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+          } 
+        }
+        .mybuy-title{
+          height: 100px;
+          width: 100%;
+          background-color: rgb(225, 225, 225);
+          line-height: 100px;
+          font-size: 18px;
+            color: black;
+        }
+      }
+      .products-group{
+        .groups{
+          height: 80px;
+          width: 100%;
+          background-color: white;
+          border-bottom: 1px solid silver;
+          display: flex;
+          position: relative;
+          .image{
+            img{
+              height: 80px;
+              width: 80px;
+              position: relative;
+            }
+            .my-link{
+            }
+          }
+          .sold-like{
+            width: 0;
+            height: 0;
+            border-top: 25px solid #ea352d ;
+            border-right: 25px solid transparent;
+            border-bottom: 25px solid transparent;
+            border-left: 25px solid #ea352d ;
+            z-index: 10;
+            position: absolute;
+            top:0px;
+            .sold-inner{
+              transform: rotate(-45deg);
+              font-size: 1px;
+              margin:-10px 0px 0px -22px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
+            }
+          }
+          .info{
+            .title-field{
+              height: 40px;
+              width: 480px;
+              background-color: white;
+              line-height: 40px;
+              padding-left: 10px;
+            }
+            .other-field{
+              height: 40px;
+              width: 500px;
+              background-color: white;
+              display: flex;
+              line-height: 40px;
+              .heart{
+                color: red;
+                padding: 12px 5px 0px 10px;
+              }
+              .count{
+                padding-right: 15px;
+              }
+              .now-now{
+                height: 30px;
+                width: 60px;
+                background-color: skyblue;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 5px;
+                .now-text{
+                  font-size: 14px;
+                  font-weight: bold;
+                  color: white;
+                }
+              }
+              .now-now-red{
+                height: 30px;
+                width: 60px;
+                background-color: red;
+                line-height: 30px;
+                text-align: center;
+                border-radius: 5px;
+                .now-text{
+                  font-size: 14px;
+                  font-weight: bold;
+                  color: white;
+                }
+              }
+            }
+          }
+          .icon-field{
+            height: 80px;
+            line-height: 80px;
+            .right-icon{
+              font-size: 20px;
+              color: silver;
+            }
+          }
+        }
+      }
+    }
+  }
+}

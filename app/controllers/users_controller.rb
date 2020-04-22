@@ -15,24 +15,12 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  # def profile
-  #   @profile = User.find(params[:id])
-  # end
-
   def card
   end
 
   def address
     @address = Address.find(params[:id])
   end
-
-  # def introduce
-  #   @introduce = User.find(params[:id])
-  # end
-
-  # def phone
-  #   @phone = User.find(params[:id])
-  # end
 
   def update
     params[:user] == nil
@@ -43,50 +31,6 @@ class UsersController < ApplicationController
       flash.now[:alert] = @address.errors.full_messages
       render :address
     end
-    # if params[:address] == nil
-    #   @introduce = User.find(params[:id])
-    #   if @introduce.update(user_params)
-    #     redirect_to user_path(current_user.id)
-    #   else
-    #     flash.now[:alert] = @introduce.errors.full_messages
-    #     render :introduce
-    #   end
-    #   # if @profile = User.find(params[:id])
-    #   @profile = User.find(params[:id])
-    #   binding.pry
-    #   if @profile.update(user_params)
-    #     # redirect_to root_path
-    #     redirect_to user_path(current_user.id)
-    #   else
-    #     flash.now[:alert] = @profile.errors.full_messages
-    #     render :profile
-    #   end
-    #   elsif @introduce
-    #     @introduce = User.find(params[:id])
-    #     if @introduce.update(user_params)
-    #       redirect_to user_path(current_user.id)
-    #     else
-    #       flash.now[:alert] = @introduce.errors.full_messages
-    #       render :introduce
-    #     end
-    #   else @phone
-    #     @phone = User.find(params[:id])
-    #     if @phone.update(user_params)
-    #       redirect_to user_path(current_user.id)
-    #     else
-    #       flash.now[:alert] = @phone.errors.full_messages
-    #       render :phone
-    #     end
-    #   end
-    # else params[:user] == nil
-    #   @address = Address.find(params[:id])
-    #   if @address.update(address_params)
-    #     redirect_to user_path(current_user.id)
-    #   else
-    #     flash.now[:alert] = @address.errors.full_messages
-    #     render :address
-    #   end
-    # end
   end
 
 
@@ -96,6 +40,34 @@ class UsersController < ApplicationController
   def like
     @user = User.find_by(id: params[:id])
     @likes = Like.where(user_id: @user.id).page(params[:page]).per(10)
+  end
+
+  def now
+    @user = User.find_by(id: params[:id])
+    @product = Product.where(user_id: @user.id).page(params[:page]).per(10)
+  end
+
+  def buyed
+    @user = User.find_by(id: params[:id])
+    @product = Product.where(user_id: @user.id).page(params[:page]).per(10)
+  end
+
+  def nowbuy
+    @user = User.find_by(id: params[:id])
+    @product = Product.where(user_id: @user.id).page(params[:page]).per(10)
+  end
+
+  def mybuy
+    @user = User.find_by(id: params[:id])
+    @product = Product.where(buyer_id: @user.id).page(params[:page]).per(10)
+  end
+
+  def mybuyed
+    @user = User.find_by(id: params[:id])
+    @product = Product.where(buyer_id: @user.id).page(params[:page]).per(10)
+  end
+
+  def support
   end
 
   private 

@@ -7,6 +7,8 @@
     .bland-link
       = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
     .gretel-link
+      - breadcrumb :search
+      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
   = render "under"
 .search
   .search__left
