@@ -1,14 +1,15 @@
 require 'rails_helper'
 describe ProductsController, type: :controller  do
   describe 'GET #search' do
-    it "商品名を書かないと検索できないこと" do
+    it "クリックすると検索ページに遷移すること" do
       get :search
       expect(response).to render_template :search
     end
-    # it "商品検査した時商品表示されること" do
-    #   get :search, params: { : params[:keyword] }
-    #   expect(response).to render_template :search
-
-    # end
+  end 
+  
+    it "商品キーワードを入力した時キーワードの商品表示されること" do
+      search = build(:product, product_name: "hoge")
+      get :search, params: params
+      expect(response).to render_template :search
   end
 end
