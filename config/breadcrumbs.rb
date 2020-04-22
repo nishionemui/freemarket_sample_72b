@@ -43,6 +43,39 @@ crumb :phone do
   parent :mypage
 end
 
+crumb :like do
+  link "いいね一覧", like_user_path
+  parent :mypage
+end
+
+crumb :nowbuy do
+  link "取引中", nowbuy_user_path
+  parent :mypage
+end
+
+crumb :mybuy do
+  link "購入した商品取引中", mybuy_user_path
+  parent :mypage
+end
+
+crumb :support do
+  link "お問い合わせ", support_users_path
+  parent :mypage
+end
+
+
+
+
+crumb :now do
+  link "出品中", now_user_path
+  parent :mypage
+end
+
+crumb :buyed do
+  link "売却済み", buyed_user_path
+  parent :mypage
+end
+
 crumb :sign do
   link "ログアウト", signout_users_path
   parent :mypage
@@ -55,6 +88,11 @@ end
 
 crumb :list do
   link "商品一覧", products_list_products_path
+  parent :root
+end
+
+crumb :search do
+  link "検索結果", search_products_path
   parent :root
 end
 

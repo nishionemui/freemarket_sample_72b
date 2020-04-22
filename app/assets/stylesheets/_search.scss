@@ -1,20 +1,20 @@
-.search {
+.search{
   height: 100%;
   width: 100%;
-  background-color: #eae8e8;
   display: flex;
-  &__left {
+  background-color: #eae8e8;
+  overflow: scroll;
+  .search__left{
     width: 30%;
-    &__box,
-    &__list {
+    .search__left__box{
       width: 250px;
-      margin: 40px 0 0 150px;
-      &__line {
+      margin: 40px 0 100px 150px;
+      .search__left__box__line{
         position: relative;
         width: 250px;
         height: 50px;
-        margin: auto;
-        select {
+        margin-left: 30px;
+        select{
           position: absolute;
           top:0;
           left:0;
@@ -22,57 +22,73 @@
           height:100%;
           -webkit-appearance: none;
           color: #888;
+          cursor: pointer;
         }
-        .fa-angle-down {
+        .down{
           position: absolute;
-          top:27px;
-          right: 15px;
+          right: 10px;
+          top: 25px;
+          z-index: 10;
+          color: #888;
           font-size: 25px;
           transform: translate(0, -50%);
-          color: #888;
+          float: right;
         }
       }
-      &__box {
+      .search-box{
+        height: 1400px;
+        width: 300px;
         background-color: white;
-        padding: 10px 0 0 10px;
-        &__keywords,
-        &__category,
-        &__brand,
-        &__size,
-        &__money,
-        &__setting,
-        &__status,
-        &__postage,
-        &__Sale {
+        border-radius: 10px;
+        margin-top: 50px;
+        .title{
+          padding-top: 8px;
+        }
+        .title-a{
+          height: 0px;
+          width: 90px;
           padding-top: 30px;
+          padding-bottom: 20px;
+          font-size: 20px;
+          margin: auto;
+        }
+        .search-key,
+        .search-category,
+        .search-brand,
+        .search-money,
+        .search-status{
+          padding-top: 20px;
+          height: 23px;
+          width: 250px;
           display: flex;
-          .fas.fa-plus,
-          .fas.fa-list,
-          .fa.fa-tag,
-          .fas.fa-expand-wide,
-          .fas.fa-yen-sign,
-          .fas.fa-star,
-          .fas.fa-truck,
-          .fas.fa-shopping-cart {
-            padding-top: 3px;
+          margin: auto;
+          .icon{
+            padding-top: 2px;
+            padding-right: 5px;
           }
         }
-        .keyword {
-          height: 40px;
-          width: 225px;
-        }  
-        .money {
-          height: 40px;
-          width: 108px;
-        }
         .select-wrap {
-          margin: 8px 0 0;
-          position: relative;
+          margin: 10px auto;
+          height: 150px;
+          width: 250px;
+          margin-right: 15px;
           &__box {
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
+            }
             &--select {
-              width: 225px;
+              width: 100%;
+              margin-bottom: 15px;
               z-index: 2;
-              height: 40px;
+              height: 48px;
               padding: 0 16px;
               border-radius: 4px;
               border: 1px solid #ccc;
@@ -82,23 +98,13 @@
               -webkit-appearance: none;
               cursor: pointer;
             }
-            .fa-angle-down {
-              position: absolute;
-              right: 25px;
-              top: 22px;
-              z-index: 10;
-              color: #888;
-              font-size: 25px;
-              transform: translate(0, -50%);
-              float: right;
-            }
           }
           .child {
             display: none;
             position: relative;
             .fa-angle-down {
               position: absolute;
-              right: 25px;
+              right: 16px;
               top: 40%;
               z-index: 10;
               color: #888;
@@ -112,7 +118,7 @@
             position: relative;
             .fa-angle-down {
               position: absolute;
-              right: 25px;
+              right: 16px;
               top: 40%;
               z-index: 10;
               color: #888;
@@ -121,85 +127,166 @@
               float: right;
             }
           }
-        } 
-        .number {
-          width: 100px;
-          height: 40px;
         }
-        .setting-text {
-          line-height:49px;
+        .ket-group,
+        .bland-group{
+          height: 50px;
+          width: 250px;
+          margin: auto;
+          .key-field,
+          .keyword{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(213, 208, 208);
+            margin-left: 10px;
+          }
         }
-      }     
-      .label-box {
-        padding-top: 10px;
-        display: flex;
-        width: 240px;
-        &--first,
-        &--second {
-          width: 50%;
-          &__list {
+        .money-group{
+          height: 80px;
+          width: 250px;
+          margin: auto;
+          .money{
+            height: 30px;
+            width: 80%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(213, 208, 208);
+            margin-top: 5px;
+            margin-left: 10px;
+          }
+        }
+        .status-group{
+          height: 300px;
+          width: 250px;
+          margin: auto;
+          .group-left,
+          .group-rigth{
+            .group-one,
+            .group-two,
+            .group-thery{
+              height: 50px;
+              width: 100%;
+              display: flex;
+              .radio{
+                padding-top: 6px;
+                padding-right: 5px;
+                .radio-btn{
+                  margin-left: 10px;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+        .search-fee{
+          height: 120px;
+          width: 250px;
+          margin: 20px auto;
+          .titles{
+            height: 30px;
+            width: 100%;
+          }
+          .fee-group{
+            height:90px;
+            width: 250px;
+            margin: auto;
+            .fee-one,
+            .fee-two{
+              height: 50px;
+              width: 100%;
+              display: flex;
+              .radio{
+                padding-top: 6px;
+                padding-right: 5px;
+                .radio-btn{
+                  margin-left: 10px;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+        .search-buy{
+          height: 150px;
+          width: 250px;
+          margin: auto;
+          .title-group{
+            height: 30px;
+            width: 250px;
             display: flex;
-            .rank {
-              display: inline-block;
-              vertical-align: middle;
-              word-break: break-word;
-              margin-right: 5px;
+            .icon{
+              padding-top: 13px;
+              padding-right: 5px;
             }
-            .text {
-              font-size: 14px;
+          }
+          .buy-group{
+            height: 100px;
+            width: 250px;
+            margin: auto;
+            .buy-one,
+            .buy-two{
+              height: 40px;
+              width: 100%;
+              display: flex;
+              .radio{
+                padding-top: 8px;
+                padding-right: 5px;
+                .radio-btn{
+                  margin-left: 10px;
+                  cursor: pointer;
+                }
+              }
             }
           }
         }
-      }
-      .search__left__list__box__choice {
-        display: flex;
-        margin-bottom: 30px;;
-        .clear {
-          width: 110px;
-          height: 50px;
-          background: #aaa;
-          border: 1px solid #aaa;
-          margin-right: 10px;
-          margin-bottom: 10px;
-          position: relative;
-          .btn {
-            position: absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            color: #fff;
-            text-decoration: none;
-            line-height:50px;
+        .search-send{
+          height: 100px;
+          width: 250px;
+          display: flex;
+          margin: auto;
+          .clear{
+            height: 60px;
+            width: 100px;
+            background-color: gray;
             text-align: center;
+            line-height: 60px;
+            border-radius: 10px;
+            margin-left: 10px;
+            .btn{
+              text-decoration: none;
+              color: white;
+              cursor: pointer;
+            }
           }
-
-        }
-        .decision {
-          width: 110px;
-          height: 50px;
-          background-color: red;
-          margin-bottom: 10px;
-          position: relative;
-          .btn {
-            position: absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            color: #fff;
-            text-decoration: none;
-            line-height:50px;
+          .decision{
+            height: 60px;
+            width: 100px;
             text-align: center;
-            font-size: 18px;
+            line-height: 60px;
+            border-radius: 10px;
+            margin-left: 20px;
+            .finish{
+              height: 60px;
+              width: 100px;
+              border-radius: 10px;
+              .btn{
+                height: 60px;
+                width: 100px;
+                background-color: red;
+                outline: none;
+                border-radius: 10px;
+                cursor: pointer;
+              }
+            }
           }
-
         }
       }
     }
   }
-
-
 
   &__right {
     width: 70%;
@@ -262,171 +349,3 @@
   }
 }
 
-
-
-
-
-// .search{
-//   .search__left{
-//     .search__left__box{
-//       .search__left__box__line{
-//         .down{
-
-//         }
-//       }
-//       .search-box{
-//         .title{
-
-//         }
-//         .search-key{
-//           .icon{
-
-//           }
-//           .key-title{
-
-//           }
-//         }
-//         .ket-group{
-//           .key-field{
-
-//           }
-//         }
-//         .search-category{
-//           .icon{
-
-//           }
-//           .category-title{
-
-//           }
-//         }
-//         .search-brand{
-//           .icon{
-
-//           }
-//           .bland-title{
-
-//           }
-//         }
-//         .bland-group{
-//           .keyword{
-
-//           }
-//         }
-//         .search-size{
-//           .icon{
-
-//           }
-//           .text{
-
-//           }
-//         }
-//         .search-money{
-//           .icon{
-
-//           }
-//           .money-title{
-
-//           }
-//         }
-//         .money-group{
-//           .money{
-
-//           }
-//         }
-//         .search-status{
-//           .icon{
-
-//           }
-//           .title-status{
-
-//           }
-//         }
-//         .status-group{
-//           .group-left{
-//             .group-one,
-//             .group-two,
-//             .group-thery{
-//               .radio{
-//                 .radio-btn{
-
-//                 }
-//               }
-//               .title{
-
-//               }
-//             }
-//           }
-//           .group-rigth{
-//             .group-one,
-//             .group-two,
-//             .group-thery{
-//               .radio{
-//                 .radio-btn{
-
-//                 }
-//               }
-//               .title{
-
-//               }
-//             }
-//           }
-//         }
-//         .search-fee{
-//           .title{
-
-//           }
-//           .fee-group{
-//             .fee-one,
-//             .fee-two{
-//               .radio{
-//                 .radio-btn{
-
-//                 }
-//               }
-//               .title{
-
-//               }
-//             }
-//           }
-//         }
-//         .search-buy{
-//           .title-group{
-//             .icon{
-
-//             }
-//             .title{
-
-//             }
-//           }
-//           .buy-group{
-//             .buy-one,
-//             .buy-two{
-//               .radio{
-//                 .radio-btn{
-
-//                 }
-//               }
-//               .title{
-
-//               }
-//             }
-//           }
-//         }
-//         .search-send{
-//           .clear{
-//             .btn{
-
-//             }
-//           }
-//           .decision{
-//             .finish{
-//               .btn{
-
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }

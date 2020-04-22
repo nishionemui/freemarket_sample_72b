@@ -1,21 +1,34 @@
 // 商品詳細画面用
-.category-bar {
-  border-top: 1px solid #eee;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  position: relative;
-  padding: 0 60px;
-  ul {
-    padding: 17px 0 16px;
-    width: 100%;
-    max-width: 1040px;
-    font-size: 14px;
-    margin: 0 auto;
+.category-bar{
+  height: 100px;
+  width: 68.3%;
+  margin: auto;
+  .category-group{
     display: flex;
-    li {
-      padding: 0 10px 0 0;
-      a {
+    height: 30px;
+    width: 100%;
+    line-height: 100px;
+    .bar-home{
+      .home-field{
         text-decoration: none;
-        color: #333;
+        color: black;
+      }
+    }
+    .right{
+      line-height: 100px;
+      padding: 0 5px;
+    }
+    .bar-list{
+      display: flex;
+      .bar-one,
+      .bar-two,,
+      .bar-thery{
+        .one-field,
+        .two-field,
+        .thery-field{
+          text-decoration: none;
+          color: black;
+        }
       }
     }
   }

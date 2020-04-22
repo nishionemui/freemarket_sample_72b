@@ -1,0 +1,53 @@
+= render 'products/header'
+.header-under
+  .box-under
+    .categoty-link
+      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
+      = render "products/category_list"
+    .bland-link
+      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
+    .gretel-link
+      - breadcrumb :nowbuy
+      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+  = render "products/under"
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .main-products
+      .title-group
+        .gray-now-title
+          = link_to "出品中", now_user_path(current_user.id), class: "now-field" 
+        .white-trans-title
+          = link_to "取引中", nowbuy_user_path(current_user.id), class: "trans-field" 
+        .gray-buy-end
+          = link_to "売却済み", buyed_user_path(current_user.id), class: "buy-end-field" 
+      .products-group
+        - @product.last(10).each do |product|
+          - if product.buyer_id
+            .groups
+              .image
+                = link_to done_products_path(product.id), class: "my-link" do
+                  = image_tag product.images[0].image.url
+              -if product.buyer_id.present? 
+                .sold-like
+                  .sold-inner
+                    SOLD
+              .info
+                .title-field
+                  = product.product_name.truncate(29)
+                .other-field
+                  %i.fas.fa-heart.heart
+                  .count
+                    - if product.likes_count.present?
+                      = product.likes_count
+                    - else
+                      = "#{product.likes_count} 0"
+                  .now-now-red
+                    .now-text
+                      売却済み
+              .icon-field
+                = link_to done_products_path(product.id) do
+                  %i.fa.fa-angle-right.right-icon
+      .page
+        = paginate(@product)
+= render 'products/footer'

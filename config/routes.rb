@@ -19,16 +19,19 @@ Rails.application.routes.draw do
   resources :signup, only: [:index]                   #新規登録洗濯ページ
   resources :users, only: [:show, :create, :new, :destroy,:update] do
     member do
-      # get 'profile'       #プロフィール変更ページ
       get 'card'          #クレカ追加ページ
       get 'address'       #住所変更ページ
-      # get 'introduce'     #本人情報変更ページ
-      # get 'phone'         #電話番号変更ページ
       get 'like'          #いいね一覧ページ
+      get 'now'           #出品中
+      get 'buyed'         #売却済み
+      get 'nowbuy'        #取引中
+      get 'mybuy'         #購入した商品
+      get 'mybuyed'       #過去に購入した商品
     end
     collection do
       get 'signout/:id'=> 'users#singout', as: 'signout'    #ログアウト確認ページ
       get 'deletion'
+      get 'support'
     end
   end
 

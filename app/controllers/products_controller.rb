@@ -33,7 +33,9 @@ class ProductsController < ApplicationController
     if params[:product][:images_attributes] && @product.update(edit_product_params)
       redirect_to product_path(@product.id)
     else
-      render action: :edit
+      # render :edit
+      flash[:alert] = '商品情報を正しく入力してください'
+      redirect_to edit_product_path
     end
   end
 
@@ -92,7 +94,6 @@ class ProductsController < ApplicationController
     @product = Product.all
   end
 
-
   def mid_category
     @mid_categories = MainCategory.where(ancestry: params[:big_category_id])
     render json: @mid_categories
@@ -126,9 +127,11 @@ class ProductsController < ApplicationController
   #     @search = Product.ransack()
   #     @items = Product.all
       
-  #   end
-  # end
-  
+
+    end
+  end
+
+
  
 
 
