@@ -43,6 +43,11 @@ crumb :phone do
   parent :mypage
 end
 
+crumb :like do
+  link "いいね一覧", like_user_path
+  parent :mypage
+end
+
 crumb :sign do
   link "ログアウト", signout_users_path
   parent :mypage
@@ -57,6 +62,7 @@ crumb :list do
   link "商品一覧", products_list_products_path
   parent :root
 end
+
 
 
 

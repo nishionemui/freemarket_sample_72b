@@ -33,6 +33,36 @@ $(function() {
     $(this).css('color', '');
   });
 });
+
+$(function() {
+  $('#bar-a').hover(function() {
+    $(this).css('color', 'orange');
+  }, function() {
+    $(this).css('color', '');
+  });
+});
+$(function() {
+  $('#bar-b').hover(function() {
+    $(this).css('color', 'orange');
+  }, function() {
+    $(this).css('color', '');
+  });
+});
+$(function() {
+  $('#bar-c').hover(function() {
+    $(this).css('color', 'orange');
+  }, function() {
+    $(this).css('color', '');
+  });
+});
+$(function() {
+  $('#bar-d').hover(function() {
+    $(this).css('color', 'orange');
+  }, function() {
+    $(this).css('color', '');
+  });
+});
+
 {/* < 検索完了ボタン > */}
 $(function() {
   $('#search-btn').hover(function() {

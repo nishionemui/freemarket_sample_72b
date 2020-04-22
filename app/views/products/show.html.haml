@@ -7,30 +7,31 @@
     .bland-link
       = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
     .gretel-link
-      -# - breadcrumb :show_product
-      -# = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+      - breadcrumb :show_product
+      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
   = render "under"
-%nav.category-bar
-  %ul
-    %li
-      = link_to 'FURIMA', "/"
-    %li
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'メンズ', "#"
-    %li
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'トップス', "#"
-    %li
-      %i.fa.fa-angle-right
-    %li
-      = link_to 'シャツ', "#"
-    %li
-      %i.fa.fa-angle-right
-    %li
-      %p
-        = @product.product_name
+.category-bar
+  .category-group
+    .bar-home
+      = link_to 'FURIMA', "/" ,class: "home-field", id: "bar-a"
+    %i.fa.fa-angle-right.right
+    .bar-list
+      - @parents.each do |parent|
+        - if @product.category_id == parent.id
+          .bar-one
+            = link_to "#" ,class: "one-field", id: "bar-b" do
+              = parent.parent.parent.main_name
+          %i.fa.fa-angle-right.right
+          .bar-two
+            = link_to "#", class:"two-field", id: "bar-c" do
+              = parent.parent.main_name
+          %i.fa.fa-angle-right.right
+          .bar-thery
+            = link_to "#", class:"thery-field", id: "bar-d" do
+              = parent.main_name 
+          %i.fa.fa-angle-right.right
+    .bar-title
+      = @product.product_name
 .product-main
   .product-main__show
     .top-content
