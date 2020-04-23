@@ -129,4 +129,8 @@
 
 
 
+<<<<<<< Updated upstream
 ああああああああああああ
+=======
+uuuuuuu
+>>>>>>> Stashed changes
